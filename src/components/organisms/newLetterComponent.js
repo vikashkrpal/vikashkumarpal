@@ -1,7 +1,7 @@
 import ThemeButton from "@/components/atom/themeButton";
 
 export default ({heading, desc, imageUrl }) => {
-    return <section class="staff-card pt-lg-5">
+    return <section class="staff-card pt-5">
     <div class="container">
 
         <div class="card  bg-dark shadow rounded-3">

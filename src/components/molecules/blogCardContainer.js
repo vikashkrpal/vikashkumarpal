@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default ({image,category,avtar,header,desc,time}) => {
     return <div className="col-lg-4">
-    <div className="card rounded-4 overflow-hidden  brands-experiences-card mt-4 mt-lg-0" >
+    <div className="card rounded-4 overflow-hidden  brands-experiences-card mt-4" >
                 <div className="blog-card-content">
                     <img width="450" height="300" className="img-fluid" src={image} />
                 
@@ -13,7 +13,7 @@ export default ({image,category,avtar,header,desc,time}) => {
                 <div className="row px-2 align-items-center">
                         <div className="col-6">
                             <Link href="#">
-                                    <span className="badge bg-primary">
+                                    <span className="badge bg-primary p-2">
                                         {category}
                                     </span>
                             </Link>
