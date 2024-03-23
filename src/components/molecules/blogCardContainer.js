@@ -4,12 +4,13 @@ export default ({image,category,avtar,header,desc,time}) => {
     return <div className="col-lg-4">
     <div className="card rounded-4 overflow-hidden  brands-experiences-card mt-4" >
                 <div className="blog-card-content">
-                    <img width="450" height="300" className="img-fluid" src={image} />
-                
+                    <Link href="#">
+                        <img width="450" height="300" className="img-fluid" src={image} />
+                    </Link>
                 </div>
-                
-                <div class="container" style={{ marginTop:-40 }}>
-                        
+
+                <div className="container" style={{ marginTop:-40 }}>
+
                 <div className="row px-2 align-items-center">
                         <div className="col-6">
                             <Link href="#">
@@ -26,10 +27,10 @@ export default ({image,category,avtar,header,desc,time}) => {
                             </div>
                         </div>
                         </div>
-                    <div className="mt-3">     
+                    <div className="mt-3">
                     <Link href="#"><h4>{header}</h4></Link>
                         <div dangerouslySetInnerHTML={{ __html: desc }} />
-                    </div>    
+                    </div>
                 </div>
                 <div className="card-body border-top">
             <p className="card-text ">
@@ -37,7 +38,7 @@ export default ({image,category,avtar,header,desc,time}) => {
                     September 1, 2022
                 </small>
                 </p>
-        </div> 
+        </div>
     </div>
 </div>
 }

@@ -1,8 +1,4 @@
-body {
-    background-color: #000; 
-    color: #fff; 
-    font-family: Gt walsheim pro,sans-serif;
-}
+
 
 .staff-card{
     background-color: #000;
@@ -12,7 +8,7 @@ body {
     color: #fff;
 }
 h1, h2, h3, h4, h5{
-    font-family: Gt walsheim pro,sans-serif;
+    font-family: 'Gt walsheim bold';
     font-weight: 400;
     color: #fff;
     margin-top: 1.5rem;
@@ -22,7 +18,7 @@ h1, h2, h3, h4, h5{
     background-color: black;
     color: white;
   }
-  
+
   .form-control::placeholder {
     color: white;
   }
@@ -48,14 +44,12 @@ h1, h2, h3, h4, h5{
     color: black;
 }
 
-.img-fluid { 
-    border-radius: 20px;
-}
+
 
 .blog-card-content {
     background-color: #f0f0f0;
   }
-  
+
   .brands-experiences-card:hover {
     box-shadow: 0 4px 10px rgba(253, 253, 253, 0.976);
     transform: scale(1.02);
@@ -112,7 +106,7 @@ Header CSS START
     .w-res-75{
         width: 65%;
     }
-    
+
 }
 
 
@@ -162,7 +156,7 @@ Header CSS START
         border: 2px solid #eee;
         display: block;
     }
-   
+
 }
 
 
