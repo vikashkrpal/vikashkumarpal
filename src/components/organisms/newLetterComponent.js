@@ -1,6 +1,7 @@
 import ThemeButton from "@/components/atom/themeButton";
+import Image from "next/image";
 
-export default ({heading, desc, imageUrl }) => {
+const NewLetterComponent = ({heading, desc, imageUrl }) => {
     return <section className="staff-card pt-5">
     <div className="container">
 
@@ -28,7 +29,7 @@ export default ({heading, desc, imageUrl }) => {
                     </div>
                 </div>
                 <div className="col-md-6 px-lg-0 hide-on-mobile">
-                    <img width="650" height="450" className="img-fluid" src={imageUrl} alt="Feature Image" />
+                    <Image width="650" height="450" className="img-fluid" src={imageUrl} alt="Feature Image" />
                 </div>
             </div>
         </div>
@@ -37,3 +38,5 @@ export default ({heading, desc, imageUrl }) => {
     </div>
 </section>
 }
+
+export default NewLetterComponent;
