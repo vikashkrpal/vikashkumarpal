@@ -17,6 +17,7 @@ h1, h2, h3, h4, h5{
 .form-control {
     background-color: black;
     color: white;
+    border-radius: 30px;
   }
 
   .form-control::placeholder {
@@ -26,7 +27,7 @@ h1, h2, h3, h4, h5{
 
 .theme-button{
     font-size: 15px;
-    padding: 10px 25px;
+    padding: 8px 25px;
     background: linear-gradient(90deg, #fff 50%, #212529 50%);
     background-size: 200% 100%;
     background-position: right bottom;
@@ -37,6 +38,7 @@ h1, h2, h3, h4, h5{
     transition: background 0.2s ease;
     border: 2px solid #eee;
     display: block;
+    font-family: 'Gt walsheim bold';
 }
 
 .theme-button:hover{
@@ -54,6 +56,7 @@ h1, h2, h3, h4, h5{
     box-shadow: 0 4px 10px rgba(253, 253, 253, 0.976);
     transform: scale(1.02);
 }
+
 /*
 Header CSS START
 ////////////////////////////
@@ -104,7 +107,7 @@ Header CSS START
         width: 60%;
     }
     .w-res-75{
-        width: 65%;
+        width: 100%;
     }
 
 }
@@ -155,6 +158,8 @@ Header CSS START
         transition: background 0.2s ease;
         border: 2px solid #eee;
         display: block;
+        font-family: 'Gt walsheim bold';
+
     }
 
 }

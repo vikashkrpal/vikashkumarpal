@@ -13,11 +13,10 @@ const NewLetterComponent = ({heading, desc, imageUrl }) => {
 
                     <form className="form-inline justify-content-center">
                         <div className="row my-auto" style={{ alignItems:'end' }}>
-                            <div className="col-7 col-lg-6 col-md-6">
-                                <label for="email" className="sr-only">Email</label>
+                            <div className="col-12 col-lg-6 col-md-6">
                                 <input type="email" className="form-control" id="email" placeholder="Enter your email" />
                             </div>
-                            <div className="col-5 col-lg-6 col-md-6">
+                            <div className="col-12 mt-3 mt-md-0 mt-lg-0 col-lg-6 col-md-6">
                                 <ThemeButton text={"Subscribe >"}  />
                             </div>
                         </div>
