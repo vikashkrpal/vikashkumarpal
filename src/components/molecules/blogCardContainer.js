@@ -22,7 +22,7 @@ const BlogCardContainer =  ({image,category,avtar,header,desc,time}) => {
                         <div className="col-6 d-flex justify-content-end">
                             <div className="p-2" style={{ backgroundColor:'#2C2D2F',borderRadius:'100%' }}>
                             <Link href="#">
-                                <Image src={avtar} width="60" alt="Client Avatar Icon" style={{ borderRadius: 100 }}/>
+                                <Image src={avtar} width="60" height="60" alt="Client Avatar Icon" style={{ borderRadius: 100 }}/>
                             </Link>
                             </div>
                         </div>
