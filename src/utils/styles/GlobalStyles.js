@@ -1,0 +1,32 @@
+// GlobalStyles.js
+
+import { createGlobalStyle } from 'styled-components';
+
+// Import your font file
+import CustomFont from '../../asserts/fonts/GT-Walsheim-Ultra-Light-Trial-BF651b7fc72b236.otf';
+import fontBold from '../../asserts/fonts/GT-Walsheim-Medium-Trial-BF651b7fc728fb3.otf';
+
+const GlobalStyles = createGlobalStyle`
+  /* Define font-face for custom font */
+  @font-face {
+    font-family: 'Gt walsheim pro';
+    src: url(${CustomFont}) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Gt walsheim bold';
+    src: url(${fontBold}) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+  body {
+    font-family: 'Gt walsheim pro', sans-serif;
+    background-color: #000;
+    color: #fff;
+  }
+`;
+
+export default GlobalStyles;
