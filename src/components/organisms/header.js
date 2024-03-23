@@ -1,6 +1,6 @@
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
-export default () => {
+const Header = () => {
     return  <Navbar bg="light" expand="lg">
     <Navbar.Brand href="#home">Your Brand</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -19,3 +19,5 @@ export default () => {
     </Navbar.Collapse>
   </Navbar>
 }
+
+export default Header;

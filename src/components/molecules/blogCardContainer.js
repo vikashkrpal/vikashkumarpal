@@ -1,11 +1,11 @@
 import Link from 'next/link';
-
-export default ({image,category,avtar,header,desc,time}) => {
+import Image from "next/image";
+const BlogCardContainer =  ({image,category,avtar,header,desc,time}) => {
     return <div className="col-lg-4">
     <div className="card rounded-4 overflow-hidden  brands-experiences-card mt-4" >
                 <div className="blog-card-content">
                     <Link href="#">
-                        <img width="450" height="300" className="img-fluid" src={image} />
+                        <Image width="450" height="300" className="img-fluid" alt=" " src={image} />
                     </Link>
                 </div>
 
@@ -22,7 +22,7 @@ export default ({image,category,avtar,header,desc,time}) => {
                         <div className="col-6 d-flex justify-content-end">
                             <div className="p-2" style={{ backgroundColor:'#2C2D2F',borderRadius:'100%' }}>
                             <Link href="#">
-                                <img src={avtar} width="60" alt="Client Avatar Icon" style={{ borderRadius: 100 }}/>
+                                <Image src={avtar} width="60" alt="Client Avatar Icon" style={{ borderRadius: 100 }}/>
                             </Link>
                             </div>
                         </div>
@@ -42,3 +42,5 @@ export default ({image,category,avtar,header,desc,time}) => {
     </div>
 </div>
 }
+
+export default BlogCardContainer;
