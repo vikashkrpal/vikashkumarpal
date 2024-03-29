@@ -6,7 +6,7 @@ import NewLetterComponent from "@/components/organisms/newLetterComponent";
 
 const Blog = () => {
     return <>
-    {/* <Header /> */}
+    <Header />
     <NewLetterComponent
     heading="Stay Ahead in SEO: Subscribe Now"
     desc={"<p>Get the latest SEO tips and updates straight to your inbox. Subscribe to our newsletter and never miss out on valuable insights.</p>"}

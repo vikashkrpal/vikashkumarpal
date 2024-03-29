@@ -1,5 +1,10 @@
-const ThemeButton =  ({text, buttonType="button" ,buttonAction = ()=>console.log("Button Clicked")}) => {
-    return <button type={buttonType} className="theme-button" onClick={buttonAction}>{text}</button>
+const ThemeButton =  ({text, buttonType="button" ,buttonAction = ()=>console.log("Button Clicked"), addClass = " ", addStyle = {}}) => {
+    return <button 
+    type={buttonType} 
+    className={"theme-button "+addClass }
+    onClick={buttonAction}
+    style={addStyle}
+    >{text}</button>
 
 }
 
