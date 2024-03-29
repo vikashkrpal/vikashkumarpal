@@ -5,7 +5,7 @@ const BlogCardContainer =  ({image,category,avtar,header,desc,time}) => {
     <div className="card rounded-4 overflow-hidden  brands-experiences-card mt-4" >
                 <div className="blog-card-content">
                     <Link href="#">
-                        <Image width="450" height="300" className="img-fluid" alt=" " src={image} />
+                        <Image width="450" height="300"  alt=" alt image" src={image} />
                     </Link>
                 </div>
 
