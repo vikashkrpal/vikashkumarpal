@@ -4,10 +4,13 @@ import Image from 'next/image';
 import React from 'react';
 import MobileMenu from './mobileMenu';
 import { bindState } from '@/utils/globalFunctions';
+import CustomDropdown from "../molecules/CustomDropdown";
+import {navBarMenus} from "../../utils/constants";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(true);
   const [isScrolled, setIsScrolled] = React.useState(false);
+
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -25,21 +28,13 @@ const Header = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  const NavLink = ({ linkDetails, linkMenuDetails }) => {
-    return (
-      <NavDropdown title={linkDetails.title} id="basic-nav-dropdown" className="nav-link ">
-        {linkMenuDetails.map((item, index) => (
-          <NavDropdown.Item href={item.link} key={index}>{item.name}</NavDropdown.Item>
-        ))}
-      </NavDropdown>
-    );
-  }
+
 
   return (
     <>
-      <Navbar 
-      style={{ 
-        backgroundColor: !isMobileMenuOpen ? (isScrolled ? 'rgba(255, 255, 255, 0.5)' : '#212529'): "#212529",
+      <Navbar
+      style={{
+        backgroundColor: !isMobileMenuOpen ? (isScrolled ? 'rgba(45,44,44,0.5)' : '#212529'): "#212529",
         backdropFilter: !isMobileMenuOpen ? (isScrolled ? 'blur(5px)' : 'none' ): 'none'
       }}
       variant="dark" sticky="top" expand="lg" className='px-lg-5 pe-lg-0 pe-lg-4 py-lg-3 py-1'>
@@ -51,54 +46,22 @@ const Header = () => {
           width={"130"}
         />
       </Navbar.Brand>
-      
+
       <MobileMenu menuState={bindState(isMobileMenuOpen,setIsMobileMenuOpen)} />
-      
-      
+
+
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="w-100 justify-content-center font-weight-bold text-center">
-          <NavLink
-            linkDetails={{ title: 'About' }}
-            linkMenuDetails={[
-              { name: 'Item 1', link: '#' },
-              { name: 'Item 2', link: '#' }
-            ]}
-          />
-          <NavLink
-            linkDetails={{ title: 'Services' }}
-            linkMenuDetails={[
-              { name: 'Item 1', link: '#' },
-              { name: 'Item 2', link: '#' }
-            ]}
-          />
-          <NavLink
-            linkDetails={{ title: 'SEO Consulting' }}
-            linkMenuDetails={[
-              { name: 'Item 1', link: '#' },
-              { name: 'Item 2', link: '#' }
-            ]}
-          />
-          <NavLink
-            linkDetails={{ title: 'Portfolio' }}
-            linkMenuDetails={[
-              { name: 'Item 1', link: '#' },
-              { name: 'Item 2', link: '#' }
-            ]}
-          />
-          <NavLink
-            linkDetails={{ title: 'Case Study' }}
-            linkMenuDetails={[
-              { name: 'Item 1', link: '#' },
-              { name: 'Item 2', link: '#' }
-            ]}
-          />
-          <NavLink
-            linkDetails={{ title: 'Testimonials' }}
-            linkMenuDetails={[
-              { name: 'Item 1', link: '#' },
-              { name: 'Item 2', link: '#' }
-            ]}
-          />
+        <Nav className="w-100 justify-content-center font-weight-bold text-center align-items-center">
+            {
+               navBarMenus.map((navLinkData, index) =>
+                    <CustomDropdown
+                        index={index}
+                        linkDetails={{ title: navLinkData.title }}
+                        linkMenuDetails={navLinkData.childLinks}
+                    />
+
+                )
+            }
         </Nav>
       </Navbar.Collapse>
       <Navbar.Collapse className="justify-content-end">
@@ -118,9 +81,9 @@ const Header = () => {
         </button>
       </div>
     </Navbar>
-   
+
     </>
-    
+
   );
 }
 

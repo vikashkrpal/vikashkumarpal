@@ -24,7 +24,7 @@ const NewLetterComponent = ({ heading, desc, imageUrl }) => {
 
                             <div className="form-check mt-3 ">
                                 <input type="checkbox" className="form-check-input" id="agree" />
-                                <label className="form-check-label" for="agree">I agree to my email being stored and used to receive the newsletter.</label>
+                                <label className="form-check-label" htmlFor="agree">I agree to my email being stored and used to receive the newsletter.</label>
                             </div>
                         </div>
                         <div className="col-md-6 px-lg-0 hide-on-mobile overflow-hidden">
