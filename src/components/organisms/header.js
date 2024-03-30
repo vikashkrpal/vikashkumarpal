@@ -55,7 +55,7 @@ const Header = () => {
             {
                navBarMenus.map((navLinkData, index) =>
                     <CustomDropdown
-                        index={index}
+                        key={index}
                         linkDetails={{ title: navLinkData.title }}
                         linkMenuDetails={navLinkData.childLinks}
                     />
