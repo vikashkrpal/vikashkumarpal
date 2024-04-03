@@ -6,8 +6,8 @@ const CustomDropdown = ({ linkDetails }) => {
     const [isOpen, setIsOpen] = useState(false);
     const linkMenuDetails = linkDetails.childLinks;
 
-    const SubDropDownMenuButton = ({ index, link}) => {
-        return  <Dropdown.Item key={index} className="mt-2">
+    const SubDropDownMenuButton = ({ key, link}) => {
+        return  <Dropdown.Item key={key} className="mt-2">
                                     
         <span style={{color:'white' }} >
            {link.icon}
@@ -60,10 +60,10 @@ const CustomDropdown = ({ linkDetails }) => {
 
                             <>
                             <Col xs="12" md={ "6"} className="text-left p-0">
-                            {linkMenuDetails.slice(0, 2).map((link, index) => <SubDropDownMenuButton index={index} link={link} />)}
+                            {linkMenuDetails.slice(0, 2).map((link, index) => <SubDropDownMenuButton key={index} link={link} />)}
                               </Col>
                               <Col xs="12" md={ "6"} className="text-left p-0">
-                            {linkMenuDetails.slice(2, 4).map((link, index) => <SubDropDownMenuButton index={index} link={link} />)}
+                            {linkMenuDetails.slice(2, 4).map((link, index) => <SubDropDownMenuButton key={index} link={link} />)}
                               </Col>
                               <hr className="text-light mt-3" />
                               <Col xs="12" md={ "12"} className="text-left p-0">
@@ -86,7 +86,7 @@ const CustomDropdown = ({ linkDetails }) => {
                                     <div className="text-light ms-3" style={
                                         linkMenuDetails.length > 4 ?
                                             {  whiteSpace: 'normal' } :{}}>
-                                        {link.sublinks.map((sublink,i) => <div><Link href={sublink.link} key={i} className="ancor-hover" >{sublink.title}</Link></div>)}
+                                        {link.sublinks.map((sublink,i) => <div key={i} ><Link href={sublink.link} className="ancor-hover" >{sublink.title}</Link></div>)}
                                     </div>
                                 </div>
                           
@@ -95,7 +95,7 @@ const CustomDropdown = ({ linkDetails }) => {
                             </>
                            : <>
                             <Col xs="12" md={linkMenuDetails.length > 4 ? "6" : "12"} className="text-left p-0">
-                            {linkMenuDetails.slice(0, 4).map((link, index) => <SubDropDownMenuButton index={index} link={link} />)}
+                            {linkMenuDetails.slice(0, 4).map((link, index) => <SubDropDownMenuButton key={index} link={link} />)}
 
                         </Col>
 
