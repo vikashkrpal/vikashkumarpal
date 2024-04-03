@@ -7,7 +7,7 @@ const CustomDropdown = ({ linkDetails }) => {
     const linkMenuDetails = linkDetails.childLinks;
 
     const SubDropDownMenuButton = ({ key, link}) => {
-        return  <Dropdown.Item key={key} className="mt-2">
+        return  <Dropdown.Item key={key} >
                                     
         <span style={{color:'white' }} >
            {link.icon}
@@ -48,10 +48,10 @@ const CustomDropdown = ({ linkDetails }) => {
                 {linkDetails.title}
             </Dropdown.Toggle>
             <Dropdown.Menu className="eventsNav p-3" style={{
-                minWidth: linkMenuDetails.length > 4 ? 700 : 'auto',
-                maxWidth: linkMenuDetails.length > 4 ? 750 : 'auto',
+                minWidth: linkMenuDetails.length > 4 ? 650 : 'auto',
+                maxWidth: linkMenuDetails.length > 4 ? 700 : 'auto',
                 backgroundColor:'#20252B',
-                left:'-80%'
+                left:'-160%'
             }}>
                 <Container>
                     <Row>
