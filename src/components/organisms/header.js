@@ -8,7 +8,7 @@ import CustomDropdown from "../molecules/CustomDropdown";
 import {navBarMenus} from "../../utils/constants";
 
 const Header = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
 
 
@@ -71,12 +71,12 @@ const Header = () => {
       <div style={{ width:'53%' }} className='show_on_pro' />
       <div className="d-flex align-items-center me-sm-0 me-md-3 me-lg-0">
         <ThemeButton text={"Book a Strategy Call"} addClass='hide-on-mini show_mobile_screen'/>
-        <button onClick={()=>setIsMobileMenuOpen(!isMobileMenuOpen)} className='btn btn-outline-light p-1 show_mobile_screen mx-1 mx-md-3' style={{ borderRadius:100 }}>
+        <button onClick={()=>setIsMobileMenuOpen(!isMobileMenuOpen)} className='btn bg-black p-1 show_mobile_screen mx-2 mx-md-3' style={{ borderRadius:10 }}>
           <Image
               src={require('../../asserts/logos/menu-icon.png')}
               alt='logo image'
-              height={40}
-              width={40}
+              height={33}
+              width={33}
             />
         </button>
       </div>

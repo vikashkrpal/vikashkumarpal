@@ -7,7 +7,7 @@ const CustomDropdown = ({ linkDetails }) => {
     const linkMenuDetails = linkDetails.childLinks;
 
     const SubDropDownMenuButton = ({ key, link}) => {
-        return  <Dropdown.Item key={key} >
+        return  <Dropdown.Item key={key} className="mt-3">
                                     
         <span style={{color:'white' }} >
            {link.icon}
@@ -48,10 +48,10 @@ const CustomDropdown = ({ linkDetails }) => {
                 {linkDetails.title}
             </Dropdown.Toggle>
             <Dropdown.Menu className="eventsNav p-3" style={{
-                minWidth: linkMenuDetails.length > 4 ? 650 : 'auto',
-                maxWidth: linkMenuDetails.length > 4 ? 700 : 'auto',
+                minWidth: linkMenuDetails.length > 4 ? 700 : 'auto',
+                maxWidth: linkMenuDetails.length > 4 ? 750 : 'auto',
                 backgroundColor:'#20252B',
-                left:'-160%'
+                left:'-190%'
             }}>
                 <Container>
                     <Row>
@@ -101,7 +101,7 @@ const CustomDropdown = ({ linkDetails }) => {
 
                         <Col xs="12" md="6" className="text-left p-0">
                             {linkMenuDetails.slice(4).map((link, index) => (
-                                <Dropdown.Item key={index}>
+                                <Dropdown.Item key={index} className="mt-3">
 
                                     <span style={{color:'white' }} >
                                         {link.icon}
@@ -112,7 +112,7 @@ const CustomDropdown = ({ linkDetails }) => {
                                     >
                                         {link.name}
                                     </Link>
-                                    <div className="text-light ms-3" style={{  whiteSpace: 'normal' }}>
+                                    <div className="text-light ms-4" style={{  whiteSpace: 'normal' }}>
                                         {link.des}
                                     </div>
                                 </Dropdown.Item>
