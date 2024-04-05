@@ -5,7 +5,7 @@ import React from 'react';
 import MobileMenu from './mobileMenu';
 import { bindState } from '@/utils/globalFunctions';
 import CustomDropdown from "../molecules/CustomDropdown";
-import {navBarMenus} from "../../utils/constants";
+import navBarMenus from "@/utils/menuLibrary";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
