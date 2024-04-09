@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { FaAngleRight } from "react-icons/fa";
+import { FaAngleRight, FaArrowRight, FaDotCircle } from "react-icons/fa";
 
 const MobileMenuThemeButton = ({ link, subMenuState={} }) => {
     if(subMenuState.hasOwnProperty("setState")){
         if(link.childLinks.length > 0){
-            return <div className="row d-flex align-items-center bg-black p-2 mt-3 " style={{ borderRadius:10, cursor:'pointer' }} onClick={()=>subMenuState.setState(link)}>
+            return <div className="row d-flex align-items-center hover-dark  p-2 mt-3 " style={{ borderRadius:10, cursor:'pointer' }} onClick={()=>subMenuState.setState(link)}>
             <div className='col-1' >
            <span style={{color:'white' }} >
                {link.icon}
@@ -18,7 +18,7 @@ const MobileMenuThemeButton = ({ link, subMenuState={} }) => {
        </div>
        </div>
         }else{
-            return <Link className="row d-flex align-items-center bg-black p-2 mt-3 text-light" style={{ borderRadius:10, cursor:'pointer' }} href={link.link}>
+            return <Link className="row d-flex align-items-center hover-dark p-2 mt-3 text-light" style={{ borderRadius:10, cursor:'pointer' }} href={link.link}>
             <div className='col-1' >
            <span style={{color:'white' }} >
                {link.icon}
@@ -41,13 +41,27 @@ const MobileMenuThemeButton = ({ link, subMenuState={} }) => {
               > {link.name}</span>
               {
                 (link.sublinks).map((sublink,i) => {
-                    return <div className="bg-black p-1 px-2 my-1 my-md-2 my-lg-3" style={{ borderRadius:10 }} key={i}><Link  href={sublink.link} className="text-light  " >{sublink.title}</Link></div>
+                    return <div className=" p-1 px-2 my-1 my-md-2 hover-dark my-lg-3" style={{ borderRadius:10 }} key={i}>
+                        
+                        <div class="row align-items-center">
+                            <div className="col-1">
+                            <FaArrowRight />
+                            </div>
+                            <div className="col">
+                            {sublink.title}
+                            </div>
+                        </div>
+                        
+                        <Link  href={sublink.link} className="text-light  " >
+                    
+                        </Link>
+                        </div>
                 })
               }
             </>
 
         }else{
-            return <Link className="row d-flex align-items-center bg-black p-2 mt-3 text-light" style={{ borderRadius:10, cursor:'pointer' }} href={link.link}>
+            return <Link className="row d-flex align-items-center hover-dark  p-2 mt-3 text-light" style={{ borderRadius:10, cursor:'pointer' }} href={link.link}>
                     <div className='col-1' >
                         <span style={{color:'white' }} >
                             {link.icon}

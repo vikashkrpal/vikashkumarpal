@@ -75,7 +75,9 @@
 }
 
 
-
+.hover-dark:hover{
+  background-color: #000;
+}
   
   .modalContent {
     background-color: #0F172A;
