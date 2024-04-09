@@ -48,7 +48,7 @@ const MobileMenu = ({ menuState }) => {
             }
 
             {
-              (Object.keys(subMenuObject).length > 0 && (subMenuObject.childLinks).length > 0) && <span style={{ fontSize:18, fontFamily:'Gt walsheim bold' }} className='text-light' 
+              (Object.keys(subMenuObject).length > 0 && (subMenuObject.childLinks).length > 0) && <span style={{ fontSize:18, fontFamily:'Gt walsheim bold', cursor:'pointer' }} className='text-light' 
               onClick={()=>setSubMenuObject({})}
               ><FaAngleLeft size={22} className='mb-1' /> {subMenuObject.title}</span>
             }
