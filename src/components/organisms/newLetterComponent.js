@@ -1,5 +1,6 @@
 import ThemeButton from "@/components/atom/themeButton";
 import Image from "next/image";
+import SimpleNewsLetterForm from "../molecules/simpleNewsLetterForm";
 
 const NewLetterComponent = ({ heading, desc, imageUrl }) => {
     return (
@@ -11,21 +12,9 @@ const NewLetterComponent = ({ heading, desc, imageUrl }) => {
                             <h3>{heading}</h3>
                             <div className="mx-auto" dangerouslySetInnerHTML={{ __html: desc }} />
 
-                            <form className="form-inline justify-content-center">
-                                <div className="row my-auto align-items-end">
-                                    <div className="col-12 col-lg-6 col-md-6">
-                                        <input type="email" className="form-control" id="email" placeholder="Enter your email" />
-                                    </div>
-                                    <div className="col-12 mt-3 mt-md-0 mt-lg-0 col-lg-6 col-md-6">
-                                        <ThemeButton text={"Subscribe >"} />
-                                    </div>
-                                </div>
-                            </form>
+                            <SimpleNewsLetterForm />
 
-                            <div className="form-check mt-3 ">
-                                <input type="checkbox" className="form-check-input" id="agree" />
-                                <label className="form-check-label" htmlFor="agree">I agree to my email being stored and used to receive the newsletter.</label>
-                            </div>
+
                         </div>
                         <div className="col-md-6 px-lg-0 hide-on-mobile overflow-hidden">
                             <div style={{ position: "relative", width: "100%", height: "100%",  }}>

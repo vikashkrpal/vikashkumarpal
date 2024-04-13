@@ -1,7 +1,8 @@
 import BlogCardContainer from "@/components/molecules/blogCardContainer";
 import HeaderDescContainer from "@/components/molecules/headerDescContainer";
-import Header from "@/components/organisms/header";
+import Header from "./layouts/header";
 import NewLetterComponent from "@/components/organisms/newLetterComponent";
+import Footer from "./layouts/footer";
 
 
 const Blog = () => {
@@ -37,6 +38,8 @@ const Blog = () => {
             </div>
 
         </section>
+
+        <Footer />
     </>
 }
 

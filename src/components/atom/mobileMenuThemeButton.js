@@ -32,28 +32,28 @@ const MobileMenuThemeButton = ({ link, subMenuState={} }) => {
        </div>
        </Link>
         }
-        
+
     }else {
         if(link.hasOwnProperty("sublinks")){
             return <>
             <hr className="text-light mt-4" />
-            <span style={{ fontSize:18, fontFamily:'Gt walsheim bold' }} className='text-light' 
+            <span style={{ fontSize:18, fontFamily:'Gt walsheim bold' }} className='text-light'
               > {link.name}</span>
               {
                 (link.sublinks).map((sublink,i) => {
                     return <div className=" p-1 px-2 my-1 my-md-2 hover-dark my-lg-3" style={{ borderRadius:10 }} key={i}>
-                        
-                        <div class="row align-items-center">
+
+                        <div className="row align-items-center">
                             <div className="col-1">
                             <FaArrowRight />
                             </div>
-                            <div className="col">
+                            <div className="col" style={{ fontSize:17 }}>
                             {sublink.title}
                             </div>
                         </div>
-                        
+
                         <Link  href={sublink.link} className="text-light  " >
-                    
+
                         </Link>
                         </div>
                 })
@@ -68,9 +68,9 @@ const MobileMenuThemeButton = ({ link, subMenuState={} }) => {
                         </span>
                     </div>
                     <div className='col-9 mt-1' >
-                        <span style={{ fontSize:16, fontFamily:'Gt walsheim bold' }}>{link.name}</span>
+                        <span style={{ fontSize:18, fontFamily:'Gt walsheim bold' }}>{link.name}</span>
                         <div style={{ marginTop:-5 }}>
-                        <span style={{ fontSize:15, fontFamily:'Gt walsheim pro' }}>{link.des}</span>
+                        <span style={{ fontSize:17, fontFamily:'Gt walsheim pro' }}>{link.des}</span>
                         </div>
 
                     </div>
