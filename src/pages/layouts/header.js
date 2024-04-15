@@ -34,10 +34,10 @@ const Header = () => {
     <>
       <Navbar
       style={{
-        backgroundColor: !isMobileMenuOpen ? (isScrolled ? 'rgba(45,44,44,0.5)' : '#212529'): "#212529",
-        backdropFilter: !isMobileMenuOpen ? (isScrolled ? 'blur(5px)' : 'none' ): 'none'
+        backgroundColor: !isMobileMenuOpen ? (isScrolled ? 'rgba(45,44,44,0.5)' : '#212529'): "#212529"
       }}
-      variant="dark" sticky="top" expand="lg" className='px-lg-5 pe-lg-4 '>
+      className={'px-lg-5 pe-lg-4 '+ (!isMobileMenuOpen ? (isScrolled ? 'element-with-filter' : '' ): '')}
+      variant="dark" sticky="top" expand="lg" >
       <Navbar.Brand href="#home" className='ms-lg-3' >
         <Image
           src={require('../../asserts/logos/Vikash-Logo-Black-BG.png')}

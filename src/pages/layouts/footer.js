@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import {FaFacebook, FaInstagram, FaLinkedin, FaTwitter} from "react-icons/fa";
 import '../../utils/styles/footer.css';
-import SimpleNewsLetterForm from "../../components/molecules/simpleNewsLetterForm";
+import FooterNewsLetterForm from '@/components/organisms/footerNewsLetterForm';
 
 const Footer = () => {
     const FootHeader = ({ title }) =><>
@@ -9,7 +9,7 @@ const Footer = () => {
         <hr className="bg-light w-res-50" style={{ height:4, marginTop:5 }}/></>
 
     return (
-        <footer className="mt-5 text-lg-start text-center bg-dark" style={{ overflow:"hidden" }}>
+        <footer className="mt-5 text-lg-start text-center bg-dark " style={{ overflow:'hidden' }} >
             {/* Section: Social media */}
             <section className="p-2 px-lg-5 pt-4">
                 <div className="row align-items-center">
@@ -166,7 +166,7 @@ const Footer = () => {
                                 Stay Ahead In SEO: Subscribe Now
                             </h4>
                             <p>Get the latest SEO tips and updates straight to your inbox. Subscribe to our newsletter and never miss out on valuable insights.</p>
-                        <SimpleNewsLetterForm />
+                        <FooterNewsLetterForm />
                         </div>
                     </div>
                 </div>
