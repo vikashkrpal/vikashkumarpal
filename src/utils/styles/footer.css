@@ -1,0 +1,13 @@
+.elementor-icon {
+    font-family: "Gt walsheim bold";
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+
+.elementor-icon:hover{
+    color: #FFFFFF;
+    border-bottom: solid 3px #000000;
+    padding-bottom: 3px;
+
+}
