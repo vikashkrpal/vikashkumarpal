@@ -238,10 +238,12 @@ h1, h2, h3, h4, h5{
 }
 
 p {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
 }
 
-
+.font-b{
+    font-family: "Gt walsheim bold";
+}
 
 .hero{
     background-image: url("http://127.0.0.1:8000/asserts/dots-back.png");

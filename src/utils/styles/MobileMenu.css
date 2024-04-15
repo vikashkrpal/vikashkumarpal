@@ -77,8 +77,9 @@
 
 .hover-dark:hover{
   background-color: #000;
+  border-radius: 10px;
 }
-  
+
   .modalContent {
     background-color: #0F172A;
     width: 100%;
