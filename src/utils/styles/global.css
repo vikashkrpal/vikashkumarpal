@@ -205,6 +205,14 @@ h1, h2, h3, h4, h5{
         display: none;
     }
 
+    h1, h2, h3, h4, h5{
+        font-family: 'Gt walsheim bold';
+        font-weight: 400;
+        color: #fff;
+        margin-top: .6rem;
+        margin-bottom: .4rem;
+    }
+
 }
 
 @media (max-width: 375px) {
