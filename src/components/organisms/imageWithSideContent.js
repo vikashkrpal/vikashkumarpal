@@ -1,17 +1,18 @@
 import ThemeButton from '@/components/atom/themeButton';
+import { is_not_null } from '@/utils/globalFunctions';
 import Image from 'next/image';
 
 
-const ImageWithSideContent = ({ headingHighlight=null, heading=null, content=null, ImageData=null, contentListing=0 }) => {
-    return <div className="row align-items-center px-0 pt-2 pt-lg-0 pt-md-0">
+const ImageWithSideContent = ({ headingHighlight=null, heading=null, content=null, ImageData=null, contentListing=0, buttonData={buttonText:'Get Started Now! >', action:'#'} }) => {
+    return <div className="row align-items-center px-0 pt-2 pt-lg-0 pt-md-0 mt-5">
     <div className="col-lg-6 hero-section-1-custom  my-2">
         {headingHighlight != null && <span className="mb-3 theme-color">{headingHighlight}</span>}
-        {heading != null && <div className="mx-auto" dangerouslySetInnerHTML={{ __html: heading }} /> }
-        {content != null && <div className="mx-auto" dangerouslySetInnerHTML={{ __html: content }} /> }
-        <ThemeButton text={"Get Started Now!"} addStyle={{ minHeight:50, minWidth:'30%', fontSize:16 }} />
+        {is_not_null(heading) && <div className="mx-auto" dangerouslySetInnerHTML={{ __html: heading }} /> }
+        {is_not_null(content) && <div className="mx-auto" dangerouslySetInnerHTML={{ __html: content }} /> }
+        <ThemeButton text={buttonData.buttonText} addStyle={{  minWidth:'30%', fontSize:18 }} href={buttonData.action} />
     </div>
     <div className={"col-lg-6 py-3 my-auto d-flex justify-content-center "+(contentListing == 1 && "order-lg-first")}>
-        {ImageData != null && <Image src={ImageData.url} alt={ImageData.altText} height="600" width="550" className="img-fluid" />}
+        {is_not_null(ImageData) && <Image src={ImageData.url} alt={ImageData.altText} height="550" width="550" className="img-fluid" />}
     </div>
 </div>
 }
