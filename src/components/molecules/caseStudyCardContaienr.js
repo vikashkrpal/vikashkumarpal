@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const CaseStudyCardContainer = ({image,category,avtar,header,desc,time, column=true}) => {
+const CaseStudyCardContainer = ({image,category,header,desc,time, column=true}) => {
     return <div className={column && "col-lg-4"}>
     <div className="card rounded-4 overflow-hidden  brands-experiences-card mt-4" >
                 <div className="blog-card-content">
