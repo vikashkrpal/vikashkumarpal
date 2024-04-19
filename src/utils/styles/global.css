@@ -26,8 +26,8 @@ h1, h2, h3, h4, h5{
 
 
 .theme-button{
-    font-size: 15px;
-    padding: 8px 25px;
+    font-size: 13px;
+    padding: 7.5px 25px;
     background: linear-gradient(90deg, #fff 50%, #21252900 50%);
     background-size: 200% 100%;
     background-position: right bottom;
@@ -183,7 +183,7 @@ h1, h2, h3, h4, h5{
 
     /* New STYLES for mobile */
     .theme-button{
-        font-size: 15px;
+        font-size: 13px;
         padding: 5px 20px;
         background: linear-gradient(90deg, #fff 50%, #21252900 50%);
         background-size: 200% 100%;
@@ -203,6 +203,14 @@ h1, h2, h3, h4, h5{
     }
     .show_on_pro {
         display: none;
+    }
+
+    h1, h2, h3, h4, h5{
+        font-family: 'Gt walsheim bold';
+        font-weight: 400;
+        color: #fff;
+        margin-top: .6rem;
+        margin-bottom: .4rem;
     }
 
 }
@@ -245,6 +253,16 @@ p {
     font-family: "Gt walsheim bold";
 }
 
+.theme-color{
+    color: cornflowerblue;
+}
+.check-card {
+    border-radius: 50px;
+    transition: border-color 0.3s ease-in-out;
+}
+.p-bottom-0 p{
+    margin-bottom: 0px;
+}
 .hero{
     background-image: url("http://127.0.0.1:8000/asserts/dots-back.png");
     background-color: #F5F6FE;
@@ -268,12 +286,15 @@ a{
     text-decoration: none;
 }
 
-/*
-Header CSS END
-////////////////////////////
-*/
+.element-with-filter {
+    background-color: rgba(255, 255, 255, 0.5); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+}
+
+
 
 /*
-Footer CSS END
+Header CSS END
 ////////////////////////////
 */

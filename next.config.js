@@ -1,4 +1,5 @@
 const withFonts = require('next-fonts');
+const webpack = require("webpack");
 
 module.exports = withFonts({
     images: {
@@ -8,7 +9,15 @@ module.exports = withFonts({
             'admin.vikashkumarpal.com'
         ],
     },
-    webpack(config, options) {
+    webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+        // Add the webpack configuration here
+        config.plugins.push(
+            new webpack.ProvidePlugin({
+                $: 'jquery',
+                jQuery: 'jquery',
+                'window.jQuery': 'jquery',
+            })
+        );
         return config;
     },
 });

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from "next/image";
-const BlogCardContainer =  ({image,category,avtar,header,desc,time}) => {
-    return <div className="col-lg-4">
+const BlogCardContainer =  ({image,category,avtar,header,desc,time, column=true}) => {
+    return <div className={column && "col-lg-4"}>
     <div className="card rounded-4 overflow-hidden  brands-experiences-card mt-4" >
                 <div className="blog-card-content">
                     <Link href="#">

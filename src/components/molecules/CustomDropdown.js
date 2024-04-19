@@ -7,7 +7,7 @@ const CustomDropdown = ({ linkDetails }) => {
     const linkMenuDetails = linkDetails.childLinks;
 
     const SubDropDownMenuButton = ({ key, link}) => {
-        return  <Dropdown.Item key={key} className="mt-3">
+        return  <Dropdown.Item key={key} className="mt-3" href={link.link}>
                                     
         <span style={{color:'white' }} >
            {link.icon}
