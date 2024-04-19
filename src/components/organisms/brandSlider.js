@@ -1,7 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import Image from 'next/image';
+import React from 'react';
+import dynamic from 'next/dynamic';
+
+// Ensure that jQuery is available in the global scope
+if (typeof window !== 'undefined') {
+  window.$ = window.jQuery = require('jquery');
+}
+
+// Dynamically import OwlCarousel to prevent server-side rendering
+const OwlCarousel = dynamic(() => import('react-owl-carousel'), {
+  ssr: false,
+});
+
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
 
 const images = [
   'https://admin.improvefx.com/wp-content/uploads/2023/12/Ecom-Fashion.webp',
@@ -13,48 +24,39 @@ const images = [
   'https://admin.improvefx.com/wp-content/uploads/2023/12/Ecom-Fashion.webp',
   'https://admin.improvefx.com/wp-content/uploads/2023/12/Ecom-Fashion.webp',
   'https://admin.improvefx.com/wp-content/uploads/2023/12/Ecom-Fashion.webp',
-
 ];
 
 const Slider = () => {
-    const destopSlides = 21; // Show 5 images on desktop
-    const mobileSlides = 33.33; // Show 3 images on mobile
-    const [centerSlidePercentage, setCenterSlidePercentage] = useState(mobileSlides);
-
-  useEffect(() => {
-    function handleResize() {
-      if (window.innerWidth < 768) {
-        setCenterSlidePercentage(mobileSlides); 
-      } else {
-        setCenterSlidePercentage(destopSlides); 
+  const options = {
+    loop: true,
+    nav: false,
+    dots: false,
+    margin: 10,
+    autoplay: true,
+    autoplayTimeout: 2000,
+    autoplayHoverPause: true,
+    responsive: {
+      0: {
+        items: 3
+      },
+      600: {
+        items: 4
+      },
+      1000: {
+        items: 6
       }
     }
-    
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  };
+
 
   return (
-    <Carousel
-      showThumbs={false}
-      showArrows={false}
-      infiniteLoop={true}
-      centerMode={true}
-      centerSlidePercentage={centerSlidePercentage}
-      autoPlay={true}
-      interval={2000}
-      width={"100%"}
-      showStatus={false}
-      showIndicators={false} 
-      className='mt-5'
-    >
+    <OwlCarousel className="owl-theme" {...options}>
       {images.map((image, index) => (
-        <div key={index}>
-          <Image src={image} alt={`Image ${index + 1}`} width={300} height={200} className='img-fluid' />
+        <div key={index} className="item">
+          <img src={image} alt={`Image ${index + 1}`} />
         </div>
       ))}
-    </Carousel>
+    </OwlCarousel>
   );
 };
 

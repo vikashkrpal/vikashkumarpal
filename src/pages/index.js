@@ -5,6 +5,7 @@ import ImageWithSideContent from '@/components/organisms/imageWithSideContent';
 import BrandSlider from '@/components/organisms/brandSlider';
 import HeaderDescContainer from '@/components/molecules/headerDescContainer';
 import IconCardContainer from '@/components/molecules/IconCardContainer';
+import MyCarousel from '@/components/organisms/caseStudiesSlider';
 
 const App = () => {
  
@@ -162,7 +163,14 @@ const App = () => {
        }}
        />
 
-       
+
+<HeaderDescContainer
+    highligter={"Real Success Stories"}
+    header={"<h2>improveFX results speak for themselves</h2>"}
+    desc={"<p>Explore our diverse case studies to witness firsthand the transformative impact of improveFX's SEO services. Each case study is a testament to our strategic approach, showcasing significant increases in traffic, sales, and online presence for our clients. These success stories reflect our commitment to not just meeting but exceeding SEO goals.</p>"}
+    />
+<MyCarousel />
+
   </div>
   
    <Footer/>
