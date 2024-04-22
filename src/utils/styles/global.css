@@ -263,6 +263,12 @@ p {
 .p-bottom-0 p{
     margin-bottom: 0px;
 }
+.hover-dark{
+    cursor: pointer;
+}
+.hover-dark:hover{
+    background-color: #212529 !important;
+}
 .hero{
     background-image: url("http://127.0.0.1:8000/asserts/dots-back.png");
     background-color: #F5F6FE;
