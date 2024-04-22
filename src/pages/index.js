@@ -8,6 +8,9 @@ import IconCardContainer from "@/components/molecules/IconCardContainer";
 import MyCarousel from "@/components/organisms/caseStudiesSlider";
 import ThemeButton from "@/components/atom/themeButton";
 import ContentWithSidePoint from "@/components/organisms/contentWithSidePoints";
+import TestimonialsSlider from "@/components/organisms/testimonialsSlider";
+import ImageWithSideSortContent from "@/components/organisms/imageWithSideSortContent";
+import Image from "next/image";
 
 const App = () => {
   const ContentWithSideRowCounts = () => {
@@ -262,41 +265,119 @@ const App = () => {
 
         <MyCarousel />
 
-       <ContentWithSidePoint 
-       headerDetails={{
-        highligter:"Maximize Your Success with Expert Organic SEO",
-        header:"<h2> Substantially increase your ROI with Strategic Organic SEO Services</h2>",
-        desc:"<p>Elevate your business's online impact with improveFX, a professional SEO agency renowned for delivering strategic organic SEO services. Our approach focuses on creating robust SEO campaigns tailored to your specific market needs, ensuring a significant boost in ROI. As a top SEO agency, we specialize in providing affordable, high-quality services for businesses of all sizes. From small business SEO agency needs to comprehensive website SEO strategies, our commitment to organic growth drives real, sustainable results.</p>",
-        textAlignCenter:false
-       }}
-       buttonDetails={{
-        text:"Book a Strategy Call",
-        action:'#'
-       }}
-       pointsArray={[
-        {
-          image:"https://admin.improvefx.com/wp-content/uploads/2024/03/Proven-Track-Record.webp",
-          title:'Proven Track Record',
-          desc:"Transform your business with our track record of multiplying traffic and conversions."
-        },
-        {
-          image:"https://admin.improvefx.com/wp-content/uploads/2024/03/Proven-Track-Record.webp",
-          title:'Proven Track Record',
-          desc:"Transform your business with our track record of multiplying traffic and conversions."
-        },
-        {
-          image:"https://admin.improvefx.com/wp-content/uploads/2024/03/Proven-Track-Record.webp",
-          title:'Proven Track Record',
-          desc:"Transform your business with our track record of multiplying traffic and conversions."
-        },
-        {
-          image:"https://admin.improvefx.com/wp-content/uploads/2024/03/Proven-Track-Record.webp",
-          title:'Proven Track Record',
-          desc:"Transform your business with our track record of multiplying traffic and conversions."
-        },
-       ]}
+        <ContentWithSidePoint
+          headerDetails={{
+            highligter: "Maximize Your Success with Expert Organic SEO",
+            header:
+              "<h2> Substantially increase your ROI with Strategic Organic SEO Services</h2>",
+            desc: "<p>Elevate your business's online impact with improveFX, a professional SEO agency renowned for delivering strategic organic SEO services. Our approach focuses on creating robust SEO campaigns tailored to your specific market needs, ensuring a significant boost in ROI. As a top SEO agency, we specialize in providing affordable, high-quality services for businesses of all sizes. From small business SEO agency needs to comprehensive website SEO strategies, our commitment to organic growth drives real, sustainable results.</p>",
+            textAlignCenter: false,
+          }}
+          buttonDetails={{
+            text: "Book a Strategy Call",
+            action: "#",
+          }}
+          pointsArray={[
+            {
+              image:
+                "https://admin.improvefx.com/wp-content/uploads/2024/03/Proven-Track-Record.webp",
+              title: "Proven Track Record",
+              desc: "Transform your business with our track record of multiplying traffic and conversions.",
+            },
+            {
+              image:
+                "https://admin.improvefx.com/wp-content/uploads/2024/03/Proven-Track-Record.webp",
+              title: "Proven Track Record",
+              desc: "Transform your business with our track record of multiplying traffic and conversions.",
+            },
+            {
+              image:
+                "https://admin.improvefx.com/wp-content/uploads/2024/03/Proven-Track-Record.webp",
+              title: "Proven Track Record",
+              desc: "Transform your business with our track record of multiplying traffic and conversions.",
+            },
+            {
+              image:
+                "https://admin.improvefx.com/wp-content/uploads/2024/03/Proven-Track-Record.webp",
+              title: "Proven Track Record",
+              desc: "Transform your business with our track record of multiplying traffic and conversions.",
+            },
+          ]}
         />
 
+        <TestimonialsSlider />
+
+        <section>
+          <div
+            className="conatiner bg-dark px-lg-5 px-md-4 px-3 mt-5 pt-3 pt-lg-0"
+            style={{ borderRadius: 20 }}
+          >
+            <ImageWithSideSortContent
+              headingHighlight={"Start your SEO project"}
+              heading={"<h2>Want to work with me?</h2>"}
+              content={
+                "<p>Get in touch so I can learn more about your brand and project requirements. Unfortunately, I have limited availability, so book a call to make sure you don't miss out.</p>"
+              }
+              ImageData={{
+                url: "https://admin.improvefx.com/wp-content/uploads/2024/03/SEO-services-agency.webp",
+                alert: "Award winning SEO experts",
+              }}
+              contentListing={0}
+              buttonData={{
+                buttonText: "Contact >",
+                action: "#",
+              }}
+            />
+          </div>
+        </section>
+
+        <div className="container">
+      <div className="row align-items-center mt-5 pt-5">
+
+        <div className="col-md-6">
+          <h2>Explore Our Expert SEO Blog Posts</h2>
+        </div>
+
+        <div className="col-md-6 text-lg-center my-auto d-lg-flex justify-content-end">
+            <ThemeButton text={"Visit our blog >"} />
+        </div>
+    </div>
+    <div className="row">
+                  <div className="col-md-4 mt-2">
+                <div className="card shadow pb-3" style={{ borderRadius:10, overflow:'hidden' }}>
+                <a href="https://improvefx.com/blog/top-seo-strategies-for-2024">
+                    <Image src="https://admin.improvefx.com/wp-content/uploads/2024/02/market-leader-with-seo-feature-image.png" className="img-fluid" alt="Image" width={500} height={300} />
+                </a>
+                    <div className=" ps-3 pt-2">
+                        <Link href="https://improvefx.com/blog/category/general-seo" className=" ">
+                            <div className="pill-button">
+                                <span className="dot-before font-weight-bold">General SEO</span>
+
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="card-body mt-0 pt-0">
+                        <h5 className="card-title text-light mt-2" >
+                          <Link href="https://improvefx.com/blog/top-seo-strategies-for-2024" className="element-icon">
+                            Top SEO Strategies for 2024: What You Need to Know
+                          </Link>
+                        </h5>
+
+                        <div className="limited-text">
+                        <p>Master 2024’s SEO with key strategies: Voice Search, Mobile-First Indexing, Engaging Content, EEAT, Video, Local SEO, and AI-driven tactics.</p>
+
+                        </div>
+                        <ThemeButton text={"Read More "} />
+                           
+                    </div>
+                </div>
+
+            </div>
+            </div>
+
+      
+
+    </div>
       </div>
 
       <Footer />
