@@ -26,7 +26,7 @@ const CaseStudyCardContainer = ({image,category,header,desc,time, column=true}) 
                     </div>
                 </div>
                 <div className="card-body border-top">
-            <p className="card-text ">
+            <p className="card-text mb-0">
                 <span className="text-primary font-b" >25%</span>
                 <div className="text-light">
                     Increase in App downloads

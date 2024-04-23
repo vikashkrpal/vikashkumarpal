@@ -26,7 +26,7 @@ const images = [
   'https://admin.improvefx.com/wp-content/uploads/2023/12/Ecom-Fashion.webp',
 ];
 
-const Slider = () => {
+const BrandSlider = () => {
   const options = {
     loop: true,
     nav: false,
@@ -60,4 +60,4 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+export default BrandSlider;
