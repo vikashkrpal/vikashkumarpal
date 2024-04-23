@@ -205,6 +205,14 @@ h1, h2, h3, h4, h5{
         display: none;
     }
 
+    h1, h2, h3, h4, h5{
+        font-family: 'Gt walsheim bold';
+        font-weight: 400;
+        color: #fff;
+        margin-top: .6rem;
+        margin-bottom: .4rem;
+    }
+
 }
 
 @media (max-width: 375px) {
@@ -245,6 +253,22 @@ p {
     font-family: "Gt walsheim bold";
 }
 
+.theme-color{
+    color: cornflowerblue;
+}
+.check-card {
+    border-radius: 50px;
+    transition: border-color 0.3s ease-in-out;
+}
+.p-bottom-0 p{
+    margin-bottom: 0px;
+}
+.hover-dark{
+    cursor: pointer;
+}
+.hover-dark:hover{
+    background-color: #212529 !important;
+}
 .hero{
     background-image: url("http://127.0.0.1:8000/asserts/dots-back.png");
     background-color: #F5F6FE;
@@ -273,6 +297,7 @@ a{
     backdrop-filter: blur(10px); 
     -webkit-backdrop-filter: blur(10px); 
 }
+
 
 
 /*

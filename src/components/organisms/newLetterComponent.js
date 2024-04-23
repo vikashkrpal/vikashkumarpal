@@ -5,7 +5,6 @@ import SimpleNewsLetterForm from "../molecules/simpleNewsLetterForm";
 const NewLetterComponent = ({ heading, desc, imageUrl }) => {
     return (
         <section className="staff-card pt-5">
-            <div className="container">
                 <div className="card bg-dark shadow rounded-3">
                     <div className="row">
                         <div className="col-md-6 p-lg-5 p-4">
@@ -23,7 +22,6 @@ const NewLetterComponent = ({ heading, desc, imageUrl }) => {
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
     );
 };

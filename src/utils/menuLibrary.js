@@ -33,7 +33,7 @@ const navBarMenus =  [
         title: 'Services',
         icon:<FaServer />,
         childLinks : [
-            { name: 'SEO Services', link: '#', des:'Boost your online visibility', icon:<FaLightbulb /> },
+            { name: 'SEO Services', link: '/seo-insights/', des:'Boost your online visibility', icon:<FaLightbulb /> },
             { name: 'SEO Audit', link: '#', des:'Uncover SEO improvement areas', icon:<FaChalkboardTeacher /> },
             { name: 'Keyword Research', link: '#', des:'Discover profitable keywords now', icon:<FaKeyboard /> },
             { name: 'Local SEO', link: '#', des:'Dominate local search rankings', icon:<FaChartArea /> },
