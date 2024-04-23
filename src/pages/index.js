@@ -335,11 +335,11 @@ const App = () => {
 
       <div className="row align-items-center pt-5">
 
-        <div className="col-md-6">
+        <div className="col-lg-6 col-md-8">
           <h2>Explore Our Expert SEO Blog Posts</h2>
         </div>
 
-        <div className="col-md-6 text-lg-center my-auto d-lg-flex justify-content-end">
+        <div className="col-lg-6 col-md-4 text-lg-center my-auto d-flex justify-content-end">
             <ThemeButton text={"Visit our blog >"} />
         </div>
     </div>

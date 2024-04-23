@@ -7,7 +7,7 @@ import {FaPencil} from "react-icons/fa6";
 
 const BlogSliderCardContainer = () => {
     return (
-        <div className="col-md-4 mt-2">
+        <div className="col-md-6 col-lg-4 col-12 mt-3 mt-lg-2">
             <div className="card shadow pb-3" style={{ borderRadius:10, overflow:'hidden' }}>
                 <a href="https://improvefx.com/blog/top-seo-strategies-for-2024">
                     <Image src="https://admin.improvefx.com/wp-content/uploads/2024/02/market-leader-with-seo-feature-image.png" className="img-fluid" alt="Image" width={500} height={300} />

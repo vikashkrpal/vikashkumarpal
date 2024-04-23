@@ -13,6 +13,7 @@ const OwlCarousel = dynamic(() => import('react-owl-carousel'), {
 
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import Image from "next/image";
 
 const images = [
   'https://admin.improvefx.com/wp-content/uploads/2023/12/Ecom-Fashion.webp',
@@ -53,7 +54,7 @@ const BrandSlider = () => {
     <OwlCarousel className="owl-theme" {...options}>
       {images.map((image, index) => (
         <div key={index} className="item">
-          <img src={image} alt={`Image ${index + 1}`} />
+          <Image src={image} alt={`Image ${index + 1}`} width={100} height={100} className={"img-fluid"} />
         </div>
       ))}
     </OwlCarousel>
