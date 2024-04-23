@@ -11,6 +11,8 @@ import ContentWithSidePoint from "@/components/organisms/contentWithSidePoints";
 import TestimonialsSlider from "@/components/organisms/testimonialsSlider";
 import ImageWithSideSortContent from "@/components/organisms/imageWithSideSortContent";
 import Image from "next/image";
+import BlogSliderCardContainer from "../components/molecules/blogSliderCardContainer";
+import SimpleNewsLetterForm from "../components/molecules/simpleNewsLetterForm";
 
 const App = () => {
   const ContentWithSideRowCounts = () => {
@@ -331,8 +333,7 @@ const App = () => {
           </div>
         </section>
 
-        <div className="container">
-      <div className="row align-items-center mt-5 pt-5">
+      <div className="row align-items-center pt-5">
 
         <div className="col-md-6">
           <h2>Explore Our Expert SEO Blog Posts</h2>
@@ -343,41 +344,22 @@ const App = () => {
         </div>
     </div>
     <div className="row">
-                  <div className="col-md-4 mt-2">
-                <div className="card shadow pb-3" style={{ borderRadius:10, overflow:'hidden' }}>
-                <a href="https://improvefx.com/blog/top-seo-strategies-for-2024">
-                    <Image src="https://admin.improvefx.com/wp-content/uploads/2024/02/market-leader-with-seo-feature-image.png" className="img-fluid" alt="Image" width={500} height={300} />
-                </a>
-                    <div className=" ps-3 pt-2">
-                        <Link href="https://improvefx.com/blog/category/general-seo" className=" ">
-                            <div className="pill-button">
-                                <span className="dot-before font-weight-bold">General SEO</span>
-
-                            </div>
-                        </Link>
-                    </div>
-                    <div className="card-body mt-0 pt-0">
-                        <h5 className="card-title text-light mt-2" >
-                          <Link href="https://improvefx.com/blog/top-seo-strategies-for-2024" className="element-icon">
-                            Top SEO Strategies for 2024: What You Need to Know
-                          </Link>
-                        </h5>
-
-                        <div className="limited-text">
-                        <p>Master 2024’s SEO with key strategies: Voice Search, Mobile-First Indexing, Engaging Content, EEAT, Video, Local SEO, and AI-driven tactics.</p>
-
-                        </div>
-                        <ThemeButton text={"Read More "} />
-                           
-                    </div>
-                </div>
-
-            </div>
+                  <BlogSliderCardContainer />
+                  <BlogSliderCardContainer />
+                  <BlogSliderCardContainer />
             </div>
 
-      
 
-    </div>
+        <div className="row align-items-center mt-5">
+          <div className="col-lg-7 col-md-6 col-sm-12">
+            <h2>
+              Subscribe to our newsletter and stay updated on the latest news
+            </h2>
+          </div>
+          <div className="col-lg-5 col-md-6 col-sm-12 ps-lg-5 ps-md-5 ">
+            <SimpleNewsLetterForm />
+          </div>
+        </div>
       </div>
 
       <Footer />
