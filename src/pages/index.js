@@ -13,11 +13,13 @@ import ImageWithSideSortContent from "@/components/organisms/imageWithSideSortCo
 import Image from "next/image";
 import BlogSliderCardContainer from "../components/molecules/blogSliderCardContainer";
 import SimpleNewsLetterForm from "../components/molecules/simpleNewsLetterForm";
+import BlogCardContainer from "../components/molecules/blogCardContainer";
+import BrandSliderWithSideContent from "../components/organisms/brandSliderWithSideContent";
 
 const App = () => {
   const ContentWithSideRowCounts = () => {
     return (
-      <div className="row align-items-center">
+      <div className="row align-items-center my-5">
         <div className="col-sm-12 col-lg-4 col-md-6">
           <h2>Our impact in numbers</h2>
           <p>
@@ -56,8 +58,10 @@ const App = () => {
     );
   };
   return (
-    <>
+    <section >
       <Header />
+      <section style={{ overflowX:"hidden" }}>
+
       <div className="container">
         <ImageWithSideContent
           headingHighlight={"#1 SEO Company that Gets Results!"}
@@ -344,11 +348,32 @@ const App = () => {
         </div>
     </div>
     <div className="row">
-                  <BlogSliderCardContainer />
-                  <BlogSliderCardContainer />
-                  <BlogSliderCardContainer />
+      <BlogCardContainer
+          image={"https://assets-global.website-files.com/5f35521e2ed7d9663ce9aa51/5f3fdbb7f52d14860a91aded_image-blog-post-06-growth-template.jpg"}
+          category={"Category name"}
+          avtar={"https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Female-Avatar1.svg"}
+          header={"5 great content marketing ideas to for your Instagram account"}
+          desc={"<p>Lorem ipsum dolor sit amet, consecteturor adipiscing elit. Tincidunt donec vulputate ipsum erat urna auctor. Eget phasellus ideirs.</p>"}
+      />
+      <BlogCardContainer
+          image={"https://assets-global.website-files.com/5f35521e2ed7d9663ce9aa51/5f3fdbb7f52d14860a91aded_image-blog-post-06-growth-template.jpg"}
+          category={"Category name"}
+          avtar={"https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Female-Avatar1.svg"}
+          header={"5 great content marketing ideas to for your Instagram account"}
+          desc={"<p>Lorem ipsum dolor sit amet, consecteturor adipiscing elit. Tincidunt donec vulputate ipsum erat urna auctor. Eget phasellus ideirs.</p>"}
+      />
+      <BlogCardContainer
+          image={"https://assets-global.website-files.com/5f35521e2ed7d9663ce9aa51/5f3fdbb7f52d14860a91aded_image-blog-post-06-growth-template.jpg"}
+          category={"Category name"}
+          avtar={"https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Female-Avatar1.svg"}
+          header={"5 great content marketing ideas to for your Instagram account"}
+          desc={"<p>Lorem ipsum dolor sit amet, consecteturor adipiscing elit. Tincidunt donec vulputate ipsum erat urna auctor. Eget phasellus ideirs.</p>"}
+      />
+
             </div>
 
+
+       <BrandSliderWithSideContent />
 
         <div className="row align-items-center mt-5">
           <div className="col-lg-7 col-md-6 col-sm-12">
@@ -362,8 +387,9 @@ const App = () => {
         </div>
       </div>
 
-      <Footer />
-    </>
+        <Footer />
+      </section>
+    </section>
   );
 };
 

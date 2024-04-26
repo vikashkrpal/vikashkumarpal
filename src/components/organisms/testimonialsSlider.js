@@ -26,19 +26,19 @@ const TestimonialsSlider = () => {
     autoplayHoverPause: true,
     responsive: {
       0: {
-        items: 1,
+        items: 1.2,
       },
       600: {
-        items: 2,
+        items: 1.6,
       },
       1000: {
-        items: 3,
+        items: 2.3,
       },
     },
   };
 
   const items = [
-    <div key="1" className="my-5 mx-2">
+    <div key="1" className="my-5 mx-lg-2">
       <TestimonialCardConatiner testimonialsDetails={{
         comment:' Our e-commerce site’s user engagement skyrocketed by 40% after their exceptional site optimization and SEO services. They are true e-commerce wizards. ',
         image:"https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Male-Avatar7.svg" ,
@@ -46,7 +46,7 @@ const TestimonialsSlider = () => {
         position:'Founder | ILAMRA '
       }} />
     </div>,
-    <div key="2" className="my-5 mx-2">
+    <div key="2" className="my-5 mx-lg-2">
        <TestimonialCardConatiner testimonialsDetails={{
         comment:' Our e-commerce site’s user engagement skyrocketed by 40% after their exceptional site optimization and SEO services. They are true e-commerce wizards. ',
         image:"https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Male-Avatar7.svg" ,
@@ -54,7 +54,7 @@ const TestimonialsSlider = () => {
         position:'Founder | ILAMRA '
       }} />
     </div>,
-    <div key="3" className="my-5 mx-2">
+    <div key="3" className="my-5 mx-lg-2">
        <TestimonialCardConatiner testimonialsDetails={{
         comment:' Our e-commerce site’s user engagement skyrocketed by 40% after their exceptional site optimization and SEO services. They are true e-commerce wizards. ',
         image:"https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Male-Avatar7.svg" ,
@@ -62,7 +62,7 @@ const TestimonialsSlider = () => {
         position:'Founder | ILAMRA '
       }} />
     </div>,
-    <div key="4" className="my-5 mx-2">
+    <div key="4" className="my-5 mx-lg-2">
        <TestimonialCardConatiner testimonialsDetails={{
         comment:' Our e-commerce site’s user engagement skyrocketed by 40% after their exceptional site optimization and SEO services. They are true e-commerce wizards. ',
         image:"https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Male-Avatar7.svg" ,
