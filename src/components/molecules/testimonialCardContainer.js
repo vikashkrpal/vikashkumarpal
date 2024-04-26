@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const TestimonialCardConatiner = ({ testimonialsDetails }) => {
   return (
-    <div className="card  p-4 me-2 ">
+    <div className="card  p-4 me-lg-2 ">
       <div className="star-rating text-primary">★ ★ ★ ★ ★</div>
       <div className="row  mt-3">
         <div className="col-md-12">
