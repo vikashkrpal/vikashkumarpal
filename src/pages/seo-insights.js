@@ -1,14 +1,14 @@
 import BlogCardContainer from "@/components/molecules/blogCardContainer";
 import HeaderDescContainer from "@/components/molecules/headerDescContainer";
-import Header from "./layouts/header";
+import Header from "../components/layouts/header";
 import NewLetterComponent from "@/components/organisms/newLetterComponent";
-import Footer from "./layouts/footer";
+import Footer from "../components/layouts/footer";
+import Template from "../components/atom/template";
 
 
 const Blog = () => {
-    return <>
-    <Header />
-    <div className="container">
+    return   <Template>
+
 
         <NewLetterComponent
         heading="Stay Ahead in SEO: Subscribe Now"
@@ -40,11 +40,9 @@ const Blog = () => {
                 </div>
 
             </section>
-            
-    </div>
 
-        <Footer />
-    </>
+
+    </Template>
 }
 
 export default Blog;

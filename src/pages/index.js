@@ -1,6 +1,3 @@
-import Link from "next/link";
-import Footer from "./layouts/footer";
-import Header from "./layouts/header";
 import ImageWithSideContent from "@/components/organisms/imageWithSideContent";
 import BrandSlider from "@/components/organisms/brandSlider";
 import HeaderDescContainer from "@/components/molecules/headerDescContainer";
@@ -10,11 +7,10 @@ import ThemeButton from "@/components/atom/themeButton";
 import ContentWithSidePoint from "@/components/organisms/contentWithSidePoints";
 import TestimonialsSlider from "@/components/organisms/testimonialsSlider";
 import ImageWithSideSortContent from "@/components/organisms/imageWithSideSortContent";
-import Image from "next/image";
-import BlogSliderCardContainer from "../components/molecules/blogSliderCardContainer";
 import SimpleNewsLetterForm from "../components/molecules/simpleNewsLetterForm";
 import BlogCardContainer from "../components/molecules/blogCardContainer";
 import BrandSliderWithSideContent from "../components/organisms/brandSliderWithSideContent";
+import Template from "../components/atom/template";
 
 const App = () => {
   const ContentWithSideRowCounts = () => {
@@ -58,11 +54,7 @@ const App = () => {
     );
   };
   return (
-    <section >
-      <Header />
-      <section style={{ overflowX:"hidden" }}>
-
-      <div className="container">
+    <Template>
         <ImageWithSideContent
           headingHighlight={"#1 SEO Company that Gets Results!"}
           heading={
@@ -375,7 +367,7 @@ const App = () => {
 
        <BrandSliderWithSideContent />
 
-        <div className="row align-items-center mt-5">
+        <div className="row align-items-center">
           <div className="col-lg-7 col-md-6 col-sm-12">
             <h2>
               Subscribe to our newsletter and stay updated on the latest news
@@ -385,11 +377,8 @@ const App = () => {
             <SimpleNewsLetterForm />
           </div>
         </div>
-      </div>
 
-        <Footer />
-      </section>
-    </section>
+    </Template>
   );
 };
 
