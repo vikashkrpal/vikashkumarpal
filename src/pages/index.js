@@ -2,7 +2,7 @@ import ImageWithSideContent from "@/components/organisms/imageWithSideContent";
 import BrandSlider from "@/components/organisms/brandSlider";
 import HeaderDescContainer from "@/components/molecules/headerDescContainer";
 import IconCardContainer from "@/components/molecules/IconCardContainer";
-import MyCarousel from "@/components/organisms/caseStudiesSlider";
+import CaseStudiesSlider from "@/components/organisms/caseStudiesSlider";
 import ThemeButton from "@/components/atom/themeButton";
 import ContentWithSidePoint from "@/components/organisms/contentWithSidePoints";
 import TestimonialsSlider from "@/components/organisms/testimonialsSlider";
@@ -223,7 +223,7 @@ const App = () => {
           }
         />
 
-        <MyCarousel />
+        <CaseStudiesSlider />
 
         <ContentWithSidePoint
           headerDetails={{

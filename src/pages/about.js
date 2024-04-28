@@ -4,10 +4,10 @@ import ContentWithSideRowCounts from "../components/organisms/ContentWithSideRow
 import HeaderWithSideButton from "../components/molecules/headerWithSideButton";
 import IconCardContainer from "../components/molecules/IconCardContainer";
 import BrandSlider from "../components/organisms/brandSlider";
-import ImageWithSideContent from "../components/organisms/imageWithSideContent";
 import ImageWithSideSortContent from "../components/organisms/imageWithSideSortContent";
 import BrandSliderWithSideContent from "../components/organisms/brandSliderWithSideContent";
 import SimpleNewsLetterForm from "../components/molecules/simpleNewsLetterForm";
+import ImageWithSideIconContents from "../components/molecules/imageWithSideIconContents";
 
 
 const About = () => {
@@ -109,7 +109,7 @@ const About = () => {
 
             </div>
                 <BrandSlider />
-                <ImageWithSideContent
+                <ImageWithSideIconContents
                     heading={
                         "<h1>Data-Driven Custom SEO Services That Drive Revenue!</h1>"
                     }
@@ -120,7 +120,6 @@ const About = () => {
                         url: "https://admin.improvefx.com/wp-content/uploads/2024/03/award-winning-seo-experts-1.webp",
                         alert: "Award winning SEO experts",
                     }}
-                    contentListing={1}
                 />
                 <section>
                     <div
