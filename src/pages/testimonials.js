@@ -1,30 +1,29 @@
 import React from 'react';
 import Template from "../components/atom/template";
 import BrandSlider from "../components/organisms/brandSlider";
-import ThemeButton from "../components/atom/themeButton";
 import TestimonialCardContainer from "../components/molecules/testimonialCardContainer";
 import BrandSliderWithSideContent from "../components/organisms/brandSliderWithSideContent";
 import SimpleNewsLetterForm from "../components/molecules/simpleNewsLetterForm";
 import ImageWithSideSortContent from "../components/organisms/imageWithSideSortContent";
+import HeaderWithSideButton from "../components/molecules/headerWithSideButton";
 
 const Testimonials = () => {
     return (
         <Template urlBar={true} urlStrings={[
-            {testimonials: "null"}
-        ]}>
+            {Testimonials: "null"}
+        ]}
+                  urlDetails={{
+                      title:'Testimonials',
+                      desc:"Elevate your online presence with our top-notch SEO services. As a leading organic SEO services company, we specialize in providing professional and tailored solutions to boost your websites visibility. Trust our experienced team to optimize your online strategy and enhance your businesss digital success."
+                  }}
+        >
             <BrandSlider />
 
-            <div className="row align-items-center pt-5">
-
-                <div className="col-lg-6 col-md-8">
-                    <h2>Voices of Trust: Why Clients Choose improveFX for SEO Solutions</h2>
-                    <p>Explore Voices of Trust to see why improveFX is the chosen partner for SEO. Our clients stories reflect our commitment to authentic, result-driven SEO solutions that foster business growth and digital success.</p>
-                </div>
-
-                <div className="col-lg-6 col-md-4 text-lg-center my-auto d-flex justify-content-end">
-                    <ThemeButton text={"Start your seo journey today >"} addStyle={{ height:50,fontSize:20 }} href={"#"} />
-                </div>
-            </div>
+           <HeaderWithSideButton
+               header={"<h2>Voices of Trust: Why Clients Choose improveFX for SEO Solutions</h2>"}
+               buttonDetails={{ buttonText:"Start your seo journey today >", action:'#' }}
+               desc={"<p>Explore Voices of Trust to see why improveFX is the chosen partner for SEO. Our clients stories reflect our commitment to authentic, result-driven SEO solutions that foster business growth and digital success.</p>"}
+               />
            <div className="row">
                <TestimonialCardContainer testimonialsDetails={{
                    comment:' Our e-commerce site’s user engagement skyrocketed by 40% after their exceptional site optimization and SEO services. They are true e-commerce wizards. ',

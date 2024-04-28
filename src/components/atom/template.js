@@ -3,12 +3,12 @@ import Header from "../layouts/header";
 import Footer from "../layouts/footer";
 import UrlBar from "../layouts/urlBar";
 
-const Template = ({ children, urlBar=false, urlStrings = [] }) => {
+const Template = ({ children, urlBar=false, urlStrings = [], urlDetails={title:"page", des:'page desc'} }) => {
     return (
         <section>
             <Header />
             <section style={{ overflowX:"hidden" }}>
-                {urlBar && <UrlBar urlStrings={urlStrings} />}
+                {urlBar && <UrlBar urlStrings={urlStrings} urlDetails={urlDetails} />}
                 <div className="container">
                   {children}
                 </div>
