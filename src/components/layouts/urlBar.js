@@ -17,8 +17,8 @@ const UrlBar = ({ urlStrings }) => {
 
                         <div className="py-lg-3 w-res-75 mx-auto"><p>Elevate your online presence with our top-notch SEO
                             services. As a leading organic SEO services company, we specialize in providing professional
-                            and tailored solutions to boost your website's visibility. Trust our experienced team to
-                            optimize your online strategy and enhance your business's digital success.</p></div>
+                            and tailored solutions to boost your websites visibility. Trust our experienced team to
+                            optimize your online strategy and enhance your businesss digital success.</p></div>
 
                         <h6 className="theme-color2 text-bold  py-4 ">
                             <Link href="/" className="px-lg-2" style={{ fontSize: 20}}>
@@ -28,7 +28,7 @@ const UrlBar = ({ urlStrings }) => {
                                 urlStrings.map((obj, i) => {
                                     const [key, value] = Object.entries(obj)[0];
                                     if (value === "null")
-                                        return <span>{'> '}<span key={i} style={{fontSize: 20}}>&nbsp;&nbsp;{key}</span></span>
+                                        return <span key={i} >{'> '}<span style={{fontSize: 20}}>&nbsp;&nbsp;{key}</span></span>
                                     else
                                         return <span key={i}>{'> '}<Link href={value} className="px-2"
                                                                       style={{fontSize: 20}}>{key}</Link></span>

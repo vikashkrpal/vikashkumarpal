@@ -18,7 +18,7 @@ const Testimonials = () => {
 
                 <div className="col-lg-6 col-md-8">
                     <h2>Voices of Trust: Why Clients Choose improveFX for SEO Solutions</h2>
-                    <p>Explore 'Voices of Trust' to see why improveFX is the chosen partner for SEO. Our clients' stories reflect our commitment to authentic, result-driven SEO solutions that foster business growth and digital success.</p>
+                    <p>Explore Voices of Trust to see why improveFX is the chosen partner for SEO. Our clients stories reflect our commitment to authentic, result-driven SEO solutions that foster business growth and digital success.</p>
                 </div>
 
                 <div className="col-lg-6 col-md-4 text-lg-center my-auto d-flex justify-content-end">
