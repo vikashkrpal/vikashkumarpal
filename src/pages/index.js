@@ -2,7 +2,7 @@ import ImageWithSideContent from "@/components/organisms/imageWithSideContent";
 import BrandSlider from "@/components/organisms/brandSlider";
 import HeaderDescContainer from "@/components/molecules/headerDescContainer";
 import IconCardContainer from "@/components/molecules/IconCardContainer";
-import MyCarousel from "@/components/organisms/caseStudiesSlider";
+import CaseStudiesSlider from "@/components/organisms/caseStudiesSlider";
 import ThemeButton from "@/components/atom/themeButton";
 import ContentWithSidePoint from "@/components/organisms/contentWithSidePoints";
 import TestimonialsSlider from "@/components/organisms/testimonialsSlider";
@@ -11,48 +11,10 @@ import SimpleNewsLetterForm from "../components/molecules/simpleNewsLetterForm";
 import BlogCardContainer from "../components/molecules/blogCardContainer";
 import BrandSliderWithSideContent from "../components/organisms/brandSliderWithSideContent";
 import Template from "../components/atom/template";
+import ContentWithSideRowCounts from "../components/organisms/ContentWithSideRowCounts";
 
 const App = () => {
-  const ContentWithSideRowCounts = () => {
-    return (
-      <div className="row align-items-center my-5">
-        <div className="col-sm-12 col-lg-4 col-md-6">
-          <h2>Our impact in numbers</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur purus convallis cursus turpis
-            in et.
-          </p>
-        </div>
-        <div className="col-sm-12 col-lg-8 col-md-6">
-          <div className="row text-lg-center">
-            {[
-              {
-                count: "200+",
-                desc: "Companies helped",
-              },
-              {
-                count: "150m",
-                desc: "Revenue generated",
-              },
-              {
-                count: "400+",
-                desc: "Team members",
-              },
-              {
-                count: "300+",
-                desc: "Successful projects",
-              },
-            ].map((d, i) => (
-              <div className="col" key={i}>
-                <h2 className="mb-0">{d.count}</h2>
-                <p>{d.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  };
+
   return (
     <Template>
         <ImageWithSideContent
@@ -261,7 +223,7 @@ const App = () => {
           }
         />
 
-        <MyCarousel />
+        <CaseStudiesSlider />
 
         <ContentWithSidePoint
           headerDetails={{

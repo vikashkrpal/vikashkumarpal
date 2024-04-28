@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from "next/link";
 import image from '../../asserts/logos/back-image.png'
-const UrlBar = ({ urlStrings }) => {
+const UrlBar = ({ urlStrings, urlDetails }) => {
     return (
         <section style={{
             backgroundImage: `url('${image.src}')`,
@@ -13,12 +13,9 @@ const UrlBar = ({ urlStrings }) => {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-12 text-lg-center mx-auto py-lg-5 py-3">
-                        <h1>Testimonials</h1>
+                        <h1>{urlDetails.title}</h1>
 
-                        <div className="py-lg-3 w-res-75 mx-auto"><p>Elevate your online presence with our top-notch SEO
-                            services. As a leading organic SEO services company, we specialize in providing professional
-                            and tailored solutions to boost your websites visibility. Trust our experienced team to
-                            optimize your online strategy and enhance your businesss digital success.</p></div>
+                        <div className="py-lg-3 w-res-75 mx-auto"><p>{urlDetails.desc}</p></div>
 
                         <h6 className="theme-color2 text-bold  py-4 ">
                             <Link href="/" className="px-lg-2" style={{ fontSize: 20}}>
