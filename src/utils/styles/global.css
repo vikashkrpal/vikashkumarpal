@@ -269,16 +269,7 @@ p {
 .hover-dark:hover{
     background-color: #212529 !important;
 }
-.hero{
-    background-image: url("http://127.0.0.1:8000/asserts/dots-back.png");
-    background-color: #F5F6FE;
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    height: 300px;
-    /*width: 100vw;*/
 
-}
 
 /*
 Header CSS START
@@ -293,9 +284,9 @@ a{
 }
 
 .element-with-filter {
-    background-color: rgba(255, 255, 255, 0.5); 
-    backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px); 
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 

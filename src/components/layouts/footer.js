@@ -175,7 +175,7 @@ const Footer = () => {
 
             {/* Copyright */}
             <div className="text-center p-3" style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
-                © Copyright 2024 Vikash Kumar Pal All rights reserved.
+                © Copyright 2024 improveFX All rights reserved.
                 <Link href="#"  className="elementor-icon ms-2 me-2">Terms</Link>|
                 <Link href="#" className="elementor-icon ms-2 me-2"> Privacy Policy</Link>
             </div>

@@ -1,6 +1,7 @@
 // GlobalStyles.js
 
 import { createGlobalStyle } from 'styled-components';
+// import dotsBackground from '../../asserts/logos/Banner Background.png';
 
 // Import your font file
 import CustomFont from '../../asserts/fonts/GT-Walsheim-Thin-Trial-BF651b7fc728c4c.otf';
@@ -36,6 +37,7 @@ const GlobalStyles = createGlobalStyle`
     background-color: #000;
     color: #fff;
   }
+  
 `;
 
 export default GlobalStyles;

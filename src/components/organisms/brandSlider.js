@@ -51,7 +51,7 @@ const BrandSlider = () => {
 
 
   return (
-    <OwlCarousel className="owl-theme" {...options}>
+    <OwlCarousel className="owl-theme mt-5" {...options}>
       {images.map((image, index) => (
         <div key={index} className="item">
           <Image src={image} alt={`Image ${index + 1}`} width={100} height={100} className={"img-fluid"} />
