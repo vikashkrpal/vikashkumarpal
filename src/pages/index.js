@@ -1,62 +1,22 @@
-import Link from "next/link";
-import Footer from "./layouts/footer";
-import Header from "./layouts/header";
 import ImageWithSideContent from "@/components/organisms/imageWithSideContent";
 import BrandSlider from "@/components/organisms/brandSlider";
 import HeaderDescContainer from "@/components/molecules/headerDescContainer";
 import IconCardContainer from "@/components/molecules/IconCardContainer";
-import MyCarousel from "@/components/organisms/caseStudiesSlider";
+import CaseStudiesSlider from "@/components/organisms/caseStudiesSlider";
 import ThemeButton from "@/components/atom/themeButton";
 import ContentWithSidePoint from "@/components/organisms/contentWithSidePoints";
 import TestimonialsSlider from "@/components/organisms/testimonialsSlider";
 import ImageWithSideSortContent from "@/components/organisms/imageWithSideSortContent";
-import Image from "next/image";
+import SimpleNewsLetterForm from "../components/molecules/simpleNewsLetterForm";
+import BlogCardContainer from "../components/molecules/blogCardContainer";
+import BrandSliderWithSideContent from "../components/organisms/brandSliderWithSideContent";
+import Template from "../components/atom/template";
+import ContentWithSideRowCounts from "../components/organisms/ContentWithSideRowCounts";
 
 const App = () => {
-  const ContentWithSideRowCounts = () => {
-    return (
-      <div className="row align-items-center">
-        <div className="col-sm-12 col-lg-4 col-md-6">
-          <h2>Our impact in numbers</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur purus convallis cursus turpis
-            in et.
-          </p>
-        </div>
-        <div className="col-sm-12 col-lg-8 col-md-6">
-          <div className="row text-lg-center">
-            {[
-              {
-                count: "200+",
-                desc: "Companies helped",
-              },
-              {
-                count: "150m",
-                desc: "Revenue generated",
-              },
-              {
-                count: "400+",
-                desc: "Team members",
-              },
-              {
-                count: "300+",
-                desc: "Successful projects",
-              },
-            ].map((d, i) => (
-              <div className="col" key={i}>
-                <h2 className="mb-0">{d.count}</h2>
-                <p>{d.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  };
+
   return (
-    <>
-      <Header />
-      <div className="container">
+    <Template>
         <ImageWithSideContent
           headingHighlight={"#1 SEO Company that Gets Results!"}
           heading={
@@ -263,7 +223,7 @@ const App = () => {
           }
         />
 
-        <MyCarousel />
+        <CaseStudiesSlider />
 
         <ContentWithSidePoint
           headerDetails={{
@@ -331,57 +291,56 @@ const App = () => {
           </div>
         </section>
 
-        <div className="container">
-      <div className="row align-items-center mt-5 pt-5">
+      <div className="row align-items-center pt-5">
 
-        <div className="col-md-6">
+        <div className="col-lg-6 col-md-8">
           <h2>Explore Our Expert SEO Blog Posts</h2>
         </div>
 
-        <div className="col-md-6 text-lg-center my-auto d-lg-flex justify-content-end">
+        <div className="col-lg-6 col-md-4 text-lg-center my-auto d-flex justify-content-end">
             <ThemeButton text={"Visit our blog >"} />
         </div>
     </div>
     <div className="row">
-                  <div className="col-md-4 mt-2">
-                <div className="card shadow pb-3" style={{ borderRadius:10, overflow:'hidden' }}>
-                <a href="https://improvefx.com/blog/top-seo-strategies-for-2024">
-                    <Image src="https://admin.improvefx.com/wp-content/uploads/2024/02/market-leader-with-seo-feature-image.png" className="img-fluid" alt="Image" width={500} height={300} />
-                </a>
-                    <div className=" ps-3 pt-2">
-                        <Link href="https://improvefx.com/blog/category/general-seo" className=" ">
-                            <div className="pill-button">
-                                <span className="dot-before font-weight-bold">General SEO</span>
-
-                            </div>
-                        </Link>
-                    </div>
-                    <div className="card-body mt-0 pt-0">
-                        <h5 className="card-title text-light mt-2" >
-                          <Link href="https://improvefx.com/blog/top-seo-strategies-for-2024" className="element-icon">
-                            Top SEO Strategies for 2024: What You Need to Know
-                          </Link>
-                        </h5>
-
-                        <div className="limited-text">
-                        <p>Master 2024’s SEO with key strategies: Voice Search, Mobile-First Indexing, Engaging Content, EEAT, Video, Local SEO, and AI-driven tactics.</p>
-
-                        </div>
-                        <ThemeButton text={"Read More "} />
-                           
-                    </div>
-                </div>
+      <BlogCardContainer
+          image={"https://assets-global.website-files.com/5f35521e2ed7d9663ce9aa51/5f3fdbb7f52d14860a91aded_image-blog-post-06-growth-template.jpg"}
+          category={"Category name"}
+          avtar={"https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Female-Avatar1.svg"}
+          header={"5 great content marketing ideas to for your Instagram account"}
+          desc={"<p>Lorem ipsum dolor sit amet, consecteturor adipiscing elit. Tincidunt donec vulputate ipsum erat urna auctor. Eget phasellus ideirs.</p>"}
+      />
+      <BlogCardContainer
+          image={"https://assets-global.website-files.com/5f35521e2ed7d9663ce9aa51/5f3fdbb7f52d14860a91aded_image-blog-post-06-growth-template.jpg"}
+          category={"Category name"}
+          avtar={"https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Female-Avatar1.svg"}
+          header={"5 great content marketing ideas to for your Instagram account"}
+          desc={"<p>Lorem ipsum dolor sit amet, consecteturor adipiscing elit. Tincidunt donec vulputate ipsum erat urna auctor. Eget phasellus ideirs.</p>"}
+      />
+      <BlogCardContainer
+          image={"https://assets-global.website-files.com/5f35521e2ed7d9663ce9aa51/5f3fdbb7f52d14860a91aded_image-blog-post-06-growth-template.jpg"}
+          category={"Category name"}
+          avtar={"https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Female-Avatar1.svg"}
+          header={"5 great content marketing ideas to for your Instagram account"}
+          desc={"<p>Lorem ipsum dolor sit amet, consecteturor adipiscing elit. Tincidunt donec vulputate ipsum erat urna auctor. Eget phasellus ideirs.</p>"}
+      />
 
             </div>
-            </div>
 
-      
 
-    </div>
-      </div>
+       <BrandSliderWithSideContent />
 
-      <Footer />
-    </>
+        <div className="row align-items-center">
+          <div className="col-lg-7 col-md-6 col-sm-12">
+            <h2>
+              Subscribe to our newsletter and stay updated on the latest news
+            </h2>
+          </div>
+          <div className="col-lg-5 col-md-6 col-sm-12 ps-lg-5 ps-md-5 ">
+            <SimpleNewsLetterForm />
+          </div>
+        </div>
+
+    </Template>
   );
 };
 

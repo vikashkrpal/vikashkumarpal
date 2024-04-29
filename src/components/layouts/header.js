@@ -1,10 +1,10 @@
 import { Nav, Navbar } from 'react-bootstrap';
-import ThemeButton from '../../components/atom/themeButton';
+import ThemeButton from '../atom/themeButton';
 import Image from 'next/image';
 import React from 'react';
-import MobileMenu from '../../components/organisms/mobileMenu';
+import MobileMenu from '../organisms/mobileMenu';
 import { bindState } from '@/utils/globalFunctions';
-import CustomDropdown from "../../components/molecules/CustomDropdown";
+import CustomDropdown from "../molecules/CustomDropdown";
 import navBarMenus from "@/utils/menuLibrary";
 
 const Header = () => {

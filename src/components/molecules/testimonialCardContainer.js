@@ -1,8 +1,9 @@
 import Image from "next/image";
 
-const TestimonialCardConatiner = ({ testimonialsDetails }) => {
+const TestimonialCardContainer = ({ testimonialsDetails, col=" " }) => {
   return (
-    <div className="card  p-4 me-2 ">
+      <div className={"mt-3 "+col}>
+    <div className={"card  p-4 me-lg-2"}>
       <div className="star-rating text-primary">★ ★ ★ ★ ★</div>
       <div className="row  mt-3">
         <div className="col-md-12">
@@ -12,16 +13,16 @@ const TestimonialCardConatiner = ({ testimonialsDetails }) => {
         </div>
       </div>
       <div className="row py-1">
-        <div className="col-4 my-auto ">
+        <div className="col-3 my-auto ">
           <Image
             src={testimonialsDetails.image}
-            width={50}
-            height={50}
+            width={150}
+            height={150}
             className="img-fluid rounded-circle"
             alt="Client Avatar Icon"
           />{" "}
         </div>
-        <div className="card-title col-8 my-auto ml-0 pl-0">
+        <div className="card-title col-9 my-auto ps-4">
           <p className="theme-color my-0 py-0 font-b">
             {testimonialsDetails.name}
           </p>
@@ -31,7 +32,9 @@ const TestimonialCardConatiner = ({ testimonialsDetails }) => {
         </div>
       </div>
     </div>
+      </div>
+
   );
 };
 
-export default TestimonialCardConatiner;
+export default TestimonialCardContainer;

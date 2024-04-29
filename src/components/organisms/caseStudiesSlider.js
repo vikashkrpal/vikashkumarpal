@@ -14,28 +14,7 @@ const OwlCarousel = dynamic(() => import('react-owl-carousel'), {
   ssr: false,
 });
 
-export default function Slider() {
-  // Define carousel options
-  const options = {
-    loop: true,
-    nav: false,
-    dots: true,
-    margin: 10,
-    autoplay: true,
-    autoplayTimeout: 2000,
-    autoplayHoverPause: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      600: {
-        items: 2
-      },
-      1000: {
-        items: 3
-      }
-    }
-  };
+const CaseStudiesSlider = () => {
 
   // Your item data
   const items = [
@@ -66,8 +45,38 @@ export default function Slider() {
               column={false}
               />
 </div>,
+    <div key="4" className='my-5 mx-2'>
+      <CaseStudyCardContainer
+          image={"https://assets-global.website-files.com/5f35521e2ed7d9663ce9aa51/5f3fda38b99db3443ac96239_image-blog-post-02-growth-template.jpg"}
+          category={"General Seo"}
+          header={"Legal Mastery"}
+          desc={"<p>Lorem ipsum dolor sit amet, consecteturor adipiscing elit. Tincidunt donec vulputate ipsum erat urna auctor. Eget phasellus ideirs.</p>"}
+          column={false}
+      />
+    </div>,
     // Add more items here...
   ];
+
+  const options = {
+    loop: true,
+    nav: false,
+    dots: true,
+    margin: 10,
+    autoplay: (items.length > 3),
+    autoplayTimeout: 2000,
+    autoplayHoverPause: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      600: {
+        items: 1
+      },
+      1000: {
+        items: 2
+      }
+    }
+  };
 
   return (
     <OwlCarousel className="owl-theme" {...options}>
@@ -75,3 +84,5 @@ export default function Slider() {
     </OwlCarousel>
   );
 }
+
+export default CaseStudiesSlider;
