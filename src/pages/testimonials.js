@@ -6,6 +6,7 @@ import BrandSliderWithSideContent from "../components/organisms/brandSliderWithS
 import SimpleNewsLetterForm from "../components/molecules/simpleNewsLetterForm";
 import ImageWithSideSortContent from "../components/organisms/imageWithSideSortContent";
 import HeaderWithSideButton from "../components/molecules/headerWithSideButton";
+import ContentWithSideRowCounts from '@/components/organisms/ContentWithSideRowCounts';
 
 const Testimonials = () => {
     return (
@@ -17,6 +18,8 @@ const Testimonials = () => {
                       desc:"Elevate your online presence with our top-notch SEO services. As a leading organic SEO services company, we specialize in providing professional and tailored solutions to boost your websites visibility. Trust our experienced team to optimize your online strategy and enhance your businesss digital success."
                   }}
         >
+            <ContentWithSideRowCounts />
+
             <BrandSlider />
 
            <HeaderWithSideButton
@@ -81,7 +84,7 @@ const Testimonials = () => {
                 </div>
             </section>
 
-            <BrandSliderWithSideContent />
+            <BrandSliderWithSideContent addClass='mt-5 mb-3' />
 
             <div className="row align-items-center">
                 <div className="col-lg-7 col-md-6 col-sm-12">

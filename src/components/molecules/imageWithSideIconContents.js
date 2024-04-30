@@ -4,8 +4,8 @@ import {is_not_null} from "../../utils/globalFunctions";
 import ThemeButton from "../atom/themeButton";
 import {FaStar} from "react-icons/fa";
 
-const ImageWithSideIconContents = ({ headingHighlight=null, heading=null, content=null, ImageData=null, contentListing=0, buttonData={buttonText:'Get Started Now! >', action:'#'} }) => {
-    return <div className="row align-items-center px-0 pt-2 pt-lg-0 pt-md-0 mt-5">
+const ImageWithSideIconContents = ({ headingHighlight=null, heading=null, content=null, ImageData=null, contentListing=0, buttonData={buttonText:'Get Started Now! >', action:'#'}, addClass = "mt-5" }) => {
+    return <div className={"row align-items-center px-0 pt-2 pt-lg-0 pt-md-0 "+addClass}>
         <div className="col-lg-6 hero-section-1-custom  my-2">
             {headingHighlight != null && <span className="mb-3 theme-color">{headingHighlight}</span>}
             {is_not_null(heading) && <div className="mx-auto" dangerouslySetInnerHTML={{ __html: heading }} /> }
