@@ -5,21 +5,20 @@ const UrlBar = ({ urlStrings, urlDetails }) => {
     return (
         <section style={{
             backgroundImage: `url('${image.src}')`,
-            backgroundColor: '#212529',
             backgroundSize: 'cover',
             backgroundPosition: 'bottom',
             backgroundRepeat: 'no-repeat',
         }}>
-            <div className="container-fluid">
+            <div className="container">
                 <div className="row">
-                    <div className="col-md-12 text-lg-center mx-auto py-lg-5 py-3">
+                    <div className="col-md-12 text-lg-center mx-auto">
                         <h1>{urlDetails.title}</h1>
 
                         <div className="py-lg-3 w-res-75 mx-auto"><p>{urlDetails.desc}</p></div>
 
                         <h6 className="theme-color2 text-bold  py-4 ">
                             <Link href="/" className="px-lg-2" style={{ fontSize: 20}}>
-                                Home&nbsp;
+                                Home&nbsp;&nbsp;
                             </Link>
                             {
                                 urlStrings.map((obj, i) => {

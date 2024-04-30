@@ -27,7 +27,7 @@ const images = [
     'https://admin.improvefx.com/wp-content/uploads/2023/12/Ecom-Fashion.webp',
 ];
 
-const BrandSliderWithSideContent = () => {
+const BrandSliderWithSideContent = ({addClass="my-5"}) => {
     const options = {
         loop: true,
         nav: false,
@@ -51,7 +51,7 @@ const BrandSliderWithSideContent = () => {
 
 
     return (
-        <div className="row align-items-center my-5">
+        <div className={"row align-items-center "+addClass}>
             <div className="col-sm-12 col-lg-4 col-md-6">
                 <h2>Our impact in numbers</h2>
                 <p>
