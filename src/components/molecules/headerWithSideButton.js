@@ -10,8 +10,8 @@ const HeaderWithSideButton = ({ header, desc, buttonDetails }) => {
                 <div className="mx-auto" dangerouslySetInnerHTML={{ __html: desc }} />
             </div>
 
-            <div className="col-lg-6 col-md-4 text-lg-center my-auto d-flex justify-content-end">
-                <ThemeButton text={buttonDetails.buttonText} addStyle={{ height:50,fontSize:20 }} href={buttonDetails.action} />
+            <div className="col-lg-6 col-md-4 text-lg-center my-auto d-lg-flex justify-content-end">
+                <ThemeButton text={buttonDetails.buttonText} addStyle={{ height:50,fontSize:19, paddingTop:8 }} href={buttonDetails.action} />
             </div>
         </div>
     );

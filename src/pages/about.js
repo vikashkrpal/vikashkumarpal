@@ -120,6 +120,7 @@ const About = () => {
                         url: "https://admin.improvefx.com/wp-content/uploads/2024/03/award-winning-seo-experts-1.webp",
                         alert: "Award winning SEO experts",
                     }}
+                    addClass="mt-2"
                 />
                 <section>
                     <div
