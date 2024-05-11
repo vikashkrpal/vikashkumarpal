@@ -1,16 +1,18 @@
 const withFonts = require('next-fonts');
 const webpack = require("webpack");
 
-module.exports = withFonts({
-    images: {
-        domains: [
-            'admin.improvefx.com',
-            'assets-global.website-files.com',
-            'admin.vikashkumarpal.com'
-        ],
+const nextConfig = {
+    reactStrictMode: false,
+    trailingSlash: true,
+    i18n: {
+        locales: ["en"],
+        defaultLocale: "en",
     },
-    webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-        // Add the webpack configuration here
+};
+
+module.exports = withFonts({
+    ...nextConfig,
+    webpack: (config, { webpack }) => {
         config.plugins.push(
             new webpack.ProvidePlugin({
                 $: 'jquery',
@@ -19,5 +21,13 @@ module.exports = withFonts({
             })
         );
         return config;
+    },
+    images: {
+        domains: [
+            'admin.improvefx.com',
+            'assets-global.website-files.com',
+            'admin.vikashkumarpal.com'
+        ],
+        ...nextConfig.images,
     },
 });

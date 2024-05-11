@@ -1,15 +1,15 @@
 import React from 'react';
-import Template from "../components/atom/template";
-import ContentWithSideRowCounts from "../components/organisms/ContentWithSideRowCounts";
-import ImageWithSideIconContents from "../components/molecules/imageWithSideIconContents";
-import BrandSlider from "../components/organisms/brandSlider";
-import CaseStudiesSlider from "../components/organisms/caseStudiesSlider";
-import HeaderDescContainer from "../components/molecules/headerDescContainer";
-import ImageWithSideSortContent from "../components/organisms/imageWithSideSortContent";
-import TestimonialsSlider from "../components/organisms/testimonialsSlider";
-import BrandSliderWithSideContent from "../components/organisms/brandSliderWithSideContent";
-import SimpleNewsLetterForm from "../components/molecules/simpleNewsLetterForm";
-import CaseStudyCardContainer from "../components/molecules/caseStudyCardContaienr";
+import Template from "../../components/atom/template";
+import ContentWithSideRowCounts from "../../components/organisms/ContentWithSideRowCounts";
+import ImageWithSideIconContents from "../../components/molecules/imageWithSideIconContents";
+import BrandSlider from "../../components/organisms/brandSlider";
+import CaseStudiesSlider from "../../components/organisms/caseStudiesSlider";
+import HeaderDescContainer from "../../components/molecules/headerDescContainer";
+import ImageWithSideSortContent from "../../components/organisms/imageWithSideSortContent";
+import TestimonialsSlider from "../../components/organisms/testimonialsSlider";
+import BrandSliderWithSideContent from "../../components/organisms/brandSliderWithSideContent";
+import SimpleNewsLetterForm from "../../components/molecules/simpleNewsLetterForm";
+import CaseStudyCardContainer from "../../components/molecules/caseStudyCardContaienr";
 
 const CaseStudy = () => {
     return (
@@ -138,3 +138,4 @@ const CaseStudy = () => {
 };
 
 export default CaseStudy;
+
