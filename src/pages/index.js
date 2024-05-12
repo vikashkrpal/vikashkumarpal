@@ -269,7 +269,7 @@ const App = () => {
 
         <section>
           <div
-            className="conatiner bg-dark px-lg-5 px-md-4 px-3 mt-5 pt-3 pt-lg-0"
+            className=" bg-dark px-lg-5 px-md-4 px-3 mt-5 pt-3 pt-lg-0"
             style={{ borderRadius: 20 }}
           >
             <ImageWithSideSortContent
