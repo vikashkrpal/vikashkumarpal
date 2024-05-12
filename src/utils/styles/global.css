@@ -90,6 +90,11 @@ h1, h2, h3, h4, h5{
     width: 75%;
 }
 
+.w-res-80{
+    width: 80%;
+}
+
+
 .accordion-button{
     font-size: 1rem;
 }
@@ -137,6 +142,9 @@ h1, h2, h3, h4, h5{
     .w-res-75{
         width: 100%;
     }
+    .w-res-80{
+        width: 100%;
+    }
 
 
 }
@@ -175,6 +183,9 @@ h1, h2, h3, h4, h5{
         width: 100%;
     }
     .w-res-75{
+        width: 100%;
+    }
+    .w-res-80{
         width: 100%;
     }
     .hide-on-mobile {

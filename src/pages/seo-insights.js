@@ -1,15 +1,21 @@
 import BlogCardContainer from "@/components/molecules/blogCardContainer";
 import HeaderDescContainer from "@/components/molecules/headerDescContainer";
-import Header from "../components/layouts/header";
 import NewLetterComponent from "@/components/organisms/newLetterComponent";
-import Footer from "../components/layouts/footer";
 import Template from "../components/atom/template";
+import React from "react";
 
 
 const Blog = () => {
-    return   <Template>
+    return   <Template
+        urlStrings={[
+            {"SEO Insights":'null'},
+        ]} urlBar={true} urlDetails={{
+        title:'SEO Insights',
+        desc:'Explore our portfolio to witness the depth and range of our SEO expertise. Each project is a story of challenge, innovation, and success.'
+    }}
+    >
 
-
+<div className={"mt-lg-5 mt-md-5"} />
         <NewLetterComponent
         heading="Stay Ahead in SEO: Subscribe Now"
         desc={"<p>Get the latest SEO tips and updates straight to your inbox. Subscribe to our newsletter and never miss out on valuable insights.</p>"}
