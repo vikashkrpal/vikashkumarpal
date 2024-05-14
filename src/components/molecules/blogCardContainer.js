@@ -14,7 +14,7 @@ const BlogCardContainer =  ({image,category,avtar,header,desc,time, column=true}
                 <div className="row px-2 align-items-center">
                         <div className="col-6">
                             <Link href="#">
-                                    <span className="badge bg-primary p-2">
+                                    <span className="badge bg-primary p-2" style={{ borderRadius:20 }}>
                                         {category}
                                     </span>
                             </Link>

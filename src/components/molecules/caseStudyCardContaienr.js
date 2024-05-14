@@ -28,7 +28,7 @@ const CaseStudyCardContainer = ({image,category,header,desc,time, column=true}) 
                     </div>
 
                 <div className="card-body border-top">
-            <p className="card-text mb-0 py-3">
+            <div className="card-text mb-0 py-3">
                 <div className={"row"}>
                     <div className="text-light col-6 col-lg-6">
                         <span className="text-primary font-b" style={{ fontSize:22 }} >25%</span>
@@ -40,7 +40,7 @@ const CaseStudyCardContainer = ({image,category,header,desc,time, column=true}) 
                     </div>
                 </div>
 
-            </p>
+            </div>
         </div>
                 </div>
 

@@ -8,15 +8,18 @@ const UrlBar = ({ urlStrings, urlDetails }) => {
             backgroundSize: 'cover',
             backgroundPosition: 'bottom',
             backgroundRepeat: 'no-repeat',
+            marginBottom:-50
         }}>
-            <div className="container">
+            <div className="container pt-4">
                 <div className="row">
-                    <div className="col-md-12 text-lg-center mx-auto">
-                        <h1>{urlDetails.title}</h1>
+                    <div className="col-md-12 text-lg-center mx-lg-auto">
+                        <div className="w-res-80 mx-auto">
+                            <h1>{urlDetails.title}</h1>
+                        </div>
 
                         <div className="py-lg-3 w-res-75 mx-auto"><p>{urlDetails.desc}</p></div>
 
-                        <h6 className="theme-color2 text-bold  py-4 ">
+                        <h6 className="theme-color2 text-bold  pb-4 ">
                             <Link href="/" className="px-lg-2" style={{ fontSize: 20}}>
                                 Home&nbsp;&nbsp;
                             </Link>
