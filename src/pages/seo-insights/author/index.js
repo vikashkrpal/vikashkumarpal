@@ -39,7 +39,7 @@ const Index = () => {
                         alt="Client Avatar Icon"
                     />{" "}
                 </div>
-                <div className="col-lg-8 col-md-7 mt-3">
+                <div className="col-lg-7 col-md-12 mt-3">
                             <h3 className="mt-0 mb-2 font-b">Vikash Kumar Pal</h3>
                             <p>
                                 Vikash Kumar Pal stands at the helm of ImproveFX as the
@@ -70,9 +70,9 @@ const Index = () => {
                     </div>
                 </div>
 
-                <div className="col-auto mt-3">
-                    <div className="d-flex justify-content-end align-items-end">
-                        <ThemeButton text={"Book a strategic call >"} href={"#"} />
+                <div className="col-lg-3 col-md-12 col-sm-12 mt-3">
+                    <div className="d-flex justify-content-lg-end align-items-lg-end">
+                        <ThemeButton text={"Book a strategic call >"} href={"#"} addClass="" />
                     </div>
                 </div>
             </div>
