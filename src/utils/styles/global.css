@@ -14,6 +14,14 @@ h1, h2, h3, h4, h5{
     margin-top: 1.5rem;
     margin-bottom: 1rem;
 }
+
+.blog-post-content  h2, h3, h4, h5{
+    font-family: 'Gt walsheim bold';
+    font-weight: 400;
+    color: #fff;
+    margin-top: 1.8rem;
+    margin-bottom: 1rem;
+}
 .form-control {
     background-color: black;
     color: white;
@@ -98,6 +106,10 @@ h1, h2, h3, h4, h5{
     width: 820px;
 }
 
+.responsive-blog-hero{
+    margin-top:-8%
+}
+
 
 .accordion-button{
     font-size: 1rem;
@@ -154,6 +166,10 @@ h1, h2, h3, h4, h5{
         width: 100%;
     }
 
+    .responsive-blog-hero{
+        margin-top:-20%
+    }
+
 
 }
 
@@ -201,6 +217,10 @@ h1, h2, h3, h4, h5{
     }
     .hide-on-mobile {
         display: none;
+    }
+
+    .responsive-blog-hero{
+        margin-top:-40%
     }
 
     /* New STYLES for mobile */

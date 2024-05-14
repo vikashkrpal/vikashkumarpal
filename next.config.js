@@ -26,6 +26,7 @@ module.exports = withFonts({
         domains: [
             'admin.improvefx.com',
             'assets-global.website-files.com',
+            'ncmaz-nextjs.vercel.app',
             'admin.vikashkumarpal.com'
         ],
         ...nextConfig.images,
