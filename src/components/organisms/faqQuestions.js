@@ -1,5 +1,4 @@
 import React from 'react';
-import Template from "../atom/template";
 import HeaderDescContainer from "../molecules/headerDescContainer";
 
 const FaqQuestions = () => {
