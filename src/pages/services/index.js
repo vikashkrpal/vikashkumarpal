@@ -10,6 +10,7 @@ import TestimonialsSlider from "../../components/organisms/testimonialsSlider";
 import ImageWithSideSortContent from "../../components/organisms/imageWithSideSortContent";
 import BrandSliderWithSideContent from "../../components/organisms/brandSliderWithSideContent";
 import SimpleNewsLetterForm from "../../components/molecules/simpleNewsLetterForm";
+import FaqQuestions from "../../components/organisms/faqQuestions";
 
 const Index = () => {
     return (
@@ -130,7 +131,7 @@ const Index = () => {
                 </div>
             </section>
 
-            <h1>FAQ DESIGN SPACE</h1>
+          <FaqQuestions />
 
             <BrandSliderWithSideContent />
 
