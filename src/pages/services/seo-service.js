@@ -1,5 +1,13 @@
-const seoService = () => {
-    return <h1>seo page</h1>
-}
+import React from 'react';
+import Template from "../../components/atom/template";
 
-export default seoService;
+const SeoService = () => {
+    return (
+        <Template>
+            Seo services
+
+        </Template>
+    );
+};
+
+export default SeoService;
