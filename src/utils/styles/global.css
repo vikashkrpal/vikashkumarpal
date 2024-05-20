@@ -126,6 +126,50 @@ h1, h2, h3, h4, h5{
     display: none;
 }
 
+/*
+Vertical Slider
+*/
+/* CardComponent.css */
+
+@media (max-width: 600px) {
+    .mobile-overflow-hidden {
+        overflow-x: hidden;
+    }
+}
+
+.section-slider {
+    align-items: center;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    padding: 1rem;
+    position: sticky;
+    width: 100%;
+}
+
+
+.title-slider {
+    color: #FFF;
+    font-size: 5rem;
+    -webkit-text-stroke: 1px #000;
+    text-stroke: 0.1px #000;
+}
+
+@supports not (-webkit-text-stroke: 1px #000) {
+    .title-slider {
+        text-shadow:
+                3px  3px 0 #000,
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px  1px 0 #000,
+                1px  1px 0 #000;
+    }
+}
+/*
+END vertical Slider
+*/
+
 @media (max-width: 1024px) and (max-height: 1366px) {
     .navbar-expand-lg .navbar-collapse {
         display: none !important;

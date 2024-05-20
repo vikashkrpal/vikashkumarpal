@@ -1,18 +1,25 @@
 const withFonts = require('next-fonts');
-const webpack = require("webpack");
+const webpack = require('webpack');
 
 const nextConfig = {
     reactStrictMode: false,
     trailingSlash: true,
     i18n: {
-        locales: ["en"],
-        defaultLocale: "en",
+        locales: ['en'],
+        defaultLocale: 'en',
     },
-};
-
-module.exports = withFonts({
-    ...nextConfig,
-    webpack: (config, { webpack }) => {
+    compiler: {
+        styledComponents: true,
+    },
+    images: {
+        domains: [
+            'admin.improvefx.com',
+            'assets-global.website-files.com',
+            'ncmaz-nextjs.vercel.app',
+            'admin.vikashkumarpal.com',
+        ],
+    },
+    webpack: (config, { isServer }) => {
         config.plugins.push(
             new webpack.ProvidePlugin({
                 $: 'jquery',
@@ -20,15 +27,17 @@ module.exports = withFonts({
                 'window.jQuery': 'jquery',
             })
         );
+
+        if (!isServer) {
+            config.resolve.fallback = {
+                ...config.resolve.fallback,
+                fs: false,
+                module: false,
+            };
+        }
+
         return config;
     },
-    images: {
-        domains: [
-            'admin.improvefx.com',
-            'assets-global.website-files.com',
-            'ncmaz-nextjs.vercel.app',
-            'admin.vikashkumarpal.com'
-        ],
-        ...nextConfig.images,
-    },
-});
+};
+
+module.exports = withFonts(nextConfig);
