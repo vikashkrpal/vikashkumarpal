@@ -7,7 +7,7 @@ const Template = ({ children, urlBar=false, urlStrings = [], urlDetails={title:"
     return (
         <section>
             <Header />
-            <section style={{ overflowX:"hidden" }}>
+            <section className={"mobile-overflow-hidden"}>
                 {urlBar && <UrlBar urlStrings={urlStrings} urlDetails={urlDetails} />}
                 <div className="container">
                   {children}

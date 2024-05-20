@@ -1,5 +1,6 @@
 import React from 'react';
 import HeaderDescContainer from "../molecules/headerDescContainer";
+import {FaAngleDown, FaAngleUp} from "react-icons/fa";
 
 const FaqQuestions = () => {
     const [faqCurrentQuestionId, setFaqCurrentQuestionId] = React.useState(0);
@@ -39,13 +40,18 @@ const FaqQuestions = () => {
                         answer:"<p>Professional expertise ensures effective strategies, delivering superior results and maximizing your online presence.</p>"
                     }
                 ].map((faq,index) =>  <div key={index} className="accordion-item  mb-2 bg-dark text-light" style={{ borderRadius:20, overflow:'hidden' }}>
-                    <h2 className="accordion-header mt-0" id={"heading"+index}>
-                        <button className={"accordion-button font-weight-bold "+(index === faqCurrentQuestionId ?" " : "collapsed") } onClick={()=> setFaqCurrentQuestionId((index === faqCurrentQuestionId ? null :index))} type="button"
+                    <h5 className="mt-0 px-4 py-3 bg-black mb-0" id={"heading"+index}>
+                        <div className={" font-weight-bold row "+(index === faqCurrentQuestionId ?" " : "collapsed") } style={{ width:'100%', cursor:'pointer'}} onClick={()=> setFaqCurrentQuestionId((index === faqCurrentQuestionId ? null :index))}
                                 data-bs-toggle="collapse" data-bs-target={"#collapse"+index} aria-expanded={(index === faqCurrentQuestionId ?"true" : "false")}
                                 aria-controls={"collapse"+index}>
-                            {faq.question}
-                        </button>
-                    </h2>
+                            <div className="col">
+                                {faq.question}
+                            </div>
+                            <div className="col-auto">
+                                {(index === faqCurrentQuestionId ?<FaAngleUp /> : <FaAngleDown />)}
+                            </div>
+                        </div>
+                    </h5>
                     <div id={"collapse"+index} className={"accordion-collapse collapse"+(index === faqCurrentQuestionId ?"  show " : " ")} aria-labelledby={"heading"+index}
                          data-bs-parent="#accordionExample">
                         <div className="accordion-body">
