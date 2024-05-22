@@ -4,13 +4,15 @@ import {is_not_null} from "../../utils/globalFunctions";
 import ThemeButton from "../atom/themeButton";
 import Image from "next/image";
 import image from "../../asserts/slider-background.png";
+import Template from "../atom/template";
+import HeaderDescContainer from "../molecules/headerDescContainer";
 
 
 const VerticalSwiper = () => {
 
     const ImageWithSideSortContentWithBackgroundImage = ({ headingHighlight=null, heading=null, content=null, ImageData=null, contentListing=0, buttonData={buttonText:'Get Started Now! >', action:'#'} }) => {
         return  <div
-            className="bg-black p-2 px-4 mt-5"
+            className="bg-black p-2 px-4"
             style={{
                 backgroundImage: `url('${image.src}')`,
                 backgroundSize: 'cover',
@@ -37,10 +39,12 @@ const VerticalSwiper = () => {
 
 
     return (
-        <div className={"mt-5"}>
+        <div className={"slider-container"} >
+
+
             <section    style={{
                 zIndex: -1,
-            }} className={"section-slider"} >
+            }} className={"section-slider "} >
 
                     <ImageWithSideSortContentWithBackgroundImage
                         heading={"<h2>Want to work with me?</h2>"}
