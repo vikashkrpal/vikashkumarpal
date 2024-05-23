@@ -14,26 +14,17 @@ import BrandSliderWithSideContent from "../components/organisms/brandSliderWithS
 import Template from "../components/atom/template";
 import ContentWithSideRowCounts from "../components/organisms/ContentWithSideRowCounts";
 import {registeredPages} from "../utils/constants";
-import {bindState} from "../utils/globalFunctions";
-import {loadHomePageData} from "../services/siteServies";
-import {getPageQuery} from "../services/queryLibrary";
+import {getStateFromSelector} from "../redux/store";
+import {reducers} from "../redux/reducers";
 
 const App = () => {
-    const [pageData,setPageData] = React.useState(undefined);
-    const [loading, setLoading] = React.useState(true);
-    const [error, setError] = React.useState(null);
+    const { currentPageData} = getStateFromSelector(reducers.SITE_DATA);
+    const pageData = currentPageData.page !== undefined ? currentPageData.page[registeredPages.HOMEPAGE] : {};
 
-    React.useEffect( () => {
-        loadHomePageData(getPageQuery(pageName), bindState(pageData, setPageData), bindState(loading, setLoading), bindState(error, setError)).then()
-    }, []);
-
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error}</p>;
-
-    return (
-        <Template>
+    return(
+        <Template pageName={registeredPages.HOMEPAGE}>
             <ImageWithSideContent
-                headingHighlight={pageData.homepage.hpHh1}
+                headingHighlight={pageData.hpHh1}
                 heading={
                     "<h1>Data-Driven Custom SEO Services That Drive Revenue!</h1>"
                 }
