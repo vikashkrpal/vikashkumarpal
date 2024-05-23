@@ -142,12 +142,15 @@ Vertical Slider
     bottom: 0;
     display: flex;
     justify-content: center;
-    height: 80vh;
+    height: 95vh;
     padding: 1rem;
     position: sticky;
     width: 100%;
 }
-
+.slider-container{
+    margin-top: -80px;
+    margin-bottom: -100px;
+}
 
 .title-slider {
     color: #FFF;
@@ -213,7 +216,20 @@ END vertical Slider
     .responsive-blog-hero{
         margin-top:-20%
     }
-
+    .section-slider {
+        align-items: center;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        height: 40vh;
+        padding: 1rem;
+        position: sticky;
+        width: 100%;
+    }
+    .slider-container{
+        margin-top: -80px;
+        margin-bottom: -80px;
+    }
 
 }
 
@@ -224,6 +240,20 @@ END vertical Slider
     }
     .show_on_pro {
         display: none;
+    }
+    .section-slider {
+        align-items: center;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        height: 80vh;
+        padding: 1rem;
+        position: sticky;
+        width: 100%;
+    }
+    .slider-container{
+        margin-top: -50px;
+        margin-bottom: -100px;
     }
 }
 
@@ -298,6 +328,22 @@ END vertical Slider
         margin-top: .6rem;
         margin-bottom: .4rem;
     }
+    .section-slider {
+        align-items: center;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        height: 90%;
+        padding: 0rem;
+        position: sticky;
+        width: 100%;
+        margin-top: 20%;
+    }
+
+    .slider-container{
+        margin-top: -60px;
+        margin-bottom: 3rem;
+    }
 
 }
 
@@ -343,7 +389,7 @@ p {
     color: cornflowerblue;
 }
 .check-card {
-    border-radius: 50px;
+    border-radius: 20px;
     transition: border-color 0.3s ease-in-out;
 }
 .p-bottom-0 p{

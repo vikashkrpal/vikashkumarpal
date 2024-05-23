@@ -3,16 +3,23 @@ import Header from "../layouts/header";
 import Footer from "../layouts/footer";
 import UrlBar from "../layouts/urlBar";
 
-const Template = ({ children, urlBar=false, urlStrings = [], urlDetails={title:"page", des:'page desc'} }) => {
+const Template = ({
+                      children,
+                      urlBar = false,
+                      urlStrings = [],
+                      urlDetails = {title: "page", des: 'page desc'}
+                  }) => {
+
+
     return (
         <section>
-            <Header />
+            <Header/>
             <section className={"mobile-overflow-hidden"}>
-                {urlBar && <UrlBar urlStrings={urlStrings} urlDetails={urlDetails} />}
+                {urlBar && <UrlBar urlStrings={urlStrings} urlDetails={urlDetails}/>}
                 <div className="container">
-                  {children}
+                    {children}
                 </div>
-                <Footer />
+                <Footer/>
             </section>
         </section>
     );
