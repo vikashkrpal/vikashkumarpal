@@ -5,10 +5,10 @@ import storage from 'redux-persist/lib/storage';
 import { thunk } from 'redux-thunk';
 import { createWrapper } from 'next-redux-wrapper';
 import {rootReducer} from './reducers';
-import {useSelector} from "react-redux";
+import Config from '../config'
 
 const persistConfig = {
-    key: 'persist-root',
+    key: Config.appName,
     storage,
 };
 
@@ -21,4 +21,3 @@ const makeStore = (context) => {
 };
 
 export const wrapper = createWrapper(makeStore);
-export const getStateFromSelector =selector=>useSelector(cs => cs[selector]);

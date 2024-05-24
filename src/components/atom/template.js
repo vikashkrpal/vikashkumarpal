@@ -2,12 +2,11 @@ import React from 'react';
 import Header from "../layouts/header";
 import Footer from "../layouts/footer";
 import UrlBar from "../layouts/urlBar";
-import {getStateFromSelector} from "../../redux/store";
 import {reducers} from "../../redux/reducers";
 import {loadHomePageData} from "../../services/siteServies";
 import {getPageQuery} from "../../services/queryLibrary";
 import {bindState} from "../../utils/globalFunctions";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import actionFunctions from "../../redux/actions";
 
 const Template = ({
@@ -17,7 +16,7 @@ const Template = ({
                       urlDetails = {title: "page", des: 'page desc'},
                       pageName = " "
                   }) => {
-    const {dataLoading, errorResponse, currentPageData} = getStateFromSelector(reducers.SITE_DATA);
+    const {dataLoading, errorResponse, currentPageData} = useSelector(state => state[reducers.SITE_DATA]);
     const dis = useDispatch()
     React.useEffect( () => {
         dis(actionFunctions.SET_RESET_STATE(pageName))

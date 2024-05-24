@@ -14,38 +14,37 @@ import BrandSliderWithSideContent from "../components/organisms/brandSliderWithS
 import Template from "../components/atom/template";
 import ContentWithSideRowCounts from "../components/organisms/ContentWithSideRowCounts";
 import {registeredPages} from "../utils/constants";
-import {getStateFromSelector} from "../redux/store";
 import {reducers} from "../redux/reducers";
+import {checkNotUndefined, loadImageFromData} from "../utils/globalFunctions";
+import {useSelector} from "react-redux";
 
 const App = () => {
-    const { currentPageData} = getStateFromSelector(reducers.SITE_DATA);
+    const { currentPageData} = useSelector(state => state[reducers.SITE_DATA]);
     const pageData = currentPageData.page !== undefined ? currentPageData.page[registeredPages.HOMEPAGE] : {};
 
     return(
         <Template pageName={registeredPages.HOMEPAGE}>
             <ImageWithSideContent
                 headingHighlight={pageData.hpHh1}
-                heading={
-                    "<h1>Data-Driven Custom SEO Services That Drive Revenue!</h1>"
-                }
-                content={
-                    "<p>Choose improveFX as your SEO agency and unlock high-impact search results by dominating your market with custom result driven SEO strategies to take your business to new heights with our award-winning SEO Experts.</p>"
-                }
-                ImageData={{
-                    url: "https://admin.improvefx.com/wp-content/uploads/2024/03/award-winning-seo-experts-1.webp",
+                heading={pageData.hpHeading1}
+                content={pageData.hpPc1}
+                ImageData={  {
+                    url: loadImageFromData(pageData.hpImage1),
                     alert: "Award winning SEO experts",
                 }}
                 contentListing={0}
+                buttonData={{
+                    buttonText: pageData.hpBannerButtonLabel,
+                    action: pageData.hpBannerButtonLink
+                }}
             />
 
             <BrandSlider/>
 
             <HeaderDescContainer
-                highligter={"Top-Rated Professional SEO Company"}
-                header={"<h2>We Help You Define Your SEO Objectives</h2>"}
-                desc={
-                    "<p>Discover unparalleled SEO success with our top-rated professional SEO agency. We specialize in affordable, organic SEO solutions for small to large businesses. Our expert team crafts effective SEO campaigns, enhancing your Google visibility and website performance. Achieve your online visibility goals with our expert SEO team's strategic SEO plans that propel your business objectives forward.</p>"
-                }
+                highligter={pageData.hpHh2}
+                header={pageData.hpHeading2}
+                desc={pageData.hpPc2}
             />
 
             <div className="row">
@@ -163,112 +162,45 @@ const App = () => {
                 </div>
             </div>
 
-            <ImageWithSideContent
-                headingHighlight={"Your Partner for Tailored SEO Solutions"}
-                heading={"<h2>Why improveFX Is the Right SEO Agency for You?</h2>"}
-                content={
-                    "<p>improveFX stands out as a professional SEO agency offering top-notch SEO solutions tailored to your needs. As a top SEO agency, we specialize in organic SEO strategies, making us an ideal choice for small businesses and larger enterprises alike. Our affordable SEO agency services are designed to enhance your website's performance, ensuring high rankings in Google searches. Whether you're looking for a small business SEO agency or a comprehensive website SEO agency, improveFX delivers results that matter.</p>"
-                }
-                ImageData={{
-                    url: "https://admin.improvefx.com/wp-content/uploads/2024/03/seo-agency.webp",
-                    alert: "Award winning SEO experts",
-                }}
-                contentListing={1}
-                buttonData={{
-                    buttonText: "Let's go >",
-                    action: "#",
-                }}
-            />
-
-            <ImageWithSideContent
-                headingHighlight={
-                    "Elevate Your Business with Our Expert SEO Campaigns"
-                }
-                heading={
-                    "<h2>Top SEO Agency That Put You on Top of Google Search</h2>"
-                }
-                content={
-                    "<p>As a leading SEO agency, improveFX is committed to elevating your business to the top of Google search results. Our expert team, known for their effective SEO campaigns, utilizes the latest organic SEO techniques. Being an affordable SEO agency, we provide services that cater to a diverse range of clients, including small business SEO agency needs. Choose improveFX, a google SEO agency that prioritizes your growth and visibility.</p>"
-                }
-                ImageData={{
-                    url: "https://admin.improvefx.com/wp-content/uploads/2024/03/Top-SEO-Agency.webp",
-                    alert: "Award winning SEO experts",
-                }}
-                buttonData={{
-                    buttonText: "Start your journey",
-                    action: "#",
-                }}
-            />
-
-            <ImageWithSideContent
-                headingHighlight={
-                    "Innovative and Affordable SEO Services for Every Business"
-                }
-                heading={"<h2>What Makes Our SEO Company Different?</h2>"}
-                content={
-                    "<p>improveFX distinguishes itself as a professional SEO agency by delivering unique and effective SEO solutions. Our approach as a top SEO agency includes creating bespoke SEO campaigns that cater specifically to your business goals. Whether you're looking for a small business SEO agency or an organic SEO agency with a broader scope, improveFX is equipped to deliver. Our commitment as an affordable and proficient website SEO agency sets us apart in the competitive market.</p>"
-                }
-                ImageData={{
-                    url: "https://admin.improvefx.com/wp-content/uploads/2024/03/SEO-Company.webp",
-                    alert: "Award winning SEO experts",
-                }}
-                contentListing={1}
-                buttonData={{
-                    buttonText: "Start your journey",
-                    action: "#",
-                }}
-            />
-
+            {
+                checkNotUndefined(pageData.hpContentArea1) && (pageData.hpContentArea1).map((data, index) =>  <ImageWithSideContent
+                    headingHighlight={data.hpHh3}
+                    heading={data.hpHeading3}
+                    content={data.hpPc3}
+                    ImageData={{
+                        url: loadImageFromData(data.hpImage2),
+                        alert: "Award winning SEO experts",
+                    }}
+                    contentListing={index%2}
+                    buttonData={{
+                        buttonText: "Let's go >",
+                        action: "#",
+                    }}
+                    key={index}
+                />)
+            }
             <ContentWithSideRowCounts/>
 
             <HeaderDescContainer
-                highligter={"Real Success Stories"}
-                header={"<h2>improveFX results speak for themselves</h2>"}
-                desc={
-                    "<p>Explore our diverse case studies to witness firsthand the transformative impact of improveFX's SEO services. Each case study is a testament to our strategic approach, showcasing significant increases in traffic, sales, and online presence for our clients. These success stories reflect our commitment to not just meeting but exceeding SEO goals.</p>"
-                }
+                highligter={pageData.hpHh4}
+                header={pageData.hpHeading4}
+                desc={pageData.hpPc4}
             />
 
             <CaseStudiesSlider/>
 
             <ContentWithSidePoint
                 headerDetails={{
-                    highligter: "Maximize Your Success with Expert Organic SEO",
-                    header:
-                        "<h2> Substantially increase your ROI with Strategic Organic SEO Services</h2>",
-                    desc: "<p>Elevate your business's online impact with improveFX, a professional SEO agency renowned for delivering strategic organic SEO services. Our approach focuses on creating robust SEO campaigns tailored to your specific market needs, ensuring a significant boost in ROI. As a top SEO agency, we specialize in providing affordable, high-quality services for businesses of all sizes. From small business SEO agency needs to comprehensive website SEO strategies, our commitment to organic growth drives real, sustainable results.</p>",
+                    highligter: pageData.hpHh5,
+                    header:pageData.hpHeading5,
+                    desc: pageData.hpPc5,
                     textAlignCenter: false,
                 }}
                 buttonDetails={{
-                    text: "Book a Strategy Call",
-                    action: "#",
+                    text: pageData.hpButtonLabel2,
+                    action: pageData.hpButtonLink2,
                 }}
-                pointsArray={[
-                    {
-                        image:
-                            "https://admin.improvefx.com/wp-content/uploads/2024/03/Proven-Track-Record.webp",
-                        title: "Proven Track Record",
-                        desc: "Transform your business with our track record of multiplying traffic and conversions.",
-                    },
-                    {
-                        image:
-                            "https://admin.improvefx.com/wp-content/uploads/2024/03/Proven-Track-Record.webp",
-                        title: "Proven Track Record",
-                        desc: "Transform your business with our track record of multiplying traffic and conversions.",
-                    },
-                    {
-                        image:
-                            "https://admin.improvefx.com/wp-content/uploads/2024/03/Proven-Track-Record.webp",
-                        title: "Proven Track Record",
-                        desc: "Transform your business with our track record of multiplying traffic and conversions.",
-                    },
-                    {
-                        image:
-                            "https://admin.improvefx.com/wp-content/uploads/2024/03/Proven-Track-Record.webp",
-                        title: "Proven Track Record",
-                        desc: "Transform your business with our track record of multiplying traffic and conversions.",
-                    },
-                ]}
+                pointsArray={pageData.hpPointComp}
             />
 
             <TestimonialsSlider/>
