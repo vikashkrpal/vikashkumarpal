@@ -1,6 +1,7 @@
 import Image from "next/image";
 import HeaderDescContainer from "../molecules/headerDescContainer";
 import ThemeButton from "../atom/themeButton";
+import {checkNotUndefined, loadImageFromData} from "../../utils/globalFunctions";
 
 const ContentWithSidePoint = ({
   headerDetails,
@@ -20,12 +21,12 @@ const ContentWithSidePoint = ({
         </div>
         <div className="col-lg-6 col-12">
           <div className="row no-gutters ">
-            {pointsArray.map((d, i) => (
+            {checkNotUndefined(pointsArray) && pointsArray.map((d, i) => (
               <div className="col-md-6 m-0" key={i}>
                 <div className="card hover-dark bg-black">
                   <div className="ib-icon-wrapper d-lg-flex justify-content-center align-items-center">
                     <Image
-                      src={d.image}
+                      src={loadImageFromData(d.hpPointIcon)}
                       alt="Proven Track Record"
                       width={100}
                       height={100}
@@ -35,9 +36,9 @@ const ContentWithSidePoint = ({
 
                   <div className="card-body my-3">
                     <h4 className="card-title text-lg-center mt-0">
-                      {d.title}
+                      {d.hpPointName}
                     </h4>
-                    <p className="card-text text-lg-center">{d.desc}</p>
+                    <div className="card-text text-lg-center" dangerouslySetInnerHTML={{ __html: d.hpPointDescription }} />
                   </div>
                 </div>
               </div>
