@@ -10,11 +10,8 @@ const FeaturePowerUpComponent = () => {
             </div>
             <div className="col-lg-5 col-md-12 col-sm-12">
                 <div className="row mt-lg-0 mt-3 d-lg-flex justify-content-end">
-                    <div className="col-auto ">
-                        <ThemeButton text={"Get Started >"}  href={"#"} />
-                    </div>
                     <div className="col col-lg-auto ">
-                        <ThemeButton text={"Browse all features >"}  href={"#"} />
+                        <ThemeButton text={"Browse all features >"} addStyle={{  minWidth:'30%', fontSize:18 }}  href={"#"} />
                     </div>
                 </div>
             </div>

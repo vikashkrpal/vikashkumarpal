@@ -151,9 +151,17 @@ const SeoIndustry = () => {
                 </div>
             </section>
 
+            <div className={"pt-5"}>
+                <HeaderDescContainer
+                    header={"<h2>We Help You Define Your SEO Objectives</h2>"}
+                    desc={
+                        "<p>Discover unparalleled SEO success with our top-rated professional SEO agency. We specialize in affordable, organic SEO solutions for small to large businesses. Our expert team crafts effective SEO campaigns, enhancing your Google visibility and website performance. Achieve your online visibility goals with our expert SEO team's strategic SEO plans that propel your business objectives forward.</p>"
+                    }
+                />
+            </div>
             <VerticalSwiper />
 
-            <section>
+            <section className={"pt-5"}>
 
                 <HeaderDescContainer
                     highligter={"Top-Rated Professional SEO Company"}
