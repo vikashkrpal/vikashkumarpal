@@ -46,7 +46,7 @@ const SeoApproach = () => {
 
             <FeaturePowerUpComponent />
 
-            <section className={"pt-5"}>
+            <section className={"pt-lg-5"}>
                 <HeaderDescContainer
                     header={"<h2>improveFX results speak for themselves</h2>"}
                     desc={
@@ -85,8 +85,8 @@ const SeoApproach = () => {
                         </p>
                     </div>
 
-                    <div className="col-lg-6 col-md-4 text-lg-center my-auto d-flex justify-content-end">
-                        <ThemeButton text={"Get Started >"} />
+                    <div className="col-lg-6 col-md-4 text-lg-center my-auto d-lg-flex justify-content-end">
+                        <ThemeButton text={"Get Started >"} addStyle={{  minWidth:'30%', fontSize:18 }} />
                     </div>
                 </div>
                 <div className="row">
