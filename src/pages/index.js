@@ -15,21 +15,41 @@ import Template from "../components/atom/template";
 import ContentWithSideRowCounts from "../components/organisms/ContentWithSideRowCounts";
 import {registeredPages} from "../utils/constants";
 import {reducers} from "../redux/reducers";
-import {checkNotUndefined, loadImageFromData} from "../utils/globalFunctions";
-import {useSelector} from "react-redux";
+import {bindState, checkNotUndefined, loadImageFromData} from "../utils/globalFunctions";
+import {useDispatch, useSelector} from "react-redux";
+import actionFunctions from "../redux/actions";
+import {loadHomePageData} from "../services/siteServies";
+import {getPageQuery} from "../services/queryLibrary";
 
 const App = () => {
-    const { currentPageData} = useSelector(state => state[reducers.SITE_DATA]);
+    const { currentPageData, dataLoading, errorResponse} = useSelector(state => state[reducers.SITE_DATA]);
     const pageData = currentPageData.page !== undefined ? currentPageData.page[registeredPages.HOMEPAGE] : {};
 
+    const dis = useDispatch()
+    React.useEffect( () => {
+        dis(actionFunctions.SET_RESET_STATE(registeredPages.HOMEPAGE))
+        loadHomePageData(
+            getPageQuery(registeredPages.HOMEPAGE),
+            dis,
+            bindState(currentPageData, actionFunctions.SET_CURRENT_PAGE_DATA),
+            bindState(dataLoading, actionFunctions.SET_DATA_LOADING),
+            bindState(errorResponse, actionFunctions.SET_ERROR_RESPONSE)
+        ).then()
+    }, []);
+
+    if (errorResponse) return <p>Error: {errorResponse}</p>;
+    if (dataLoading || pageData === undefined) return <div className={"mx-auto mt-5"} style={{ display: "grid", placeItems: "center", height: "100vh" }}>
+        <div className="spinner-grow" style={{width: 50, height: 50}} role="status" />
+    </div>
+
     return(
-        <Template pageName={registeredPages.HOMEPAGE}>
+        <Template>
             <ImageWithSideContent
                 headingHighlight={pageData.hpHh1}
                 heading={pageData.hpHeading1}
                 content={pageData.hpPc1}
-                ImageData={  {
-                    url: loadImageFromData(pageData.hpImage1),
+                ImageData={{
+                    url: pageData.hpImage1.mediaItemUrl,
                     alert: "Award winning SEO experts",
                 }}
                 contentListing={0}
