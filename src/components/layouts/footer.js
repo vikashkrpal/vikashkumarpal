@@ -9,7 +9,7 @@ const Footer = () => {
         <hr className="bg-light w-res-50" style={{ height:4, marginTop:5 }}/></>
 
     return (
-        <footer className="mt-5 text-lg-start text-center bg-dark " style={{ overflow:'hidden' }} >
+        <footer className="mt-5 text-lg-start text-center bg-dark " style={{ overflow:'hidden'}} >
             {/* Section: Social media */}
             <section className="p-2 px-lg-5 pt-4">
                 <div className="row align-items-center">

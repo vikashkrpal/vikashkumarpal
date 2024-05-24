@@ -15,6 +15,7 @@ const GlobalStyles = createGlobalStyle`
     src: url(${fontBolder}) format('opentype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
@@ -22,6 +23,7 @@ const GlobalStyles = createGlobalStyle`
     src: url(${CustomFont}) format('opentype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
   }
   
   @font-face {
@@ -29,6 +31,7 @@ const GlobalStyles = createGlobalStyle`
     src: url(${fontBold}) format('opentype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
   }
 
 
