@@ -22,6 +22,16 @@ h1, h2, h3, h4, h5{
     margin-top: 1.8rem;
     margin-bottom: 1rem;
 }
+
+.h-margin-0 h2, h3, h4, h5{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.case-study-card a{
+   color: #FFFFFF;
+    font-family: "Gt walsheim bold";
+    font-size: 25px;
+}
 .form-control {
     background-color: black;
     color: white;

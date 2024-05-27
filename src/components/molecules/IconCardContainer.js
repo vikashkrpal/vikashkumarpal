@@ -12,12 +12,12 @@ const IconCardContainer = ({ icon, heading, desc, listData}) => {
     </div>
 
     <div className="card-body service-card-body">
-        <span className="card-title mx-auto"><h4 className="mt-0 mb-2"><Link href="#" className="elementor-icon">{heading}</Link></h4></span>
+        <div className="card-title mx-auto h-margin-0" dangerouslySetInnerHTML={{ __html: heading }} />
         <div className="mx-auto p-bottom-0" dangerouslySetInnerHTML={{ __html: desc }} />
-        
+
         <ul className="list-unstyled pt-2 mb-2  ">
             {
-                listData.map((liData, index)=> <li key={index}> <Image src="https://improvefx.com/public/asserts//icon-services.svg" alt="..." width="20" height="20" className="" />  {liData}</li>)
+                listData.map((liData, index)=> <li key={index}> <Image src={require('../../asserts/icon-services.svg')} alt="..." width="20" height="20" className="" />  {liData.servicePointName}</li>)
             }
                                   </ul>
     </div>

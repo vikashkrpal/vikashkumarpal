@@ -6,10 +6,13 @@ import MobileMenu from '../organisms/mobileMenu';
 import { bindState } from '@/utils/globalFunctions';
 import CustomDropdown from "../molecules/CustomDropdown";
 import navBarMenus from "@/utils/menuLibrary";
+import {useSelector} from "react-redux";
+import {reducers} from "../../redux/reducers";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
+    const { currentPageData } = useSelector(state => state[reducers.SITE_DATA]);
 
 
   React.useEffect(() => {
@@ -40,7 +43,7 @@ const Header = () => {
       variant="dark" sticky="top" expand="lg" >
       <Navbar.Brand href="/" className='ms-lg-3' >
         <Image
-          src={require('../../asserts/logos/Vikash-Logo-Black-BG.png')}
+          src={currentPageData.siteOption.siteOptions.logo.mediaItemUrl}
           alt='logo image'
           height={45}
           width={"130"}
