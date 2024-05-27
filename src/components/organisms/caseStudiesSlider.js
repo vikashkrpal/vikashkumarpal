@@ -3,6 +3,10 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import dynamic from 'next/dynamic';
 import CaseStudyCardContainer from '../molecules/caseStudyCardContaienr';
+import {useSelector} from "react-redux";
+import {reducers} from "../../redux/reducers";
+import Template from "../atom/template";
+import HeaderDescContainer from "../molecules/headerDescContainer";
 
 // Ensure that jQuery is available in the global scope
 if (typeof window !== 'undefined') {
@@ -15,52 +19,24 @@ const OwlCarousel = dynamic(() => import('react-owl-carousel'), {
 });
 
 const CaseStudiesSlider = () => {
+    const { currentPageData } = useSelector(state => state[reducers.SITE_DATA]);
 
   // Your item data
-  const items = [
-    <div key="1" className='my-5 mx-2'>
-         <CaseStudyCardContainer
-                    image={"https://assets-global.website-files.com/5f35521e2ed7d9663ce9aa51/5f3fdbb7f52d14860a91aded_image-blog-post-06-growth-template.jpg"}
-                    category={"Seo Services"}
-                    header={"meeting but exceeding SEO goals."}
-                    desc={"<p>Lorem ipsum dolor sit amet, consecteturor adipiscing elit. Tincidunt donec vulputate ipsum erat urna auctor. Eget phasellus ideirs.</p>"}
-                    column={false}
-                    />
-    </div>,
-    <div key="2" className='my-5 mx-2'>
-           <CaseStudyCardContainer
-                    image={"https://assets-global.website-files.com/5f35521e2ed7d9663ce9aa51/5f3fda38b99db3443ac96239_image-blog-post-02-growth-template.jpg"}
-                    category={"General Seo"}
-                     header={"Navigating SEO Success in Immigration Services"}
-                    desc={"<p>Lorem ipsum dolor sit amet, consecteturor adipiscing elit. Tincidunt donec vulputate ipsum erat urna auctor. Eget phasellus ideirs.</p>"}
-                    column={false}
-                    />
-    </div>,
-     <div key="3" className='my-5 mx-2'>
-     <CaseStudyCardContainer
-              image={"https://assets-global.website-files.com/5f35521e2ed7d9663ce9aa51/5f3fdbb7f52d14860a91aded_image-blog-post-06-growth-template.jpg"}
-              category={"Local Seo"}
-              header={"Legal Expertise Meets SEO Mastery"}
-              desc={"<p>Lorem ipsum dolor sit amet, consecteturor adipiscing elit. Tincidunt donec vulputate ipsum erat urna auctor. Eget phasellus ideirs.</p>"}
+  const items = currentPageData.siteOption.siteOptions.caseStudyCards.map((caseStudy, index) => <div key={index} className='my-5 mx-2'>
+          <CaseStudyCardContainer
+              image={caseStudy.caseStudyCardImage.mediaItemUrl}
+              category={caseStudy.caseStudyCardCompanyName}
+              header={caseStudy.caseStudyCardHeading}
+              desc={caseStudy.caseStudyCardDescription}
               column={false}
-              />
-</div>,
-    <div key="4" className='my-5 mx-2'>
-      <CaseStudyCardContainer
-          image={"https://assets-global.website-files.com/5f35521e2ed7d9663ce9aa51/5f3fda38b99db3443ac96239_image-blog-post-02-growth-template.jpg"}
-          category={"General Seo"}
-          header={"Legal Mastery"}
-          desc={"<p>Lorem ipsum dolor sit amet, consecteturor adipiscing elit. Tincidunt donec vulputate ipsum erat urna auctor. Eget phasellus ideirs.</p>"}
-          column={false}
-      />
-    </div>,
-    // Add more items here...
-  ];
+              caseStudyHighlightResults={caseStudy.caseStudyHighlightResults}
+          />
+      </div>)
 
   const options = {
     loop: true,
     nav: false,
-    dots: true,
+    dots: currentPageData.siteOption.siteOptions.caseStudyCards.length > 2,
     margin: 10,
     autoplay: (items.length > 3),
     autoplayTimeout: 2000,
@@ -79,9 +55,17 @@ const CaseStudiesSlider = () => {
   };
 
   return (
-    <OwlCarousel className="owl-theme" {...options}>
-      {items}
-    </OwlCarousel>
+      <>
+        <HeaderDescContainer
+            highligter={currentPageData.siteOption.siteOptions.caseStudyHeadingHighlight}
+            header={currentPageData.siteOption.siteOptions.caseStudyHeading}
+            desc={currentPageData.siteOption.siteOptions.caseStudyParagraphContent}
+        />
+
+        <OwlCarousel className="owl-theme" {...options}>
+          {items}
+        </OwlCarousel>
+      </>
   );
 }
 

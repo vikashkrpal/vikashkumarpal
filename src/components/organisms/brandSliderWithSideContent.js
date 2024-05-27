@@ -14,20 +14,12 @@ const OwlCarousel = dynamic(() => import('react-owl-carousel'), {
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import Image from "next/image";
-
-const images = [
-    'https://admin.improvefx.com/wp-content/uploads/2023/12/Ecom-Fashion.webp',
-    'https://admin.improvefx.com/wp-content/uploads/2023/12/Ecom-Fashion.webp',
-    'https://admin.improvefx.com/wp-content/uploads/2023/12/Ecom-Fashion.webp',
-    'https://admin.improvefx.com/wp-content/uploads/2023/12/Ecom-Fashion.webp',
-    'https://admin.improvefx.com/wp-content/uploads/2023/12/Ecom-Fashion.webp',
-    'https://admin.improvefx.com/wp-content/uploads/2023/12/Ecom-Fashion.webp',
-    'https://admin.improvefx.com/wp-content/uploads/2023/12/Ecom-Fashion.webp',
-    'https://admin.improvefx.com/wp-content/uploads/2023/12/Ecom-Fashion.webp',
-    'https://admin.improvefx.com/wp-content/uploads/2023/12/Ecom-Fashion.webp',
-];
+import {useSelector} from "react-redux";
+import {reducers} from "../../redux/reducers";
 
 const BrandSliderWithSideContent = ({addClass="my-5"}) => {
+    const { currentPageData} = useSelector(state => state[reducers.SITE_DATA]);
+
     const options = {
         loop: true,
         nav: false,
@@ -53,7 +45,7 @@ const BrandSliderWithSideContent = ({addClass="my-5"}) => {
     return (
         <div className={"row align-items-center "+addClass}>
             <div className="col-sm-12 col-lg-4 col-md-6">
-                <h2>Our impact in numbers</h2>
+                <div className={"mb-2"} dangerouslySetInnerHTML={{ __html:currentPageData.siteOption.siteOptions.seenOnHeading }} />
                 <p>
                     Lorem ipsum dolor sit amet consectetur purus convallis cursus turpis
                     in et.
@@ -61,9 +53,9 @@ const BrandSliderWithSideContent = ({addClass="my-5"}) => {
             </div>
             <div className="col-sm-12 col-lg-8 col-md-6">
                 <OwlCarousel className="owl-theme" {...options}>
-                    {images.map((image, index) => (
+                    {(currentPageData.siteOption.siteOptions.seenOnImages).map((image, index) => (
                         <div key={index} className="item">
-                            <Image src={image} alt={`Image ${index + 1}`} width={100} height={100} className={"img-fluid"} />
+                            <Image src={image.mediaItemUrl} alt={`Image ${index + 1}`} width={100} height={100} className={"img-fluid"} />
                         </div>
                     ))}
                 </OwlCarousel>

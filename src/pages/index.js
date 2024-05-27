@@ -54,8 +54,8 @@ const App = () => {
                 }}
                 contentListing={0}
                 buttonData={{
-                    buttonText: pageData.hpBannerButtonLabel,
-                    action: pageData.hpBannerButtonLink
+                    buttonText: pageData.hpCtaButton1.hpCtaButtonLabel1,
+                    action: pageData.hpCtaButton1.hpCtaButtonLink1
                 }}
             />
 
@@ -68,118 +68,18 @@ const App = () => {
             />
 
             <div className="row">
-                <div className="col-lg-4 col-md-6 col-sm-12 col-12">
-                    <IconCardContainer
-                        icon={
-                            "https://admin.improvefx.com/wp-content/uploads/2023/12/SEO-Audit.webp"
-                        }
-                        heading={"SEO Audit"}
-                        desc={
-                            "<p>Elevate your website's performance with our comprehensive SEO audit, uncovering valuable insights and strategic paths to outshine competitors and boost rankings.</p>"
-                        }
-                        listData={[
-                            "New opportunities for freshers",
-                            "Identify growth opportunities",
-                            "Uncover hidden website issues",
-                        ]}
-                    />
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 col-12">
-                    <IconCardContainer
-                        icon={
-                            "https://admin.improvefx.com/wp-content/uploads/2023/12/SEO-Audit.webp"
-                        }
-                        heading={"SEO Audit"}
-                        desc={
-                            "<p>Elevate your website's performance with our comprehensive SEO audit, uncovering valuable insights and strategic paths to outshine competitors and boost rankings.</p>"
-                        }
-                        listData={[
-                            "New opportunities for freshers",
-                            "Identify growth opportunities",
-                            "Uncover hidden website issues",
-                        ]}
-                    />
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 col-12">
-                    <IconCardContainer
-                        icon={
-                            "https://admin.improvefx.com/wp-content/uploads/2023/12/SEO-Audit.webp"
-                        }
-                        heading={"SEO Audit"}
-                        desc={
-                            "<p>Elevate your website's performance with our comprehensive SEO audit, uncovering valuable insights and strategic paths to outshine competitors and boost rankings.</p>"
-                        }
-                        listData={[
-                            "New opportunities for freshers",
-                            "Identify growth opportunities",
-                            "Uncover hidden website issues",
-                        ]}
-                    />
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 col-12">
-                    <IconCardContainer
-                        icon={
-                            "https://admin.improvefx.com/wp-content/uploads/2023/12/SEO-Audit.webp"
-                        }
-                        heading={"SEO Audit"}
-                        desc={
-                            "<p>Elevate your website's performance with our comprehensive SEO audit, uncovering valuable insights and strategic paths to outshine competitors and boost rankings.</p>"
-                        }
-                        listData={[
-                            "New opportunities for freshers",
-                            "Identify growth opportunities",
-                            "Uncover hidden website issues",
-                        ]}
-                    />
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 col-12">
-                    <IconCardContainer
-                        icon={
-                            "https://admin.improvefx.com/wp-content/uploads/2023/12/SEO-Audit.webp"
-                        }
-                        heading={"SEO Audit"}
-                        desc={
-                            "<p>Elevate your website's performance with our comprehensive SEO audit, uncovering valuable insights and strategic paths to outshine competitors and boost rankings.</p>"
-                        }
-                        listData={[
-                            "New opportunities for freshers",
-                            "Identify growth opportunities",
-                            "Uncover hidden website issues",
-                        ]}
-                    />
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 col-12">
-                    <IconCardContainer
-                        icon={
-                            "https://admin.improvefx.com/wp-content/uploads/2023/12/SEO-Audit.webp"
-                        }
-                        heading={"SEO Audit"}
-                        desc={
-                            "<p>Elevate your website's performance with our comprehensive SEO audit, uncovering valuable insights and strategic paths to outshine competitors and boost rankings.</p>"
-                        }
-                        listData={[
-                            "New opportunities for freshers",
-                            "Identify growth opportunities",
-                            "Uncover hidden website issues",
-                        ]}
-                    />
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 col-12">
-                    <IconCardContainer
-                        icon={
-                            "https://admin.improvefx.com/wp-content/uploads/2023/12/SEO-Audit.webp"
-                        }
-                        heading={"SEO Audit"}
-                        desc={
-                            "<p>Elevate your website's performance with our comprehensive SEO audit, uncovering valuable insights and strategic paths to outshine competitors and boost rankings.</p>"
-                        }
-                        listData={[
-                            "New opportunities for freshers",
-                            "Identify growth opportunities",
-                            "Uncover hidden website issues",
-                        ]}
-                    />
-                </div>
+                {
+                    (currentPageData.siteOption.siteOptions.serviceCards).map((serviceCard, index) =>
+                        <div key={index} className="col-lg-4 col-md-6 col-sm-12 col-12">
+                            <IconCardContainer
+                                icon={serviceCard.serviceIcon.mediaItemUrl}
+                                heading={serviceCard.serviceName}
+                                desc={serviceCard.serviceDescription}
+                                listData={serviceCard.servicePoints}
+                            />
+                        </div>
+                    )
+                }
             </div>
 
             {
@@ -193,32 +93,38 @@ const App = () => {
                     }}
                     contentListing={index%2}
                     buttonData={{
-                        buttonText: "Let's go >",
-                        action: "#",
+                        buttonText: data.hpCtaButton2.hpCtaButtonLabel2,
+                        action: data.hpCtaButton2.hpCtaButtonLink2,
                     }}
                     key={index}
                 />)
             }
-            <ContentWithSideRowCounts/>
-
-            <HeaderDescContainer
-                highligter={pageData.hpHh4}
-                header={pageData.hpHeading4}
-                desc={pageData.hpPc4}
+            <ContentWithSideRowCounts
+                heading={currentPageData.siteOption.siteOptions.resultsHighlightHeading}
+                desc={currentPageData.siteOption.siteOptions.resultsHighlightPara}
+                points={currentPageData.siteOption.siteOptions.deliveredNumbers.map((item, index) => {
+                    return {
+                        count: item.highlightNumbers,
+                        desc: item.highlightTxt,
+                        key: index
+                    }
+                })}
             />
+
+
 
             <CaseStudiesSlider/>
 
             <ContentWithSidePoint
                 headerDetails={{
-                    highligter: pageData.hpHh5,
-                    header:pageData.hpHeading5,
-                    desc: pageData.hpPc5,
+                    highligter: pageData.hpHh4,
+                    header:pageData.hpHeading4,
+                    desc: pageData.hpPc4,
                     textAlignCenter: false,
                 }}
                 buttonDetails={{
-                    text: pageData.hpButtonLabel2,
-                    action: pageData.hpButtonLink2,
+                    text: pageData.hpCtaButton3.hpCtaButtonLabel3,
+                    action: pageData.hpCtaButton3.hpCtaButtonLink3,
                 }}
                 pointsArray={pageData.hpPointComp}
             />
@@ -231,20 +137,20 @@ const App = () => {
                     style={{borderRadius: 20}}
                 >
                     <ImageWithSideSortContent
-                        headingHighlight={"Start your SEO project"}
-                        heading={"<h2>Want to work with me?</h2>"}
-                        content={
-                            "<p>Get in touch so I can learn more about your brand and project requirements. Unfortunately, I have limited availability, so book a call to make sure you don't miss out.</p>"
-                        }
+                        headingHighlight={currentPageData.siteOption.siteOptions.ctaHighlightTxt}
+                        heading={currentPageData.siteOption.siteOptions.ctaHeading}
+                        content={currentPageData.siteOption.siteOptions.ctaParaContent}
                         ImageData={{
                             url: "https://admin.improvefx.com/wp-content/uploads/2024/03/SEO-services-agency.webp",
                             alert: "Award winning SEO experts",
                         }}
                         contentListing={0}
                         buttonData={{
-                            buttonText: "Contact >",
-                            action: "#",
+                            buttonText:currentPageData.siteOption.siteOptions.ctaButtonLabel,
+                            action: currentPageData.siteOption.siteOptions.ctaButtonLink,
                         }}
+
+                        addClass={"mt-2"}
                     />
                 </div>
             </section>
@@ -290,7 +196,7 @@ const App = () => {
             <div className="row align-items-center">
                 <div className="col-lg-7 col-md-6 col-sm-12">
                     <h2>
-                        Subscribe to our newsletter and stay updated on the latest news
+                        {currentPageData.siteOption.siteOptions.newsletterHeading}
                     </h2>
                 </div>
                 <div className="col-lg-5 col-md-6 col-sm-12 ps-lg-5 ps-md-5 ">

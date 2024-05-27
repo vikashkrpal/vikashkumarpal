@@ -1,26 +1,126 @@
 import {registeredPages} from "../utils/constants";
 
 export const getPageQuery = (pageName) => {
+    let finalQuery = "";
     switch (pageName) {
         case registeredPages.HOMEPAGE:
-            return homePageQuery;
+            finalQuery = homePageQuery;
+            break;
         default:
-            return homePageQuery;
+            finalQuery = homePageQuery;
+            break;
     }
+    return `query NewQuery { ${finalQuery} ${globalComponents} ${testimonialsSlider} }`;
 }
+const globalComponents = `siteOption(id: "global-components", idType: SLUG) {
+                            siteOptions {
+                                serviceCards{
+                                  serviceIcon{
+                                    mediaItemUrl
+                                  }
+                                  serviceName
+                                  serviceDescription
+                                  servicePoints{
+                                    servicePointName
+                                  }
 
-const homePageQuery =  `
-      query NewQuery {
-        page(id:"cG9zdDo1NA==",idType:ID){
+                                }
+                                clientLogo {
+                                    mediaItemUrl
+                                    altText
+                                }
+                                
+                                # Result Highlight
+                                resultsHighlightHeading
+                                  resultsHighlightPara
+                                  deliveredNumbers{
+                                    highlightNumbers
+                                    highlightTxt
+                                  }
+                              
+                                logo {
+                                    mediaItemUrl
+                                    altText
+                                }
+                                favicon {
+                                  mediaItemUrl
+                                  altText
+                                }
+                                head
+                                body
+                                siteAbout
+                                address
+                                email
+                            
+                                facebook
+                                instagram
+                                twitter
+                                linkedin
+
+
+                                #Case Study
+                                caseStudyHeadingHighlight
+                                caseStudyHeading
+                                caseStudyParagraphContent
+                                caseStudyButtonLabel
+                                caseStudyButtonLink
+                                caseStudyCards{
+                                  caseStudyCardImage{
+                                    mediaItemUrl
+                                  }
+                                  caseStudyCardCompanyName
+                                  caseStudyCardHeading
+                                  caseStudyCardDescription
+                                  caseStudyHighlightResults{
+                                    caseStudyCardResultNumbers
+                                    caseStudyCardResultHighlightText
+                                  }
+                                }
+                                
+                                #Vikash CTA
+                                  ctaHighlightTxt
+                                  ctaHeading
+                                  ctaParaContent
+                                  ctaButtonLabel
+                                  ctaButtonLink
+                                    
+                                    #seen on
+                                  seenOnHeading
+                                  seenOnImages{
+                                    mediaItemUrl
+                                  }
+                                  
+                                  #news letter
+                                  newsletterHeading
+                            }
+                        }`
+const testimonialsSlider = ` testimonialSlider: siteOption(id:"client-testimonials", idType: SLUG){
+    clientTestimonials{
+        testimonialHeadingHighlight
+        testimonialHeading
+        testimonialParagraphContent
+        testimonialCards {
+            clientName
+            clientDesignation
+            testimonialContent
+            clientIcon {
+                mediaItemUrl
+                altText
+            }
+        }
+    }
+  }`
+const homePageQuery =  `page(id:"cG9zdDo1NA==",idType:ID){
             title
-            
             
              homepage {
                         hpHh1
                         hpHeading1
                         hpPc1
-                        hpBannerButtonLabel
-                        hpBannerButtonLink
+                        hpCtaButton1 {
+                          hpCtaButtonLabel1
+                          hpCtaButtonLink1
+                        }
                         hpImage1 {
                             mediaItemUrl
                             altText
@@ -38,22 +138,23 @@ const homePageQuery =  `
                         hpHeading3
                         hpHh3
                         hpPc3
-                        hpButtonLabel1
-                        hpButtonLink1
+                        hpCtaButton2 {
+                          hpCtaButtonLabel2
+                          hpCtaButtonLink2
+                        }
                       }
 
                       #case studies column
                       hpHh4
                       hpHeading4
                       hpPc4
-
+                      hpCtaButton3 {
+                          hpCtaButtonLabel3
+                          hpCtaButtonLink3
+                        }
 
                         # 4 points components
-                      hpHh5
-                      hpHeading5
-                      hpPc5
-                      hpButtonLabel2
-                      hpButtonLink2
+                      
                       hpPointComp{
                         hpPointIcon{
                            altText
@@ -65,5 +166,4 @@ const homePageQuery =  `
 
                     }
         }
-      }
     `;
