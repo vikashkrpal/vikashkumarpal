@@ -38,7 +38,7 @@ const App = () => {
     }, []);
 
     if (errorResponse) return <p>Error: {errorResponse}</p>;
-    if (dataLoading || pageData === undefined) return <div className={"mx-auto mt-5"} style={{ display: "grid", placeItems: "center", height: "100vh" }}>
+    if (dataLoading || pageData === undefined || currentPageData.siteOption === undefined) return <div className={"mx-auto mt-5"} style={{ display: "grid", placeItems: "center", height: "100vh" }}>
         <div className="spinner-grow" style={{width: 50, height: 50}} role="status" />
     </div>
 
