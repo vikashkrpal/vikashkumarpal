@@ -1,15 +1,9 @@
 import {request} from "./http/graphql";
 
-export const loadHomePageData = async (pageQuery, dispatcher, dataState, loaderState, errorState) => {
+export const loadHomePageData = async (pageQuery) => {
     try {
-        // console.log("request query", pageQuery)
-        const response = await request(pageQuery);
-        // console.log("got data",response.testimonialSlider)
-        dispatcher(dataState.setState(response));
+        return await request(pageQuery);
     } catch (err) {
-        dispatcher(errorState.setState(err.message));
-    } finally {
-        dispatcher(loaderState.setState(false));
+        throw new Error(err.message);
     }
-
 }

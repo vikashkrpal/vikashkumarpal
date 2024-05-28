@@ -1,48 +1,61 @@
-import React from "react";
-import ImageWithSideContent from "@/components/organisms/imageWithSideContent";
-import BrandSlider from "@/components/organisms/brandSlider";
-import HeaderDescContainer from "@/components/molecules/headerDescContainer";
-import IconCardContainer from "@/components/molecules/IconCardContainer";
-import CaseStudiesSlider from "@/components/organisms/caseStudiesSlider";
-import ThemeButton from "@/components/atom/themeButton";
-import ContentWithSidePoint from "@/components/organisms/contentWithSidePoints";
-import TestimonialsSlider from "@/components/organisms/testimonialsSlider";
-import ImageWithSideSortContent from "@/components/organisms/imageWithSideSortContent";
-import SimpleNewsLetterForm from "../components/molecules/simpleNewsLetterForm";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { loadHomePageData } from '../services/siteServies';
+import { getPageQuery } from '../services/queryLibrary';
+import { checkNotUndefined, loadImageFromData } from '../utils/globalFunctions';
+import actionFunctions from '../redux/actions';
+import { registeredPages } from '../utils/constants';
+import { reducers } from '../redux/reducers';
+import Template from '../components/atom/template';
+import ContentWithSideRowCounts from "../components/organisms/ContentWithSideRowCounts";
 import BlogCardContainer from "../components/molecules/blogCardContainer";
 import BrandSliderWithSideContent from "../components/organisms/brandSliderWithSideContent";
-import Template from "../components/atom/template";
-import ContentWithSideRowCounts from "../components/organisms/ContentWithSideRowCounts";
-import {registeredPages} from "../utils/constants";
-import {reducers} from "../redux/reducers";
-import {bindState, checkNotUndefined, loadImageFromData} from "../utils/globalFunctions";
-import {useDispatch, useSelector} from "react-redux";
-import actionFunctions from "../redux/actions";
-import {loadHomePageData} from "../services/siteServies";
-import {getPageQuery} from "../services/queryLibrary";
+import SimpleNewsLetterForm from "../components/molecules/simpleNewsLetterForm";
+import ImageWithSideContent from "../components/organisms/imageWithSideContent";
+import BrandSlider from "../components/organisms/brandSlider";
+import HeaderDescContainer from "../components/molecules/headerDescContainer";
+import IconCardContainer from "../components/molecules/IconCardContainer";
+import CaseStudiesSlider from "../components/organisms/caseStudiesSlider";
+import ContentWithSidePoint from "../components/organisms/contentWithSidePoints";
+import TestimonialsSlider from "../components/organisms/testimonialsSlider";
+import ImageWithSideSortContent from "../components/organisms/imageWithSideSortContent";
+import ThemeButton from "../components/atom/themeButton";
 
-const App = () => {
-    const { currentPageData, dataLoading, errorResponse} = useSelector(state => state[reducers.SITE_DATA]);
-    const pageData = currentPageData.page !== undefined ? currentPageData.page[registeredPages.HOMEPAGE] : {};
+export async function getServerSideProps() {
+    const pageQuery = getPageQuery(registeredPages.HOMEPAGE);
+    const pageData = await loadHomePageData(pageQuery);
 
-    const dis = useDispatch()
-    React.useEffect( () => {
-        dis(actionFunctions.SET_RESET_STATE(registeredPages.HOMEPAGE))
-        loadHomePageData(
-            getPageQuery(registeredPages.HOMEPAGE),
-            dis,
-            bindState(currentPageData, actionFunctions.SET_CURRENT_PAGE_DATA),
-            bindState(dataLoading, actionFunctions.SET_DATA_LOADING),
-            bindState(errorResponse, actionFunctions.SET_ERROR_RESPONSE)
-        ).then()
-    }, []);
+    return {
+        props: {
+            initialPageData: pageData,
+        },
+    };
+}
+
+const HomePage = ({ initialPageData }) => {
+    const { currentPageData, dataLoading, errorResponse } = useSelector((state) => state[reducers.SITE_DATA]);
+    const pageData = currentPageData.page !== undefined ? currentPageData.page[registeredPages.HOMEPAGE] : initialPageData;
+
+    const dispatch = useDispatch();
+
+
+    React.useEffect(() => {
+        dispatch(actionFunctions.SET_RESET_STATE(registeredPages.HOMEPAGE));
+        dispatch(actionFunctions.SET_DATA_LOADING(true))
+        if (initialPageData) {
+            dispatch(actionFunctions.SET_CURRENT_PAGE_DATA(initialPageData));
+            dispatch(actionFunctions.SET_DATA_LOADING(false))
+        }
+    }, [initialPageData, dispatch]);
+
+
 
     if (errorResponse) return <p>Error: {errorResponse}</p>;
-    if (dataLoading || pageData === undefined || currentPageData.siteOption === undefined) return <div className={"mx-auto mt-5"} style={{ display: "grid", placeItems: "center", height: "100vh" }}>
+    if (dataLoading || !pageData || !currentPageData.siteOption) return <div className={"mx-auto mt-5"} style={{ display: "grid", placeItems: "center", height: "100vh" }}>
         <div className="spinner-grow" style={{width: 50, height: 50}} role="status" />
     </div>
 
-    return(
+    return (
         <Template>
             <ImageWithSideContent
                 headingHighlight={pageData.hpHh1}
@@ -208,4 +221,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default HomePage;
