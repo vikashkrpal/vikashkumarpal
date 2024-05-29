@@ -12,6 +12,42 @@ export const getPageQuery = (pageName) => {
     }
     return `query NewQuery { ${finalQuery} ${globalComponents} ${testimonialsSlider} }`;
 }
+const getQueryWithSeoFields = (pageQueryHeader, pageQueryFooter) =>
+    `${pageQueryHeader} 
+    ${seoDataFields} 
+    ${pageQueryFooter}`
+
+const seoDataFields = `title
+                      dateGmt
+                    slug
+                    author{
+                      node{
+                        avatar{
+                          url
+                        }
+                        name
+                      }
+                    }
+                    featuredImage{
+                      node{
+                        mediaItemUrl
+                      }
+                    }
+                    seo {
+                      title
+                      canonicalUrl
+                      description
+                      jsonLd {
+                        raw
+                      }
+                      openGraph {
+                        description
+                        locale
+                        title
+                        updatedTime
+                      }
+                      robots
+                    }`
 const globalComponents = `siteOption(id: "global-components", idType: SLUG) {
                             siteOptions {
                                 serviceCards{
@@ -110,10 +146,7 @@ const testimonialsSlider = ` testimonialSlider: siteOption(id:"client-testimonia
         }
     }
   }`
-const homePageQuery =  `page(id:"cG9zdDo1NA==",idType:ID){
-            title
-            
-             homepage {
+const homePageQuery = getQueryWithSeoFields(`page(id:"cG9zdDo1NA==",idType:ID){ `, ` homepage {
                         hpHh1
                         hpHeading1
                         hpPc1
@@ -165,5 +198,5 @@ const homePageQuery =  `page(id:"cG9zdDo1NA==",idType:ID){
                       }
 
                     }
-        }
-    `;
+        }` )
+

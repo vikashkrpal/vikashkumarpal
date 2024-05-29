@@ -1,9 +1,10 @@
 import Image from "next/image";
+import React from "react";
 
 const TestimonialCardContainer = ({ testimonialsDetails, col=" " }) => {
   return (
-      <div className={"mt-3 "+col}>
-    <div className={"card  p-4 me-lg-2"}>
+      <div className={"mt-3 "+col} >
+    <div className={"card  p-4 me-lg-2"}  style={{ borderRadius:20 }}>
       <div className="star-rating text-primary">★ ★ ★ ★ ★</div>
       <div className="row  mt-3">
         <div className="col-md-12">

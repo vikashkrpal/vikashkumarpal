@@ -431,9 +431,23 @@ a{
     -webkit-backdrop-filter: blur(10px);
 }
 
-
+.sticky-div {
+    background-color: #f9f9f9;
+    padding: 20px;
+    height: 100%;
+}
 
 /*
 Header CSS END
 ////////////////////////////
 */
+
+.sticky-sidebar {
+    position: relative;
+}
+
+.sticky-content {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10%;
+}

@@ -27,13 +27,13 @@ const TestimonialsSlider = ({ currentPageData }) => {
     autoplayHoverPause: true,
     responsive: {
       0: {
-        items: 1.2,
+        items: 1.1,
       },
       600: {
-        items: 1.6,
+        items: 1.2,
       },
       1000: {
-        items: 2.4,
+        items: 2.2,
       },
     },
   };
@@ -44,7 +44,7 @@ const TestimonialsSlider = ({ currentPageData }) => {
               image: card.clientIcon.mediaItemUrl ,
               name: card.clientName,
               position: card.clientDesignation
-          }} />
+          }}  />
       </div>)
 
 
