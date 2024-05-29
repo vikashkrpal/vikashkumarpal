@@ -1,9 +1,10 @@
 import Link from 'next/link';
-import {FaFacebook, FaInstagram, FaLinkedin, FaTwitter} from "react-icons/fa";
+import {FaFacebook, FaInstagram, FaLinkedin} from "react-icons/fa";
 import '../../utils/styles/footer.css';
 import FooterNewsLetterForm from '@/components/organisms/footerNewsLetterForm';
+import {FaX} from "react-icons/fa6";
 
-const Footer = () => {
+const Footer = ({ currentPageData }) => {
     const FootHeader = ({ title }) =><>
         <h6 className=" text-light font-b mb-0 " style={{ fontSize:22  }}  >{title}</h6>
         <hr className="bg-light w-res-50" style={{ height:4, marginTop:5 }}/></>
@@ -19,19 +20,19 @@ const Footer = () => {
                             [
                                 {
                                     title:'About',
-                                    link:'#'
+                                    link:'/about'
                                 },{
                                     title:'Services',
-                                    link:'#'
+                                    link:'/services'
                                 },{
                                     title:'Testimonials',
-                                    link:'#'
+                                    link:'/testimonials'
                                 },{
                                     title:'Portfolio',
-                                    link:'#'
+                                    link:'/portfolio'
                                 },{
                                     title:'Work With Me',
-                                    link:'#'
+                                    link:'/work-with-me'
                                 }
                             ].map((linkDetails, index) => (
                                 <div key={index} className={linkDetails.title === 'Work With Me' ? 'col-lg col-md col-sm-4 mt-lg-0 mt-2 text-center' :`col mt-lg-0 mt-2 text-center`} style={{ maxWidth: `${(linkDetails.title.length * 9) + 20}px` }}>
@@ -48,16 +49,16 @@ const Footer = () => {
                             [
                                 {
                                     title:<FaInstagram />,
-                                    link:'https://www.insta.com/'
+                                    link:currentPageData.siteOption.siteOptions.instagram
                                 },{
-                                    title:<FaTwitter />,
-                                    link:'https://twitter.com/'
+                                    title:<FaX />,
+                                    link:currentPageData.siteOption.siteOptions.twitter
                                 },{
                                     title:<FaFacebook />,
-                                    link:'https://facebook.com/'
+                                    link:currentPageData.siteOption.siteOptions.facebook
                                 },{
                                     title:<FaLinkedin />,
-                                    link:'https://www.linkedin.com/'
+                                    link:currentPageData.siteOption.siteOptions.linkedin
                                 }
                             ].map((iconDetails, index) => <Link key={index} href={iconDetails.link} className="elementor-icon hover-dark me-4">{iconDetails.title}</Link>)
                         }
@@ -76,7 +77,7 @@ const Footer = () => {
                         {/* Grid column */}
                         <div className="col-sm-10 col-md-12 col-lg-4 mb-4">
                             <FootHeader title={"Vikash Kumar Pal"} />
-                            <p>Seasoned SEO specialist empowering businesses worldwide to scale their online presence and dominate their industries through innovative SEO. Passionate about creating customized strategies that deliver exceptional results.</p>
+                            <div dangerouslySetInnerHTML={{ __html:currentPageData.siteOption.siteOptions.siteAbout }} />
                         </div>
                         {/* Grid column */}
 
@@ -160,8 +161,8 @@ const Footer = () => {
 
                         <div className="col-sm-10 col-md-12 col-lg-4 mb-4">
                             <FootHeader title={"Contact"} />
-                            <p  className="text-light mb-0">New Delhi, India</p>
-                            <Link href="mailto:hello@vikashkumarpal.com" className="text-light" style={{ fontSize:'1.15rem' }}>hello@vikashkumarpal.com</Link>
+                            <p  className="text-light mb-0">{currentPageData.siteOption.siteOptions.address}</p>
+                            <Link href="mailto:hello@vikashkumarpal.com" className="text-light" style={{ fontSize:'1.15rem' }}>{currentPageData.siteOption.siteOptions.email}</Link>
                             <h4 className={"mb-0 mt-3"}>
                                 Stay Ahead In SEO: Subscribe Now
                             </h4>
