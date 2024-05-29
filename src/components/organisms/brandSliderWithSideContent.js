@@ -17,8 +17,7 @@ import Image from "next/image";
 import {useSelector} from "react-redux";
 import {reducers} from "../../redux/reducers";
 
-const BrandSliderWithSideContent = ({addClass="my-5"}) => {
-    const { currentPageData} = useSelector(state => state[reducers.SITE_DATA]);
+const BrandSliderWithSideContent = ({addClass="my-5", currentPageData}) => {
 
     const options = {
         loop: true,

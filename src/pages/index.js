@@ -1,11 +1,8 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { loadHomePageData } from '../services/siteServies';
 import { getPageQuery } from '../services/queryLibrary';
 import { checkNotUndefined, loadImageFromData } from '../utils/globalFunctions';
-import actionFunctions from '../redux/actions';
 import { registeredPages } from '../utils/constants';
-import { reducers } from '../redux/reducers';
 import Template from '../components/atom/template';
 import ContentWithSideRowCounts from "../components/organisms/ContentWithSideRowCounts";
 import BlogCardContainer from "../components/molecules/blogCardContainer";
@@ -23,40 +20,20 @@ import ThemeButton from "../components/atom/themeButton";
 
 export async function getServerSideProps() {
     const pageQuery = getPageQuery(registeredPages.HOMEPAGE);
-    const pageData = await loadHomePageData(pageQuery);
+    const currentPageData = await loadHomePageData(pageQuery);
 
     return {
         props: {
-            initialPageData: pageData,
+            currentPageData,
         },
     };
 }
 
-const HomePage = ({ initialPageData }) => {
-    const { currentPageData, dataLoading, errorResponse } = useSelector((state) => state[reducers.SITE_DATA]);
-    const pageData = currentPageData.page !== undefined ? currentPageData.page[registeredPages.HOMEPAGE] : initialPageData;
-
-    const dispatch = useDispatch();
-
-
-    React.useEffect(() => {
-        dispatch(actionFunctions.SET_RESET_STATE(registeredPages.HOMEPAGE));
-        dispatch(actionFunctions.SET_DATA_LOADING(true))
-        if (initialPageData) {
-            dispatch(actionFunctions.SET_CURRENT_PAGE_DATA(initialPageData));
-            dispatch(actionFunctions.SET_DATA_LOADING(false))
-        }
-    }, [initialPageData, dispatch]);
-
-
-
-    if (errorResponse) return <p>Error: {errorResponse}</p>;
-    if (dataLoading || !pageData || !currentPageData.siteOption) return <div className={"mx-auto mt-5"} style={{ display: "grid", placeItems: "center", height: "100vh" }}>
-        <div className="spinner-grow" style={{width: 50, height: 50}} role="status" />
-    </div>
+const HomePageContent = ({ currentPageData }) => {
+    const pageData = currentPageData.page[registeredPages.HOMEPAGE];
 
     return (
-        <Template>
+        <Template currentPageData={currentPageData}>
             <ImageWithSideContent
                 headingHighlight={pageData.hpHh1}
                 heading={pageData.hpHeading1}
@@ -72,7 +49,7 @@ const HomePage = ({ initialPageData }) => {
                 }}
             />
 
-            <BrandSlider/>
+            <BrandSlider currentPageData={currentPageData} />
 
             <HeaderDescContainer
                 highligter={pageData.hpHh2}
@@ -81,22 +58,20 @@ const HomePage = ({ initialPageData }) => {
             />
 
             <div className="row">
-                {
-                    (currentPageData.siteOption.siteOptions.serviceCards).map((serviceCard, index) =>
-                        <div key={index} className="col-lg-4 col-md-6 col-sm-12 col-12">
-                            <IconCardContainer
-                                icon={serviceCard.serviceIcon.mediaItemUrl}
-                                heading={serviceCard.serviceName}
-                                desc={serviceCard.serviceDescription}
-                                listData={serviceCard.servicePoints}
-                            />
-                        </div>
-                    )
-                }
+                {currentPageData.siteOption.siteOptions.serviceCards.map((serviceCard, index) => (
+                    <div key={index} className="col-lg-4 col-md-6 col-sm-12 col-12">
+                        <IconCardContainer
+                            icon={serviceCard.serviceIcon.mediaItemUrl}
+                            heading={serviceCard.serviceName}
+                            desc={serviceCard.serviceDescription}
+                            listData={serviceCard.servicePoints}
+                        />
+                    </div>
+                ))}
             </div>
 
-            {
-                checkNotUndefined(pageData.hpContentArea1) && (pageData.hpContentArea1).map((data, index) =>  <ImageWithSideContent
+            {checkNotUndefined(pageData.hpContentArea1) && pageData.hpContentArea1.map((data, index) => (
+                <ImageWithSideContent
                     headingHighlight={data.hpHh3}
                     heading={data.hpHeading3}
                     content={data.hpPc3}
@@ -104,34 +79,31 @@ const HomePage = ({ initialPageData }) => {
                         url: loadImageFromData(data.hpImage2),
                         alert: "Award winning SEO experts",
                     }}
-                    contentListing={index%2}
+                    contentListing={index % 2}
                     buttonData={{
                         buttonText: data.hpCtaButton2.hpCtaButtonLabel2,
                         action: data.hpCtaButton2.hpCtaButtonLink2,
                     }}
                     key={index}
-                />)
-            }
+                />
+            ))}
+
             <ContentWithSideRowCounts
                 heading={currentPageData.siteOption.siteOptions.resultsHighlightHeading}
                 desc={currentPageData.siteOption.siteOptions.resultsHighlightPara}
-                points={currentPageData.siteOption.siteOptions.deliveredNumbers.map((item, index) => {
-                    return {
-                        count: item.highlightNumbers,
-                        desc: item.highlightTxt,
-                        key: index
-                    }
-                })}
+                points={currentPageData.siteOption.siteOptions.deliveredNumbers.map((item, index) => ({
+                    count: item.highlightNumbers,
+                    desc: item.highlightTxt,
+                    key: index,
+                }))}
             />
 
-
-
-            <CaseStudiesSlider/>
+            <CaseStudiesSlider currentPageData={currentPageData} />
 
             <ContentWithSidePoint
                 headerDetails={{
                     highligter: pageData.hpHh4,
-                    header:pageData.hpHeading4,
+                    header: pageData.hpHeading4,
                     desc: pageData.hpPc4,
                     textAlignCenter: false,
                 }}
@@ -142,13 +114,10 @@ const HomePage = ({ initialPageData }) => {
                 pointsArray={pageData.hpPointComp}
             />
 
-            <TestimonialsSlider/>
+            <TestimonialsSlider currentPageData={currentPageData} />
 
             <section>
-                <div
-                    className=" bg-dark px-lg-5 px-md-4 px-3 mt-5 pt-3 pt-lg-0"
-                    style={{borderRadius: 20}}
-                >
+                <div className="bg-dark px-lg-5 px-md-4 px-3 mt-5 pt-3 pt-lg-0" style={{ borderRadius: 20 }}>
                     <ImageWithSideSortContent
                         headingHighlight={currentPageData.siteOption.siteOptions.ctaHighlightTxt}
                         heading={currentPageData.siteOption.siteOptions.ctaHeading}
@@ -159,66 +128,59 @@ const HomePage = ({ initialPageData }) => {
                         }}
                         contentListing={0}
                         buttonData={{
-                            buttonText:currentPageData.siteOption.siteOptions.ctaButtonLabel,
+                            buttonText: currentPageData.siteOption.siteOptions.ctaButtonLabel,
                             action: currentPageData.siteOption.siteOptions.ctaButtonLink,
                         }}
-
-                        addClass={"mt-2"}
+                        addClass="mt-2"
                     />
                 </div>
             </section>
 
             <div className="row align-items-center pt-5">
-
                 <div className="col-lg-6 col-md-8">
                     <h2>Explore Our Expert SEO Blog Posts</h2>
                 </div>
-
                 <div className="col-lg-6 col-md-4 text-lg-center my-auto d-flex justify-content-end">
-                    <ThemeButton text={"Visit our blog >"}/>
+                    <ThemeButton text="Visit our blog >" />
                 </div>
             </div>
+
             <div className="row">
                 <BlogCardContainer
-                    image={"https://assets-global.website-files.com/5f35521e2ed7d9663ce9aa51/5f3fdbb7f52d14860a91aded_image-blog-post-06-growth-template.jpg"}
-                    category={"Category name"}
-                    avtar={"https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Female-Avatar1.svg"}
-                    header={"5 great content marketing ideas to for your Instagram account"}
-                    desc={"<p>Lorem ipsum dolor sit amet, consecteturor adipiscing elit. Tincidunt donec vulputate ipsum erat urna auctor. Eget phasellus ideirs.</p>"}
+                    image="https://assets-global.website-files.com/5f35521e2ed7d9663ce9aa51/5f3fdbb7f52d14860a91aded_image-blog-post-06-growth-template.jpg"
+                    category="Category name"
+                    avtar="https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Female-Avatar1.svg"
+                    header="5 great content marketing ideas to for your Instagram account"
+                    desc="<p>Lorem ipsum dolor sit amet, consecteturor adipiscing elit. Tincidunt donec vulputate ipsum erat urna auctor. Eget phasellus ideirs.</p>"
                 />
                 <BlogCardContainer
-                    image={"https://assets-global.website-files.com/5f35521e2ed7d9663ce9aa51/5f3fdbb7f52d14860a91aded_image-blog-post-06-growth-template.jpg"}
-                    category={"Category name"}
-                    avtar={"https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Female-Avatar1.svg"}
-                    header={"5 great content marketing ideas to for your Instagram account"}
-                    desc={"<p>Lorem ipsum dolor sit amet, consecteturor adipiscing elit. Tincidunt donec vulputate ipsum erat urna auctor. Eget phasellus ideirs.</p>"}
+                    image="https://assets-global.website-files.com/5f35521e2ed7d9663ce9aa51/5f3fdbb7f52d14860a91aded_image-blog-post-06-growth-template.jpg"
+                    category="Category name"
+                    avtar="https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Female-Avatar1.svg"
+                    header="5 great content marketing ideas to for your Instagram account"
+                    desc="<p>Lorem ipsum dolor sit amet, consecteturor adipiscing elit. Tincidunt donec vulputate ipsum erat urna auctor. Eget phasellus ideirs.</p>"
                 />
                 <BlogCardContainer
-                    image={"https://assets-global.website-files.com/5f35521e2ed7d9663ce9aa51/5f3fdbb7f52d14860a91aded_image-blog-post-06-growth-template.jpg"}
-                    category={"Category name"}
-                    avtar={"https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Female-Avatar1.svg"}
-                    header={"5 great content marketing ideas to for your Instagram account"}
-                    desc={"<p>Lorem ipsum dolor sit amet, consecteturor adipiscing elit. Tincidunt donec vulputate ipsum erat urna auctor. Eget phasellus ideirs.</p>"}
+                    image="https://assets-global.website-files.com/5f35521e2ed7d9663ce9aa51/5f3fdbb7f52d14860a91aded_image-blog-post-06-growth-template.jpg"
+                    category="Category name"
+                    avtar="https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Female-Avatar1.svg"
+                    header="5 great content marketing ideas to for your Instagram account"
+                    desc="<p>Lorem ipsum dolor sit amet, consecteturor adipiscing elit. Tincidunt donec vulputate ipsum erat urna auctor. Eget phasellus ideirs.</p>"
                 />
-
             </div>
 
-
-            <BrandSliderWithSideContent/>
+            <BrandSliderWithSideContent currentPageData={currentPageData} />
 
             <div className="row align-items-center">
                 <div className="col-lg-7 col-md-6 col-sm-12">
-                    <h2>
-                        {currentPageData.siteOption.siteOptions.newsletterHeading}
-                    </h2>
+                    <h2>{currentPageData.siteOption.siteOptions.newsletterHeading}</h2>
                 </div>
-                <div className="col-lg-5 col-md-6 col-sm-12 ps-lg-5 ps-md-5 ">
-                    <SimpleNewsLetterForm/>
+                <div className="col-lg-5 col-md-6 col-sm-12 ps-lg-5 ps-md-5">
+                    <SimpleNewsLetterForm />
                 </div>
             </div>
-
         </Template>
     );
 };
 
-export default HomePage;
+export default HomePageContent;

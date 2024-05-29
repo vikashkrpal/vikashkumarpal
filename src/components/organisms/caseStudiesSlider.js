@@ -3,9 +3,6 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import dynamic from 'next/dynamic';
 import CaseStudyCardContainer from '../molecules/caseStudyCardContaienr';
-import {useSelector} from "react-redux";
-import {reducers} from "../../redux/reducers";
-import Template from "../atom/template";
 import HeaderDescContainer from "../molecules/headerDescContainer";
 
 // Ensure that jQuery is available in the global scope
@@ -18,8 +15,7 @@ const OwlCarousel = dynamic(() => import('react-owl-carousel'), {
   ssr: false,
 });
 
-const CaseStudiesSlider = () => {
-    const { currentPageData } = useSelector(state => state[reducers.SITE_DATA]);
+const CaseStudiesSlider = ({ currentPageData }) => {
 
   // Your item data
   const items = currentPageData.siteOption.siteOptions.caseStudyCards.map((caseStudy, index) => <div key={index} className='my-5 mx-2'>

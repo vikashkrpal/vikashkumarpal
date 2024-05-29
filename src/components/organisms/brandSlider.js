@@ -14,12 +14,9 @@ const OwlCarousel = dynamic(() => import('react-owl-carousel'), {
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import Image from "next/image";
-import {useSelector} from "react-redux";
-import {reducers} from "../../redux/reducers";
 
 
-const BrandSlider = () => {
-  const { currentPageData } = useSelector(state => state[reducers.SITE_DATA]);
+const BrandSlider = ({ currentPageData }) => {
   const clientLogo = currentPageData.siteOption !== undefined ? currentPageData.siteOption.siteOptions.clientLogo : {};
 
   const options = {

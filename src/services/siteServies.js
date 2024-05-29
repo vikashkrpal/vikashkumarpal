@@ -1,8 +1,10 @@
-import {request} from "./http/graphql";
+import { request } from "./http/graphql";
 
 export const loadHomePageData = async (pageQuery) => {
     try {
-        return await request(pageQuery);
+        const response = await request(pageQuery);
+        // console.log("got response", response)
+        return response;
     } catch (err) {
         throw new Error(err.message);
     }

@@ -6,13 +6,11 @@ import MobileMenu from '../organisms/mobileMenu';
 import { bindState } from '@/utils/globalFunctions';
 import CustomDropdown from "../molecules/CustomDropdown";
 import navBarMenus from "@/utils/menuLibrary";
-import {useSelector} from "react-redux";
-import {reducers} from "../../redux/reducers";
 
-const Header = () => {
+const Header = ({ currentPageData }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
-    const { currentPageData } = useSelector(state => state[reducers.SITE_DATA]);
+
 
 
   React.useEffect(() => {
