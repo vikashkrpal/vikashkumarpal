@@ -4,8 +4,6 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import dynamic from "next/dynamic";
 import HeaderDescContainer from "../molecules/headerDescContainer";
 import TestimonialCardContainer from "../molecules/testimonialCardContainer";
-import {useSelector} from "react-redux";
-import {reducers} from "../../redux/reducers";
 
 // Ensure that jQuery is available in the global scope
 if (typeof window !== "undefined") {
@@ -17,8 +15,7 @@ const OwlCarousel = dynamic(() => import("react-owl-carousel"), {
   ssr: false,
 });
 
-const TestimonialsSlider = () => {
-    const { currentPageData} = useSelector(state => state[reducers.SITE_DATA]);
+const TestimonialsSlider = ({ currentPageData }) => {
 
     const options = {
     loop: true,
