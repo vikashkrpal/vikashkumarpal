@@ -17,7 +17,7 @@ const IconCardContainer = ({ icon, heading, desc, listData}) => {
 
         <ul className="list-unstyled pt-2 mb-2  ">
             {
-                listData.map((liData, index)=> <li key={index}> <Image src={require('../../asserts/icon-services.svg')} alt="..." width="20" height="20" className="" />  {liData.servicePointName}</li>)
+                listData.map((liData, index)=> <li key={index}> <Image src={require('../../asserts/checkmark-icon.png')} alt="..." width="20" height="20" className="mb-1" />  {liData.servicePointName}</li>)
             }
                                   </ul>
     </div>
