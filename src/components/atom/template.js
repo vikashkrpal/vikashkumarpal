@@ -13,6 +13,8 @@ const Template = ({
                       currentPageData
                   }) => {
 
+    const jsonLd = replaceAdminUrl(currentPageData.page.seo.jsonLd.raw);
+    const headContent = currentPageData.siteOption.siteOptions.head;
     return (
         <section className={"bg-black text-light"}>
             <Head>
@@ -39,8 +41,10 @@ const Template = ({
                 <meta name="twitter:site" content="@viashkumarpal"/>
                 <meta name="date" content={currentPageData.page.dateGmt } />
                 <meta name="last-modified" content={currentPageData.page.seo.openGraph.updatedTime } />
-                <div dangerouslySetInnerHTML={{ __html:replaceAdminUrl(currentPageData.page.seo.jsonLd.raw) }} />
-                <div className={"head"} dangerouslySetInnerHTML={{ __html:currentPageData.siteOption.siteOptions.head }} />
+
+                <script type="application/ld+json" className="rank-math-schema" dangerouslySetInnerHTML={{ __html:(jsonLd.replace('<script type="application/ld+json" class="rank-math-schema">', '')).replace('</script>', '') }} />
+                <style dangerouslySetInnerHTML={{ __html: headContent }} />
+
             </Head>
             <div className={"body"} dangerouslySetInnerHTML={{ __html:currentPageData.siteOption.siteOptions.body }} />
             <Header currentPageData={currentPageData} />

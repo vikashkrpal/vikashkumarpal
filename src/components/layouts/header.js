@@ -44,7 +44,7 @@ const Header = ({ currentPageData }) => {
           src={currentPageData.siteOption.siteOptions.logo.mediaItemUrl}
           alt='logo image'
           height={30}
-          width={"110"}
+      width={"110"}
         />
       </Navbar.Brand>
 
