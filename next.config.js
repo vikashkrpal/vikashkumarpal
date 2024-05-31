@@ -17,6 +17,7 @@ const nextConfig = {
             'assets-global.website-files.com',
             'ncmaz-nextjs.vercel.app',
             'admin.vikashkumarpal.com',
+            'secure.gravatar.com',
         ],
     },
     webpack: (config, { isServer }) => {

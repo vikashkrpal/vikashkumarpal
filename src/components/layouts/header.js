@@ -39,7 +39,7 @@ const Header = ({ currentPageData }) => {
       }}
       className={'px-lg-5 pe-lg-4 '+ (!isMobileMenuOpen ? (isScrolled ? 'element-with-filter' : '' ): '')}
       variant="dark" sticky="top" expand="lg" >
-      <Navbar.Brand href="/" className='ms-lg-3' >
+      <Navbar.Brand href="/" className='ms-3' >
         <Image
           src={currentPageData.siteOption.siteOptions.logo.mediaItemUrl}
           alt='logo image'
