@@ -1,3 +1,6 @@
 export const registeredPages = {
-    HOMEPAGE : 'homepage'
+    HOMEPAGE : 'homepage',
+    ABOUT : 'about',
+    TEST : 'test',
+    BLOG : 'blog',
 }

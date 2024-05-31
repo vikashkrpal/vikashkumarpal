@@ -6,17 +6,54 @@ export const getPageQuery = (pageName) => {
         case registeredPages.HOMEPAGE:
             finalQuery = homePageQuery;
             break;
+        case registeredPages.TEST:
+            finalQuery = blogListQuery;
+            break;
+        case registeredPages.BLOG:
+            finalQuery = blogPageQuery;
+            break;
         default:
             finalQuery = homePageQuery;
             break;
     }
     return `query NewQuery { ${finalQuery} ${globalComponents} ${testimonialsSlider} }`;
 }
-const getQueryWithSeoFields = (pageQueryHeader, pageQueryFooter) =>
-    `${pageQueryHeader} 
+const getQueryWithSeoFields = (pageQueryHeader, pageQueryFooter) => `${pageQueryHeader} 
     ${seoDataFields} 
     ${pageQueryFooter}`
 
+const blogListQuery = (size) =>  `
+      posts(first: ${size}) {
+        edges {
+          node {
+            title
+            excerpt
+            slug
+            author {
+              node {
+                name
+                slug
+                avatar{
+                  url
+                }
+              }
+            }
+            date
+            featuredImage {
+              node {
+                mediaItemUrl
+              }
+            }
+            categories {
+              nodes {
+                name
+                slug
+              }
+            }
+          }
+        }
+      }
+    `
 const seoDataFields = `title
                       dateGmt
                     slug
@@ -146,6 +183,7 @@ const testimonialsSlider = ` testimonialSlider: siteOption(id:"client-testimonia
         }
     }
   }`
+
 const homePageQuery = getQueryWithSeoFields(`page(id:"cG9zdDo1NA==",idType:ID){ `, ` homepage {
                         hpHh1
                         hpHeading1
@@ -198,5 +236,29 @@ const homePageQuery = getQueryWithSeoFields(`page(id:"cG9zdDo1NA==",idType:ID){ 
                       }
 
                     }
-        }` )
+        } ${blogListQuery(3)}` );
+
+const blogPageQuery = `
+${getQueryWithSeoFields(
+    'page(id:"cG9zdDozNDQ=",idType:ID){', `blog{
+                          #banner
+                          blogBannerPc
+
+                          # Newsletter Section
+                          blogNewsletterHeading
+                          blogNewsletterPc
+                          blogImage1{
+                            altText
+                            mediaItemUrl
+                          }
+
+                          #Blog List
+                          blogHeading
+                          blogPc
+                        } 
+                       } ${blogListQuery(50)}`
+)}`
+
+
+
 

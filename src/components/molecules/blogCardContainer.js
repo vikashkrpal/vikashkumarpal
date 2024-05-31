@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from "next/image";
-const BlogCardContainer =  ({image,category,avtar,header,desc,time, column=true}) => {
-    return <div className={column && "col-lg-4 col-md-6 col-sm-12"}>
+const BlogCardContainer =  ({image,category,avtar,header,desc,time, column=true, index}) => {
+    return <div className={column && "col-lg-4 col-md-6 col-sm-12"} key={index}>
     <div className="card rounded-4 overflow-hidden  brands-experiences-card mt-4" >
                 <div className="blog-card-content">
                     <Link href="#">
@@ -35,7 +35,7 @@ const BlogCardContainer =  ({image,category,avtar,header,desc,time, column=true}
                 <div className="card-body border-top">
             <p className="card-text ">
                 <small className="text-light">
-                    September 1, 2022
+                    {time}
                 </small>
                 </p>
         </div>

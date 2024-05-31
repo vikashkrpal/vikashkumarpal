@@ -1,7 +1,7 @@
 import React from 'react';
 import { loadHomePageData } from '../services/siteServies';
 import { getPageQuery } from '../services/queryLibrary';
-import { checkNotUndefined, loadImageFromData } from '../utils/globalFunctions';
+import {checkNotUndefined, formatDate, loadImageFromData} from '../utils/globalFunctions';
 import { registeredPages } from '../utils/constants';
 import Template from '../components/atom/template';
 import ContentWithSideRowCounts from "../components/organisms/ContentWithSideRowCounts";
@@ -141,32 +141,23 @@ const HomePageContent = ({ currentPageData }) => {
                     <h2>Explore Our Expert SEO Blog Posts</h2>
                 </div>
                 <div className="col-lg-6 col-md-4 text-lg-center my-auto d-flex justify-content-end">
-                    <ThemeButton text="Visit our blog >" />
+                    <ThemeButton text="Visit our blog >" href={"/blog"} />
                 </div>
             </div>
 
             <div className="row">
-                <BlogCardContainer
-                    image="https://assets-global.website-files.com/5f35521e2ed7d9663ce9aa51/5f3fdbb7f52d14860a91aded_image-blog-post-06-growth-template.jpg"
-                    category="Category name"
-                    avtar="https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Female-Avatar1.svg"
-                    header="5 great content marketing ideas to for your Instagram account"
-                    desc="<p>Lorem ipsum dolor sit amet, consecteturor adipiscing elit. Tincidunt donec vulputate ipsum erat urna auctor. Eget phasellus ideirs.</p>"
-                />
-                <BlogCardContainer
-                    image="https://assets-global.website-files.com/5f35521e2ed7d9663ce9aa51/5f3fdbb7f52d14860a91aded_image-blog-post-06-growth-template.jpg"
-                    category="Category name"
-                    avtar="https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Female-Avatar1.svg"
-                    header="5 great content marketing ideas to for your Instagram account"
-                    desc="<p>Lorem ipsum dolor sit amet, consecteturor adipiscing elit. Tincidunt donec vulputate ipsum erat urna auctor. Eget phasellus ideirs.</p>"
-                />
-                <BlogCardContainer
-                    image="https://assets-global.website-files.com/5f35521e2ed7d9663ce9aa51/5f3fdbb7f52d14860a91aded_image-blog-post-06-growth-template.jpg"
-                    category="Category name"
-                    avtar="https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Female-Avatar1.svg"
-                    header="5 great content marketing ideas to for your Instagram account"
-                    desc="<p>Lorem ipsum dolor sit amet, consecteturor adipiscing elit. Tincidunt donec vulputate ipsum erat urna auctor. Eget phasellus ideirs.</p>"
-                />
+                {
+                    checkNotUndefined(currentPageData.posts) && (currentPageData.posts.edges).map((post,index) => <BlogCardContainer
+                        image={post.node.featuredImage.node.mediaItemUrl}
+                        category={post.node.categories.nodes[0].name}
+                        avtar={post.node.author.node.avatar.url}
+                        header={post.node.title}
+                        desc={post.node.excerpt}
+                        key={index}
+                        time={formatDate(post.node.date)}
+                    />)
+                }
+
             </div>
 
             <BrandSliderWithSideContent currentPageData={currentPageData} />
