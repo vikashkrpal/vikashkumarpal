@@ -6,11 +6,11 @@ export const getPageQuery = (pageName) => {
         case registeredPages.HOMEPAGE:
             finalQuery = homePageQuery;
             break;
-        case registeredPages.TEST:
-            finalQuery = blogListQuery;
-            break;
         case registeredPages.BLOG:
             finalQuery = blogPageQuery;
+            break;
+        case registeredPages.AUTHOR:
+            finalQuery = authorPageQuery;
             break;
         default:
             finalQuery = homePageQuery;
@@ -239,6 +239,46 @@ const homePageQuery = getQueryWithSeoFields(`page(id:"cG9zdDo1NA==",idType:ID){ 
         } ${blogListQuery(3)}` );
 
 const blogPageQuery = `
+${getQueryWithSeoFields(
+    'page(id:"cG9zdDozNDQ=",idType:ID){', `blog{
+                          #banner
+                          blogBannerPc
+
+                          # Newsletter Section
+                          blogNewsletterHeading
+                          blogNewsletterPc
+                          blogImage1{
+                            altText
+                            mediaItemUrl
+                          }
+
+                          #Blog List
+                          blogHeading
+                          blogPc
+                        } 
+                       } ${blogListQuery(50)}`
+)}`
+const authorPageQuery = `
+${getQueryWithSeoFields(
+    'page(id:"cG9zdDozNDQ=",idType:ID){', `blog{
+                          #banner
+                          blogBannerPc
+
+                          # Newsletter Section
+                          blogNewsletterHeading
+                          blogNewsletterPc
+                          blogImage1{
+                            altText
+                            mediaItemUrl
+                          }
+
+                          #Blog List
+                          blogHeading
+                          blogPc
+                        } 
+                       } ${blogListQuery(50)}`
+)}`
+const authorPageQuery = `
 ${getQueryWithSeoFields(
     'page(id:"cG9zdDozNDQ=",idType:ID){', `blog{
                           #banner

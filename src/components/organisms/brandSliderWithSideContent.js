@@ -14,8 +14,6 @@ const OwlCarousel = dynamic(() => import('react-owl-carousel'), {
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import Image from "next/image";
-import {useSelector} from "react-redux";
-import {reducers} from "../../redux/reducers";
 
 const BrandSliderWithSideContent = ({addClass="my-5", currentPageData}) => {
 
