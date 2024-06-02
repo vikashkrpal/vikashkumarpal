@@ -17,7 +17,7 @@ const UrlBar = ({ urlStrings, urlDetails }) => {
                             <h1>{urlDetails.title}</h1>
                         </div>
 
-                        <div className="py-lg-3 w-res-75 mx-auto"><p>{urlDetails.desc}</p></div>
+                        <div className="py-lg-3 w-res-75 mx-auto" dangerouslySetInnerHTML={{ __html:urlDetails.desc  }} />
 
                         <h6 className="theme-color2 text-bold  pb-4 ">
                             <Link href="/" className="px-lg-2" style={{ fontSize: 20}}>
