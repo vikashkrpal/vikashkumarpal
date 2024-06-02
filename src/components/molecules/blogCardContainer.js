@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from "next/image";
-const BlogCardContainer =  ({image,category,avtar,header,desc,time, column=true,slug, index}) => {
+const BlogCardContainer =  ({image,category,avtar,header,desc,time, column=true,slug,authorSlug, index}) => {
     return <div className={column && "col-lg-4 col-md-6 col-sm-12"} key={index}>
     <div className="card rounded-4 overflow-hidden  brands-experiences-card mt-4" >
                 <div className="blog-card-content">
@@ -21,7 +21,7 @@ const BlogCardContainer =  ({image,category,avtar,header,desc,time, column=true,
                         </div>
                         <div className="col-6 d-flex justify-content-end">
                             <div className="p-2" style={{ backgroundColor:'#2C2D2F',borderRadius:'100%' }}>
-                            <Link href="#">
+                            <Link href={"seo-insights/author/"+authorSlug}>
                                 <Image src={avtar} width="60" height="60" alt="Client Avatar Icon" style={{ borderRadius: 100 }}/>
                             </Link>
                             </div>

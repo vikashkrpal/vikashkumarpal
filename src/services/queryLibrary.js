@@ -10,7 +10,7 @@ export const getPageQuery = (pageName, slug) => {
             finalQuery = blogPageQuery;
             break;
         case registeredPages.AUTHOR:
-            finalQuery = authorPageQuery;
+            finalQuery = authorPageQuery(slug);
             break;
         case registeredPages.CATEGORY:
             finalQuery = categoryPageQuery(slug);
@@ -22,7 +22,7 @@ export const getPageQuery = (pageName, slug) => {
     return `query NewQuery { ${finalQuery} ${globalComponents} ${testimonialsSlider} }`;
 }
 const getQueryWithSeoFields = (pageQueryHeader, pageQueryFooter) => `${pageQueryHeader} 
-    ${seoDataFields} 
+    ${seoDataFields}   
     ${pageQueryFooter}`
 
 const blogListQuery = (size) =>  `
@@ -278,26 +278,7 @@ ${getQueryWithSeoFields(
                         } 
                        } ${blogListQuery(50)}`
 )}`
-const authorPageQuery = `
-${getQueryWithSeoFields(
-    'page(id:"cG9zdDozNDQ=",idType:ID){', `blog{
-                          #banner
-                          blogBannerPc
 
-                          # Newsletter Section
-                          blogNewsletterHeading
-                          blogNewsletterPc
-                          blogImage1{
-                            altText
-                            mediaItemUrl
-                          }
-
-                          #Blog List
-                          blogHeading
-                          blogPc
-                        } 
-                       } ${blogListQuery(50)}`
-)}`
 const categoryPageQuery = (slug) => `
 ${getQueryWithSeoFields(
     'page(id:"cG9zdDozNDQ=",idType:ID){', `blog{
@@ -326,6 +307,37 @@ ${getQueryWithSeoFields(
                         
                         }
                        
+                       `
+)}`
+const authorPageQuery = (slug) => `${getQueryWithSeoFields(
+    'page(id:"cG9zdDozNDQ=",idType:ID){', `blog{
+                          #banner
+                          blogBannerPc
+
+                          # Newsletter Section
+                          blogNewsletterHeading
+                          blogNewsletterPc
+                          blogImage1{
+                            altText
+                            mediaItemUrl
+                          }
+
+                          #Blog List
+                          blogHeading
+                          blogPc
+                        } 
+                       } 
+                        user(id: "${slug}", idType: SLUG)                       { 
+                        name
+                        description
+                        avatar{
+                          url
+                        }
+                        ${blogListQuery(50)}
+                        
+                        ${seoDataSlugFields} 
+                        
+                        }
                        `
 )}`
 
