@@ -4,4 +4,5 @@ export const registeredPages = {
     BLOG : 'blog',
     AUTHOR : 'user',
     CATEGORY : 'category',
+    SINGLE_BLOG : 'post',
 }

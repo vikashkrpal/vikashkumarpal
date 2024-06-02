@@ -17,10 +17,11 @@ const Template = ({
     const jsonLd = replaceAdminUrl(slug ? currentPageData[slug].seo.jsonLd.raw : currentPageData.page.seo.jsonLd.raw);
     const headContent = currentPageData.siteOption.siteOptions.head;
 
-    console.log("currentData",currentPageData.siteOption.siteOptions)
     return (
         <section className={"bg-black text-light"}>
             <Head>
+
+                <meta name='robots' content={ (slug ? currentPageData[slug].seo.robots : currentPageData.siteOption.siteOptions.seo.robots).join(',') } />
                 <link rel="icon" href={currentPageData.siteOption.siteOptions.favicon.mediaItemUrl} />
                 <title>{slug ? currentPageData[slug].seo.title :currentPageData.page.seo.openGraph.title}</title>
                 <meta name="description" content={ slug ? currentPageData[slug].seo.description : currentPageData.page.seo.description } />

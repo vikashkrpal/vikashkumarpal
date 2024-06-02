@@ -6,12 +6,13 @@ import BrandSliderWithSideContent from "@/components/organisms/brandSliderWithSi
 import Image from "next/image";
 import React from "react";
 import ThemeButton from "../../../components/atom/themeButton";
-import {FaFacebook, FaInstagram, FaLinkedin, FaTwitter} from "react-icons/fa";
+import {FaFacebook, FaInstagram, FaLinkedin} from "react-icons/fa";
 import Link from "next/link";
 import {getPageQuery} from "../../../services/queryLibrary";
 import {registeredPages} from "../../../utils/constants";
 import {loadHomePageData} from "../../../services/siteServies";
-import {checkNotUndefined, formatDate, loadImageFromData} from "../../../utils/globalFunctions";
+import {checkNotUndefined, formatDate, isNotNull, loadImageFromData} from "../../../utils/globalFunctions";
+import {FaX} from "react-icons/fa6";
 
 
 export async function getServerSideProps(context) {
@@ -35,21 +36,15 @@ export async function getServerSideProps(context) {
 const Index = ({ currentPageData }) => {
     const pageVars = currentPageData[registeredPages.AUTHOR]
     const blogPageVars = currentPageData.page[registeredPages.BLOG]
-
-    let testimonialsDetails = {
-        comment:
-            " Our e-commerce site’s user engagement skyrocketed by 40% after their exceptional site optimization and SEO services. They are true e-commerce wizards. ",
-        image:
-            "https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Male-Avatar7.svg",
-        name: "Maia Kennedy",
-        position: "May 20, 2021 | 2 min read ",
-    };
+    const authorPageVars = pageVars.authorPage
+    if (!isNotNull(pageVars))
+        return <h1>No Data Found</h1>
   return (
     <Template currentPageData={currentPageData} slug={registeredPages.AUTHOR}>
         <div style={{ width: '100%', height: 300, overflow:'hidden', borderBottom:1, borderRadius:20, marginTop:-20 }} >
             <div style={{ position: "relative", width: "100%", height: "100%",  }}>
                 <Image
-                    src={"https://ncmaz-nextjs.vercel.app/_next/image?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F459225%2Fpexels-photo-459225.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D2%26h%3D750%26w%3D1260&w=1920&q=75"}
+                    src={loadImageFromData(authorPageVars.apBg.mediaItemUrl)}
                     layout="fill" objectFit="cover"
                 />
             </div>
@@ -58,7 +53,7 @@ const Index = ({ currentPageData }) => {
             <div className="row align-items-start d-flex justify-content-center">
                 <div className="col-lg-auto col-md-auto mt-3">
                     <Image
-                        src={loadImageFromData(pageVars.avatar.url)}
+                        src={loadImageFromData(authorPageVars.apImage)}
                         width={110}
                         height={110}
                         className="img-fluid rounded-circle"
@@ -67,24 +62,22 @@ const Index = ({ currentPageData }) => {
                 </div>
                 <div className="col-lg-8 col-md-12 mt-3">
                             <h3 className="mt-0 mb-2 font-b">{pageVars.name}</h3>
-                            <p>
-                                {pageVars.description}
-                            </p>
+                    <div dangerouslySetInnerHTML={{ __html:authorPageVars.apAbout }} />
                     <div className="">
                         {
                             [
                                 {
                                     title:<FaInstagram />,
-                                    link:'https://www.insta.com/'+pageVars.name
+                                    link:authorPageVars.apSocialMediaProfiles.apInstagram
                                 },{
-                                title:<FaTwitter />,
-                                link:'https://twitter.com/'+pageVars.name
+                                title:<FaX />,
+                                link:authorPageVars.apSocialMediaProfiles.apTwitterX
                             },{
                                 title:<FaFacebook />,
-                                link:'https://facebook.com/'+pageVars.name
+                                link:authorPageVars.apSocialMediaProfiles.apFacebook
                             },{
                                 title:<FaLinkedin />,
-                                link:'https://www.linkedin.com/'+pageVars.name
+                                link:authorPageVars.apSocialMediaProfiles.apLinkedin
                             }
                             ].map((iconDetails, index) => <Link key={index} href={iconDetails.link} className="elementor-icon hover-dark me-4">{iconDetails.title}</Link>)
                         }
@@ -95,15 +88,15 @@ const Index = ({ currentPageData }) => {
 
                 <div className="col-lg-auto col-md-12 col-sm-12 mt-3">
                     <div className="d-flex justify-content-lg-end align-items-lg-end">
-                        <ThemeButton text={"Book a strategic call >"} href={"#"} addClass="" />
+                        <ThemeButton text={authorPageVars.apCtaButton.apButtonLabel} href={authorPageVars.apCtaButton.apButtonLink} addClass="" />
                     </div>
                 </div>
             </div>
         </div>
 
         <HeaderDescContainer
-        header={`<h2>Blogs by ${pageVars.name} </h2>`}
-        desc={blogPageVars.blogNewsletterPc}
+        header={authorPageVars.apHeading}
+        desc={authorPageVars.apParagraphContent}
 
       />
 
@@ -120,6 +113,8 @@ const Index = ({ currentPageData }) => {
                     time={formatDate(post.node.date)}
                     slug={post.node.categories.nodes[0].slug}
                     authorSlug={post.node.author.node.slug}
+                    postSlug={post.node.slug}
+
 
                 />)
             }
