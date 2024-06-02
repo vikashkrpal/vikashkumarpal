@@ -1,16 +1,19 @@
 import {registeredPages} from "../utils/constants";
 
-export const getPageQuery = (pageName) => {
+export const getPageQuery = (pageName, slug) => {
     let finalQuery = "";
     switch (pageName) {
         case registeredPages.HOMEPAGE:
             finalQuery = homePageQuery;
             break;
-        case registeredPages.TEST:
-            finalQuery = blogListQuery;
-            break;
         case registeredPages.BLOG:
             finalQuery = blogPageQuery;
+            break;
+        case registeredPages.AUTHOR:
+            finalQuery = authorPageQuery;
+            break;
+        case registeredPages.CATEGORY:
+            finalQuery = categoryPageQuery(slug);
             break;
         default:
             finalQuery = homePageQuery;
@@ -70,6 +73,23 @@ const seoDataFields = `title
                         mediaItemUrl
                       }
                     }
+                    seo {
+                      title
+                      canonicalUrl
+                      description
+                      jsonLd {
+                        raw
+                      }
+                      openGraph {
+                        description
+                        locale
+                        title
+                        updatedTime
+                      }
+                      robots
+                    }`
+const seoDataSlugFields = `
+                    slug
                     seo {
                       title
                       canonicalUrl
@@ -257,6 +277,56 @@ ${getQueryWithSeoFields(
                           blogPc
                         } 
                        } ${blogListQuery(50)}`
+)}`
+const authorPageQuery = `
+${getQueryWithSeoFields(
+    'page(id:"cG9zdDozNDQ=",idType:ID){', `blog{
+                          #banner
+                          blogBannerPc
+
+                          # Newsletter Section
+                          blogNewsletterHeading
+                          blogNewsletterPc
+                          blogImage1{
+                            altText
+                            mediaItemUrl
+                          }
+
+                          #Blog List
+                          blogHeading
+                          blogPc
+                        } 
+                       } ${blogListQuery(50)}`
+)}`
+const categoryPageQuery = (slug) => `
+${getQueryWithSeoFields(
+    'page(id:"cG9zdDozNDQ=",idType:ID){', `blog{
+                          #banner
+                          blogBannerPc
+
+                          # Newsletter Section
+                          blogNewsletterHeading
+                          blogNewsletterPc
+                          blogImage1{
+                            altText
+                            mediaItemUrl
+                          }
+
+                          #Blog List
+                          blogHeading
+                          blogPc
+                        } 
+                       } 
+                        category(id: "${slug}", idType: SLUG) { 
+                        name
+                        description
+                        ${blogListQuery(50)}
+                        
+                        ${seoDataSlugFields} 
+                        
+                        }
+                       
+                       `
 )}`
 
 

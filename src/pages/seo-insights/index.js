@@ -53,6 +53,7 @@ const Blog = ({ currentPageData }) => {
                         desc={post.node.excerpt}
                         key={index}
                         time={formatDate(post.node.date)}
+                        slug={post.node.categories.nodes[0].slug}
                     />)
                 }
 

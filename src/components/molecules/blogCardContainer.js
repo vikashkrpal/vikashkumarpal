@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from "next/image";
-const BlogCardContainer =  ({image,category,avtar,header,desc,time, column=true, index}) => {
+const BlogCardContainer =  ({image,category,avtar,header,desc,time, column=true,slug, index}) => {
     return <div className={column && "col-lg-4 col-md-6 col-sm-12"} key={index}>
     <div className="card rounded-4 overflow-hidden  brands-experiences-card mt-4" >
                 <div className="blog-card-content">
@@ -13,7 +13,7 @@ const BlogCardContainer =  ({image,category,avtar,header,desc,time, column=true,
 
                 <div className="row px-2 align-items-center">
                         <div className="col-6">
-                            <Link href="#">
+                            <Link href={"/seo-insights/category/"+slug}>
                                     <span className="badge bg-primary p-2" style={{ borderRadius:20 }}>
                                         {category}
                                     </span>
