@@ -8,7 +8,8 @@ const NewLetterComponent = ({ heading, desc, imageUrl }) => {
                 <div className="card bg-dark shadow rounded-3">
                     <div className="row">
                         <div className="col-md-6 p-lg-5 p-4">
-                            <h3>{heading}</h3>
+
+                            <div className="mx-auto" dangerouslySetInnerHTML={{ __html: heading }} />
                             <div className="mx-auto" dangerouslySetInnerHTML={{ __html: desc }} />
 
                             <SimpleNewsLetterForm />
