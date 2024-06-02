@@ -15,6 +15,9 @@ export const getPageQuery = (pageName, slug) => {
         case registeredPages.CATEGORY:
             finalQuery = categoryPageQuery(slug);
             break;
+        case registeredPages.SINGLE_BLOG:
+            finalQuery = singlePageQuery(slug);
+            break;
         default:
             finalQuery = homePageQuery;
             break;
@@ -279,8 +282,7 @@ ${getQueryWithSeoFields(
                        } ${blogListQuery(50)}`
 )}`
 
-const categoryPageQuery = (slug) => `
-${getQueryWithSeoFields(
+const categoryPageQuery = (slug) => `${getQueryWithSeoFields(
     'page(id:"cG9zdDozNDQ=",idType:ID){', `blog{
                           #banner
                           blogBannerPc
@@ -327,7 +329,30 @@ const authorPageQuery = (slug) => `${getQueryWithSeoFields(
                           blogPc
                         } 
                        } 
-                        user(id: "${slug}", idType: SLUG)                       { 
+                        user(id: "${slug}", idType: SLUG){
+                        authorPage{
+                          apBg{
+                            mediaItemUrl
+                          }
+                          apImage{
+                            mediaItemUrl
+                          }
+                          apAbout
+                          apCtaButton {
+                            apButtonLabel
+                            apButtonLink
+                          }
+                          apSocialMediaProfiles {
+                            apFacebook
+                            apInstagram
+                            apLinkedin
+                            apTwitterX
+                          }
+                          
+                          #Above Blogs
+                          apHeading
+                          apParagraphContent
+                        } 
                         name
                         description
                         avatar{
@@ -335,6 +360,59 @@ const authorPageQuery = (slug) => `${getQueryWithSeoFields(
                         }
                         ${blogListQuery(50)}
                         
+                        ${seoDataSlugFields} 
+                        
+                        }
+                       `
+)}`
+const singlePageQuery = (slug) => `${getQueryWithSeoFields(
+    'page(id:"cG9zdDozNDQ=",idType:ID){', `blog{
+                          #banner
+                          blogBannerPc
+
+                          # Newsletter Section
+                          blogNewsletterHeading
+                          blogNewsletterPc
+                          blogImage1{
+                            altText
+                            mediaItemUrl
+                          }
+
+                          #Blog List
+                          blogHeading
+                          blogPc
+                        }
+                      
+                       } 
+                        ${blogListQuery(3)}
+                        post(id: "${slug}", idType: SLUG)                       { 
+                        title
+                        content
+                        excerpt
+                         date
+                        featuredImage{
+                          node{
+                            mediaItemUrl
+                          }
+                        }
+                        categories {
+                          nodes {
+                            name
+                            slug
+                          }
+                        }
+            
+                        author{
+                          node{
+                            name
+                            slug
+                            avatar{
+                              url
+                            }
+                            description
+                          }
+                        }
+                       
                         ${seoDataSlugFields} 
                         
                         }

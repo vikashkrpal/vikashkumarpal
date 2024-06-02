@@ -15,6 +15,6 @@ export function replaceAdminUrl(schemaJson) {
     // Use regex to replace the URL
     return schemaJson.replace(pattern, replacement);
 }
-export const formatDate = (dateString) => {
-   return moment(dateString).format('D MMM, YYYY');
+export const formatDate = (dateString, time=false) => {
+   return moment(dateString).format('D MMM, YYYY'+ (time ? ' h:ma': ''));
 };

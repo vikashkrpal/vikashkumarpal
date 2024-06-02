@@ -55,6 +55,8 @@ const Blog = ({ currentPageData }) => {
                         time={formatDate(post.node.date)}
                         slug={post.node.categories.nodes[0].slug}
                         authorSlug={post.node.author.node.slug}
+                        postSlug={post.node.slug}
+
                     />)
                 }
 
