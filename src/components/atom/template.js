@@ -3,7 +3,7 @@ import Header from "../layouts/header";
 import Footer from "../layouts/footer";
 import UrlBar from "../layouts/urlBar";
 import Head from "next/head";
-import {replaceAdminUrl} from "../../utils/globalFunctions";
+import {checkNotUndefined, replaceAdminUrl} from "../../utils/globalFunctions";
 
 const Template = ({
                       children,
@@ -16,6 +16,8 @@ const Template = ({
 
     const jsonLd = replaceAdminUrl(slug ? currentPageData[slug].seo.jsonLd.raw : currentPageData.page.seo.jsonLd.raw);
     const headContent = currentPageData.siteOption.siteOptions.head;
+
+    console.log("currentData",currentPageData.siteOption.siteOptions)
     return (
         <section className={"bg-black text-light"}>
             <Head>
@@ -47,7 +49,9 @@ const Template = ({
                 <style dangerouslySetInnerHTML={{ __html: headContent }} />
 
             </Head>
-            <div className={"body"} dangerouslySetInnerHTML={{ __html:currentPageData.siteOption.siteOptions.body }} />
+
+            { checkNotUndefined(currentPageData.siteOption.siteOptions) && <div className={"body"} dangerouslySetInnerHTML={{__html: currentPageData.siteOption.siteOptions.body}}/>}
+
             <Header currentPageData={currentPageData} />
             <section className={"mobile-overflow-hidden"}>
                 {urlBar && <UrlBar urlStrings={urlStrings} urlDetails={urlDetails}/>}

@@ -8,7 +8,7 @@ import SimpleNewsLetterForm from "../../../components/molecules/simpleNewsLetter
 import {getPageQuery} from "../../../services/queryLibrary";
 import {registeredPages} from "../../../utils/constants";
 import {loadHomePageData} from "../../../services/siteServies";
-import {checkNotUndefined, formatDate, is_not_null, loadImageFromData} from "../../../utils/globalFunctions";
+import {checkNotUndefined, formatDate, isNotNull, loadImageFromData} from "../../../utils/globalFunctions";
 
 
 export async function getServerSideProps(context) {
@@ -27,11 +27,11 @@ export async function getServerSideProps(context) {
 }
 
 
-const Blog = ({ currentPageData }) => {
+const BlogCategory = ({ currentPageData }) => {
     const pageVars = currentPageData[registeredPages.CATEGORY]
     const blogPageVars = currentPageData.page[registeredPages.BLOG]
 
-    if (!is_not_null(pageVars))
+    if (!isNotNull(pageVars))
         return <h1>No Data Found</h1>
     return   <Template
         urlStrings={[
@@ -67,6 +67,8 @@ const Blog = ({ currentPageData }) => {
                         key={index}
                         time={formatDate(post.node.date)}
                         slug={post.node.categories.nodes[0].slug}
+                        authorSlug={post.node.author.node.slug}
+
                     />)
                 }
 
@@ -90,4 +92,4 @@ const Blog = ({ currentPageData }) => {
     </Template>
 }
 
-export default Blog;
+export default BlogCategory;

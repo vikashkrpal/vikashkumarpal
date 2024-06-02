@@ -23,9 +23,9 @@ const Blog = ({ currentPageData }) => {
     const pageVars = currentPageData.page[registeredPages.BLOG]
     return   <Template
         urlStrings={[
-            {"SEO Insights":'null'},
+            {'SEO Insights':'null'},
         ]} urlBar={true} urlDetails={{
-        title:'SEO Insights',
+        title:[currentPageData.page.seo.title],
         desc: pageVars.blogBannerPc
     }}
         currentPageData={currentPageData}
@@ -54,6 +54,7 @@ const Blog = ({ currentPageData }) => {
                         key={index}
                         time={formatDate(post.node.date)}
                         slug={post.node.categories.nodes[0].slug}
+                        authorSlug={post.node.author.node.slug}
                     />)
                 }
 
