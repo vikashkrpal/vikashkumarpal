@@ -1,6 +1,6 @@
 import {registeredPages} from "../utils/constants";
 
-export const getPageQuery = (pageName) => {
+export const getPageQuery = (pageName, slug) => {
     let finalQuery = "";
     switch (pageName) {
         case registeredPages.HOMEPAGE:
@@ -11,6 +11,9 @@ export const getPageQuery = (pageName) => {
             break;
         case registeredPages.AUTHOR:
             finalQuery = authorPageQuery;
+            break;
+        case registeredPages.CATEGORY:
+            finalQuery = categoryPageQuery(slug);
             break;
         default:
             finalQuery = homePageQuery;
@@ -70,6 +73,23 @@ const seoDataFields = `title
                         mediaItemUrl
                       }
                     }
+                    seo {
+                      title
+                      canonicalUrl
+                      description
+                      jsonLd {
+                        raw
+                      }
+                      openGraph {
+                        description
+                        locale
+                        title
+                        updatedTime
+                      }
+                      robots
+                    }`
+const seoDataSlugFields = `
+                    slug
                     seo {
                       title
                       canonicalUrl
@@ -278,7 +298,7 @@ ${getQueryWithSeoFields(
                         } 
                        } ${blogListQuery(50)}`
 )}`
-const authorPageQuery = `
+const categoryPageQuery = (slug) => `
 ${getQueryWithSeoFields(
     'page(id:"cG9zdDozNDQ=",idType:ID){', `blog{
                           #banner
@@ -296,7 +316,17 @@ ${getQueryWithSeoFields(
                           blogHeading
                           blogPc
                         } 
-                       } ${blogListQuery(50)}`
+                       } 
+                        category(id: "${slug}", idType: SLUG) { 
+                        name
+                        description
+                        ${blogListQuery(50)}
+                        
+                        ${seoDataSlugFields} 
+                        
+                        }
+                       
+                       `
 )}`
 
 
