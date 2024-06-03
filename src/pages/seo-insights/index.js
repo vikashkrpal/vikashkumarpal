@@ -25,7 +25,7 @@ const Blog = ({ currentPageData }) => {
         urlStrings={[
             {'SEO Insights':'null'},
         ]} urlBar={true} urlDetails={{
-        title:[currentPageData.page.seo.title],
+        title:[currentPageData.page.title],
         desc: pageVars.blogBannerPc
     }}
         currentPageData={currentPageData}

@@ -9,6 +9,9 @@ export const getPageQuery = (pageName, slug) => {
         case registeredPages.BLOG:
             finalQuery = blogPageQuery;
             break;
+        case registeredPages.CASE_STUDY:
+            finalQuery = caseStudyPageQuery;
+            break;
         case registeredPages.AUTHOR:
             finalQuery = authorPageQuery(slug);
             break;
@@ -280,6 +283,41 @@ ${getQueryWithSeoFields(
                           blogPc
                         } 
                        } ${blogListQuery(50)}`
+)}`
+const caseStudyPageQuery = `
+${getQueryWithSeoFields(
+    'page(id:"cG9zdDoxODUw",idType:ID){', `caseStudy{
+                                         csBannerPc
+                                      
+                                      #Impact Highlights
+                                         csHeading1
+                                          csPc1
+                                      csImpactHighlights{
+                                        csImpactNumber
+                                        csImpactText
+                                      }
+                                      
+                                      #Content With Side Image
+                                          csHeading1
+                                          csPc1
+                                           csHighlightPoints{
+                                            csHighlightPoint
+                                            csDescription
+                                          }
+                                          csButton {
+                                            csButtonLabel
+                                            csButtonLink
+                                          }
+                                          csImage{
+                                            mediaItemUrl
+                                          }
+                                
+                                          #Case Studies Section
+                                          csHeading2
+                                          csPc2
+                                
+                                    }  
+                       } ${blogListQuery(3)}`
 )}`
 
 const categoryPageQuery = (slug) => `${getQueryWithSeoFields(

@@ -3,17 +3,22 @@ import Template from "../../components/atom/template";
 import Image from "next/image";
 import ThemeButton from "../../components/atom/themeButton";
 import { FaHeart } from "react-icons/fa";
-import { FaHeartCircleBolt } from "react-icons/fa6";
 import { BiHeart, BiSolidHeartCircle } from "react-icons/bi";
-import ImageWithSideSortContent from "../../components/organisms/imageWithSideSortContent";
 import BlogCardContainer from "../../components/molecules/blogCardContainer";
 import BrandSliderWithSideContent from "../../components/organisms/brandSliderWithSideContent";
 import SimpleNewsLetterForm from "../../components/molecules/simpleNewsLetterForm";
 import {getPageQuery} from "../../services/queryLibrary";
 import {registeredPages} from "../../utils/constants";
 import {loadHomePageData} from "../../services/siteServies";
-import {checkNotUndefined, formatDate, isNotNull, loadImageFromData} from "../../utils/globalFunctions";
+import {
+  calculateReadTime,
+  checkNotUndefined,
+  formatDate,
+  isNotNull,
+  loadImageFromData
+} from "../../utils/globalFunctions";
 import DarkContentWithSideImage from "../../components/organisms/darkContentWithSideImage";
+import Link from "next/link";
 
 export async function getServerSideProps(context) {
   const { slug } = context.params;
@@ -36,26 +41,19 @@ const BlogOne = ({ currentPageData }) => {
   const blogPageVars = currentPageData.page[registeredPages.BLOG]
 
 
-  let testimonialsDetails = {
-    comment:
-      " Our e-commerce site’s user engagement skyrocketed by 40% after their exceptional site optimization and SEO services. They are true e-commerce wizards. ",
-    image:
-      "https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Male-Avatar7.svg",
-    name: "Maia Kennedy",
-    position: "May 20, 2021 | 2 min read ",
-  };
   if (!isNotNull(pageVars))
     return <h1>No Data Found</h1>
   return (
     <Template currentPageData={currentPageData}  slug={registeredPages.SINGLE_BLOG}>
       <div className="w-res-85 mx-auto">
         <section className=" mt-5 mx-auto">
-          <span
+          <Link
             className="badge bg-primary p-2 "
             style={{ borderRadius: 30, fontSize: 15 }}
+            href={"/seo-insights/category/"+pageVars.categories.nodes[0].slug}
           >
             {pageVars.categories.nodes[0].name}
-          </span>
+          </Link>
           <h1>{pageVars.title}</h1>
           <div dangerouslySetInnerHTML={{ __html:pageVars.excerpt }} />
 
@@ -73,14 +71,16 @@ const BlogOne = ({ currentPageData }) => {
                   />{" "}
                 </div>
                 <div className="card-title col my-auto">
+                  <Link href={"/author/"+pageVars.author.node.slug}>
                   <p className="theme-color my-0 py-0 font-b">
                     {pageVars.author.node.name}
                   </p>
+                  </Link>
                   <p
                     className="theme-color2 my-0 py-0"
                     style={{ fontSize: 13 }}
                   >
-                    {formatDate(pageVars.date, true)}
+                    {formatDate(pageVars.date)} | {calculateReadTime(pageVars.content)} min read
 
                   </p>
                 </div>
