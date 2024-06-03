@@ -22,12 +22,13 @@ export async function getServerSideProps(context) {
     return {
         props: {
             currentPageData,
+            currentPageSlug : slug
         },
     };
 }
 
 
-const BlogCategory = ({ currentPageData }) => {
+const BlogCategory = ({ currentPageData, currentPageSlug }) => {
     const pageVars = currentPageData[registeredPages.CATEGORY]
     const blogPageVars = currentPageData.page[registeredPages.BLOG]
 
@@ -35,10 +36,12 @@ const BlogCategory = ({ currentPageData }) => {
         return <h1>No Data Found</h1>
     return   <Template
         urlStrings={[
+            {"Seo Insights":'/seo-insights/'},
+            {"Category":'/seo-insights/category/'+currentPageSlug},
             {[pageVars.name]:'null'},
         ]} urlBar={true} urlDetails={{
         title:pageVars.name,
-        desc: pageVars.description
+        desc: `<p>${pageVars.description}</p>`
     }}
         currentPageData={currentPageData}
         slug={registeredPages.CATEGORY}

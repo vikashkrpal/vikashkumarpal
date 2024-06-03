@@ -4,6 +4,7 @@ import Footer from "../layouts/footer";
 import UrlBar from "../layouts/urlBar";
 import Head from "next/head";
 import {checkNotUndefined, replaceAdminUrl} from "../../utils/globalFunctions";
+import {registeredPages} from "../../utils/constants";
 
 const Template = ({
                       children,
@@ -23,13 +24,25 @@ const Template = ({
 
                 <meta name='robots' content={ (slug ? currentPageData[slug].seo.robots : currentPageData.page.seo.robots).join(',') } />
                 <link rel="icon" href={currentPageData.siteOption.siteOptions.favicon.mediaItemUrl} />
-                <title>{slug ? currentPageData[slug].seo.title :currentPageData.page.seo.openGraph.title}</title>
-                <meta name="description" content={ slug ? currentPageData[slug].seo.description : currentPageData.page.seo.description } />
-                <link rel="canonical" href={(slug ? currentPageData[slug].seo.canonicalUrl : currentPageData.page.seo.canonicalUrl).replace('/admin.', '/')} />
+
+                {
+                    (slug === registeredPages.AUTHOR) ?
+                        <>
+                            <title>{currentPageData[slug].seo.openGraph.title}</title>
+                            <meta name="description" content={  currentPageData[slug].seo.openGraph.description } />
+                        </>
+                        :
+                        <>
+                            <title>{slug ? currentPageData[slug].seo.title :currentPageData.page.seo.openGraph.title}</title>
+                            <link rel="canonical" href={(slug ? currentPageData[slug].seo.canonicalUrl : currentPageData.page.seo.canonicalUrl).replace('/admin.', '/')} />
+                        </>
+
+                }
+
                 <meta property="og:title" content={ slug ? currentPageData[slug].seo.openGraph.title : currentPageData.page.seo.openGraph.title } />
-                <meta property="og:site_name" content="viashkumarpal" />
+                <meta property="og:site_name" content="VikashKumarPal" />
                 <meta property="og:type" content="article"/>
-                <meta property="og:description" content={ slug ? currentPageData[slug].seo.description : currentPageData.page.seo.description } />
+                <meta property="og:description" content={  currentPageData.page.seo.description } />
                 <meta property="og:image" content={ currentPageData.page.featuredImage.node.mediaItemUrl }/>
                 <meta property="og:url" content={(slug ? currentPageData[slug].seo.canonicalUrl : currentPageData.page.seo.canonicalUrl).replace('/admin.', '/')} />
                 <meta property="og:locale" content="en_US" />

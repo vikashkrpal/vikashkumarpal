@@ -18,3 +18,10 @@ export function replaceAdminUrl(schemaJson) {
 export const formatDate = (dateString, time=false) => {
    return moment(dateString).format('D MMM, YYYY'+ (time ? ' h:ma': ''));
 };
+
+export const calculateReadTime = (text) => {
+    const wordsPerMinute = 200; // Average reading speed
+    const textLength = text.split(/\s+/).length; // Split by words
+    const readTime = Math.ceil(textLength / wordsPerMinute);
+    return readTime;
+};

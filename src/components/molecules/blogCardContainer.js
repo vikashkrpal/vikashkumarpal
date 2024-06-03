@@ -5,7 +5,7 @@ const BlogCardContainer =  ({image,category,avtar,header,desc,time, column=true,
     <div className="card rounded-4 overflow-hidden  brands-experiences-card mt-4" >
                 <div className="blog-card-content">
                     <Link href={"/seo-insights/"+postSlug}>
-                        <Image width="450" height="300"  alt=" alt image" src={image} />
+                        <Image width="450" height="250"  alt=" alt image" src={image} />
                     </Link>
                 </div>
 
@@ -21,7 +21,7 @@ const BlogCardContainer =  ({image,category,avtar,header,desc,time, column=true,
                         </div>
                         <div className="col-6 d-flex justify-content-end">
                             <div className="p-2" style={{ backgroundColor:'#2C2D2F',borderRadius:'100%' }}>
-                            <Link href={"seo-insights/author/"+authorSlug}>
+                            <Link href={"/author/"+authorSlug}>
                                 <Image src={avtar} width="60" height="60" alt="Client Avatar Icon" style={{ borderRadius: 100 }}/>
                             </Link>
                             </div>

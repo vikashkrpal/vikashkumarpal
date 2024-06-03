@@ -3,6 +3,8 @@ import {FaFacebook, FaInstagram, FaLinkedin} from "react-icons/fa";
 import '../../utils/styles/footer.css';
 import FooterNewsLetterForm from '@/components/organisms/footerNewsLetterForm';
 import {FaX} from "react-icons/fa6";
+import {BiX} from "react-icons/bi";
+import {BsTwitterX} from "react-icons/bs";
 
 const Footer = ({ currentPageData }) => {
     const FootHeader = ({ title }) =><>
@@ -51,7 +53,7 @@ const Footer = ({ currentPageData }) => {
                                     title:<FaInstagram />,
                                     link:currentPageData.siteOption.siteOptions.instagram
                                 },{
-                                    title:<FaX />,
+                                    title:<BsTwitterX size={15} />,
                                     link:currentPageData.siteOption.siteOptions.twitter
                                 },{
                                     title:<FaFacebook />,
@@ -60,7 +62,7 @@ const Footer = ({ currentPageData }) => {
                                     title:<FaLinkedin />,
                                     link:currentPageData.siteOption.siteOptions.linkedin
                                 }
-                            ].map((iconDetails, index) => <Link key={index} href={iconDetails.link} className="elementor-icon hover-dark me-4">{iconDetails.title}</Link>)
+                            ].map((iconDetails, index) => <a key={index} href={iconDetails.link} className="elementor-icon hover-dark me-4" target={"_blank"}>{iconDetails.title}</a>)
                         }
 
 
