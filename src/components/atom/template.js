@@ -21,7 +21,7 @@ const Template = ({
         <section className={"bg-black text-light"}>
             <Head>
 
-                <meta name='robots' content={ (slug ? currentPageData[slug].seo.robots : currentPageData.siteOption.siteOptions.seo.robots).join(',') } />
+                <meta name='robots' content={ (slug ? currentPageData[slug].seo.robots : currentPageData.page.seo.robots).join(',') } />
                 <link rel="icon" href={currentPageData.siteOption.siteOptions.favicon.mediaItemUrl} />
                 <title>{slug ? currentPageData[slug].seo.title :currentPageData.page.seo.openGraph.title}</title>
                 <meta name="description" content={ slug ? currentPageData[slug].seo.description : currentPageData.page.seo.description } />
