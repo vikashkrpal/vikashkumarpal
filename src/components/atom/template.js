@@ -40,7 +40,7 @@ const Template = ({
                 }
 
                 <meta property="og:title" content={ slug ? currentPageData[slug].seo.openGraph.title : currentPageData.page.seo.openGraph.title } />
-                <meta property="og:site_name" content="VikashKumarPal" />
+                <meta property="og:site_name" content="Vikash Kumar Pal" />
                 <meta property="og:type" content="article"/>
                 <meta property="og:description" content={  currentPageData.page.seo.description } />
                 <meta property="og:image" content={ currentPageData.page.featuredImage.node.mediaItemUrl }/>
