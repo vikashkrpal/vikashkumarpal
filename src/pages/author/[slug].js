@@ -7,7 +7,6 @@ import Image from "next/image";
 import React from "react";
 import ThemeButton from "../../components/atom/themeButton";
 import {FaFacebook, FaInstagram, FaLinkedin} from "react-icons/fa";
-import Link from "next/link";
 import {getPageQuery} from "../../services/queryLibrary";
 import {registeredPages} from "../../utils/constants";
 import {loadHomePageData} from "../../services/siteServies";
@@ -61,7 +60,7 @@ const Index = ({ currentPageData }) => {
                     />{" "}
                 </div>
                 <div className="col-lg-8 col-md-12 mt-3">
-                            <h3 className="mt-0 mb-2 font-b">{pageVars.name}</h3>
+                            <h1 className="mt-0 mb-2 font-b">{pageVars.name}</h1>
                     <div dangerouslySetInnerHTML={{ __html:authorPageVars.apAbout }} />
                     <div className="">
                         {

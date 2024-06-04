@@ -46,8 +46,8 @@ const CaseStudy = ({currentPageData}) => {
                 }))}
             />
             <ImageWithSideIconContents
-                heading={pageVars.csHeading1}
-                content={pageVars.csPc1}
+                heading={pageVars.csHeading2}
+                content={pageVars.csPc2}
                 ImageData={{
                     url: loadImageFromData(pageVars.csImage),
                     alert: "Award winning SEO experts",
@@ -61,8 +61,8 @@ const CaseStudy = ({currentPageData}) => {
             <BrandSlider currentPageData={currentPageData}/>
 
             <HeaderDescContainer
-                header={pageVars.csHeading2}
-                desc={pageVars.csPc2}
+                header={pageVars.csHeading3}
+                desc={pageVars.csPc3}
             />
             <CaseStudiesSlider currentPageData={currentPageData} headingShow={false}/>
 

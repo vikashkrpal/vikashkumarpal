@@ -315,6 +315,10 @@ ${getQueryWithSeoFields(
                                           #Case Studies Section
                                           csHeading2
                                           csPc2
+                                          
+                                          #case study section
+                                          csHeading3
+                                          csPc3
                                 
                                     }  
                        } ${blogListQuery(3)}`
