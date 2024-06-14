@@ -55,7 +55,7 @@ const CaseStudy = ({currentPageData}) => {
                     buttonText: pageVars.csButton.csButtonLabel,
                     action: pageVars.csButton.csButtonLink,
                 }}
-
+                pointsArray={pageVars.csHighlightPoints.map((p,i) => {return {header:p.csHighlightPoint, desc:p.csDescription}})}
             />
             <BrandSlider currentPageData={currentPageData}/>
 

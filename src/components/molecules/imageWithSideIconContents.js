@@ -10,27 +10,20 @@ const ImageWithSideIconContents = ({ headingHighlight=null, heading=null, conten
             {headingHighlight != null && <span className="mb-3 theme-color">{headingHighlight}</span>}
             {isNotNull(heading) && <div className="mx-auto" dangerouslySetInnerHTML={{ __html: heading }} /> }
             {isNotNull(content) && <div className="mx-auto" dangerouslySetInnerHTML={{ __html: content }} /> }
-            <div className="row ">
-                <div className="col-2 col-lg-1 mt-1">
-                    <FaStar size={30} />
-                </div>
-                <div className="col-10 col-lg-11">
-                    <h4 className={"mt-1 mb-1"}>Mission</h4>
-                    <p>Our mission is to empower businesses by enhancing their online visibility and search engine rankings,
-                        ensuring they not only survive but thrive in the digital age.</p>
+            {
+                pointsArray.map((p,i) =>   <div className="row " key={i}>
+                    <div className="col-2 col-lg-1 mt-1">
+                        <FaStar size={30} />
+                    </div>
+                    <div className="col-10 col-lg-11">
+                        <div dangerouslySetInnerHTML={{ __html:p.header }} />
+                        <div dangerouslySetInnerHTML={{ __html:p.desc }} />
 
-                </div>
-            </div>
-            <div className="row ">
-                <div className="col-2 col-lg-1 mt-1">
-                    <FaStar size={30} />
-                </div>
-                <div className="col-10 col-lg-11">
-                    <h4 className={"mt-1 mb-1"}>Vision</h4>
-                    <p>To be the catalyst for businesses to realize their full online potential and dominate the digital landscape.</p>
+                    </div>
+                </div>)
+            }
 
-                </div>
-            </div>
+
             <ThemeButton text={buttonData.buttonText} addStyle={{  minWidth:'30%', fontSize:18 }} href={buttonData.action} />
         </div>
         <div className={"col-lg-6 py-3 my-auto d-flex justify-content-center "+(contentListing == 1 && "order-lg-first")}>

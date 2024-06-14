@@ -12,6 +12,9 @@ export const getPageQuery = (pageName, slug) => {
         case registeredPages.TESTIMONIALS:
             finalQuery = testimonialsPageQuery;
             break;
+        case registeredPages.ABOUT:
+            finalQuery = aboutPagePageQuery;
+            break;
         case registeredPages.CASE_STUDY:
             finalQuery = caseStudyPageQuery;
             break;
@@ -301,8 +304,6 @@ ${getQueryWithSeoFields(
                                       }
                                       
                                       #Content With Side Image
-                                          csHeading1
-                                          csPc1
                                            csHighlightPoints{
                                             csHighlightPoint
                                             csDescription
@@ -490,6 +491,52 @@ const testimonialsPageQuery = getQueryWithSeoFields(
     }
     
     }`
+)
+const aboutPagePageQuery = getQueryWithSeoFields(
+    ` page(id:"cG9zdDozMjM=",idType:ID){ `,
+    ` aboutUs{
+      #banner
+      abtBannerPc
+      
+      #What Sets Me Apart?
+      abtHeading1
+      abtPc1
+      abtButton1 {
+        abtButtonLabel1
+        abtButtonLink1
+      } 
+      
+      abtBenefitsCard{
+        abtBenefitsIcon {
+          mediaItemUrl
+          altText
+        }
+        abtBenefitsHeading
+        abtBenefitsParagraph
+        abtBenefitPoints {
+          abtBenefitPointsName
+        }
+      }
+      
+      #Content With Side Image
+      abtHeading2
+      abtPc2
+      abtPointsSection{
+        abtPointName
+        abtPointDescription
+      }
+      
+      abtButton2 {
+        abtButtonLabel2
+        abtButtonLink2
+      }
+      abtImage1{
+        mediaItemUrl
+        altText
+      }
+    }
+  
+  }`
 )
 
 
