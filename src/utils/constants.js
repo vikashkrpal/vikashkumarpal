@@ -7,4 +7,5 @@ export const registeredPages = {
     SINGLE_BLOG: 'post',
     CASE_STUDY: 'caseStudy',
     TESTIMONIALS: 'testimonials',
+    PORTFOLIO: 'portfolio',
 }

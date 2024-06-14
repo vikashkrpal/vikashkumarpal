@@ -73,7 +73,7 @@ const About = ({ currentPageData }) => {
                     content={pageVars.abtPc2}
                     ImageData={{
                         url: loadImageFromData(pageVars.abtImage1),
-                        alert: pageVars.altText,
+                        alert: pageVars.abtImage1.altText,
                     }}
                     addClass="mt-2"
                     buttonData={{

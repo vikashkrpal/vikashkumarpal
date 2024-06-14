@@ -15,6 +15,9 @@ export const getPageQuery = (pageName, slug) => {
         case registeredPages.ABOUT:
             finalQuery = aboutPagePageQuery;
             break;
+        case registeredPages.PORTFOLIO:
+            finalQuery = portfolioPageQuery;
+            break;
         case registeredPages.CASE_STUDY:
             finalQuery = caseStudyPageQuery;
             break;
@@ -535,6 +538,52 @@ const aboutPagePageQuery = getQueryWithSeoFields(
         altText
       }
     }
+  
+  }`
+)
+const portfolioPageQuery = getQueryWithSeoFields(
+    `  page(id:"cG9zdDozNDI=",idType:ID){  `,
+    `portfolio{
+        #banner
+        portfolioBannerPc
+
+        #content with side image
+        portfolioHeading1
+        portfolioPc1
+        portfolioHighlightPoints {
+          portfolioHpDescription
+          portfolioHpName
+        }
+        portfolioButton {
+          portfolioButtonLabel
+          portfolioButtonLink
+        }
+        portfolioImage1{
+          mediaItemUrl
+          altText
+        }
+
+          #Portfolio List
+          portfolioHeading2
+          portfolioPc2
+          portfolioList {
+            portfolioCompanyName
+            portfolioListDescription
+            portfolioListHeading
+            portfolioListImage{
+                    mediaItemUrl
+                    altText
+                  }
+                   portfolioHighlights {
+                    portfolioHighlightNumber
+                    portfolioHighlightText
+                  }
+          }
+        
+
+
+
+      }
   
   }`
 )
