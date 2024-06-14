@@ -14,16 +14,16 @@ const TestimonialCardContainer = ({ testimonialsDetails, col=" " }) => {
         </div>
       </div>
       <div className="row py-1">
-        <div className="col-3 my-auto ">
+        <div className="col-auto my-auto ">
           <Image
             src={testimonialsDetails.image}
-            width={150}
-            height={150}
+            width={60}
+            height={60}
             className="img-fluid rounded-circle"
             alt="Client Avatar Icon"
           />{" "}
         </div>
-        <div className="card-title col-9 my-auto ps-4">
+        <div className="card-title col-8 my-auto ">
           <p className="theme-color my-0 py-0 font-b">
             {testimonialsDetails.name}
           </p>

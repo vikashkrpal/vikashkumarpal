@@ -4,17 +4,16 @@ import ContentWithSideRowCounts from "../../components/organisms/ContentWithSide
 import ImageWithSideIconContents from "../../components/molecules/imageWithSideIconContents";
 import BrandSlider from "../../components/organisms/brandSlider";
 import HeaderDescContainer from "../../components/molecules/headerDescContainer";
-import ImageWithSideSortContent from "../../components/organisms/imageWithSideSortContent";
 import TestimonialsSlider from "../../components/organisms/testimonialsSlider";
 import BrandSliderWithSideContent from "../../components/organisms/brandSliderWithSideContent";
 import SimpleNewsLetterForm from "../../components/molecules/simpleNewsLetterForm";
-import CaseStudyCardContainer from "../../components/molecules/caseStudyCardContaienr";
 import {getPageQuery} from "../../services/queryLibrary";
 import {registeredPages} from "../../utils/constants";
 import {loadHomePageData} from "../../services/siteServies";
 import {loadImageFromData} from "../../utils/globalFunctions";
 import CaseStudiesSlider from "../../components/organisms/caseStudiesSlider";
 import DarkContentWithSideImage from "../../components/organisms/darkContentWithSideImage";
+import CaseStudyCardContainer from "../../components/molecules/caseStudyCardContaienr";
 
 export async function getServerSideProps() {
     const pageQuery = getPageQuery(registeredPages.CASE_STUDY);
@@ -64,7 +63,20 @@ const CaseStudy = ({currentPageData}) => {
                 header={pageVars.csHeading3}
                 desc={pageVars.csPc3}
             />
-            <CaseStudiesSlider currentPageData={currentPageData} headingShow={false}/>
+            <div className="row">
+                {
+                    currentPageData.siteOption.siteOptions.caseStudyCards.map((caseStudy, index) =>  <div className={"col-lg-6 col-md-12 col-12"}  key={index} ><CaseStudyCardContainer
+
+                        image={caseStudy.caseStudyCardImage.mediaItemUrl}
+                        category={caseStudy.caseStudyCardCompanyName}
+                        header={caseStudy.caseStudyCardHeading}
+                        desc={caseStudy.caseStudyCardDescription}
+                        column={false}
+                        caseStudyHighlightResults={caseStudy.caseStudyHighlightResults}
+                    /></div> )
+                }
+
+            </div>
 
             <DarkContentWithSideImage currentPageData={currentPageData}/>
 
