@@ -18,6 +18,9 @@ export const getPageQuery = (pageName, slug) => {
         case registeredPages.PORTFOLIO:
             finalQuery = portfolioPageQuery;
             break;
+        case registeredPages.WORK_WITH_ME:
+            finalQuery = workWithMePageQuery;
+            break;
         case registeredPages.CASE_STUDY:
             finalQuery = caseStudyPageQuery;
             break;
@@ -582,6 +585,64 @@ const portfolioPageQuery = getQueryWithSeoFields(
         
 
 
+
+      }
+  
+  }`
+)
+const workWithMePageQuery = getQueryWithSeoFields(
+    ` page(id:"cG9zdDoxODM1",idType:ID){  `,
+    `  workWithMe{
+          #banner
+          wwmBannerPc
+
+          #content with side image
+          wwmHeading1
+          wwmPc1
+          wwmContentPoints {
+            wwmContentPointHeading
+            wwmContentPointDesc
+          }
+          wwmButton1 {
+            wwmButtonLabel1
+            wwmButtonLink1
+          } 
+
+          wwmImage1{
+            mediaItemUrl
+            altText
+          }
+
+          #Cards Comp
+          wwmHeading2
+          wwmPc2
+          wwmCards{
+            wwmCardIcon{
+              mediaItemUrl
+              altText
+            }
+            wwmCardHeading
+            wwmCardDescription
+            wwmCardPoints {
+              wwmCardPointName
+            }
+          }
+
+          #Comp With 4 Points
+          wwmHeading3
+          wwmPc3
+          wwmButton2 {
+            wwmButtonLabel2
+            wwmButtonLink2
+          }
+          wwmPoints{
+            wwmPointIcon {
+              mediaItemUrl
+              altText
+            }
+            wwmPointName
+            wwmPointDescription
+          }
 
       }
   

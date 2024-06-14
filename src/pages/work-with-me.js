@@ -4,19 +4,21 @@ import ContentWithSideRowCounts from "../components/organisms/ContentWithSideRow
 import ImageWithSideIconContents from "../components/molecules/imageWithSideIconContents";
 import BrandSlider from "../components/organisms/brandSlider";
 import HeaderDescContainer from "../components/molecules/headerDescContainer";
+import CaseStudiesSlider from "../components/organisms/caseStudiesSlider";
 import TestimonialsSlider from "../components/organisms/testimonialsSlider";
 import BrandSliderWithSideContent from "../components/organisms/brandSliderWithSideContent";
 import SimpleNewsLetterForm from "../components/molecules/simpleNewsLetterForm";
+import IconCardContainer from "../components/molecules/IconCardContainer";
+import FeaturePowerUpComponent from "../components/organisms/featurePowerUpComponent";
 import {getPageQuery} from "../services/queryLibrary";
 import {registeredPages} from "../utils/constants";
 import {loadHomePageData} from "../services/siteServies";
 import {loadImageFromData} from "../utils/globalFunctions";
-import CaseStudyCardContainer from "../components/molecules/caseStudyCardContaienr";
 import DarkContentWithSideImage from "../components/organisms/darkContentWithSideImage";
 
 
 export async function getServerSideProps() {
-    const pageQuery = getPageQuery(registeredPages.PORTFOLIO);
+    const pageQuery = getPageQuery(registeredPages.WORK_WITH_ME);
     // console.log("request query", pageQuery)
     const currentPageData = await loadHomePageData(pageQuery);
 
@@ -26,17 +28,16 @@ export async function getServerSideProps() {
         },
     };
 }
-
-const Portfolio = ({ currentPageData }) => {
-    const pageVars = currentPageData.page[registeredPages.PORTFOLIO]
+const WorkWithMe = ({ currentPageData }) => {
+    const pageVars = currentPageData.page[registeredPages.WORK_WITH_ME]
 
     return (
         <Template urlStrings={[
-            {Portfolio:'null'}
+            {"Work With Me":'null'}
         ]} urlBar={true} urlDetails={{
             title:[currentPageData.page.title],
-            desc:pageVars.portfolioBannerPc
-        }} currentPageData={currentPageData}>
+            desc:pageVars.wwmBannerPc
+        }} currentPageData={currentPageData} >
             <div className="pt-5">
                 <ContentWithSideRowCounts
                     heading={currentPageData.siteOption.siteOptions.resultsHighlightHeading}
@@ -49,43 +50,61 @@ const Portfolio = ({ currentPageData }) => {
                 />
 
             </div>
+
             <ImageWithSideIconContents
-                heading={pageVars.portfolioHeading1 }
-                content={pageVars.portfolioPc1}
+                heading={pageVars.wwmHeading1}
+                content={pageVars.wwmPc1 }
                 ImageData={{
-                    url: loadImageFromData(pageVars.portfolioImage1),
-                    altText: pageVars.portfolioImage1.altText,
+                    url: loadImageFromData(pageVars.wwmImage1),
+                    alert: pageVars.wwmImage1.altText,
                 }}
                 buttonData={{
-                    buttonText:pageVars.portfolioButton.portfolioButtonLabel,
-                    action:pageVars.portfolioButton.portfolioButtonLink
+                    buttonText:pageVars.wwmButton1.wwmButtonLabel1,
+                    action:pageVars.wwmButton1.wwmButtonLink1
                 }}
-                pointsArray={pageVars.portfolioHighlightPoints.map((p,i) => {
-                    return {header:p.portfolioHpName, desc:p.portfolioHpDescription}
-                })}
             />
             <BrandSlider currentPageData={currentPageData} />
 
             <HeaderDescContainer
-                header={pageVars.portfolioHeading2}
-                desc={pageVars.portfolioPc2}
+                header={pageVars.wwmHeading2}
+                desc={pageVars.wwmPc2}
             />
+
             <div className="row">
-                {pageVars.portfolioList.map((caseStudy, index) => <div key={index}
-                                                                       className=' col-6'>
-                    <CaseStudyCardContainer
-                        image={loadImageFromData(caseStudy.portfolioListImage)}
-                        category={caseStudy.portfolioCompanyName}
-                        header={caseStudy.portfolioListHeading}
-                        desc={caseStudy.portfolioListDescription}
-                        column={false}
-                        caseStudyHighlightResults={caseStudy.portfolioHighlights.map((c,i) => {return {caseStudyCardResultNumbers:c.portfolioHighlightNumber, caseStudyCardResultHighlightText: c.portfolioHighlightText}})}
-                    />
-                </div>)}
+                {
+                    pageVars.wwmCards.map((card,i) => <div className="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <IconCardContainer
+                            icon={loadImageFromData(card.wwmCardIcon)}
+                            heading={card.wwmCardHeading}
+                            desc={card.wwmCardDescription}
+                            listData={card.wwmCardPoints.map((c,i) => {return {servicePointName: c.wwmCardPointName}})}
+                        />
+                    </div>)
+                }
+
             </div>
 
-            <DarkContentWithSideImage currentPageData={currentPageData}/>
+
+            <CaseStudiesSlider currentPageData={currentPageData}  />
+
+            <FeaturePowerUpComponent
+                header={pageVars.wwmHeading3}
+                desc={pageVars.wwmPc3}
+                button={{
+                    buttonText:pageVars.wwmButton2.wwmButtonLabel2,
+                    action:pageVars.wwmButton2.wwmButtonLink2
+                }}
+                pointsArray={pageVars.wwmPoints.map((p,i) => {return {
+                    icon:p.wwmPointIcon,
+                    name:p.wwmPointName,
+                    desc:p.wwmPointDescription
+                }})}
+            />
+
             <TestimonialsSlider currentPageData={currentPageData} />
+
+            <DarkContentWithSideImage currentPageData={currentPageData} />
+
             <BrandSliderWithSideContent currentPageData={currentPageData} />
 
             <div className="row align-items-center">
@@ -102,4 +121,4 @@ const Portfolio = ({ currentPageData }) => {
     );
 };
 
-export default Portfolio;
+export default WorkWithMe;
