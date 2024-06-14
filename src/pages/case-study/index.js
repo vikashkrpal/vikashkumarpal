@@ -65,8 +65,8 @@ const CaseStudy = ({currentPageData}) => {
             />
             <div className="row">
                 {
-                    currentPageData.siteOption.siteOptions.caseStudyCards.map((caseStudy, index) =>  <div className={"col-lg-6 col-md-12 col-12"}><CaseStudyCardContainer
-                        key={index}
+                    currentPageData.siteOption.siteOptions.caseStudyCards.map((caseStudy, index) =>  <div className={"col-lg-6 col-md-12 col-12"}  key={index} ><CaseStudyCardContainer
+
                         image={caseStudy.caseStudyCardImage.mediaItemUrl}
                         category={caseStudy.caseStudyCardCompanyName}
                         header={caseStudy.caseStudyCardHeading}
