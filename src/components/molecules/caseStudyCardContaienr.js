@@ -6,7 +6,7 @@ const CaseStudyCardContainer = ({image,category,header,desc,caseStudyHighlightRe
     <div className="card rounded-4 overflow-hidden  brands-experiences-card mt-4" >
                 <div className="blog-card-content">
                     <Link href="#">
-                        <Image width="450" height="350"  alt=" alt image" src={image} />
+                        <Image width="560" height="350"  alt=" alt image" className={"img-fluid"} src={image} />
                     </Link>
                 </div>
 

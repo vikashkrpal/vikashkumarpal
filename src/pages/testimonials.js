@@ -30,8 +30,8 @@ const Testimonials = ({ currentPageData }) => {
             {Testimonials: "null"}
         ]}
                   urlDetails={{
-                      title:'Testimonials',
-                      desc:"Elevate your online presence with our top-notch SEO services. As a leading organic SEO services company, we specialize in providing professional and tailored solutions to boost your websites visibility. Trust our experienced team to optimize your online strategy and enhance your businesss digital success."
+                      title:[currentPageData.page.title],
+                      desc:pageVars.tpBannerPc
                   }}
                   currentPageData={currentPageData}
         >
@@ -62,7 +62,7 @@ const Testimonials = ({ currentPageData }) => {
                         image: card.tpClientImage.mediaItemUrl,
                         name:card.tpClientName,
                         position:card.tpDesigCoName
-                    }} key={index} col={" col-lg-4 col-md-6 col-sm-8 "} />)
+                    }} key={index} col={" col-lg-6 col-md-6 col-sm-8 "} />)
                 }
 
             </div>
