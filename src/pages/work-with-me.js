@@ -72,7 +72,7 @@ const WorkWithMe = ({ currentPageData }) => {
 
             <div className="row">
                 {
-                    pageVars.wwmCards.map((card,i) => <div className="col-lg-6 col-md-6 col-sm-12 col-12">
+                    pageVars.wwmCards.map((card,i) => <div className="col-lg-6 col-md-6 col-sm-12 col-12" key={i}>
                         <IconCardContainer
                             icon={loadImageFromData(card.wwmCardIcon)}
                             heading={card.wwmCardHeading}
