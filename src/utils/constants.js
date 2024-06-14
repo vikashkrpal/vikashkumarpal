@@ -6,4 +6,5 @@ export const registeredPages = {
     CATEGORY: 'category',
     SINGLE_BLOG: 'post',
     CASE_STUDY: 'caseStudy',
+    TESTIMONIALS: 'testimonials',
 }

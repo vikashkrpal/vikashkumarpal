@@ -9,6 +9,9 @@ export const getPageQuery = (pageName, slug) => {
         case registeredPages.BLOG:
             finalQuery = blogPageQuery;
             break;
+        case registeredPages.TESTIMONIALS:
+            finalQuery = testimonialsPageQuery;
+            break;
         case registeredPages.CASE_STUDY:
             finalQuery = caseStudyPageQuery;
             break;
@@ -460,6 +463,34 @@ const singlePageQuery = (slug) => `${getQueryWithSeoFields(
                         }
                        `
 )}`
+
+const testimonialsPageQuery = getQueryWithSeoFields(
+    `page(id:"cG9zdDoxNzg1",idType:ID){`,
+    `
+        testimonials{
+      #banner
+      tpBannerPc
+      
+      #Content Area
+      tpHeading1
+      tpPc1
+      tpButton {
+        tpButtonLabel
+        tpButtonLink
+      }
+      tpTestimonialCard {
+        tpClientName
+        tpDesigCoName
+        tpReviewContent
+        tpClientImage {
+          mediaItemUrl
+          altText
+        }
+      }
+    }
+    
+    }`
+)
 
 
 
