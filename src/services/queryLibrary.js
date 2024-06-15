@@ -21,6 +21,9 @@ export const getPageQuery = (pageName, slug) => {
         case registeredPages.WORK_WITH_ME:
             finalQuery = workWithMePageQuery;
             break;
+        case registeredPages.SEO_APPROACH:
+            finalQuery = seoApproachPageQuery;
+            break;
         case registeredPages.SERVICES:
             finalQuery = servicesPageQuery;
             break;
@@ -195,6 +198,10 @@ const globalComponents = `siteOption(id: "global-components", idType: SLUG) {
                                   ctaHighlightTxt
                                   ctaHeading
                                   ctaParaContent
+                                  ctaImage{
+                                   mediaItemUrl
+                                   altText
+                                  }
                                   ctaButtonLabel
                                   ctaButtonLink
                                     
@@ -694,6 +701,71 @@ const servicesPageQuery = getQueryWithSeoFields(
       servicesFaqs {
         servicesFaqAnswer
         servicesFaqQuestion
+      }
+    }
+    
+  }`
+)
+const seoApproachPageQuery = getQueryWithSeoFields(
+    ` page(id: "cG9zdDoxODk4", idType: ID) {`,
+    ` seoApproach {
+      #banner
+      approachBannerPc
+      
+      #content with side image
+      approachHeading1
+      approachPc1
+      approachPc1Hp {
+        approachPc1HpDescription
+        approachPc1HpName
+      } 
+      approachCtaButton1 {
+        approachButtonLabel1
+        approachButtonLink1
+      } 
+      approachImage1 {
+        mediaItemUrl
+        altText
+      }
+      
+      #4 Points Comp.
+      approachHeading2
+      approachPc2
+      approachCtaButton2 {
+        approachButtonLabel2
+        approachButtonLink2
+      }
+      approachPointsCard{
+        approachPointIcon{
+          mediaItemUrl
+          altText
+        }
+        approachPointHeading
+        approachPointDescription
+      }
+      
+      #Highlights List
+      approachHeading3
+      approachPc3
+      approachCtaButton3 {
+        approachButtonLabel3
+        approachButtonLink3
+      }
+      approachHighlightsList {
+        approachHighlightDescription
+        approachHighlightName
+      }
+      
+      #Comp. Above Testimonials
+      approachHeading4
+      approachPc4
+      approachCtaButton4 {
+        approachButtonLabel4
+        approachButtonLink4
+      }
+      approachImage2{
+        mediaItemUrl
+        altText
       }
     }
     

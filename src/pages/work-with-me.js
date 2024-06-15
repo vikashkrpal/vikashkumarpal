@@ -56,7 +56,7 @@ const WorkWithMe = ({ currentPageData }) => {
                 content={pageVars.wwmPc1 }
                 ImageData={{
                     url: loadImageFromData(pageVars.wwmImage1),
-                    alert: pageVars.wwmImage1.altText,
+                    altText: pageVars.wwmImage1.altText,
                 }}
                 buttonData={{
                     buttonText:pageVars.wwmButton1.wwmButtonLabel1,
