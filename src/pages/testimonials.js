@@ -4,7 +4,6 @@ import BrandSlider from "../components/organisms/brandSlider";
 import TestimonialCardContainer from "../components/molecules/testimonialCardContainer";
 import BrandSliderWithSideContent from "../components/organisms/brandSliderWithSideContent";
 import SimpleNewsLetterForm from "../components/molecules/simpleNewsLetterForm";
-import ImageWithSideSortContent from "../components/organisms/imageWithSideSortContent";
 import HeaderWithSideButton from "../components/molecules/headerWithSideButton";
 import ContentWithSideRowCounts from '@/components/organisms/ContentWithSideRowCounts';
 import {getPageQuery} from "../services/queryLibrary";
@@ -13,9 +12,7 @@ import {loadHomePageData} from "../services/siteServies";
 import DarkContentWithSideImage from "../components/organisms/darkContentWithSideImage";
 
 export async function getServerSideProps() {
-    const pageQuery = getPageQuery(registeredPages.TESTIMONIALS);
-    const currentPageData = await loadHomePageData(pageQuery);
-
+    const currentPageData = await loadHomePageData(getPageQuery(registeredPages.TESTIMONIALS));
     return {
         props: {
             currentPageData,

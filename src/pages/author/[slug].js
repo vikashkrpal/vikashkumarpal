@@ -16,20 +16,12 @@ import {BsTwitterX} from "react-icons/bs";
 
 export async function getServerSideProps(context) {
     const { slug } = context.params;
-    const pageQuery = getPageQuery(registeredPages.AUTHOR, slug);
-    // console.log("query>", pageQuery)
-
-    const currentPageData = await loadHomePageData(pageQuery);
-
-    // console.log("reyurn =", currentPageData)
+    const currentPageData = await loadHomePageData(getPageQuery(registeredPages.AUTHOR, slug));
     return {
         props: {
             currentPageData,
         },
     };
-
-
-
 }
 
 const Index = ({ currentPageData }) => {

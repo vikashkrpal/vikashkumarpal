@@ -27,6 +27,9 @@ export const getPageQuery = (pageName, slug) => {
         case registeredPages.SERVICES:
             finalQuery = servicesPageQuery;
             break;
+        case registeredPages.CONTACT:
+            finalQuery = contactPageQuery;
+            break;
         case registeredPages.CASE_STUDY:
             finalQuery = caseStudyPageQuery;
             break;
@@ -767,6 +770,15 @@ const seoApproachPageQuery = getQueryWithSeoFields(
         mediaItemUrl
         altText
       }
+    }
+    
+  }`
+)
+const contactPageQuery = getQueryWithSeoFields(
+    ` page(id: "cG9zdDozMjU=", idType: ID) { `,
+    ` contact{
+      contactHeading
+      contactPc
     }
     
   }`

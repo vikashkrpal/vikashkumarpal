@@ -9,9 +9,7 @@ import {loadHomePageData} from "../../services/siteServies";
 import {checkNotUndefined, formatDate, loadImageFromData} from "../../utils/globalFunctions";
 
 export async function getServerSideProps() {
-    const pageQuery = getPageQuery(registeredPages.BLOG);
-    const currentPageData = await loadHomePageData(pageQuery);
-
+    const currentPageData = await loadHomePageData(getPageQuery(registeredPages.BLOG));
     return {
         props: {
             currentPageData,

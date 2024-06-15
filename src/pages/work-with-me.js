@@ -18,10 +18,7 @@ import DarkContentWithSideImage from "../components/organisms/darkContentWithSid
 
 
 export async function getServerSideProps() {
-    const pageQuery = getPageQuery(registeredPages.WORK_WITH_ME);
-    // console.log("request query", pageQuery)
-    const currentPageData = await loadHomePageData(pageQuery);
-
+    const currentPageData = await loadHomePageData(getPageQuery(registeredPages.WORK_WITH_ME));
     return {
         props: {
             currentPageData,

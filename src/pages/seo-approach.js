@@ -18,10 +18,7 @@ import CaseStudiesSlider from "../components/organisms/caseStudiesSlider";
 
 
 export async function getServerSideProps() {
-    const pageQuery = getPageQuery(registeredPages.SEO_APPROACH);
-    // console.log("request query", pageQuery)
-    const currentPageData = await loadHomePageData(pageQuery);
-
+    const currentPageData = await loadHomePageData(getPageQuery(registeredPages.SEO_APPROACH));
     return {
         props: {
             currentPageData,

@@ -11,4 +11,5 @@ export const registeredPages = {
     WORK_WITH_ME: 'workWithMe',
     SERVICES: 'services',
     SEO_APPROACH: 'seoApproach',
+    CONTACT: 'contact',
 }

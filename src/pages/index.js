@@ -15,14 +15,11 @@ import IconCardContainer from "../components/molecules/IconCardContainer";
 import CaseStudiesSlider from "../components/organisms/caseStudiesSlider";
 import ContentWithSidePoint from "../components/organisms/contentWithSidePoints";
 import TestimonialsSlider from "../components/organisms/testimonialsSlider";
-import ImageWithSideSortContent from "../components/organisms/imageWithSideSortContent";
 import ThemeButton from "../components/atom/themeButton";
 import DarkContentWithSideImage from "../components/organisms/darkContentWithSideImage";
 
 export async function getServerSideProps() {
-    const pageQuery = getPageQuery(registeredPages.HOMEPAGE);
-    const currentPageData = await loadHomePageData(pageQuery);
-
+    const currentPageData = await loadHomePageData(getPageQuery(registeredPages.HOMEPAGE));
     return {
         props: {
             currentPageData,
