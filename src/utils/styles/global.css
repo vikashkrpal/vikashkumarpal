@@ -398,6 +398,17 @@ p {
 .theme-color{
     color: cornflowerblue;
 }
+
+.text-sub-primary h1,
+.text-sub-primary h2,
+.text-sub-primary h3,
+.text-sub-primary h4,
+.text-sub-primary h5,
+.text-sub-primary h6 {
+    color: cornflowerblue;
+}
+
+
 .check-card {
     border-radius: 20px;
     transition: border-color 0.3s ease-in-out;

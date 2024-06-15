@@ -41,7 +41,7 @@ const HomePageContent = ({ currentPageData }) => {
                 content={pageData.hpPc1}
                 ImageData={{
                     url: pageData.hpImage1.mediaItemUrl,
-                    alert: "Award winning SEO experts",
+                    altText: "Award winning SEO experts",
                 }}
                 contentListing={0}
                 buttonData={{
@@ -78,7 +78,7 @@ const HomePageContent = ({ currentPageData }) => {
                     content={data.hpPc3}
                     ImageData={{
                         url: loadImageFromData(data.hpImage2),
-                        alert: "Award winning SEO experts",
+                        altText: "Award winning SEO experts",
                     }}
                     contentListing={index % 2}
                     buttonData={{

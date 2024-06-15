@@ -1,5 +1,6 @@
 import React from 'react';
 import ImageWithSideSortContent from "./imageWithSideSortContent";
+import {loadImageFromData} from "../../utils/globalFunctions";
 
 const DarkContentWithSideImage = ({ currentPageData }) => {
     return <section>
@@ -9,8 +10,8 @@ const DarkContentWithSideImage = ({ currentPageData }) => {
                 heading={currentPageData.siteOption.siteOptions.ctaHeading}
                 content={currentPageData.siteOption.siteOptions.ctaParaContent}
                 ImageData={{
-                    url: "https://admin.improvefx.com/wp-content/uploads/2024/03/SEO-services-agency.webp",
-                    alert: "Award winning SEO experts",
+                    url: loadImageFromData(currentPageData.siteOption.siteOptions.ctaImage),
+                    altText: currentPageData.siteOption.siteOptions.ctaImage.altText,
                 }}
                 contentListing={0}
                 buttonData={{

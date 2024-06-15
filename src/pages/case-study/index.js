@@ -11,7 +11,6 @@ import {getPageQuery} from "../../services/queryLibrary";
 import {registeredPages} from "../../utils/constants";
 import {loadHomePageData} from "../../services/siteServies";
 import {loadImageFromData} from "../../utils/globalFunctions";
-import CaseStudiesSlider from "../../components/organisms/caseStudiesSlider";
 import DarkContentWithSideImage from "../../components/organisms/darkContentWithSideImage";
 import CaseStudyCardContainer from "../../components/molecules/caseStudyCardContaienr";
 
@@ -49,7 +48,7 @@ const CaseStudy = ({currentPageData}) => {
                 content={pageVars.csPc2}
                 ImageData={{
                     url: loadImageFromData(pageVars.csImage),
-                    alert: "Award winning SEO experts",
+                    altText: "Award winning SEO experts",
                 }}
                 buttonData={{
                     buttonText: pageVars.csButton.csButtonLabel,

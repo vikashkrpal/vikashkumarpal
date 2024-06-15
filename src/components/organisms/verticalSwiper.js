@@ -53,7 +53,7 @@ const VerticalSwiper = () => {
                         }
                         ImageData={{
                             url: "https://admin.improvefx.com/wp-content/uploads/2024/03/SEO-services-agency.webp",
-                            alert: "Award winning SEO experts",
+                            altText: "Award winning SEO experts",
                         }}
                         contentListing={1}
                         buttonData={{
@@ -75,7 +75,7 @@ const VerticalSwiper = () => {
                         }
                         ImageData={{
                             url: "https://admin.improvefx.com/wp-content/uploads/2024/03/SEO-services-agency.webp",
-                            alert: "Award winning SEO experts",
+                            altText: "Award winning SEO experts",
                         }}
                         contentListing={0}
                         buttonData={{
@@ -98,7 +98,7 @@ const VerticalSwiper = () => {
                         }
                         ImageData={{
                             url: "https://admin.improvefx.com/wp-content/uploads/2024/03/SEO-services-agency.webp",
-                            alert: "Award winning SEO experts",
+                            altText: "Award winning SEO experts",
                         }}
                         contentListing={1}
                         buttonData={{

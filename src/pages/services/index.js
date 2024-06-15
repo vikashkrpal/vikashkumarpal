@@ -7,7 +7,6 @@ import HeaderDescContainer from "../../components/molecules/headerDescContainer"
 import IconCardContainer from "../../components/molecules/IconCardContainer";
 import CaseStudiesSlider from "../../components/organisms/caseStudiesSlider";
 import TestimonialsSlider from "../../components/organisms/testimonialsSlider";
-import ImageWithSideSortContent from "../../components/organisms/imageWithSideSortContent";
 import BrandSliderWithSideContent from "../../components/organisms/brandSliderWithSideContent";
 import SimpleNewsLetterForm from "../../components/molecules/simpleNewsLetterForm";
 import FaqQuestions from "../../components/organisms/faqQuestions";
@@ -59,7 +58,7 @@ const Index = ({ currentPageData }) => {
                 content={pageVars.servicesPc1 }
                 ImageData={{
                     url: loadImageFromData(pageVars.servicesImage1),
-                    alert: pageVars.servicesImage1.altText,
+                    altText: pageVars.servicesImage1.altText,
                 }}
                 buttonData={{
                     buttonText:pageVars.servicesCtaButton1.servicesCtaButtonLabel1,
