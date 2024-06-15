@@ -21,6 +21,9 @@ export const getPageQuery = (pageName, slug) => {
         case registeredPages.WORK_WITH_ME:
             finalQuery = workWithMePageQuery;
             break;
+        case registeredPages.SERVICES:
+            finalQuery = servicesPageQuery;
+            break;
         case registeredPages.CASE_STUDY:
             finalQuery = caseStudyPageQuery;
             break;
@@ -646,6 +649,54 @@ const workWithMePageQuery = getQueryWithSeoFields(
 
       }
   
+  }`
+)
+const servicesPageQuery = getQueryWithSeoFields(
+    ` page(id:"cG9zdDoxNDQ=",idType:ID){`,
+    `  services {
+      #banner
+      servicesBannerPc
+      
+      #content with side image
+      servicesHeading1
+      servicesPc1
+      servicesPcHighlightPoints {
+        servicesPcPointDescription
+        servicesPcPointName
+      }
+      servicesCtaButton1 {
+        servicesCtaButtonLabel1
+        servicesCtaButtonLink1
+      }
+      servicesImage1 {
+        mediaItemUrl
+        altText
+      }
+      
+      #Service Cards Section
+      servicesHeading2
+      servicesPc2
+      serviceCardsComp {
+        servicesCardCompServiceDescription
+        servicesCardCompServiceName
+        servicesCardCompIcon{
+          mediaItemUrl
+          altText
+        }
+        servicesCardCompHighlightPoints {
+          servicesCardCompHighlight
+        }
+      }
+      
+      #FAQ Section
+      servicesHeading3
+      servicesPc3
+      servicesFaqs {
+        servicesFaqAnswer
+        servicesFaqQuestion
+      }
+    }
+    
   }`
 )
 
