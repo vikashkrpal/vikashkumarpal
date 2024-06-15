@@ -22,11 +22,7 @@ import Link from "next/link";
 
 export async function getServerSideProps(context) {
   const { slug } = context.params;
-  const pageQuery = getPageQuery(registeredPages.SINGLE_BLOG, slug);
-  // console.log("query", pageQuery)
-
-  const currentPageData = await loadHomePageData(pageQuery);
-
+  const currentPageData = await loadHomePageData(getPageQuery(registeredPages.SINGLE_BLOG, slug));
   // console.log("reyurn =", currentPageData)
   return {
     props: {
@@ -38,7 +34,6 @@ const BlogOne = ({ currentPageData }) => {
   const [postLiked, setPostLiked] = React.useState(false);
   const [postCount, setPostCount] = React.useState(35);
   const pageVars = currentPageData[registeredPages.SINGLE_BLOG]
-  const blogPageVars = currentPageData.page[registeredPages.BLOG]
 
 
   if (!isNotNull(pageVars))

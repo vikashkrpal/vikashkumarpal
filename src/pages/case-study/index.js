@@ -15,9 +15,7 @@ import DarkContentWithSideImage from "../../components/organisms/darkContentWith
 import CaseStudyCardContainer from "../../components/molecules/caseStudyCardContaienr";
 
 export async function getServerSideProps() {
-    const pageQuery = getPageQuery(registeredPages.CASE_STUDY);
-    const currentPageData = await loadHomePageData(pageQuery);
-
+    const currentPageData = await loadHomePageData(getPageQuery(registeredPages.CASE_STUDY));
     return {
         props: {
             currentPageData,
