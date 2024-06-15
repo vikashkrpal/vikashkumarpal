@@ -9,4 +9,5 @@ export const registeredPages = {
     TESTIMONIALS: 'testimonials',
     PORTFOLIO: 'portfolio',
     WORK_WITH_ME: 'workWithMe',
+    SERVICES: 'services',
 }
