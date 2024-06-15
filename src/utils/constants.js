@@ -8,4 +8,5 @@ export const registeredPages = {
     CASE_STUDY: 'caseStudy',
     TESTIMONIALS: 'testimonials',
     PORTFOLIO: 'portfolio',
+    WORK_WITH_ME: 'workWithMe',
 }

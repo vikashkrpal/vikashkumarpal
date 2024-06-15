@@ -1,66 +1,39 @@
 import React from 'react';
 import ThemeButton from "../atom/themeButton";
 import IconCardWithoutPointsContainer from "../molecules/IconCardWithoutPointsContainer";
+import {loadImageFromData} from "../../utils/globalFunctions";
 
-const FeaturePowerUpComponent = () => {
+const FeaturePowerUpComponent = ({
+                                     header,
+                                     desc,
+                                     button={buttonText:'Get Start >', action:'#'},
+    pointsArray = []
+}) => {
     return <section>
         <div className="row mt-5 align-items-center">
             <div className="col-lg-7 col-md-12 col-sm-12">
-                <h2>Features to power-up your business</h2>
+                <div dangerouslySetInnerHTML={{ __html:header }} />
+                <div dangerouslySetInnerHTML={{ __html:desc }} />
             </div>
             <div className="col-lg-5 col-md-12 col-sm-12">
                 <div className="row mt-lg-0 mt-3 d-lg-flex justify-content-end">
                     <div className="col col-lg-auto ">
-                        <ThemeButton text={"Browse all features >"} addStyle={{  minWidth:'30%', fontSize:18 }}  href={"#"} />
+                        <ThemeButton text={button.buttonText} addStyle={{  minWidth:'30%', fontSize:18 }}  href={button.action} />
                     </div>
                 </div>
             </div>
         </div>
         <div className="row">
-            <div className="col-12 col-md-6 col-lg-6">
-                <IconCardWithoutPointsContainer
-                    icon={
-                        "https://assets-global.website-files.com/639c8b86e20d9448ede95a64/6439cf65136f9b44e9136149_realtime-analytics-icon-advertising-webflow-ecommerce-template.png"
-                    }
-                    heading={"Realtime analytics"}
-                    desc={
-                        "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit et morbi libero quam risus quis commodo nisl.</p>"
-                    }
-                />
-            </div>
-            <div className="col-12 col-md-6 col-lg-6">
-                <IconCardWithoutPointsContainer
-                    icon={
-                        "https://assets-global.website-files.com/639c8b86e20d9448ede95a64/6439cf6572b2cbe137e35258_user-journey-icon-advertising-webflow-ecommerce-template.png"
-                    }
-                    heading={"Realtime analytics"}
-                    desc={
-                        "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit et morbi libero quam risus quis commodo nisl.</p>"
-                    }
-                />
-            </div>
-            <div className="col-12 col-md-6 col-lg-6">
-                <IconCardWithoutPointsContainer
-                    icon={
-                        "https://assets-global.website-files.com/639c8b86e20d9448ede95a64/6439cf65604b7716ebd0620b_integrations-icon-advertising-webflow-ecommerce-template.png"
-                    }
-                    heading={"Realtime analytics"}
-                    desc={
-                        "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit et morbi libero quam risus quis commodo nisl.</p>"
-                    }
-                />
-            </div>
-            <div className="col-12 col-md-6 col-lg-6">
-                <IconCardWithoutPointsContainer
-                    icon={
-                        "https://assets-global.website-files.com/639c8b86e20d9448ede95a64/6439cf650ef08821afac5aad_machine-learning-icon-advertising-webflow-ecommerce-template.png"
-                    }
-                    heading={"Realtime analytics"}
-                    desc={
-                        "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit et morbi libero quam risus quis commodo nisl.</p>"
-                    }
-                />
-            </div>
+            {
+                pointsArray.length > 0 && pointsArray.map((card,i) =>             <div className="col-12 col-md-6 col-lg-6" key={i}>
+                        <IconCardWithoutPointsContainer
+                            icon={loadImageFromData(card.icon)}
+                            heading={card.name}
+                            desc={card.desc}
+                        />
+                    </div>
+                )
+            }
         </div>
 
     </section>

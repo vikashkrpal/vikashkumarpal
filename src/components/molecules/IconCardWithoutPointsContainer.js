@@ -9,7 +9,9 @@ const IconCardWithoutPointsContainer = ({ icon, heading, desc}) => {
                 <Image src={icon} alt="..." width="70" height="70" className="" />
             </div>
             <div className="col-8 service-card-body mt-md-2">
-                <span className="card-title mx-auto"><h4 className="mt-0 mb-2"><Link href="#" className="elementor-icon">{heading}</Link></h4></span>
+                <span className="card-title mx-auto">
+                    <div dangerouslySetInnerHTML={{ __html:heading }} />
+                </span>
                 <div className="mx-auto p-bottom-0 mb-3" dangerouslySetInnerHTML={{ __html: desc }} />
 
                 <Link href="#" className=" ancor-hover ps-0 font-b" style={{ fontSize:16 }}>{"Learn more >"}</Link>
