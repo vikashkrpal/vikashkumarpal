@@ -44,10 +44,10 @@ const SeoService = ({ currentPageData }) => {
         <Template
             urlStrings={[
                 {"Services":'/services'},
-                {"Seo Services":'null'}
+                {[currentPageData[registeredPages.SINGLE_SERVICES].title]:'null'}
             ]} urlBar={true} urlDetails={{
-            title:'Seo Services',
-            desc:'Explore our portfolio to witness the depth and range of our SEO expertise. Each project is a story of challenge, innovation, and success.'
+            title:[currentPageData[registeredPages.SINGLE_SERVICES].title],
+            desc:pageVars.seoServicesBannerPc
         }} currentPageData={currentPageData} slug={registeredPages.SINGLE_SERVICES}
         >
             <div className="pt-5">
@@ -71,6 +71,16 @@ const SeoService = ({ currentPageData }) => {
                     alert: pageVars.seoServicesImage1.altText,
                 }}
                 addClass="mt-2"
+                buttonData={{
+                    buttonText:pageVars.seoServicesCtaButton1.seoServicesButtonLabel1,
+                    action:pageVars.seoServicesCtaButton1.seoServicesButtonLink1
+                }}
+                pointsArray={pageVars.seoServicesPc1Points.map((c,i) => {
+                    return {
+                        header:c.seoServicesPc1PointsName,
+                        desc:c.seoServicesPc1PointsDescription
+                    }
+                })}
 
             />
             <BrandSlider currentPageData={currentPageData} />
