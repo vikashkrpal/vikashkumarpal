@@ -8,7 +8,7 @@ const TestimonialReviewContainer = ({ testimonialsDetails }) => {
 
 return (
             <div className="">
-                <div className="col-lg-10 mx-lg-auto card d-flex justify-content-center">
+                <div className="col-lg-10 mx-lg-auto card d-flex justify-content-center" style={{ borderRadius:20 }}>
                     <div className=" row p-4 py-5">
                         <div className="col-lg-8 col-md-8">
                                 <div className="star-rating text-primary">★ ★ ★ ★ ★</div>
