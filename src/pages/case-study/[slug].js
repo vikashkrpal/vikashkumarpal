@@ -15,7 +15,7 @@ import DarkContentWithSideImage from "../../components/organisms/darkContentWith
 export async function getServerSideProps(context) {
     const { slug } = context.params;
     const currentPageData = await loadHomePageData(getPageQuery(registeredPages.DETAILED_CASE_STUDY, slug));
-    console.log("reyurn =", currentPageData)
+    // console.log("reyurn =", currentPageData)
     return {
         props: {
             currentPageData,
@@ -26,7 +26,6 @@ export async function getServerSideProps(context) {
 const SingleCaseStudy = ({ currentPageData }) => {
     const pageVars = currentPageData[registeredPages.CASE_STUDY][registeredPages.DETAILED_CASE_STUDY]
 
-    console.log(pageVars)
     if (!isNotNull(pageVars))
         return <h1>No Data Found</h1>
     return (
@@ -79,6 +78,7 @@ const SingleCaseStudy = ({ currentPageData }) => {
                         buttonText: card.dcsCtaButton.dcsButtonLabel,
                         action: card.dcsCtaButton.dcsButtonLink,
                     }}
+                    key={index}
                 />)
             }
 
