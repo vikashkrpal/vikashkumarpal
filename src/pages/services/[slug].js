@@ -6,22 +6,20 @@ import BrandSlider from "../../components/organisms/brandSlider";
 import ImageWithSideContent from "../../components/organisms/imageWithSideContent";
 import FeaturePowerUpComponent from "../../components/organisms/featurePowerUpComponent";
 import HeaderDescContainer from "../../components/molecules/headerDescContainer";
-import CaseStudyCardContainer from "../../components/molecules/caseStudyCardContaienr";
 import IconCardContainer from "../../components/molecules/IconCardContainer";
-import ImageWithSideSortContent from "../../components/organisms/imageWithSideSortContent";
 import TestimonialsSlider from "../../components/organisms/testimonialsSlider";
 import FaqQuestions from "../../components/organisms/faqQuestions";
 import BrandSliderWithSideContent from "../../components/organisms/brandSliderWithSideContent";
 import SimpleNewsLetterForm from "../../components/molecules/simpleNewsLetterForm";
 import ThemeButton from "../../components/atom/themeButton";
-import {FaUser} from "react-icons/fa";
-import {FaHandshakeSimple} from "react-icons/fa6";
 import {loadHomePageData} from "../../services/siteServies";
 import {getPageQuery} from "../../services/queryLibrary";
 import {registeredPages} from "../../utils/constants";
 import {isNotNull, loadImageFromData} from "../../utils/globalFunctions";
 import CaseStudiesSlider from "../../components/organisms/caseStudiesSlider";
 import DarkContentWithSideImage from "../../components/organisms/darkContentWithSideImage";
+import Image from "next/image";
+import FeaturesSection from "../../components/organisms/featuresSection";
 
 export async function getServerSideProps(context) {
     const { slug } = context.params;
@@ -100,40 +98,25 @@ const SeoService = ({ currentPageData }) => {
                 }}
             />
 
-
-            <div>
-                <div className="row align-items-center pt-5">
-                    <div className="col-lg-9 col-md-8">
-                        <div dangerouslySetInnerHTML={{ __html:pageVars.seoServicesHeading3 }} />
-                        <div dangerouslySetInnerHTML={{ __html:pageVars.seoServicesPc3 }} />
-                    </div>
-
-                    <div className="col-lg-3 col-md-4 text-lg-center my-auto d-flex justify-content-end">
-                        <ThemeButton text={pageVars.seoServicesCtaButton2.seoServicesButtonLabel2} addStyle={{  minWidth:'30%', fontSize:18 }} href={pageVars.seoServicesCtaButton2.seoServicesButtonLink2} />
-                    </div>
-                </div>
-                <div className="row">
-                    {
-                        pageVars.seoServicesFeaturesComp.map((card,i) => <div className="col-lg-4 col-md-6 col-sm-12 mt-3" key={i}>
-                            <div  style={{ borderLeft:"0.2px solid white" }} className={"ps-4"}>
-                                <FaHandshakeSimple />
-                                <div className={"text-sub-primary"} dangerouslySetInnerHTML={{ __html:card.seoServicesFeatureName }} />
-
-                                <div dangerouslySetInnerHTML={{ __html:card.seoServicesFeatureDescription }} />
-                            </div>
-
-                        </div>)
+            <FeaturesSection
+                header={pageVars.seoServicesHeading3}
+                desc={pageVars.seoServicesPc3}
+                button={{ buttonText:pageVars.seoServicesCtaButton3.seoServicesButtonLabel3, action: pageVars.seoServicesCtaButton3.seoServicesButtonLink3}}
+                pointArray={pageVars.seoServicesFeaturesComp.map(p => {
+                    return{
+                        header:p.seoServicesFeatureName,
+                        desc:p.seoServicesFeatureDescription
                     }
+                })}
+            />
 
-                </div>
-            </div>
 
             <FeaturePowerUpComponent
                 header={pageVars.seoServicesHeading4}
                 desc={pageVars.seoServicesPc4}
                 button={{
-                    buttonText:pageVars.seoServicesCtaButton4.seoServicesButtonLabel4,
-                    action:pageVars.seoServicesCtaButton4.seoServicesButtonLink4
+                    buttonText : pageVars.seoServicesCtaButton4.seoServicesButtonLabel4,
+                    action : pageVars.seoServicesCtaButton4.seoServicesButtonLink4
                 }}
                 pointsArray={pageVars.seoServicesOfferings.map(p => {return {
                     icon:p.seoServicesOfferingIcon,

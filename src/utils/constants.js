@@ -15,4 +15,6 @@ export const registeredPages = {
     CONTACT: 'contact',
     DETAILED_CASE_STUDY: 'detailedCaseStudy',
     DETAILED_SERVICES: 'seoServices',
+    CONSULTING_SERVICES: 'consultingService',
+    DETAILED_CONSULTING_SERVICES: 'consultingServices',
 }

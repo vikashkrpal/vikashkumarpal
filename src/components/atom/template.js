@@ -21,6 +21,7 @@ const Template = ({
     const slugConditionCheck = () => {
         return (slug === registeredPages.CASE_STUDY
             || slug === registeredPages.SINGLE_SERVICES
+            || slug === registeredPages.CONSULTING_SERVICES
         )
     }
     return (
