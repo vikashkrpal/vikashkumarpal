@@ -33,6 +33,9 @@ export const getPageQuery = (pageName, slug) => {
         case registeredPages.CASE_STUDY:
             finalQuery = caseStudyPageQuery;
             break;
+        case registeredPages.DETAILED_CASE_STUDY:
+            finalQuery = detailedCaseStudyPageQuery(slug);
+            break;
         case registeredPages.AUTHOR:
             finalQuery = authorPageQuery(slug);
             break;
@@ -783,6 +786,58 @@ const contactPageQuery = getQueryWithSeoFields(
     
   }`
 )
+
+
+const detailedCaseStudyPageQuery = (slug) => `${getQueryWithSeoFields(
+    `
+    caseStudy(
+    id: "/case-study/${slug}"
+    idType: URI
+  ) {
+    `, `
+             detailedCaseStudy {
+                  #Banner Section
+                  dcsBannerPc
+                  
+                  #Impact Numbers
+                  dcsHeading1
+                  dcsPc1
+                  dcsImpactNumbers {
+                    dcsHighlightNumber
+                    dcsHighlightText
+                  }
+                  
+                  #Client Review Section
+                  dcsHeading2
+                  dcsPc2
+                  dcsClientIcon{
+                    mediaItemUrl
+                    altText
+                  }
+                  dcsClientName
+                  dcsClientDesignation
+                  dcsClientReviewContent
+                  
+                  #Content Area
+                  dcsCaseStudyContent {
+                    dcsHeading3
+                    dcsPc3
+                    dcsImage{
+                      mediaItemUrl
+                      altText
+                    }
+                    dcsCtaButton {
+                      dcsButtonLabel
+                      dcsButtonLink
+                    }
+                  }
+                }
+                       
+                ${seoDataSlugFields} 
+                        
+                        }
+                       `
+)}`
 
 
 

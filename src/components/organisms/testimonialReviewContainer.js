@@ -3,15 +3,9 @@ import TestimonialCardContainer from "../molecules/testimonialCardContainer";
 import {FaAngleUp} from "react-icons/fa";
 import Image from "next/image";
 
-const TestimonialReviewContainer = () => {
+const TestimonialReviewContainer = ({ testimonialsDetails }) => {
 
-let testimonialsDetails = {
 
-    comment: ' Our e-commerce site’s user engagement skyrocketed by 40% after their exceptional site optimization and SEO services. They are true e-commerce wizards. ',
-    image: "https://admin.improvefx.com/wp-content/uploads/2023/12/Client-Male-Avatar7.svg",
-    name: 'Maia Kennedy',
-    position: 'Founder | ILAMRA '
-};
 return (
             <div className="">
                 <div className="col-lg-10 mx-lg-auto card d-flex justify-content-center">
