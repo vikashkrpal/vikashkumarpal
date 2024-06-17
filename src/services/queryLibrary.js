@@ -36,6 +36,9 @@ export const getPageQuery = (pageName, slug) => {
         case registeredPages.DETAILED_CASE_STUDY:
             finalQuery = detailedCaseStudyPageQuery(slug);
             break;
+        case registeredPages.DETAILED_CONSULTING_SERVICES:
+            finalQuery = detailedConsultingServicesPageQuery(slug);
+            break;
         case registeredPages.DETAILED_SERVICES:
             finalQuery = detailedServicePageQuery(slug);
             break;
@@ -943,6 +946,123 @@ const detailedServicePageQuery = (slug) => `${getQueryWithSeoFields(
               }
               
             }
+                       
+                ${seoDataSlugFields} 
+                        
+                        }
+                       `
+)}`
+
+
+const detailedConsultingServicesPageQuery = (slug) => `${getQueryWithSeoFields(
+    `
+   consultingService(id:"/consulting/${slug}", idType:URI){
+            `, `
+                 consultingServices{
+                  #banner
+                  consultingServicesBannerPc
+                  
+                  #Content With Side Image
+                  consultingServicesHeading1
+                  consultingServicesPc1
+                  consultingServicesPc1Points {
+                    consultingServicesPc1PointsDescription
+                    consultingServicesPc1PointsName
+                  }
+                  consultingServicesCtaButton1 {
+                    consultingServicesButtonLabel1
+                    consultingServicesButtonLink1
+                  }
+                  consultingServicesImage1 {
+                    mediaItemUrl
+                    altText
+                  }
+                  
+                  #Content With Left Image
+                  consultingServicesImage2 {
+                    mediaItemUrl
+                    altText
+                  }
+                  consultingServicesHeading2
+                  consultingServicesPc2
+                  consultingServicesCtaButton2 {
+                    consultingServicesButtonLabel2
+                    consultingServicesButtonLink2
+                  }
+                  
+                  #Features Section
+                  consultingServicesHeading3
+                  consultingServicesPc3
+                  consultingServicesCtaButton3 {
+                    consultingServicesButtonLabel3
+                    consultingServicesButtonLink3
+                  }
+                  consultingServicesFeaturesComp {
+                    consultingServicesFeatureDescription
+                    consultingServicesFeatureName
+                  }
+                  
+                  #Slider Section
+                  consultingServicesHeading4
+                  consultingServicesPc4
+                  consultingServicesCtaButton4 {
+                    consultingServicesButtonLabel4
+                    consultingServicesButtonLink4
+                  }
+                  consultingServicesVerticalSlider {
+                    consultingServicesVerticalSliderHeading
+                    consultingServicesVerticalSliderPc
+                    consultingServicesVerticalSliderImage{
+                      mediaItemUrl
+                      altText
+                    }
+                    consultingServicesVerticalSliderCtaButton{
+                      consultingServicesVerticalSliderButtonLabel
+                      consultingServicesVerticalSliderButtonLink
+                    }
+                  }
+            
+                  #Key Offerings
+                  consultingServicesHeading5
+                  consultingServicesPc5
+                  consultingServicesCtaButton5 {
+                    consultingServicesButtonLabel5
+                    consultingServicesButtonLink5
+                  }
+                  consultingServicesOfferings {
+                    consultingServicesOfferingPointDescription
+                    
+                    consultingServicesOfferingIcon{
+                      mediaItemUrl
+                      altText
+                    }
+                  }
+                  
+                  #Card Section
+                  consultingServicesHeading6
+                  consultingServicesPc6
+                  consultingServicesCardComp {
+                    consultingServicesCardDescription
+                    consultingServicesCardName
+                    consultingServicesCardIcon{
+                      mediaItemUrl
+                      altText
+                    }
+                    consultingServicesCardPoints{
+                      consultingServicesCardBulletPoints
+                    }
+                  }
+                  
+                  
+                  #faq
+                  consultingServicesHeading7
+                  consultingServicesPc7
+                  consultingServicesFaqQuestionAnswer{
+                    consultingServicesFaqQuestion
+                    consultingServicesFaqAnswer
+                  }
+                  
+                }
                        
                 ${seoDataSlugFields} 
                         
