@@ -10,7 +10,9 @@ export const registeredPages = {
     PORTFOLIO: 'portfolio',
     WORK_WITH_ME: 'workWithMe',
     SERVICES: 'services',
+    SINGLE_SERVICES: 'service',
     SEO_APPROACH: 'seoApproach',
     CONTACT: 'contact',
     DETAILED_CASE_STUDY: 'detailedCaseStudy',
+    DETAILED_SERVICES: 'seoServices',
 }

@@ -18,6 +18,11 @@ const Template = ({
     const jsonLd = replaceAdminUrl(slug ? currentPageData[slug].seo.jsonLd.raw : currentPageData.page.seo.jsonLd.raw);
     const headContent = currentPageData.siteOption.siteOptions.head;
 
+    const slugConditionCheck = () => {
+        return (slug === registeredPages.CASE_STUDY
+            || slug === registeredPages.SINGLE_SERVICES
+        )
+    }
     return (
         <section className={"bg-black text-light"}>
             <Head>
@@ -43,13 +48,13 @@ const Template = ({
                 <meta property="og:site_name" content="Vikash Kumar Pal" />
                 <meta property="og:type" content="article"/>
                 {
-                    slug === registeredPages.CASE_STUDY ?
+                    slugConditionCheck() ?
                         <meta property="og:description" content={  currentPageData[slug].seo.description } />
                         :
                         <meta property="og:description" content={  currentPageData.page.seo.description } />
                 }
                 {
-                    slug === registeredPages.CASE_STUDY ?
+                    slugConditionCheck() ?
                         <meta property="og:image" content={ currentPageData[slug].featuredImage.node.mediaItemUrl }/>
 
                         :
@@ -66,7 +71,7 @@ const Template = ({
                 <meta name="twitter:description" content={ slug ? currentPageData[slug].seo.description : currentPageData.page.seo.description } />
 
                 {
-                    slug === registeredPages.CASE_STUDY ?
+                    slugConditionCheck() ?
                         <meta name="twitter:image" content={ currentPageData[slug].featuredImage.node.mediaItemUrl } />
                         :
                         <meta name="twitter:image" content={ currentPageData.page.featuredImage.node.mediaItemUrl } />
@@ -77,7 +82,7 @@ const Template = ({
                 <meta name="twitter:label1" content="Written by"/>
 
                 {
-                    slug === registeredPages.CASE_STUDY ?
+                    slugConditionCheck() ?
                         <meta name="twitter:data1" content={ currentPageData[slug].author.node.name } />
                         :
                         <meta name="twitter:data1" content={ currentPageData.page.author.node.name } />
@@ -87,7 +92,7 @@ const Template = ({
                 <meta name="twitter:site" content="@viashkumarpal"/>
 
                 {
-                    slug === registeredPages.CASE_STUDY ?
+                    slugConditionCheck() ?
                         <meta name="date" content={currentPageData[slug].dateGmt } />
 
                         :

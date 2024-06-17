@@ -36,6 +36,9 @@ export const getPageQuery = (pageName, slug) => {
         case registeredPages.DETAILED_CASE_STUDY:
             finalQuery = detailedCaseStudyPageQuery(slug);
             break;
+        case registeredPages.DETAILED_SERVICES:
+            finalQuery = detailedServicePageQuery(slug);
+            break;
         case registeredPages.AUTHOR:
             finalQuery = authorPageQuery(slug);
             break;
@@ -787,7 +790,6 @@ const contactPageQuery = getQueryWithSeoFields(
   }`
 )
 
-
 const detailedCaseStudyPageQuery = (slug) => `${getQueryWithSeoFields(
     `
     caseStudy(
@@ -832,6 +834,115 @@ const detailedCaseStudyPageQuery = (slug) => `${getQueryWithSeoFields(
                     }
                   }
                 }
+                       
+                ${seoDataSlugFields} 
+                        
+                        }
+                       `
+)}`
+
+const detailedServicePageQuery = (slug) => `${getQueryWithSeoFields(
+    `
+            service(id: "/service/${slug}",
+             idType: URI) {
+            `, `
+                     seoServices{
+              seoServicesBannerPc
+              
+              #Content With Side Image
+              seoServicesHeading1
+              seoServicesPc1
+              seoServicesPc1Points {
+                seoServicesPc1PointsDescription
+                seoServicesPc1PointsName
+              }
+              seoServicesCtaButton1 {
+                seoServicesButtonLabel1
+                seoServicesButtonLink1
+              }
+              seoServicesImage1{
+                mediaItemUrl
+                altText
+              }
+              
+              #Content With Left Image
+              seoServicesImage2{
+                mediaItemUrl
+                altText
+              }
+              seoServicesHeading2
+              seoServicesPc2
+              seoServicesCtaButton2 {
+                seoServicesButtonLabel2
+                seoServicesButtonLink2
+              }
+              
+              #Features Section
+              seoServicesHeading3
+              seoServicesPc3
+              seoServicesCtaButton3 {
+                seoServicesButtonLabel3
+                seoServicesButtonLink3
+              }
+              seoServicesFeaturesComp {
+                seoServicesFeatureDescription
+                seoServicesFeatureName
+              }
+              
+              #Key Offerings
+              seoServicesHeading4
+              seoServicesPc4
+              seoServicesCtaButton4 {
+                seoServicesButtonLabel4
+                seoServicesButtonLink4
+              }
+              seoServicesOfferings {
+                seoServicesOfferingIcon{
+                  mediaItemUrl
+                  altText
+                }
+                seoServicesOfferingPointDescription
+                seoServicesOfferingPointName
+              }
+        
+              #Alt. Content With Image
+              seoServicesAltContentWithImage {
+                seoServicesImage3{
+                  mediaItemUrl
+                  altText
+                }
+                seoServicesCtaButton5 {
+                  seoServicesButtonLabel5
+                  seoServicesButtonLink5
+                }
+                seoServicesHeading5
+                seoServicesPc5
+              }
+              
+              #Card Section
+              seoServicesHeading6
+              seoServicesPc6
+              seoServicesCardComp {
+                seoServicesCardDescription
+                seoServicesCardName
+                seoServicesCardIcon {
+                  mediaItemUrl
+                  altText
+                }
+                seoServicesCardPoints {
+                  seoServicesCardBulletPoints
+                }
+              }
+              
+              # FAQ Section
+              seoServicesHeading7
+              seoServicesPc7
+              seoServicesFaqQuestionAnswer {
+                seoServicesFaqAnswer
+                seoServicesFaqQuestion
+              }
+              
+            }
                        
                 ${seoDataSlugFields} 
                         

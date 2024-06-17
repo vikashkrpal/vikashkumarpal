@@ -24,10 +24,13 @@ export async function getServerSideProps(context) {
 }
 
 const SingleCaseStudy = ({ currentPageData }) => {
-    const pageVars = currentPageData[registeredPages.CASE_STUDY][registeredPages.DETAILED_CASE_STUDY]
 
-    if (!isNotNull(pageVars))
+    const caseStudyVars = currentPageData[registeredPages.CASE_STUDY]
+
+    if (!isNotNull(caseStudyVars))
         return <h1>No Data Found</h1>
+
+    const pageVars = caseStudyVars[registeredPages.DETAILED_CASE_STUDY]
     return (
         <Template
             currentPageData={currentPageData}
