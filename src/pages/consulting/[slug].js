@@ -44,7 +44,7 @@ const SeoConsultant = ({ currentPageData }) => {
             currentPageData={currentPageData}
             slug={registeredPages.CONSULTING_SERVICES}
             urlStrings={[
-                {"Seo Consultant":'/seo-consultant'},
+                {"Consulting":'/consulting'},
                 {[currentPageData[registeredPages.CONSULTING_SERVICES].title]:'null'}
             ]} urlBar={true} urlDetails={{
             title:[currentPageData[registeredPages.CONSULTING_SERVICES].title],

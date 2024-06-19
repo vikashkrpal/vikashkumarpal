@@ -1031,7 +1031,7 @@ const detailedConsultingServicesPageQuery = (slug) => `${getQueryWithSeoFields(
                   }
                   consultingServicesOfferings {
                     consultingServicesOfferingPointDescription
-                    
+                    consultingServicesOfferingPointName
                     consultingServicesOfferingIcon{
                       mediaItemUrl
                       altText
