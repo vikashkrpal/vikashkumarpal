@@ -18,6 +18,7 @@ export const registeredPages = {
     CONSULTING_SERVICES: 'consultingService',
     DETAILED_CONSULTING_SERVICES: 'consultingServices',
     SINGLE_INDUSTRY:'industry',
+    INDUSTRIES:'industries',
     DETAILED_INDUSTRY_SERVICES: 'industryServices',
 
 }

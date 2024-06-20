@@ -27,6 +27,9 @@ export const getPageQuery = (pageName, slug) => {
         case registeredPages.SERVICES:
             finalQuery = servicesPageQuery;
             break;
+        case registeredPages.INDUSTRIES:
+            finalQuery = industryPageQuery;
+            break;
         case registeredPages.CONTACT:
             finalQuery = contactPageQuery;
             break;
@@ -791,6 +794,52 @@ const contactPageQuery = getQueryWithSeoFields(
     ` contact{
       contactHeading
       contactPc
+    }
+    
+  }`
+)
+const industryPageQuery = getQueryWithSeoFields(
+    `   page(id:"cG9zdDoxNzQw", idType:ID){`,
+    ` 
+    industries{
+      industriesBannerPc
+      
+      industriesHeading1
+      industriesPc1
+      industriesPcHighlightPoints {
+        industriesPcPointDescription
+        industriesPcPointName
+      }
+      industriesCtaButton1 {
+        industriesCtaButtonLabel1
+        industriesCtaButtonLink1
+      }
+      industriesImage1 {
+        mediaItemUrl
+        altText
+      }
+      
+      industriesHeading2
+      industriesPc2
+      industriesCardsComp {
+        industriesCardCompServiceDescription
+        industriesCardCompServiceName
+        industriesCardCompIcon{
+          mediaItemUrl
+          altText
+        }
+        industriesCardCompHighlightPoints{
+          industriesCardCompHighlight
+        }
+      }
+      
+      industriesHeading3
+      industriesPc3
+      industriesFaqs {
+        industriesFaqAnswer
+        industriesFaqQuestion
+      }
+
     }
     
   }`
