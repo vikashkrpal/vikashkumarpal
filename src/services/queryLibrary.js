@@ -39,6 +39,9 @@ export const getPageQuery = (pageName, slug) => {
         case registeredPages.DETAILED_CONSULTING_SERVICES:
             finalQuery = detailedConsultingServicesPageQuery(slug);
             break;
+        case registeredPages.DETAILED_INDUSTRY_SERVICES:
+          finalQuery = detailedIndustryServicesPageQuery(slug);
+          break;
         case registeredPages.DETAILED_SERVICES:
             finalQuery = detailedServicePageQuery(slug);
             break;
@@ -1068,6 +1071,132 @@ const detailedConsultingServicesPageQuery = (slug) => `${getQueryWithSeoFields(
                         
                         }
                        `
+)}`
+
+
+const detailedIndustryServicesPageQuery = (slug) => `${getQueryWithSeoFields(
+  `
+  industry(id:"/industries/${slug}", idType:URI){
+          `, `
+          industryServices{
+            #banner
+            industryServicesBannerPc
+            
+            # Content With Side Image
+            industryServicesHeading1 
+            industryServicesPc1 
+            industryServicesPc1Points {
+              industryServicesPc1PointsDescription
+              industryServicesPc1PointsName
+            } 
+            industryServicesCtaButton1 {
+              industryServicesButtonLabel1
+              industryServicesButtonLink1
+            } 
+            industryServicesImage1 {
+              mediaItemUrl
+              altText
+            } 
+            #Content With Left Image
+            industryServicesImage2 {
+              mediaItemUrl
+              altText
+            } 
+            industryServicesHeading2 
+            industryServicesPc2 
+            industryServicesCtaButton2 {
+              industryServicesButtonLabel2
+              industryServicesButtonLink2
+            } 
+            #Features Section
+            industryServicesHeading3
+            industryServicesPc3 
+            industryServicesCtaButton3 {
+              industryServicesButtonLabel3
+              industryServicesButtonLink3
+            } 
+            industryServicesFeaturesComp {
+              industryServicesFeatureDescription
+              industryServicesFeatureName
+            }
+            
+            #Key Offerings
+            industryServicesHeading5 
+            industryServicesPc5 
+            industryServicesCtaButton5 {
+              industryServicesButtonLabel5
+              industryServicesButtonLink5
+            } 
+            industryServicesOfferings {
+              industryServicesOfferingPointDescription
+              industryServicesOfferingPointName
+            } 
+            
+            #Slider Section
+            industryServicesHeading4 
+            industryServicesPc4 
+            industryServicesCtaButton4 {
+              industryServicesButtonLabel4
+              industryServicesButtonLink4
+            }
+            
+            #Vertical Slider
+            industryServicesVerticalSlider {
+              industryServicesVerticalSliderHeading
+              industryServicesVerticalSliderPc
+              industryServicesVerticalSliderImage{
+                mediaItemUrl
+                altText
+              }
+              industryServicesVerticalSliderCtaButton {
+                industryServicesVerticalSliderButtonLabel
+                industryServicesVerticalSliderButtonLink
+              }
+            }
+            
+            #Card Section
+            industryServicesHeading6
+            industryServicesPc6
+            industryServicesCardComp {
+              industryServicesCardDescription
+              industryServicesCardName
+              industryServicesCardIcon{
+                mediaItemUrl
+                altText
+              }
+              industryServicesCardPoints{
+                industryServicesCardBulletPoints
+              }
+            }
+            
+            #Alt Content With Image
+            industryServicesAltContentWithImage {
+              industryServicesHeading7
+              industryServicesPc7
+              industryServicesCtaButton5 {
+                industryServicesButtonLabel5
+                industryServicesButtonLink5
+              }
+              industryServicesImage3{
+                mediaItemUrl
+                altText
+              }
+            }
+            
+            #FAQ Section
+            industryServicesHeading8
+            industryServicesPc8
+            industryServicesFaqQuestionAnswer {
+              industryServicesFaqAnswer
+              industryServicesFaqQuestion
+            }
+      
+          }
+                     
+              ${seoDataSlugFields} 
+                      
+                      }
+                     `
 )}`
 
 
