@@ -11,14 +11,12 @@ import TestimonialsSlider from "../../components/organisms/testimonialsSlider";
 import FaqQuestions from "../../components/organisms/faqQuestions";
 import BrandSliderWithSideContent from "../../components/organisms/brandSliderWithSideContent";
 import SimpleNewsLetterForm from "../../components/molecules/simpleNewsLetterForm";
-import ThemeButton from "../../components/atom/themeButton";
 import {loadHomePageData} from "../../services/siteServies";
 import {getPageQuery} from "../../services/queryLibrary";
 import {registeredPages} from "../../utils/constants";
 import {isNotNull, loadImageFromData} from "../../utils/globalFunctions";
 import CaseStudiesSlider from "../../components/organisms/caseStudiesSlider";
 import DarkContentWithSideImage from "../../components/organisms/darkContentWithSideImage";
-import Image from "next/image";
 import FeaturesSection from "../../components/organisms/featuresSection";
 
 export async function getServerSideProps(context) {

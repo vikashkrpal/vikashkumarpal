@@ -17,4 +17,7 @@ export const registeredPages = {
     DETAILED_SERVICES: 'seoServices',
     CONSULTING_SERVICES: 'consultingService',
     DETAILED_CONSULTING_SERVICES: 'consultingServices',
+    SINGLE_INDUSTRY:'industry',
+    DETAILED_INDUSTRY_SERVICES: 'industryServices',
+
 }
