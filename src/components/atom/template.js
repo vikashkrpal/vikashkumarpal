@@ -22,6 +22,7 @@ const Template = ({
         return (slug === registeredPages.CASE_STUDY
             || slug === registeredPages.SINGLE_SERVICES
             || slug === registeredPages.CONSULTING_SERVICES
+            || slug === registeredPages.SINGLE_INDUSTRY
         )
     }
     return (

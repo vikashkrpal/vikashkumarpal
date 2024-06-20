@@ -1076,7 +1076,7 @@ const detailedConsultingServicesPageQuery = (slug) => `${getQueryWithSeoFields(
 
 const detailedIndustryServicesPageQuery = (slug) => `${getQueryWithSeoFields(
   `
-  industry(id:"/industries/${slug}", idType:URI){
+    industry(id:"/industries/${slug}", idType:URI){
           `, `
           industryServices{
             #banner
@@ -1097,6 +1097,7 @@ const detailedIndustryServicesPageQuery = (slug) => `${getQueryWithSeoFields(
               mediaItemUrl
               altText
             } 
+            
             #Content With Left Image
             industryServicesImage2 {
               mediaItemUrl
@@ -1108,6 +1109,7 @@ const detailedIndustryServicesPageQuery = (slug) => `${getQueryWithSeoFields(
               industryServicesButtonLabel2
               industryServicesButtonLink2
             } 
+            
             #Features Section
             industryServicesHeading3
             industryServicesPc3 
@@ -1130,7 +1132,12 @@ const detailedIndustryServicesPageQuery = (slug) => `${getQueryWithSeoFields(
             industryServicesOfferings {
               industryServicesOfferingPointDescription
               industryServicesOfferingPointName
+              industryServicesOfferingIcon {
+                mediaItemUrl
+                altText
+              }
             } 
+           
             
             #Slider Section
             industryServicesHeading4 
