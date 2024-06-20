@@ -20,7 +20,8 @@ const FeaturesSection = ({
             {
                 pointArray.map((card,i) => <div className="col-lg-4 col-md-6 col-sm-12 mt-3" key={i}>
                     <div  style={{ borderLeft:"0.2px solid white" }} className={"ps-4"}>
-                        <Image src={require('../../asserts/checkmark-icon-white.png')} alt="..." width="20" height="20" className="mb-1" />
+                        {/* <Image src={require('../../asserts/checkmark-icon-white.png')} alt="..." width="20" height="20" className="mb-1" /> */}
+                        <span className="font-b" style={{ fontWeight:'bold', fontSize:20 }}>{(i+1).toString().padStart(2, '0')}</span>
                         <div className={"text-sub-primary"} dangerouslySetInnerHTML={{ __html:card.header }} />
 
                         <div dangerouslySetInnerHTML={{ __html:card.desc }} />
