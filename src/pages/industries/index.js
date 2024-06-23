@@ -54,12 +54,12 @@ const Index = ({ currentPageData }) => {
                 heading={pageVars.industriesHeading1}
                 content={pageVars.industriesPc1 }
                 ImageData={{
-                    url: loadImageFromData(pageVars.servicesImage1),
-                    altText: pageVars.servicesImage1.altText,
+                    url: loadImageFromData(pageVars.industriesImage1),
+                    altText: pageVars.industriesImage1.altText,
                 }}
                 buttonData={{
-                    buttonText:pageVars.servicesCtaButton1.servicesCtaButtonLabel1,
-                    action:pageVars.servicesCtaButton1.servicesCtaButtonLink1
+                    buttonText:pageVars.industriesCtaButton1.industriesCtaButtonLabel1,
+                    action:pageVars.industriesCtaButton1.industriesCtaButtonLink1
                 }}
                 pointsArray={pageVars.industriesPcHighlightPoints.map((p,i) => {return {
                     header:p.industriesPcPointName,
@@ -70,17 +70,17 @@ const Index = ({ currentPageData }) => {
             <BrandSlider currentPageData={currentPageData} />
 
             <HeaderDescContainer
-                header={pageVars.servicesHeading2}
-                desc={pageVars.servicesPc2}
+                header={pageVars.industriesHeading2}
+                desc={pageVars.industriesPc2}
             />
             <div className="row">
                 {
-                    pageVars.serviceCardsComp.map((card,i) => <div className="col-lg-4 col-md-6 col-sm-12 col-12" key={i}>
+                    pageVars.industriesCardsComp.map((card,i) => <div className="col-lg-4 col-md-6 col-sm-12 col-12" key={i}>
                         <IconCardContainer
-                            icon={loadImageFromData(card.servicesCardCompIcon)}
-                            heading={card.servicesCardCompServiceName}
-                            desc={card.servicesCardCompServiceDescription}
-                            listData={card.servicesCardCompHighlightPoints.map((c,i) => {return {servicePointName: c.servicesCardCompHighlight}})}
+                            icon={loadImageFromData(card.industriesCardCompIcon)}
+                            heading={card.industriesCardCompServiceName}
+                            desc={card.industriesCardCompServiceDescription}
+                            listData={card.industriesCardCompHighlightPoints.map((c,i) => {return {servicePointName: c.industriesCardCompHighlight}})}
                         />
                     </div>)
                 }
@@ -93,11 +93,11 @@ const Index = ({ currentPageData }) => {
             <DarkContentWithSideImage currentPageData={currentPageData} />
 
           <FaqQuestions
-              header={pageVars.servicesHeading3}
-              desc={pageVars.servicesPc3}
-              faqArray={pageVars.servicesFaqs.map(f => {return {
-                  question:f.servicesFaqQuestion,
-                  answer:f.servicesFaqAnswer
+              header={pageVars.industriesHeading3}
+              desc={pageVars.industriesPc3}
+              faqArray={pageVars.industriesFaqs.map(f => {return {
+                  question:f.industriesFaqQuestion,
+                  answer:f.industriesFaqAnswer
               }})}
           />
 
