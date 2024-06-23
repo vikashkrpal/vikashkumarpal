@@ -69,7 +69,7 @@ const Portfolio = ({ currentPageData }) => {
             />
             <div className="row">
                 {pageVars.portfolioList.map((caseStudy, index) => <div key={index}
-                                                                       className=' col-6'>
+                                                                       className=' col-lg-6 col-md-6 col-sm-12'>
                     <CaseStudyCardContainer
                         image={loadImageFromData(caseStudy.portfolioListImage)}
                         category={caseStudy.portfolioCompanyName}

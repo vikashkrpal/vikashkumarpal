@@ -17,7 +17,7 @@ import {loadImageFromData} from "../../utils/globalFunctions";
 import DarkContentWithSideImage from "../../components/organisms/darkContentWithSideImage";
 
 export async function getServerSideProps() {
-    const currentPageData = await loadHomePageData(getPageQuery(registeredPages.SERVICES));
+    const currentPageData = await loadHomePageData(getPageQuery(registeredPages.CONSULTING));
     return {
         props: {
             currentPageData,
@@ -26,15 +26,15 @@ export async function getServerSideProps() {
 }
 
 const Index = ({ currentPageData }) => {
-    const pageVars = currentPageData.page[registeredPages.SERVICES]
+    const pageVars = currentPageData.page[registeredPages.CONSULTING]
 
     return (
         <Template
             urlStrings={[
-                {"Services":'null'}
+                {"Consulting":'null'}
             ]} urlBar={true} urlDetails={{
             title:[currentPageData.page.title],
-            desc:pageVars.servicesBannerPc
+            desc:pageVars.consultingBannerPc
         }} currentPageData={currentPageData}
         >
             <div className="pt-5">
@@ -51,36 +51,36 @@ const Index = ({ currentPageData }) => {
             </div>
 
             <ImageWithSideIconContents
-                heading={pageVars.servicesHeading1}
-                content={pageVars.servicesPc1 }
+                heading={pageVars.consultingHeading1}
+                content={pageVars.consultingPc1 }
                 ImageData={{
-                    url: loadImageFromData(pageVars.servicesImage1),
-                    altText: pageVars.servicesImage1.altText,
+                    url: loadImageFromData(pageVars.consultingImage1),
+                    altText: pageVars.consultingImage1.altText,
                 }}
                 buttonData={{
-                    buttonText:pageVars.servicesCtaButton1.servicesCtaButtonLabel1,
-                    action:pageVars.servicesCtaButton1.servicesCtaButtonLink1
+                    buttonText:pageVars.consultingCtaButton1.consultingCtaButtonLabel1,
+                    action:pageVars.consultingCtaButton1.consultingCtaButtonLink1
                 }}
-                pointsArray={pageVars.servicesPcHighlightPoints.map((p,i) => {return {
-                    header:p.servicesPcPointName,
-                    desc:p.servicesPcPointDescription
+                pointsArray={pageVars.consultingPcHighlightPoints.map((p,i) => {return {
+                    header:p.consultingPcPointName,
+                    desc:p.consultingPcPointDescription
                 }})}
             />
 
             <BrandSlider currentPageData={currentPageData} />
 
             <HeaderDescContainer
-                header={pageVars.servicesHeading2}
-                desc={pageVars.servicesPc2}
+                header={pageVars.consultingHeading2}
+                desc={pageVars.consultingPc2}
             />
             <div className="row">
                 {
-                    pageVars.serviceCardsComp.map((card,i) => <div className="col-lg-4 col-md-6 col-sm-12 col-12" key={i}>
+                    pageVars.consultingCardsComp.map((card,i) => <div className="col-lg-4 col-md-6 col-sm-12 col-12" key={i}>
                         <IconCardContainer
-                            icon={loadImageFromData(card.servicesCardCompIcon)}
-                            heading={card.servicesCardCompServiceName}
-                            desc={card.servicesCardCompServiceDescription}
-                            listData={card.servicesCardCompHighlightPoints.map((c,i) => {return {servicePointName: c.servicesCardCompHighlight}})}
+                            icon={loadImageFromData(card.consultingCardCompIcon)}
+                            heading={card.consultingCardCompServiceName}
+                            desc={card.consultingCardCompServiceDescription}
+                            listData={card.consultingCardCompHighlightPoints.map((c,i) => {return {servicePointName: c.consultingCardCompHighlight}})}
                         />
                     </div>)
                 }
@@ -93,11 +93,11 @@ const Index = ({ currentPageData }) => {
             <DarkContentWithSideImage currentPageData={currentPageData} />
 
           <FaqQuestions
-              header={pageVars.servicesHeading3}
-              desc={pageVars.servicesPc3}
-              faqArray={pageVars.servicesFaqs.map(f => {return {
-                  question:f.servicesFaqQuestion,
-                  answer:f.servicesFaqAnswer
+              header={pageVars.consultingHeading3}
+              desc={pageVars.consultingPc3}
+              faqArray={pageVars.consultingFaqs.map(f => {return {
+                  question:f.consultingFaqQuestion,
+                  answer:f.consultingFaqAnswer
               }})}
           />
 

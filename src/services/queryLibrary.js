@@ -36,6 +36,9 @@ export const getPageQuery = (pageName, slug) => {
         case registeredPages.CASE_STUDY:
             finalQuery = caseStudyPageQuery;
             break;
+        case registeredPages.CONSULTING:
+            finalQuery = consultingPageQuery;
+            break;
         case registeredPages.DETAILED_CASE_STUDY:
             finalQuery = detailedCaseStudyPageQuery(slug);
             break;
@@ -794,6 +797,51 @@ const contactPageQuery = getQueryWithSeoFields(
     ` contact{
       contactHeading
       contactPc
+    }
+    
+  }`
+)
+const consultingPageQuery = getQueryWithSeoFields(
+    ` page(id: "cG9zdDoxNzM4", idType: ID) {`,
+    ` 
+    consulting {
+      #banner
+      consultingBannerPc
+      consultingHeading1
+      consultingPc1
+      consultingPcHighlightPoints {
+        consultingPcPointDescription
+        consultingPcPointName
+      }
+      consultingCtaButton1 {
+        consultingCtaButtonLabel1
+        consultingCtaButtonLink1
+      }
+      consultingImage1 {
+        mediaItemUrl
+        altText
+      }
+      
+      consultingHeading2
+      consultingPc2
+      consultingCardsComp {
+        consultingCardCompServiceDescription
+        consultingCardCompServiceName
+        consultingCardCompIcon{
+          mediaItemUrl
+          altText
+        }
+        consultingCardCompHighlightPoints{
+          consultingCardCompHighlight
+        }
+      }
+      
+      consultingHeading3
+      consultingPc3
+      consultingFaqs {
+        consultingFaqAnswer
+        consultingFaqQuestion
+      }
     }
     
   }`
