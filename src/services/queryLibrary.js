@@ -60,8 +60,20 @@ export const getPageQuery = (pageName, slug) => {
         case registeredPages.SINGLE_BLOG:
             finalQuery = singlePageQuery(slug);
             break;
+        case registeredPages.PRIVACY_POLICY:
+            finalQuery = privacyPolicyPageQuery;
+            break;
+        case registeredPages.TERMS_OF_SERVICE:
+            finalQuery = termsOfServicePageQuery;
+            break;
+        case registeredPages.NOT_FOUND_PAGE:
+            finalQuery = notFoundPageQuery;
+            break;
+        case registeredPages.THANK_YOU:
+            finalQuery = thankYouPageQuery;
+            break;
         default:
-            finalQuery = homePageQuery;
+            finalQuery = notFoundPageQuery;
             break;
     }
     return `query NewQuery { ${finalQuery} ${globalComponents} ${testimonialsSlider} }`;
@@ -800,6 +812,32 @@ const contactPageQuery = getQueryWithSeoFields(
     }
     
   }`
+)
+const privacyPolicyPageQuery = getQueryWithSeoFields(
+    ` page(id:"cG9zdDozMzI=", idType:ID){ `,
+    `  privacyPolicy{
+      privacyPolicyBannerParagraph
+    }
+    content
+    
+  }`
+)
+const termsOfServicePageQuery = getQueryWithSeoFields(
+    ` page(id:"cG9zdDozMzQ=", idType:ID){ `,
+    `  termsOfService{
+      tncBannerParagraph
+    }
+    content
+    
+  }`
+)
+const notFoundPageQuery = getQueryWithSeoFields(
+    `  page(id:"cG9zdDozNDA=", idType:ID){ `,
+    ` }`
+)
+const thankYouPageQuery = getQueryWithSeoFields(
+    `  page(id:"cG9zdDozMjc=", idType:ID){ `,
+    ` }`
 )
 const consultingPageQuery = getQueryWithSeoFields(
     ` page(id: "cG9zdDoxNzM4", idType: ID) {`,

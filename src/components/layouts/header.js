@@ -41,7 +41,7 @@ const Header = ({ currentPageData }) => {
       variant="dark" sticky="top" expand="lg" >
       <Navbar.Brand href="/" className='ms-3' >
         <Image
-          src={currentPageData.siteOption.siteOptions.logo.mediaItemUrl}
+          src={(currentPageData !== undefined ? currentPageData.siteOption.siteOptions.logo.mediaItemUrl : require('../../asserts/logos/Vikash-Logo-Black-BG.png'))}
           alt='logo image'
           height={30}
       width={"110"}
