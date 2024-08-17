@@ -2,13 +2,15 @@ import React from 'react';
 import HeaderDescContainer from "../molecules/headerDescContainer";
 import {FaAngleDown, FaAngleUp} from "react-icons/fa";
 
-const FaqQuestions = ({ header, desc, faqArray = [] }) => {
+const FaqQuestions = ({ header, desc, faqArray = [], buttonData }) => {
     const [faqCurrentQuestionId, setFaqCurrentQuestionId] = React.useState(0);
 
     return  <section className="mt-5 pt-2">
         <HeaderDescContainer
             header={header}
             desc={desc}
+            showButton={true}
+            buttonData={buttonData}
         />
         <div className="accordion bg-black mt-4">
             {

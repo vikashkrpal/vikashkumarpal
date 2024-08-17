@@ -21,5 +21,9 @@ export const registeredPages = {
     SINGLE_INDUSTRY:'industry',
     INDUSTRIES:'industries',
     DETAILED_INDUSTRY_SERVICES: 'industryServices',
+    PRIVACY_POLICY: 'privacyPolicy',
+    TERMS_OF_SERVICE: 'termsOfService',
+    NOT_FOUND_PAGE: 'notFound',
+    THANK_YOU: 'thankYou',
 
 }

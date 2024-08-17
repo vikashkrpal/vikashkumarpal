@@ -53,6 +53,11 @@ const HomePageContent = ({ currentPageData }) => {
                 highligter={pageData.hpHh2}
                 header={pageData.hpHeading2}
                 desc={pageData.hpPc2}
+                showButton={true}
+                buttonData={{
+                    buttonText:pageData.hpCtaButton1.hpCtaButtonLabel1,
+                    action:pageData.hpCtaButton1.hpCtaButtonLink1
+                }}
             />
 
             <div className="row">

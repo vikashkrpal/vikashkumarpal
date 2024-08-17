@@ -60,8 +60,20 @@ export const getPageQuery = (pageName, slug) => {
         case registeredPages.SINGLE_BLOG:
             finalQuery = singlePageQuery(slug);
             break;
+        case registeredPages.PRIVACY_POLICY:
+            finalQuery = privacyPolicyPageQuery;
+            break;
+        case registeredPages.TERMS_OF_SERVICE:
+            finalQuery = termsOfServicePageQuery;
+            break;
+        case registeredPages.NOT_FOUND_PAGE:
+            finalQuery = notFoundPageQuery;
+            break;
+        case registeredPages.THANK_YOU:
+            finalQuery = thankYouPageQuery;
+            break;
         default:
-            finalQuery = homePageQuery;
+            finalQuery = notFoundPageQuery;
             break;
     }
     return `query NewQuery { ${finalQuery} ${globalComponents} ${testimonialsSlider} }`;
@@ -228,6 +240,7 @@ const globalComponents = `siteOption(id: "global-components", idType: SLUG) {
                                     
                                     #seen on
                                   seenOnHeading
+                                  seenOnDescription
                                   seenOnImages{
                                     mediaItemUrl
                                   }
@@ -268,6 +281,10 @@ const homePageQuery = getQueryWithSeoFields(`page(id:"cG9zdDo1NA==",idType:ID){ 
                         hpHh2
                         hpHeading2
                         hpPc2
+                        hpCtaButton1{
+                        hpCtaButtonLabel1
+                        hpCtaButtonLink1
+                        }
 
                         # side bar array components
                       hpContentArea1{
@@ -647,6 +664,10 @@ const workWithMePageQuery = getQueryWithSeoFields(
           #Cards Comp
           wwmHeading2
           wwmPc2
+          wwmCardCompCtaButton{
+            wwmCardCompCtaButtonLabel
+            wwmCardCompCtaButtonLink
+          }
           wwmCards{
             wwmCardIcon{
               mediaItemUrl
@@ -674,7 +695,18 @@ const workWithMePageQuery = getQueryWithSeoFields(
             wwmPointName
             wwmPointDescription
           }
-
+          
+          #FAQ Section
+          wwmHeading4
+          wwmPc4
+          wwmFaqCtaButton{
+          wwmFaqCtaButtonLabel
+          wwmFaqCtaButtonLink
+          }
+          wwmFaqs{
+          wwmFaqQuestion
+          wwmFaqAnswer
+          }
       }
   
   }`
@@ -704,6 +736,10 @@ const servicesPageQuery = getQueryWithSeoFields(
       #Service Cards Section
       servicesHeading2
       servicesPc2
+      servicesCardSecCtaButton{
+      servicesCardSecCtaButtonLabel
+      servicesCardSecCtaButtonLink
+      }
       serviceCardsComp {
         servicesCardCompServiceDescription
         servicesCardCompServiceName
@@ -719,6 +755,10 @@ const servicesPageQuery = getQueryWithSeoFields(
       #FAQ Section
       servicesHeading3
       servicesPc3
+      servicesFaqCtaButton{
+      servicesFaqCtaButtonLabel
+      servicesFaqCtaButtonLink
+      }
       servicesFaqs {
         servicesFaqAnswer
         servicesFaqQuestion
@@ -801,6 +841,32 @@ const contactPageQuery = getQueryWithSeoFields(
     
   }`
 )
+const privacyPolicyPageQuery = getQueryWithSeoFields(
+    ` page(id:"cG9zdDozMzI=", idType:ID){ `,
+    `  privacyPolicy{
+      privacyPolicyBannerParagraph
+    }
+    content
+    
+  }`
+)
+const termsOfServicePageQuery = getQueryWithSeoFields(
+    ` page(id:"cG9zdDozMzQ=", idType:ID){ `,
+    `  termsOfService{
+      tncBannerParagraph
+    }
+    content
+    
+  }`
+)
+const notFoundPageQuery = getQueryWithSeoFields(
+    `  page(id:"cG9zdDozNDA=", idType:ID){ `,
+    ` }`
+)
+const thankYouPageQuery = getQueryWithSeoFields(
+    `  page(id:"cG9zdDozMjc=", idType:ID){ `,
+    ` }`
+)
 const consultingPageQuery = getQueryWithSeoFields(
     ` page(id: "cG9zdDoxNzM4", idType: ID) {`,
     ` 
@@ -824,6 +890,10 @@ const consultingPageQuery = getQueryWithSeoFields(
       
       consultingHeading2
       consultingPc2
+      consultingCardSecCtaButton {
+        consultingCardSecCtaButtonLabel
+        consultingCardSecCtaButtonLink
+      }
       consultingCardsComp {
         consultingCardCompServiceDescription
         consultingCardCompServiceName
@@ -841,6 +911,10 @@ const consultingPageQuery = getQueryWithSeoFields(
       consultingFaqs {
         consultingFaqAnswer
         consultingFaqQuestion
+      }
+      consultingFaqCtaButton{
+      consultingFaqCtaButtonLabel
+      consultingFaqCtaButtonLink
       }
     }
     
@@ -883,6 +957,10 @@ const industryPageQuery = getQueryWithSeoFields(
       
       industriesHeading3
       industriesPc3
+      industriesFaqCtaButton{
+      industriesFaqCtaButtonLabel
+      industriesFaqCtaButtonLink
+      }
       industriesFaqs {
         industriesFaqAnswer
         industriesFaqQuestion
@@ -1025,6 +1103,10 @@ const detailedServicePageQuery = (slug) => `${getQueryWithSeoFields(
               #Card Section
               seoServicesHeading6
               seoServicesPc6
+              seoServicesCardCta{
+              seoServicesCardCtaLabel
+              seoServicesCardCtaLink
+              }
               seoServicesCardComp {
                 seoServicesCardDescription
                 seoServicesCardName
@@ -1040,6 +1122,10 @@ const detailedServicePageQuery = (slug) => `${getQueryWithSeoFields(
               # FAQ Section
               seoServicesHeading7
               seoServicesPc7
+              seoServicesFaqCta{
+              seoServicesFaqCtaButtonLabel
+              seoServicesFaqCtaButtonLink
+              }
               seoServicesFaqQuestionAnswer {
                 seoServicesFaqAnswer
                 seoServicesFaqQuestion
@@ -1141,6 +1227,10 @@ const detailedConsultingServicesPageQuery = (slug) => `${getQueryWithSeoFields(
                   #Card Section
                   consultingServicesHeading6
                   consultingServicesPc6
+                  consultingServicesCardCta{
+                  consultingServicesCardCtaLabel
+                  consultingServicesCardCtaLink
+                  }
                   consultingServicesCardComp {
                     consultingServicesCardDescription
                     consultingServicesCardName
@@ -1157,6 +1247,10 @@ const detailedConsultingServicesPageQuery = (slug) => `${getQueryWithSeoFields(
                   #faq
                   consultingServicesHeading7
                   consultingServicesPc7
+                  consultingServicesFaqCtaButton{
+                  consultingServicesFaqCtaButtonLabel
+                  consultingServicesFaqCtaButtonLink
+                  }
                   consultingServicesFaqQuestionAnswer{
                     consultingServicesFaqQuestion
                     consultingServicesFaqAnswer
@@ -1261,6 +1355,10 @@ const detailedIndustryServicesPageQuery = (slug) => `${getQueryWithSeoFields(
             #Card Section
             industryServicesHeading6
             industryServicesPc6
+            industryServicesCardCta{
+            industryServicesCardCtaLabel
+            industryServicesCardCtaLink
+            }
             industryServicesCardComp {
               industryServicesCardDescription
               industryServicesCardName
@@ -1290,6 +1388,10 @@ const detailedIndustryServicesPageQuery = (slug) => `${getQueryWithSeoFields(
             #FAQ Section
             industryServicesHeading8
             industryServicesPc8
+            industryServicesFaqCtaButton{
+            industryServicesFaqCtaButtonLabel
+            industryServicesFaqCtaButtonLink
+            }
             industryServicesFaqQuestionAnswer {
               industryServicesFaqAnswer
               industryServicesFaqQuestion

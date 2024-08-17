@@ -72,6 +72,11 @@ const Index = ({ currentPageData }) => {
             <HeaderDescContainer
                 header={pageVars.servicesHeading2}
                 desc={pageVars.servicesPc2}
+                showButton={true}
+                buttonData={{
+                    buttonText:pageVars.servicesCardSecCtaButton.servicesCardSecCtaButtonLabel,
+                    action:pageVars.servicesCardSecCtaButton.servicesCardSecCtaButtonLink
+                }}
             />
             <div className="row">
                 {
@@ -99,6 +104,10 @@ const Index = ({ currentPageData }) => {
                   question:f.servicesFaqQuestion,
                   answer:f.servicesFaqAnswer
               }})}
+              buttonData={{
+                  buttonText:pageVars.servicesFaqCtaButton.servicesFaqCtaButtonLabel,
+                  action:pageVars.servicesFaqCtaButton.servicesFaqCtaButtonLink
+              }}
           />
 
             <BrandSliderWithSideContent currentPageData={currentPageData} />

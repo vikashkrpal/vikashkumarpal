@@ -1,20 +1,20 @@
-import { 
-    FaExpandAlt, 
-    FaLightbulb, FaHouseUser, 
-    FaUserFriends, FaChalkboardTeacher, 
-    FaKeyboard, FaChartArea, 
-    FaWeibo, FaCode, 
-    FaWordpress, FaShopify, 
-    FaWalking, FaIndustry, 
-    FaGlobe, FaStackExchange, 
-    FaWordpressSimple, 
-    FaGraduationCap, FaGamepad, 
-    FaHandHolding, FaHandsHelping, 
-    FaHornbill, FaBuilding, 
-    FaFileAlt, FaUserCheck, 
-    FaList, FaUser, FaServer, 
-    FaHandHoldingHeart, FaFileSignature, 
-    FaComment 
+import {
+    FaExpandAlt,
+    FaLightbulb, FaHouseUser,
+    FaUserFriends, FaChalkboardTeacher,
+    FaKeyboard, FaChartArea,
+    FaWeibo, FaCode,
+    FaWordpress, FaShopify,
+    FaWalking, FaIndustry,
+    FaGlobe, FaStackExchange,
+    FaWordpressSimple,
+    FaGraduationCap, FaGamepad,
+    FaHandHolding, FaHandsHelping,
+    FaHornbill, FaBuilding,
+    FaFileAlt, FaUserCheck,
+    FaList, FaUser, FaServer,
+    FaHandHoldingHeart, FaFileSignature,
+    FaComment
 } from "react-icons/fa";
 
 const navBarMenus =  [
@@ -50,11 +50,12 @@ const navBarMenus =  [
         childLinks : [
             { name: 'Local SEO Consultant', link: '#', des:'Expert local SEO guidance', icon:<FaWalking /> },
             { name: 'Technical SEO Consultant', link: '#', des:'Solve complex SEO issues', icon:<FaCode /> },
-            { name: 'National SEO Consultant', link: '#', des:'Expand your national reach', icon:<FaIndustry /> },
+            { name: 'SaaS SEO Consultant', link: '#', des:'Scale your SaaS business', icon:<FaIndustry /> },
             { name: 'International SEO Consultant', link: '#', des:'Global SEO market mastery', icon:<FaGlobe /> },
             { name: 'Ecommerce SEO Consultant', link: '#', des:'Boost ecommerce growth', icon:<FaStackExchange /> },
             { name: 'WordPress SEO Consultant', link: '#', des:'WordPress SEO expertise', icon:<FaWordpressSimple /> },
             { name: 'Shopify SEO Consultant', link: '#', des:'Shopify SEO specialist', icon:<FaShopify /> },
+            { name: 'Enterprise SEO Consultant', link: '#', des:'Drive enterprise-level SEO success', icon:<FaUserCheck /> },
 
         ]
 
@@ -82,8 +83,8 @@ const navBarMenus =  [
             { name: 'Leadership Through Targeted SEO', link: '#', des:'Ascend into a market leader', icon:<FaUserFriends /> },
             { name: 'Turnaround Story of Soccer Website', link: '#', des:'Soccer’s SEO success story', icon:<FaWeibo /> },
             { name: 'Transforming Local Business', link: '#', des:'Local business, global reach', icon:<FaUserCheck /> },
-            { 
-             name: 'Other Featured Case Studies', 
+            {
+             name: 'Other Featured Case Studies',
              sublinks:[
                 {
                     title:"Nurturing a Law Business Growth with an Effective SEO Strategy",
@@ -99,7 +100,7 @@ const navBarMenus =  [
                 }
             ],
             link:'#',
-            icon:<FaList /> 
+            icon:<FaList />
         },
 
         ]
