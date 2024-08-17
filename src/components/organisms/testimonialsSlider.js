@@ -55,6 +55,11 @@ const TestimonialsSlider = ({ currentPageData }) => {
         header={currentPageData.testimonialSlider.clientTestimonials.testimonialHeading}
         desc={currentPageData.testimonialSlider.clientTestimonials.testimonialParagraphContent}
         addClass={"mt-2"}
+        showButton={true}
+        buttonData={{
+            buttonText:'Client Reviews!',
+            action:'/testimonials'
+        }}
       />
 
       <OwlCarousel className="owl-theme" {...options}>

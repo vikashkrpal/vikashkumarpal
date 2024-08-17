@@ -56,6 +56,11 @@ const CaseStudiesSlider = ({ currentPageData, headingShow = true }) => {
                 highligter={currentPageData.siteOption.siteOptions.caseStudyHeadingHighlight}
                 header={currentPageData.siteOption.siteOptions.caseStudyHeading}
                 desc={currentPageData.siteOption.siteOptions.caseStudyParagraphContent}
+                showButton={true}
+                buttonData={{
+                    buttonText:'See Real SEO Results',
+                    action:'/case-study'
+                }}
             />}
 
             <OwlCarousel className="owl-theme" {...options}>

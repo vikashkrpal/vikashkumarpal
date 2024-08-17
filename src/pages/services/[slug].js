@@ -145,6 +145,11 @@ const SeoService = ({ currentPageData }) => {
             <HeaderDescContainer
                 header={pageVars.seoServicesHeading6}
                 desc={pageVars.seoServicesPc6}
+                showButton={true}
+                buttonData={{
+                    buttonText:pageVars.seoServicesCardCta.seoServicesCardCtaLabel,
+                    action:pageVars.seoServicesCardCta.seoServicesCardCtaLink
+                }}
             />
 
             <div className="row">
@@ -172,6 +177,11 @@ const SeoService = ({ currentPageData }) => {
                     question:f.seoServicesFaqQuestion,
                     answer:f.seoServicesFaqAnswer
                 }})}
+                buttonData={{
+                    buttonText:pageVars.seoServicesFaqCta.seoServicesFaqCtaButtonLabel,
+                    action:pageVars.seoServicesFaqCta.seoServicesFaqCtaButtonLink
+                }}
+
             />
 
 

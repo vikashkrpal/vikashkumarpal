@@ -43,10 +43,8 @@ const BrandSliderWithSideContent = ({addClass="my-5", currentPageData}) => {
         <div className={"row align-items-center "+addClass}>
             <div className="col-sm-12 col-lg-4 col-md-6">
                 <div className={"mb-2"} dangerouslySetInnerHTML={{ __html:currentPageData.siteOption.siteOptions.seenOnHeading }} />
-                <p>
-                    Lorem ipsum dolor sit amet consectetur purus convallis cursus turpis
-                    in et.
-                </p>
+                <div className={"mb-2"} dangerouslySetInnerHTML={{ __html:currentPageData.siteOption.siteOptions.seenOnDescription }} />
+
             </div>
             <div className="col-sm-12 col-lg-8 col-md-6">
                 <OwlCarousel className="owl-theme" {...options}>

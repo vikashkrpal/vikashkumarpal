@@ -15,6 +15,7 @@ import {registeredPages} from "../utils/constants";
 import {loadHomePageData} from "../services/siteServies";
 import {loadImageFromData} from "../utils/globalFunctions";
 import DarkContentWithSideImage from "../components/organisms/darkContentWithSideImage";
+import FaqQuestions from "../components/organisms/faqQuestions";
 
 
 export async function getServerSideProps() {
@@ -51,6 +52,7 @@ const WorkWithMe = ({ currentPageData }) => {
             <ImageWithSideIconContents
                 heading={pageVars.wwmHeading1}
                 content={pageVars.wwmPc1 }
+                pointsArray={pageVars.wwmContentPoints.map((p,i) => ({header:p.wwmContentPointHeading, desc:p.wwmContentPointDesc}))}
                 ImageData={{
                     url: loadImageFromData(pageVars.wwmImage1),
                     altText: pageVars.wwmImage1.altText,
@@ -65,6 +67,11 @@ const WorkWithMe = ({ currentPageData }) => {
             <HeaderDescContainer
                 header={pageVars.wwmHeading2}
                 desc={pageVars.wwmPc2}
+                showButton={true}
+                buttonData={{
+                    buttonText:pageVars.wwmCardCompCtaButton.wwmCardCompCtaButtonLabel,
+                    action:pageVars.wwmCardCompCtaButton.wwmCardCompCtaButtonLink
+                }}
             />
 
             <div className="row">
@@ -102,6 +109,19 @@ const WorkWithMe = ({ currentPageData }) => {
 
             <DarkContentWithSideImage currentPageData={currentPageData} />
 
+
+            <FaqQuestions
+                header={pageVars.wwmHeading4}
+                desc={pageVars.wwmPc4}
+                faqArray={pageVars.wwmFaqs.map(f => {return {
+                    question:f.wwmFaqQuestion,
+                    answer:f.wwmFaqAnswer
+                }})}
+                buttonData={{
+                    buttonText:pageVars.wwmFaqCtaButton.wwmFaqCtaButtonLabel,
+                    action:pageVars.wwmFaqCtaButton.wwmFaqCtaButtonLink
+                }}
+            />
             <BrandSliderWithSideContent currentPageData={currentPageData} />
 
             <div className="row align-items-center">

@@ -138,6 +138,11 @@ const SeoIndustry = ({ currentPageData }) => {
                 <HeaderDescContainer
                     header={pageVars.industryServicesHeading4}
                     desc={pageVars.industryServicesPc4 }
+                    showButton={true}
+                    buttonData={{
+                        buttonText:pageVars.industryServicesCtaButton4.industryServicesButtonLabel4,
+                        action:pageVars.industryServicesCtaButton4.industryServicesCtaButtonLink4
+                    }}
                 />
             </div>
             <VerticalSwiper sliderData={pageVars.industryServicesVerticalSlider.map(c => {
@@ -156,6 +161,11 @@ const SeoIndustry = ({ currentPageData }) => {
                 <HeaderDescContainer
                     header={pageVars.industryServicesHeading6}
                     desc={pageVars.industryServicesPc6}
+                    showButton={true}
+                    buttonData={{
+                        buttonText: pageVars.industryServicesCardCta.industryServicesCardCtaLabel,
+                        action: pageVars.industryServicesCardCta.industryServicesCardCtaLink
+                    }}
                 />
 
                 <div className="row">
@@ -203,6 +213,10 @@ const SeoIndustry = ({ currentPageData }) => {
                     question:f.industryServicesFaqQuestion,
                     answer:f.industryServicesFaqAnswer
                 }})}
+                buttonData={{
+                    buttonText:pageVars.industryServicesFaqCtaButton.industryServicesFaqCtaButtonLabel,
+                    action:pageVars.industryServicesFaqCtaButton.industryServicesFaqCtaButtonLink
+                }}
             />
 
 

@@ -12,7 +12,7 @@ const FeaturesSection = ({
                 <div dangerouslySetInnerHTML={{ __html:desc }} />
             </div>
 
-            <div className="col-lg-3 col-md-4 text-lg-center my-auto d-flex justify-content-end">
+            <div className="col-lg-3 col-md-4 text-lg-center my-auto d-lg-flex justify-content-end">
                 <ThemeButton text={button.buttonText} addStyle={{  minWidth:'30%', fontSize:18 }} href={button.action} />
             </div>
         </div>

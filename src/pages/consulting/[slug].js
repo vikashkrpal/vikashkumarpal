@@ -156,6 +156,11 @@ const SeoConsultant = ({ currentPageData }) => {
                 <HeaderDescContainer
                     header={pageVars.consultingServicesHeading6}
                     desc={pageVars.consultingServicesPc6}
+                    showButton={true}
+                    buttonData={{
+                        buttonText: pageVars.consultingServicesCardCta.consultingServicesCardCtaLabel,
+                        action: pageVars.consultingServicesCardCta.consultingServicesCardCtaLink
+                    }}
                 />
 
                 <div className="row">
@@ -180,8 +185,19 @@ const SeoConsultant = ({ currentPageData }) => {
             <TestimonialsSlider currentPageData={currentPageData} />
 
             <div style={{ marginTop:"-5%" }}>
-                <FaqQuestions />
+                <FaqQuestions
+                    header={pageVars.consultingServicesHeading7}
+                    desc={pageVars.consultingServicesPc7}
+                    faqArray={pageVars.consultingServicesFaqQuestionAnswer.map(f => {return {
+                        question:f.consultingServicesFaqQuestion,
+                        answer:f.consultingServicesFaqAnswer
+                    }})}
+                    buttonData={{
+                        buttonText:pageVars.consultingServicesFaqCtaButton.consultingServicesFaqCtaButtonLabel,
+                        action:pageVars.consultingServicesFaqCtaButton.consultingServicesFaqCtaButtonLink
+                    }}
 
+                />
             </div>
 
 

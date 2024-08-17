@@ -99,6 +99,10 @@ const Index = ({ currentPageData }) => {
                   question:f.industriesFaqQuestion,
                   answer:f.industriesFaqAnswer
               }})}
+              buttonData={{
+                  buttonText:pageVars.industriesFaqCtaButton.industriesFaqCtaButtonLabel,
+                  action:pageVars.industriesFaqCtaButton.industriesFaqCtaButtonLink
+              }}
           />
 
             <BrandSliderWithSideContent currentPageData={currentPageData} />

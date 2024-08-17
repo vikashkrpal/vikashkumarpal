@@ -31,7 +31,8 @@ const Contact = ({ currentPageData }) => {
                     highligter={"Contact Us"}
                     header={pageVars.contactHeading}
                     desc={pageVars.contactPc}
-                    addClass={"w-res-50"}
+                    addClass={"w-res-50 mx-auto"}
+                    textAlignCenter={true}
                 />
 
                 <div className="card col-lg-6 col-md-8 col-sm-10 mx-auto" style={{ padding:"2%",paddingTop:'5%', paddingBottom:'5%', borderRadius:20 }}>

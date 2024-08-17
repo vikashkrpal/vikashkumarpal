@@ -47,6 +47,8 @@ const About = ({ currentPageData }) => {
                 />
 
             </div>
+            <BrandSlider currentPageData={currentPageData} />
+
             <HeaderWithSideButton
                 header={pageVars.abtHeading1}
                 buttonDetails={{ buttonText:pageVars.abtButton1.abtButtonLabel1, action:pageVars.abtButton1.abtButtonLink1 }}
@@ -66,7 +68,6 @@ const About = ({ currentPageData }) => {
 
 
             </div>
-                <BrandSlider currentPageData={currentPageData} />
                 <ImageWithSideIconContents
                     heading={pageVars.abtHeading2}
                     content={pageVars.abtPc2}
