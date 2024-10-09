@@ -46,8 +46,8 @@ export const getPageQuery = (pageName, slug) => {
             finalQuery = detailedConsultingServicesPageQuery(slug);
             break;
         case registeredPages.DETAILED_INDUSTRY_SERVICES:
-          finalQuery = detailedIndustryServicesPageQuery(slug);
-          break;
+            finalQuery = detailedIndustryServicesPageQuery(slug);
+            break;
         case registeredPages.DETAILED_SERVICES:
             finalQuery = detailedServicePageQuery(slug);
             break;
@@ -943,6 +943,10 @@ const industryPageQuery = getQueryWithSeoFields(
       
       industriesHeading2
       industriesPc2
+      industriesCardSecCtaButton {
+        industriesCardSecCtaButtonLabel
+        industriesCardSecCtaButtonLink
+      }
       industriesCardsComp {
         industriesCardCompServiceDescription
         industriesCardCompServiceName
