@@ -72,6 +72,11 @@ const Index = ({ currentPageData }) => {
             <HeaderDescContainer
                 header={pageVars.industriesHeading2}
                 desc={pageVars.industriesPc2}
+                showButton={true}
+                buttonData={{
+                    buttonText:pageVars.industriesCardSecCtaButton.industriesCardSecCtaButtonLabel,
+                    action:pageVars.industriesCardSecCtaButton.industriesCardSecCtaButtonLink
+                }}
             />
             <div className="row">
                 {

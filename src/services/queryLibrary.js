@@ -46,8 +46,8 @@ export const getPageQuery = (pageName, slug) => {
             finalQuery = detailedConsultingServicesPageQuery(slug);
             break;
         case registeredPages.DETAILED_INDUSTRY_SERVICES:
-          finalQuery = detailedIndustryServicesPageQuery(slug);
-          break;
+            finalQuery = detailedIndustryServicesPageQuery(slug);
+            break;
         case registeredPages.DETAILED_SERVICES:
             finalQuery = detailedServicePageQuery(slug);
             break;
@@ -377,9 +377,65 @@ ${getQueryWithSeoFields(
                                           #case study section
                                           csHeading3
                                           csPc3
+                                           csCtaButton {
+                                              csCtaButtonLabel
+                                              csCtaButtonLink
+                                            }
                                 
                                     }  
-                       } ${blogListQuery(3)}`
+                       }
+                        caseStudies(first:100){
+                            edges{
+                              node{
+                                title
+                                slug
+                                 featuredImage{
+                                  node{
+                                    mediaItemUrl
+                                  }
+                                }
+                                detailedCaseStudy{
+                                  #Banner Section
+                                          dcsBannerPc
+                                          
+                                          #Impact Numbers
+                                          dcsHeading1
+                                          dcsPc1
+                                          dcsImpactNumbers {
+                                            dcsHighlightNumber
+                                            dcsHighlightText
+                                          }
+                                          
+                                          #Client Review Section
+                                          dcsHeading2
+                                          dcsPc2
+                                          dcsClientIcon{
+                                            mediaItemUrl
+                                            altText
+                                          }
+                                          dcsClientName
+                                          dcsClientDesignation
+                                          dcsClientReviewContent
+                                          
+                                          #Content Area
+                                          dcsCaseStudyContent {
+                                            dcsHeading3
+                                            dcsPc3
+                                            dcsImage{
+                                              mediaItemUrl
+                                              altText
+                                            }
+                                            dcsCtaButton {
+                                              dcsButtonLabel
+                                              dcsButtonLink
+                                            }
+                                          }
+                                }
+                              }
+                            }
+                          }
+                        
+                        ${blogListQuery(3)}`
 )}`
 
 const categoryPageQuery = (slug) => `${getQueryWithSeoFields(
@@ -617,6 +673,10 @@ const portfolioPageQuery = getQueryWithSeoFields(
           #Portfolio List
           portfolioHeading2
           portfolioPc2
+          portfolioCtaButton{
+              portfolioCtaButtonLabel
+              portfolioCtaButtonLink
+          }
           portfolioList {
             portfolioCompanyName
             portfolioListDescription
@@ -636,7 +696,59 @@ const portfolioPageQuery = getQueryWithSeoFields(
 
       }
   
-  }`
+  }
+    caseStudies(first:100){
+                            edges{
+                              node{
+                                title
+                                slug
+                                 featuredImage{
+                                  node{
+                                    mediaItemUrl
+                                  }
+                                }
+                                detailedCaseStudy{
+                                  #Banner Section
+                                          dcsBannerPc
+                                          
+                                          #Impact Numbers
+                                          dcsHeading1
+                                          dcsPc1
+                                          dcsImpactNumbers {
+                                            dcsHighlightNumber
+                                            dcsHighlightText
+                                          }
+                                          
+                                          #Client Review Section
+                                          dcsHeading2
+                                          dcsPc2
+                                          dcsClientIcon{
+                                            mediaItemUrl
+                                            altText
+                                          }
+                                          dcsClientName
+                                          dcsClientDesignation
+                                          dcsClientReviewContent
+                                          
+                                          #Content Area
+                                          dcsCaseStudyContent {
+                                            dcsHeading3
+                                            dcsPc3
+                                            dcsImage{
+                                              mediaItemUrl
+                                              altText
+                                            }
+                                            dcsCtaButton {
+                                              dcsButtonLabel
+                                              dcsButtonLink
+                                            }
+                                          }
+                                }
+                              }
+                            }
+                          }
+  
+  `
 )
 const workWithMePageQuery = getQueryWithSeoFields(
     ` page(id:"cG9zdDoxODM1",idType:ID){  `,
@@ -943,6 +1055,10 @@ const industryPageQuery = getQueryWithSeoFields(
       
       industriesHeading2
       industriesPc2
+      industriesCardSecCtaButton {
+        industriesCardSecCtaButtonLabel
+        industriesCardSecCtaButtonLink
+      }
       industriesCardsComp {
         industriesCardCompServiceDescription
         industriesCardCompServiceName

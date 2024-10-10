@@ -60,6 +60,7 @@ const TestimonialsSlider = ({ currentPageData }) => {
             buttonText:'Client Reviews!',
             action:'/testimonials'
         }}
+        colWidth={9}
       />
 
       <OwlCarousel className="owl-theme" {...options}>

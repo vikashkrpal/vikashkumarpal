@@ -15,7 +15,8 @@ import DarkContentWithSideImage from "../../components/organisms/darkContentWith
 import CaseStudyCardContainer from "../../components/molecules/caseStudyCardContaienr";
 
 export async function getServerSideProps() {
-    const currentPageData = await loadHomePageData(getPageQuery(registeredPages.CASE_STUDY));
+    const pageQuery = getPageQuery(registeredPages.CASE_STUDY);
+    const currentPageData = await loadHomePageData(pageQuery);
     return {
         props: {
             currentPageData,
@@ -59,17 +60,26 @@ const CaseStudy = ({currentPageData}) => {
             <HeaderDescContainer
                 header={pageVars.csHeading3}
                 desc={pageVars.csPc3}
+                showButton={true}
+                buttonData={{
+                    buttonText:pageVars.csCtaButton.csCtaButtonLabel,
+                    action:pageVars.csCtaButton.csCtaButtonLink
+                }}
             />
             <div className="row">
                 {
-                    currentPageData.siteOption.siteOptions.caseStudyCards.map((caseStudy, index) =>  <div className={"col-lg-6 col-md-12 col-12"}  key={index} ><CaseStudyCardContainer
+                    currentPageData.caseStudies.edges.map((caseStudy, index) =>  <div className={"col-lg-6 col-md-12 col-12"}  key={index} ><CaseStudyCardContainer
 
-                        image={caseStudy.caseStudyCardImage.mediaItemUrl}
-                        category={caseStudy.caseStudyCardCompanyName}
-                        header={caseStudy.caseStudyCardHeading}
-                        desc={caseStudy.caseStudyCardDescription}
+                        image={caseStudy.node.featuredImage.node.mediaItemUrl}
+                        category={caseStudy.node.detailedCaseStudy.dcsClientName}
+                        header={caseStudy.node.detailedCaseStudy.dcsHeading1.replace('h2', 'h3')}
+                        desc={caseStudy.node.detailedCaseStudy.dcsBannerPc}
                         column={false}
-                        caseStudyHighlightResults={caseStudy.caseStudyHighlightResults}
+                        caseStudyHighlightResults={caseStudy.node.detailedCaseStudy.dcsImpactNumbers.map((p,i) => ({
+                            caseStudyCardResultNumbers:p.dcsHighlightNumber,
+                            caseStudyCardResultHighlightText:p.dcsHighlightText
+                        })) }
+                        categorySlug={caseStudy.node.slug}
                     /></div> )
                 }
 
