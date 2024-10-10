@@ -99,7 +99,7 @@ const Template = ({
 
 
                     }
-                    <meta name="twitter:site" content="@viashkumarpal"/>
+                    <meta name="twitter:site" content="@vikashkrpal"/>
 
                     {
                         slugConditionCheck() ?
