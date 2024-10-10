@@ -66,19 +66,28 @@ const Portfolio = ({ currentPageData }) => {
             <HeaderDescContainer
                 header={pageVars.portfolioHeading2}
                 desc={pageVars.portfolioPc2}
+                showButton={true}
+                buttonData={{
+                    buttonText:pageVars.portfolioCtaButton.portfolioCtaButtonLabel,
+                    action:pageVars.portfolioCtaButton.portfolioCtaButtonLink
+                }}
             />
             <div className="row">
-                {pageVars.portfolioList.map((caseStudy, index) => <div key={index}
-                                                                       className=' col-lg-6 col-md-6 col-sm-12'>
-                    <CaseStudyCardContainer
-                        image={loadImageFromData(caseStudy.portfolioListImage)}
-                        category={caseStudy.portfolioCompanyName}
-                        header={caseStudy.portfolioListHeading}
-                        desc={caseStudy.portfolioListDescription}
+                {
+                    currentPageData.caseStudies.edges.map((caseStudy, index) =>  <div className={"col-lg-6 col-md-12 col-12"}  key={index} ><CaseStudyCardContainer
+
+                        image={caseStudy.node.featuredImage.node.mediaItemUrl}
+                        category={caseStudy.node.detailedCaseStudy.dcsClientName}
+                        header={caseStudy.node.detailedCaseStudy.dcsHeading1.replace('h2', 'h3')}
+                        desc={caseStudy.node.detailedCaseStudy.dcsBannerPc}
                         column={false}
-                        caseStudyHighlightResults={caseStudy.portfolioHighlights.map((c,i) => {return {caseStudyCardResultNumbers:c.portfolioHighlightNumber, caseStudyCardResultHighlightText: c.portfolioHighlightText}})}
-                    />
-                </div>)}
+                        caseStudyHighlightResults={caseStudy.node.detailedCaseStudy.dcsImpactNumbers.map((p,i) => ({
+                            caseStudyCardResultNumbers:p.dcsHighlightNumber,
+                            caseStudyCardResultHighlightText:p.dcsHighlightText
+                        })) }
+                        categorySlug={caseStudy.node.slug}
+                    /></div> )
+                }
             </div>
 
             <DarkContentWithSideImage currentPageData={currentPageData}/>

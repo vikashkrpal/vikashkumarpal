@@ -42,17 +42,18 @@ return (
                         <div className="col-lg-4 col-md-4 mt-4 mt-lg-0 mt-md-0">
                             <div className=" p-lg-3 py-4">
                                 <div>
-                                    <label className="display-5">84% </label>
+                                    <label className="display-5">{testimonialsDetails.highlightPoints[0].dcsHighlightNumber} </label>
                                     <FaAngleUp color={"green"}  style={{ marginTop:"-15%" }} size={35}/>
                                 </div>
-                                Increase customer satisfaction
+                                {testimonialsDetails.highlightPoints[0].dcsHighlightText}
 
                                 <hr className="bg-light w-res-75 mt-4" style={{ height:4}}/>
                                 <div>
-                                <label className="display-5">38% </label>
+                                <label className="display-5">{testimonialsDetails.highlightPoints[1].dcsHighlightNumber} </label>
                                 <FaAngleUp color={"green"} style={{ marginTop:"-15%" }}  size={35}/>
                             </div>
-                                Increase operational efficiency
+                                {testimonialsDetails.highlightPoints[1].dcsHighlightText}
+
 
                             </div>
 

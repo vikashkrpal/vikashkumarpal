@@ -65,7 +65,8 @@ const SingleCaseStudy = ({ currentPageData }) => {
                 comment: pageVars.dcsClientReviewContent,
                 image: loadImageFromData(pageVars.dcsClientIcon),
                 name: pageVars.dcsClientName,
-                position: pageVars.dcsClientDesignation
+                position: pageVars.dcsClientDesignation,
+                highlightPoints: pageVars.dcsImpactNumbers
             }} />
 
             {

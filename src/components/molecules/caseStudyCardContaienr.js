@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const CaseStudyCardContainer = ({image,category,header,desc,caseStudyHighlightResults, column=true}) => {
+const CaseStudyCardContainer = ({image,category,header,desc,caseStudyHighlightResults, column=true, categorySlug = "#"}) => {
     return <div className={column && "col-lg-4"}>
     <div className="card rounded-4 overflow-hidden  brands-experiences-card mt-4" >
                 <div className="blog-card-content">
-                    <Link href="#">
+                    <Link href={"/case-study/"+categorySlug}>
                         <Image width="560" height="350"  alt=" alt image" className={"img-fluid"} src={image} />
                     </Link>
                 </div>
@@ -14,7 +14,7 @@ const CaseStudyCardContainer = ({image,category,header,desc,caseStudyHighlightRe
 
                     <div className={"m-3"}>
                         <div className=" mt-3">
-                            <Link href="#">
+                            <Link href={"/case-study/"+categorySlug}>
                                     <span className="text-primary font-b" style={{ fontSize:18 }}>
                                         {category}
                                     </span>

@@ -75,7 +75,7 @@ const Template = ({
                     <meta property="og:locale" content="en_US" />
                     <meta name='locale' content={(slug ? currentPageData[slug].seo.openGraph.locale : currentPageData.page.seo.openGraph.locale).replace('/admin.', '/') } />
                     <meta name="twitter:card" content="summary_large_image"/>
-                    <meta name="twitter:site" content="@viashkumarpal"/>
+                    <meta name="twitter:site" content="@vikashkrpal"/>
                     <meta name="twitter:url" content={(slug ? currentPageData[slug].seo.canonicalUrl : currentPageData.page.seo.canonicalUrl).replace('/admin.', '/')} />
                     <meta name="twitter:title" content={slug ? currentPageData[slug].seo.openGraph.title : currentPageData.page.seo.openGraph.title } />
                     <meta name="twitter:description" content={ slug ? currentPageData[slug].seo.description : currentPageData.page.seo.description } />
