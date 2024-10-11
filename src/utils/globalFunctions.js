@@ -25,3 +25,8 @@ export const calculateReadTime = (text) => {
     const readTime = Math.ceil(textLength / wordsPerMinute);
     return readTime;
 };
+
+export function containsHTML(input) {
+    const htmlRegex = /<\/?[a-z][\s\S]*>/i;
+    return htmlRegex.test(input);
+}

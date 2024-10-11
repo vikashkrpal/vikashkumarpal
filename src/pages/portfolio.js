@@ -78,7 +78,7 @@ const Portfolio = ({ currentPageData }) => {
 
                         image={caseStudy.node.featuredImage.node.mediaItemUrl}
                         category={caseStudy.node.detailedCaseStudy.dcsClientName}
-                        header={caseStudy.node.detailedCaseStudy.dcsHeading1.replace('h2', 'h3')}
+                        header={caseStudy.node.title}
                         desc={caseStudy.node.detailedCaseStudy.dcsBannerPc}
                         column={false}
                         caseStudyHighlightResults={caseStudy.node.detailedCaseStudy.dcsImpactNumbers.map((p,i) => ({

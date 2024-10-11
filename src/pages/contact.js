@@ -31,7 +31,7 @@ const Contact = ({ currentPageData }) => {
                     highligter={"Contact Us"}
                     header={pageVars.contactHeading}
                     desc={pageVars.contactPc}
-                    addClass={"w-res-50 mx-auto"}
+                    addClass={"w-res-50 mx-aut  o"}
                     textAlignCenter={true}
                 />
 
@@ -68,26 +68,29 @@ const Contact = ({ currentPageData }) => {
                                 </textarea>
                             </div>
                             <div className="col-12 mt-4 mt-md-2 mt-lg-4 ">
-                                <div className="row">
-                                    <div className="col">
+                                <div className="row align-items-center d-flex justify-content-center mt-3">
+                                    <div className="col-lg-6 col-md-6 col-sm-12">
                                         <ThemeButton text={"Send Message >"} addStyle={{  minWidth:'20%', fontSize:15 }} />
                                     </div>
-                                    <div className="col-auto">
+                                    <div className="col-lg-auto col-md-6 col-sm-12 mt-3 mt-lg-0 mt-md-0">
                                         {
                                             [
                                                 {
                                                     title:<FaInstagram size={25} />,
-                                                    link:'https://www.insta.com/'
-                                                },{
-                                                title:<FaTwitter size={25} />,
-                                                link:'https://twitter.com/'
-                                            },{
-                                                title:<FaFacebook size={25} />,
-                                                link:'https://facebook.com/'
-                                            },{
-                                                title:<FaLinkedin size={25} />,
-                                                link:'https://www.linkedin.com/'
-                                            }
+                                                    link:currentPageData.siteOption.siteOptions.instagram
+                                                },
+                                                {
+                                                    title:<FaTwitter size={25} />,
+                                                    link:currentPageData.siteOption.siteOptions.twitter
+                                                },
+                                                {
+                                                    title:<FaFacebook />,
+                                                    link:currentPageData.siteOption.siteOptions.facebook
+                                                },
+                                                {
+                                                    title: <FaLinkedin/>,
+                                                    link: currentPageData.siteOption.siteOptions.linkedin
+                                                }
                                             ].map((iconDetails, index) => <Link key={index} href={iconDetails.link} className="elementor-icon hover-dark me-4" >{iconDetails.title}</Link>)
                                         }
                                     </div>
