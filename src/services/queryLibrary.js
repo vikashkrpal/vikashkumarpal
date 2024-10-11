@@ -175,6 +175,8 @@ const globalComponents = `siteOption(id: "global-components", idType: SLUG) {
                                   }
 
                                 }
+                                
+                                clientsLogoHeading
                                 clientLogo {
                                     mediaItemUrl
                                     altText
@@ -1140,8 +1142,8 @@ const detailedCaseStudyPageQuery = (slug) => `${getQueryWithSeoFields(
 
 const detailedServicePageQuery = (slug) => `${getQueryWithSeoFields(
     `
-            service(id: "/service/${slug}",
-             idType: URI) {
+            service(id: "${slug}",
+             idType: SLUG) {
             `, `
                      seoServices{
               seoServicesBannerPc

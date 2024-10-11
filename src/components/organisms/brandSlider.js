@@ -16,7 +16,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import Image from "next/image";
 
 
-const BrandSlider = ({ currentPageData }) => {
+const BrandSlider = ({ currentPageData, addClass="my-5" }) => {
   const clientLogo = currentPageData.siteOption !== undefined ? currentPageData.siteOption.siteOptions.clientLogo : {};
 
   const options = {
@@ -42,13 +42,21 @@ const BrandSlider = ({ currentPageData }) => {
 
 
   return (
-    <OwlCarousel className="owl-theme mt-5" {...options}>
+      <div className={"row align-items-center "+addClass}>
+        <div className="col-sm-12 col-lg-4 col-md-6">
+          <div dangerouslySetInnerHTML={{ __html:currentPageData.siteOption.siteOptions.clientsLogoHeading }} />
+
+        </div>
+        <div className="col-sm-12 col-lg-8 col-md-6">
+    <OwlCarousel className="owl-theme" {...options}>
       {clientLogo.map((image, index) => (
         <div key={index} className="item">
           <Image src={image.mediaItemUrl} width={100} height={20} className={"img-fluid"} alt={image.altText} />
         </div>
       ))}
     </OwlCarousel>
+        </div>
+      </div>
   );
 };
 

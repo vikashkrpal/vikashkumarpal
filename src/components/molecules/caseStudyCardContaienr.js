@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import {containsHTML} from "../../utils/globalFunctions";
 
 const CaseStudyCardContainer = ({image,category,header,desc,caseStudyHighlightResults, column=true, categorySlug = "#"}) => {
     return <div className={column && "col-lg-4"}>
@@ -23,7 +24,17 @@ const CaseStudyCardContainer = ({image,category,header,desc,caseStudyHighlightRe
                         </div>
                         <div className="pb-3">
 
-                            <div className={" case-study-card "} dangerouslySetInnerHTML={{ __html: header }} />
+                            {
+                                containsHTML(header) ?
+                                    <div className={" case-study-card "} dangerouslySetInnerHTML={{ __html: header }} />
+:
+                                    <h3 >
+                                        <Link href={"/case-study/"+categorySlug} className={"text-white"}>
+                                            {header}
+                                        </Link>
+                                    </h3>
+                            }
+
                             <div className={"mt-2"} dangerouslySetInnerHTML={{ __html: desc }} />
                         </div>
                     </div>

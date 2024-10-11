@@ -13,6 +13,7 @@ import {registeredPages} from "../utils/constants";
 import {loadHomePageData} from "../services/siteServies";
 import {loadImageFromData} from "../utils/globalFunctions";
 import DarkContentWithSideImage from "../components/organisms/darkContentWithSideImage";
+import TestimonialsSlider from "../components/organisms/testimonialsSlider";
 
 
 export async function getServerSideProps() {
@@ -48,6 +49,7 @@ const About = ({ currentPageData }) => {
 
             </div>
             <BrandSlider currentPageData={currentPageData} />
+            <TestimonialsSlider currentPageData={currentPageData} />
 
             <HeaderWithSideButton
                 header={pageVars.abtHeading1}

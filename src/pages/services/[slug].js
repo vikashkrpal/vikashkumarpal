@@ -21,8 +21,9 @@ import FeaturesSection from "../../components/organisms/featuresSection";
 
 export async function getServerSideProps(context) {
     const { slug } = context.params;
-    const currentPageData = await loadHomePageData(getPageQuery(registeredPages.DETAILED_SERVICES, slug));
-    // console.log("reyurn =", currentPageData)
+    const pageQuery = getPageQuery(registeredPages.DETAILED_SERVICES, slug);
+    console.log("reyas", pageQuery)
+    const currentPageData = await loadHomePageData(pageQuery);
     return {
         props: {
             currentPageData,
@@ -30,12 +31,12 @@ export async function getServerSideProps(context) {
     };
 }
 const SeoService = ({ currentPageData }) => {
-    const caseStudyVars = currentPageData[registeredPages.SINGLE_SERVICES]
+    const singleServices = currentPageData[registeredPages.SINGLE_SERVICES]
 
-    if (!isNotNull(caseStudyVars))
+    if (!isNotNull(singleServices))
         return <h1>No Data Found</h1>
 
-    const pageVars = caseStudyVars[registeredPages.DETAILED_SERVICES]
+    const pageVars = singleServices[registeredPages.DETAILED_SERVICES]
     return (
         <Template
             urlStrings={[
