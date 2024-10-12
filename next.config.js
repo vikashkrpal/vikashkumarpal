@@ -39,6 +39,14 @@ const nextConfig = {
 
         return config;
     },
+    async rewrites() {
+        return [
+            {
+                source: '/:slug.xml', // Capture any slug ending with .xml
+                destination: '/api/sitemap?slug=:slug', // Forward slug as query parameter
+            },
+        ];
+    },
 };
 
 module.exports = withFonts(nextConfig);

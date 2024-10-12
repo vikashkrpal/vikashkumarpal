@@ -32,10 +32,10 @@ const BrandSlider = ({ currentPageData, addClass="my-5" }) => {
         items: 3
       },
       600: {
-        items: 4
+        items: 3
       },
       1000: {
-        items: 6
+        items: 4
       }
     }
   };

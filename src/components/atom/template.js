@@ -12,7 +12,7 @@ const Template = ({
                       urlStrings = [],
                       urlDetails = {title: "page", des: 'page desc'},
                       currentPageData,
-                        slug = false,
+                      slug = false,
                       metaTags=true
                   }) => {
 
@@ -20,10 +20,10 @@ const Template = ({
     let slugConditionCheck = false;
     let headContent = null;
     if (metaTags){
-         jsonLd = replaceAdminUrl(slug ? currentPageData[slug].seo.jsonLd.raw : currentPageData.page.seo.jsonLd.raw);
-         headContent = currentPageData.siteOption.siteOptions.head;
+        jsonLd = replaceAdminUrl(slug ? currentPageData[slug].seo.jsonLd.raw : currentPageData.page.seo.jsonLd.raw);
+        headContent = currentPageData.siteOption.siteOptions.head;
 
-         slugConditionCheck = () => {
+        slugConditionCheck = () => {
             return (slug === registeredPages.CASE_STUDY
                 || slug === registeredPages.SINGLE_SERVICES
                 || slug === registeredPages.CONSULTING_SERVICES
@@ -48,6 +48,11 @@ const Template = ({
                             </>
                             :
                             <>
+                                {slugConditionCheck() ?
+                                    (slug !== registeredPages.AUTHOR) && <meta name="description" content={  currentPageData[slug].seo.openGraph.description } />
+                                    :
+                                    <meta name="description" content={  currentPageData.page.seo.openGraph.description } />
+                                }
                                 <title>{slug ? currentPageData[slug].seo.title :currentPageData.page.seo.openGraph.title}</title>
                                 <link rel="canonical" href={(slug ? currentPageData[slug].seo.canonicalUrl : currentPageData.page.seo.canonicalUrl).replace('/admin.', '/')} />
                             </>

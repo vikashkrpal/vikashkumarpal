@@ -10,6 +10,7 @@ import Link from "next/link";
 import {getPageQuery} from "../services/queryLibrary";
 import {registeredPages} from "../utils/constants";
 import {loadHomePageData} from "../services/siteServies";
+import {BsTwitterX} from "react-icons/bs";
 
 export async function getServerSideProps() {
     const currentPageData = await loadHomePageData(getPageQuery(registeredPages.CONTACT));
@@ -80,7 +81,7 @@ const Contact = ({ currentPageData }) => {
                                                     link:currentPageData.siteOption.siteOptions.instagram
                                                 },
                                                 {
-                                                    title:<FaTwitter size={25} />,
+                                                    title:<BsTwitterX size={15} />,
                                                     link:currentPageData.siteOption.siteOptions.twitter
                                                 },
                                                 {
