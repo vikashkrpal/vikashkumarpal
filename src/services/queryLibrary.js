@@ -416,6 +416,7 @@ ${getQueryWithSeoFields(
                                             altText
                                           }
                                           dcsClientName
+                                          dcsCompanyName
                                           dcsClientDesignation
                                           dcsClientReviewContent
                                           
@@ -729,6 +730,7 @@ const portfolioPageQuery = getQueryWithSeoFields(
                                             altText
                                           }
                                           dcsClientName
+                                          dcsCompanyName
                                           dcsClientDesignation
                                           dcsClientReviewContent
                                           
@@ -1116,6 +1118,7 @@ const detailedCaseStudyPageQuery = (slug) => `${getQueryWithSeoFields(
                     altText
                   }
                   dcsClientName
+                  dcsCompanyName
                   dcsClientDesignation
                   dcsClientReviewContent
                   
