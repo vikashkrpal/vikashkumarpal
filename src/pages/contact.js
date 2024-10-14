@@ -64,7 +64,7 @@ const Contact = ({ currentPageData }) => {
                             {/*</div>*/}
                             <div className="col-12 col-lg-12 mt-4">
                                 <span className={"font-b"}> Leave us a message*</span>
-                                <textarea name="message" className={"form-control mt-2"} cols="20" rows="5" defaultValue={"Tell me about your site, project requirements, and when you'd like to start."}>
+                                <textarea name="message" className={"form-control mt-2"} cols="20" rows="5" placeholder={"Tell me about your site, project requirements, and when you'd like to start."}>
 
                                 </textarea>
                             </div>
@@ -77,7 +77,7 @@ const Contact = ({ currentPageData }) => {
                                         {
                                             [
                                                 {
-                                                    title:<FaInstagram size={25} />,
+                                                    title:<FaInstagram size={20} />,
                                                     link:currentPageData.siteOption.siteOptions.instagram
                                                 },
                                                 {

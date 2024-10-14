@@ -101,7 +101,7 @@ const CustomDropdown = ({ linkDetails }) => {
 
                         <Col xs="12" md="6" className="text-left p-0">
                             {linkMenuDetails.slice(4).map((link, index) => (
-                                <Dropdown.Item key={index} className="mt-3">
+                                <Dropdown.Item key={index} className="mt-3" href={link.link}>
 
                                     <span style={{color:'white' }} >
                                         {link.icon}

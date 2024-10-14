@@ -2,11 +2,12 @@ import Link from 'next/link';
 import {FaFacebook, FaInstagram, FaLinkedin} from "react-icons/fa";
 import '../../utils/styles/footer.css';
 import FooterNewsLetterForm from '@/components/organisms/footerNewsLetterForm';
-import {FaX} from "react-icons/fa6";
-import {BiX} from "react-icons/bi";
 import {BsTwitterX} from "react-icons/bs";
+import Config from "../../config";
 
 const Footer = ({ currentPageData }) => {
+    const baseUrl = Config.appUrl+'/';
+
     const FootHeader = ({ title }) =><>
         <h6 className=" text-light font-b mb-0 " style={{ fontSize:22  }}  >{title}</h6>
         <hr className="bg-light w-res-50" style={{ height:4, marginTop:5 }}/></>
@@ -24,18 +25,18 @@ const Footer = ({ currentPageData }) => {
                                     title:'About',
                                     link:'/about'
                                 },{
-                                    title:'Services',
-                                    link:'/services'
-                                },{
-                                    title:'Testimonials',
-                                    link:'/testimonials'
-                                },{
-                                    title:'Portfolio',
-                                    link:'/portfolio'
-                                },{
-                                    title:'Work With Me',
-                                    link:'/work-with-me'
-                                }
+                                title:'Services',
+                                link:'/services'
+                            },{
+                                title:'Testimonials',
+                                link:'/testimonials'
+                            },{
+                                title:'Portfolio',
+                                link:'/portfolio'
+                            },{
+                                title:'Work With Me',
+                                link:'/work-with-me'
+                            }
                             ].map((linkDetails, index) => (
                                 <div key={index} className={linkDetails.title === 'Work With Me' ? 'col-lg col-md col-sm-4 mt-lg-0 mt-2 text-center' :`col mt-lg-0 mt-2 text-center`} style={{ maxWidth: `${(linkDetails.title.length * 9) + 20}px` }}>
                                     <Link className="elementor-icon" href={linkDetails.link}>{linkDetails.title}</Link>
@@ -53,15 +54,15 @@ const Footer = ({ currentPageData }) => {
                                     title:<FaInstagram />,
                                     link:currentPageData.siteOption.siteOptions.instagram
                                 },{
-                                    title:<BsTwitterX size={15} />,
-                                    link:currentPageData.siteOption.siteOptions.twitter
-                                },{
-                                    title:<FaFacebook />,
-                                    link:currentPageData.siteOption.siteOptions.facebook
-                                },{
-                                    title:<FaLinkedin />,
-                                    link:currentPageData.siteOption.siteOptions.linkedin
-                                }
+                                title:<BsTwitterX size={15} />,
+                                link:currentPageData.siteOption.siteOptions.twitter
+                            },{
+                                title:<FaFacebook />,
+                                link:currentPageData.siteOption.siteOptions.facebook
+                            },{
+                                title:<FaLinkedin />,
+                                link:currentPageData.siteOption.siteOptions.linkedin
+                            }
                             ].map((iconDetails, index) => <a key={index} href={iconDetails.link} className="elementor-icon hover-dark me-4" target={"_blank"}>{iconDetails.title}</a>)
                         }
 
@@ -90,33 +91,33 @@ const Footer = ({ currentPageData }) => {
                                 [
                                     {
                                         title:'SEO Services',
-                                        link:'https://www.insta.com/'
+                                        link:baseUrl+'services/organic-seo-services/'
                                     },{
-                                        title:'SEO Consulting',
-                                        link:'https://twitter.com/'
-                                    },{
-                                        title:'SEO Audit',
-                                        link:'https://facebook.com/'
-                                    },{
-                                        title:'Keyword Research',
-                                        link:'https://www.linkedin.com/'
-                                    },{
-                                        title:'Local SEO',
-                                        link:'https://www.linkedin.com/'
-                                    },{
-                                        title:'Technical SEO',
-                                        link:'https://www.linkedin.com/'
-                                    },{
-                                        title:'Ecommerce SEO',
-                                        link:'https://www.linkedin.com/'
-                                    },{
-                                        title:'WordPress SEO',
-                                        link:'https://www.linkedin.com/'
-                                    },{
-                                        title:'Shopify SEO',
-                                        link:'https://www.linkedin.com/'
-                                    }
-                                ].map((linkDetails, index) =><div key={index} className={"mt-2"}> <Link href="#" className="elementor-icon" style={{ fontSize:16 }}>{linkDetails.title}</Link> </div>
+                                    title:'SEO Consulting',
+                                    link:baseUrl+'consulting/seo-consulting-services/'
+                                },{
+                                    title:'SEO Audit',
+                                    link:baseUrl+'services/seo-audit-services/'
+                                },{
+                                    title:'Keyword Research',
+                                    link:baseUrl+'services/keyword-research-services/'
+                                },{
+                                    title:'Local SEO',
+                                    link:baseUrl+'services/local-seo-services/'
+                                },{
+                                    title:'Technical SEO',
+                                    link:baseUrl+'services/technical-seo-services/'
+                                },{
+                                    title:'Ecommerce SEO',
+                                    link:baseUrl+'services/ecommerce-seo-services/'
+                                },{
+                                    title:'WordPress SEO',
+                                    link:baseUrl+'services/wordpress-seo-services/'
+                                },{
+                                    title:'Shopify SEO',
+                                    link:baseUrl+'services/shopify-seo-services/'
+                                }
+                                ].map((linkDetails, index) =><div key={index} className={"mt-2"}> <Link href={linkDetails.link} className="elementor-icon" style={{ fontSize:16 }}>{linkDetails.title}</Link> </div>
                                 )
                             }
                             {/* Add more service links here */}
@@ -129,33 +130,33 @@ const Footer = ({ currentPageData }) => {
                                 [
                                     {
                                         title:'About Me',
-                                        link:'https://www.insta.com/'
+                                        link:baseUrl+'about/'
                                     },{
-                                        title:'SEO Approach',
-                                        link:'https://twitter.com/'
-                                    },{
-                                        title:'Success Stories',
-                                        link:'https://facebook.com/'
-                                    },{
-                                        title:'Work With Me',
-                                        link:'https://www.linkedin.com/'
-                                    },{
-                                        title:'Portfolio',
-                                        link:'https://www.linkedin.com/'
-                                    },{
-                                        title:'Case Study',
-                                        link:'https://www.linkedin.com/'
-                                    },{
-                                        title:'Testimonials',
-                                        link:'https://www.linkedin.com/'
-                                    },{
-                                        title:'Contact Me',
-                                        link:'https://www.linkedin.com/'
-                                    },{
-                                        title:'Blogs',
-                                        link:'https://www.linkedin.com/'
-                                    }
-                                ].map((linkDetails, index) =><div key={index} className={"mt-2"}> <Link href="#" className="elementor-icon" style={{ fontSize:16 }}>{linkDetails.title}</Link> </div>
+                                    title:'SEO Approach',
+                                    link:baseUrl+'seo-approach/'
+                                },{
+                                    title:'Success Stories',
+                                    link:baseUrl+'testimonials/'
+                                },{
+                                    title:'Work With Me',
+                                    link:baseUrl+'work-with-me/'
+                                },{
+                                    title:'Portfolio',
+                                    link:baseUrl+'portfolio/'
+                                },{
+                                    title:'Case Study',
+                                    link:baseUrl+'case-study/'
+                                },{
+                                    title:'Testimonials',
+                                    link:baseUrl+'testimonials/'
+                                },{
+                                    title:'Contact Me',
+                                    link:baseUrl+'contact/'
+                                },{
+                                    title:'Blogs',
+                                    link:baseUrl+'seo-insights/'
+                                }
+                                ].map((linkDetails, index) =><div key={index} className={"mt-2"}> <Link href={linkDetails.link}  className="elementor-icon" style={{ fontSize:16 }}>{linkDetails.title}</Link> </div>
                                 )
                             }
                             {/* Add more service links here */}
@@ -169,7 +170,7 @@ const Footer = ({ currentPageData }) => {
                                 Stay Ahead In SEO: Subscribe Now
                             </h4>
                             <p>Get the latest SEO tips and updates straight to your inbox. Subscribe to our newsletter and never miss out on valuable insights.</p>
-                        <FooterNewsLetterForm />
+                            <FooterNewsLetterForm />
                         </div>
                     </div>
                 </div>
@@ -179,8 +180,8 @@ const Footer = ({ currentPageData }) => {
             {/* Copyright */}
             <div className="text-center p-3" style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
                 © Copyright 2024 Vikash Kumar Pal. All rights reserved.
-                <Link href="#"  className="elementor-icon ms-2 me-2">Terms</Link>|
-                <Link href="#" className="elementor-icon ms-2 me-2"> Privacy Policy</Link>
+                <Link href={"/terms-and-conditions"} className="elementor-icon ms-2 me-2">Terms</Link>|
+                <Link href={"/privacy-policy"} className="elementor-icon ms-2 me-2"> Privacy Policy</Link>
             </div>
             {/* Copyright */}
         </footer>

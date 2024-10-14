@@ -714,6 +714,8 @@ const portfolioPageQuery = getQueryWithSeoFields(
                                   #Banner Section
                                           dcsBannerPc
                                           
+                                          dcsCompanyName
+                                          
                                           #Impact Numbers
                                           dcsHeading1
                                           dcsPc1
