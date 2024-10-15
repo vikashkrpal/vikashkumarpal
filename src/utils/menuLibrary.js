@@ -37,8 +37,8 @@ const navBarMenus =  [
         childLinks : [
             { name: 'SEO Services', link: baseUrl+'services/organic-seo-services/', des:'Boost your online visibility', icon:<FaLightbulb /> },
             { name: 'SEO Audit', link: baseUrl+'services/seo-audit-services/', des:'Uncover SEO improvement areas', icon:<FaChalkboardTeacher /> },
-            { name: 'Keyword Research', link: baseUrl+'services/local-seo-services/', des:'Discover profitable keywords now', icon:<FaKeyboard /> },
-            { name: 'Local SEO', link: baseUrl+'services/technical-seo-services/', des:'Dominate local search rankings', icon:<FaChartArea /> },
+            { name: 'Keyword Research', link: baseUrl+'services/keyword-research-services/', des:'Discover profitable keywords now', icon:<FaKeyboard /> },
+            { name: 'Local SEO', link: baseUrl+'services/local-seo-services/', des:'Dominate local search rankings', icon:<FaChartArea /> },
             { name: 'Technical SEO', link: baseUrl+'services/technical-seo-services/', des:'Optimize your site’s health', icon:<FaCode /> },
             { name: 'Ecommerce SEO', link: baseUrl+'services/ecommerce-seo-services/', des:'Drive online store traffic', icon:<FaWeibo /> },
             { name: 'WordPress SEO', link: baseUrl+'services/wordpress-seo-services/', des:'Elevate your WordPress site', icon:<FaWordpress /> },
@@ -56,8 +56,8 @@ const navBarMenus =  [
             { name: 'International SEO Consultant', link: baseUrl+'consulting/international-seo-consultant/', des:'Global SEO market mastery', icon:<FaGlobe /> },
             { name: 'Ecommerce SEO Consultant', link: baseUrl+'consulting/ecommerce-seo-consultant/', des:'Boost ecommerce growth', icon:<FaStackExchange /> },
             { name: 'WordPress SEO Consultant', link: baseUrl+'consulting/wordpress-seo-consultant/', des:'WordPress SEO expertise', icon:<FaWordpressSimple /> },
-            { name: 'Shopify SEO Consultant', link: baseUrl+'consulting/wordpress-seo-consultant/', des:'Shopify SEO specialist', icon:<FaShopify /> },
-            { name: 'Enterprise SEO Consultant', link: baseUrl+'consulting/shopify-seo-consultant/', des:'Drive enterprise-level SEO success', icon:<FaUserCheck /> },
+            { name: 'Shopify SEO Consultant', link: baseUrl+'consulting/shopify-seo-consultant/', des:'Shopify SEO specialist', icon:<FaShopify /> },
+            { name: 'Enterprise SEO Consultant', link: baseUrl+'consulting/enterprise-seo-consultant/', des:'Drive enterprise-level SEO success', icon:<FaUserCheck /> },
 
         ]
 
