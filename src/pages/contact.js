@@ -26,7 +26,6 @@ const Contact = ({ currentPageData }) => {
 
     return (
         <Template currentPageData={currentPageData} >
-
             <section>
                 <HeaderDescContainer
                     highligter={"Contact Us"}
