@@ -9,7 +9,7 @@ const ContentWithSideRowCounts = ({ heading, desc, points }) => {
                 <div className="row text-lg-center">
                     {points.map((d, i) => (
                         <div className="col" key={i}>
-                            <h2 className="mb-0">{d.count}</h2>
+                            <label style={{ fontSize:30, fontFamily:"Gt walsheim bold" }} className="mb-0">{d.count}</label>
                             <p>{d.desc}</p>
                         </div>
                     ))}

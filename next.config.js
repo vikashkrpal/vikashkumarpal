@@ -42,8 +42,11 @@ const nextConfig = {
     async rewrites() {
         return [
             {
-                source: '/:slug.xml', // Capture any slug ending with .xml
-                destination: '/api/sitemap?slug=:slug', // Forward slug as query parameter
+                source: '/:slug.xml',
+                destination: '/api/sitemap?slug=:slug',
+            },{
+                source: '/robots.txt',
+                destination: '/api/robot',
             },
         ];
     },

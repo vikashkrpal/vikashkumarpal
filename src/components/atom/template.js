@@ -41,7 +41,7 @@ const Template = ({
                     <link rel="icon" href={currentPageData.siteOption.siteOptions.favicon.mediaItemUrl} />
 
                     {
-                        (slug === registeredPages.AUTHOR) ?
+                        (slug === registeredPages.AUTHOR || slug === registeredPages.CATEGORY || slug === registeredPages.SINGLE_BLOG ) ?
                             <>
                                 <title>{currentPageData[slug].seo.openGraph.title}</title>
                                 <meta name="description" content={  currentPageData[slug].seo.openGraph.description } />
@@ -49,15 +49,16 @@ const Template = ({
                             :
                             <>
                                 {slugConditionCheck() ?
-                                    (slug !== registeredPages.AUTHOR) && <meta name="description" content={  currentPageData[slug].seo.openGraph.description } />
+                                    (slug !== registeredPages.AUTHOR || slug !== registeredPages.CATEGORY || slug !== registeredPages.SINGLE_BLOG) && <meta name="description" content={  currentPageData[slug].seo.openGraph.description } />
                                     :
                                     <meta name="description" content={  currentPageData.page.seo.openGraph.description } />
                                 }
                                 <title>{slug ? currentPageData[slug].seo.title :currentPageData.page.seo.openGraph.title}</title>
-                                <link rel="canonical" href={(slug ? currentPageData[slug].seo.canonicalUrl : currentPageData.page.seo.canonicalUrl).replace('/admin.', '/')} />
+
                             </>
 
                     }
+                    <link rel="canonical" href={(slug ? currentPageData[slug].seo.canonicalUrl : currentPageData.page.seo.canonicalUrl).replace('/admin.', '/')} />
 
                     <meta property="og:title" content={ slug ? currentPageData[slug].seo.openGraph.title : currentPageData.page.seo.openGraph.title } />
                     <meta property="og:site_name" content="Vikash Kumar Pal" />
@@ -118,7 +119,7 @@ const Template = ({
                     <meta name="last-modified" content={slug ? currentPageData[slug].seo.openGraph.updatedTime : currentPageData.page.seo.openGraph.updatedTime } />
 
                     <script type="application/ld+json" className="rank-math-schema" dangerouslySetInnerHTML={{ __html:(jsonLd.replace('<script type="application/ld+json" class="rank-math-schema">', '')).replace('</script>', '') }} />
-                    <style dangerouslySetInnerHTML={{ __html: headContent }} />
+                        <div dangerouslySetInnerHTML={{ __html: headContent }} />
 
                 </Head>
             }
