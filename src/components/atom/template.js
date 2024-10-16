@@ -138,6 +138,58 @@ const Template = ({
                         }}
                     />
 
+                    {!slug && ((currentPageData.page.title).toLowerCase() === registeredPages.HOMEPAGE) &&
+                    <>
+                        <meta name="google-site-verification" content="bk2kX3ZtF42LJ7x0Wrh9X8F_VpJHY1n0GrXesvaGl9o" />
+                        <script type="application/ld+json"
+                                dangerouslySetInnerHTML={{
+                                    __html:`
+                        {
+                                "@context": "https://schema.org/",
+                                "@type": "Person",
+                                "name": "Vikash Kumar Pal",
+                                "gender":"Male",
+                                "nationality":"Indian",
+                                "url": "https://vikashkumarpal.com/",
+                                "birthDate": "1999-07-25",
+                                "image": "https://admin.vikashkumarpal.com/wp-content/uploads/2024/10/vikash-kumar-pal.webp",
+                                "sameAs": [
+                                "https://www.crunchbase.com/person/vikash-kumar-pal",
+                                "https://www.facebook.com/imvikashkrpal/",
+                                "https://www.instagram.com/vikashkrpal/",
+                                "https://x.com/vikashkrpal",
+                                "https://www.linkedin.com/in/vikashkrpal",
+                                "https://www.pinterest.com/imvikashkrpal/"
+                                ],
+                                "alumniOf": [
+                            {
+                                "@type": "CollegeOrUniversity",
+                                "name": "Guru Gobind Singh Indraprastha University",
+                                "sameAs": "https://en.wikipedia.org/wiki/Guru_Gobind_Singh_Indraprastha_University"
+                            },
+                            {
+                                "@type": "CollegeOrUniversity",
+                                "name": "Delhi School of Professional Studies and Research",
+                                "sameAs": "https://en.wikipedia.org/wiki/Delhi_School_of_Professional_Studies_and_Research"
+                            }
+                                ],
+                                "jobTitle": "Co-founder and CEO",
+                                "worksFor": {
+                                "@type": "Organization",
+                                "name": "improveFX",
+                                "url":"https://improvefx.com/",
+                                "sameAs": [
+                                "https://www.crunchbase.com/organization/improvefx",
+                                "https://www.linkedin.com/company/improvefx/"
+                                ]
+                            }
+                            }
+                        `
+                                }}
+
+                        />
+
+                    </>}
                 </Head>
             }
 
