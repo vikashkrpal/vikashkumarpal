@@ -119,7 +119,24 @@ const Template = ({
                     <meta name="last-modified" content={slug ? currentPageData[slug].seo.openGraph.updatedTime : currentPageData.page.seo.openGraph.updatedTime } />
 
                     <script type="application/ld+json" className="rank-math-schema" dangerouslySetInnerHTML={{ __html:(jsonLd.replace('<script type="application/ld+json" class="rank-math-schema">', '')).replace('</script>', '') }} />
-                        <div dangerouslySetInnerHTML={{ __html: headContent }} />
+
+                    {/* Google Tag Manager */}
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                                (function(w, d, s, l, i) {
+                                  w[l] = w[l] || [];
+                                  w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                                  var f = d.getElementsByTagName(s)[0],
+                                      j = d.createElement(s),
+                                      dl = l != 'dataLayer' ? '&l=' + l : '';
+                                  j.async = true;
+                                  j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                                  f.parentNode.insertBefore(j, f);
+                                })(window, document, 'script', 'dataLayer', 'GTM-NSPV8NBM');
+                              `,
+                        }}
+                    />
 
                 </Head>
             }
