@@ -83,7 +83,7 @@ const BlogOne = ({ currentPageData }) => {
             </div>
             <div className="col-lg-6 col-md-6  row d-lg-flex justify-content-lg-end justify-content-md-end mt-lg-0 mt-md-0 mt-4">
               <div className="col-auto d-lg-flex justify-content-end">
-                <ThemeButton href={"#"} text={"Let's get started >"} />
+                <ThemeButton href={pageVars.blogPost.blogPostCtaButton.blogPostButtonLink} text={pageVars.blogPost.blogPostCtaButton.blogPostButtonLabel} />
               </div>
               <div
                 className="col-auto d-lg-flex justify-lg-content-end align-items-center"

@@ -549,6 +549,12 @@ const singlePageQuery = (slug) => `${getQueryWithSeoFields(
                         content
                         excerpt
                          date
+                         blogPost{
+                            blogPostCtaButton{
+                                blogPostButtonLabel
+                                blogPostButtonLink
+                             }
+                         }
                         featuredImage{
                           node{
                             mediaItemUrl
