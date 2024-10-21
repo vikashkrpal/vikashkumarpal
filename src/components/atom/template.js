@@ -190,6 +190,13 @@ const Template = ({
                         />
 
                     </>}
+                    <link rel="icon" href="https://admin.vikashkumarpal.com/wp-content/uploads/2024/10/favicon.ico" type="image/x-icon"/>
+                    <link rel="icon" href="https://admin.vikashkumarpal.com/wp-content/uploads/2023/10/favicon32x32.png" type="image/png" sizes="32x32"/>
+                    <link rel="icon" href="https://admin.vikashkumarpal.com/wp-content/uploads/2024/10/favicon16x16.png" type="image/png" sizes="16x16"/>
+                    <link rel="apple-touch-icon" href="https://admin.vikashkumarpal.com/wp-content/uploads/2024/10/favicon180x180.png" sizes="180x180"/>
+                    <link rel="icon" href="https://admin.vikashkumarpal.com/wp-content/uploads/2024/10/favicon192x192.png" type="image/png" sizes="192x192"/>
+                    <link rel="icon" href="https://admin.vikashkumarpal.com/wp-content/uploads/2024/10/favicon512x512.png" type="image/png" sizes="512x512" />
+                    <meta name="msapplication-TileImage" content="https://admin.vikashkumarpal.com/wp-content/uploads/2024/10/favicon180x180.png" />
                 </Head>
             }
 
