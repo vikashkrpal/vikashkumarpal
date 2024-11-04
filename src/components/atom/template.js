@@ -28,6 +28,7 @@ const Template = ({
                 || slug === registeredPages.SINGLE_SERVICES
                 || slug === registeredPages.CONSULTING_SERVICES
                 || slug === registeredPages.SINGLE_INDUSTRY
+                || slug === registeredPages.SINGLE_BLOG
             )
         }
     }

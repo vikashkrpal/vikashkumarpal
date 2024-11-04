@@ -989,7 +989,23 @@ const notFoundPageQuery = getQueryWithSeoFields(
 )
 const thankYouPageQuery = getQueryWithSeoFields(
     `  page(id:"cG9zdDozMjc=", idType:ID){ `,
-    ` }`
+    ` 
+    thankYou {
+        thanksHeading1
+        thanksParagraphContent1
+        thanksImage1{
+        mediaItemUrl
+        altText
+        }
+        
+        thanksHeading2
+        thanksParagraphContent2
+        thanksCtaButton{
+            thanksButtonLabel
+            thanksButtonLink
+        }
+    }
+    }`
 )
 const consultingPageQuery = getQueryWithSeoFields(
     ` page(id: "cG9zdDoxNzM4", idType: ID) {`,
