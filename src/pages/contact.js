@@ -62,7 +62,7 @@ const Contact = ({ currentPageData }) => {
         const formDataObject = {
             name:name,
             email:email,
-            company:email,
+            company:company,
             message:message
         }
         if (!checkNullOrUndefined(website))
