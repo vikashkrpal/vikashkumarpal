@@ -5,15 +5,12 @@ import TestimonialsSlider from "../components/organisms/testimonialsSlider";
 import BrandSliderWithSideContent from "../components/organisms/brandSliderWithSideContent";
 import HeaderDescContainer from "../components/molecules/headerDescContainer";
 import ThemeButton from "../components/atom/themeButton";
-import {FaFacebook, FaInstagram, FaLinkedin, FaTwitter} from "react-icons/fa";
+import {FaFacebook, FaInstagram, FaLinkedin} from "react-icons/fa";
 import Link from "next/link";
 import {getPageQuery} from "../services/queryLibrary";
 import {registeredPages} from "../utils/constants";
 import {loadHomePageData, saveFormData} from "../services/siteServies";
 import {BsTwitterX} from "react-icons/bs";
-import CaseStudiesSlider from "../components/organisms/caseStudiesSlider";
-import SimpleNewsLetterForm from "../components/molecules/simpleNewsLetterForm";
-import ImageWithSideContent from "../components/organisms/imageWithSideContent";
 
 export async function getServerSideProps() {
     const currentPageData = await loadHomePageData(getPageQuery(registeredPages.CONTACT));
@@ -25,14 +22,12 @@ export async function getServerSideProps() {
 }
 
 const Contact = ({ currentPageData }) => {
-    const [pageVars, setPageVar] = useState(currentPageData.page[registeredPages.CONTACT])
-    const [currentPageDataObject, setCurrentPageDataObject] = useState(currentPageData)
+    const pageVars = currentPageData.page[registeredPages.CONTACT];
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [company, setCompany] = useState("");
     const [website, setWebsite] = useState("");
     const [message, setMessage] = useState("");
-    const [showThankYou, setShowThankYou] = useState(false);
 
     const checkNullOrUndefined = variable => (variable === "" || variable === undefined);
     const submitFormHandler = () => {
@@ -69,57 +64,14 @@ const Contact = ({ currentPageData }) => {
             formDataObject.website = website;
         saveFormData(formDataObject).then(response=>{
             if (response.success){
-                setShowThankYou(true)
+                window.location.href = '/thank-you';
             }else{
                 alert(response.error)
             }
         })
     }
 
-    React.useEffect(()=>{
-        if (showThankYou){
-            loadHomePageData(getPageQuery(registeredPages.THANK_YOU)).then(res => {
-                setPageVar(res.page[registeredPages.THANK_YOU])
-                setCurrentPageDataObject(res)
-                console.log(res.page[registeredPages.THANK_YOU])
-            });
-        }
-    },[showThankYou])
 
-    if(showThankYou){
-        return <Template currentPageData={currentPageData}>
-            {
-                currentPageDataObject.page[registeredPages.THANK_YOU] !== undefined &&
-                <ImageWithSideContent
-
-                    heading={pageVars.thanksHeading1}
-                    content={pageVars.thanksParagraphContent1}
-                    ImageData={{
-                        url: pageVars.thanksImage1.mediaItemUrl,
-                        altText: pageVars.thanksImage1.altText,
-                    }}
-                    contentListing={0}
-                    showButton={false}
-                />
-            }
-
-            <TestimonialsSlider currentPageData={currentPageData} />
-            <CaseStudiesSlider currentPageData={currentPageData} />
-            <BrandSliderWithSideContent currentPageData={currentPageData} />
-            <div className="row align-items-center">
-                <div className="col-lg-7 col-md-6 col-sm-12">
-                    <h2>
-                        Subscribe to our newsletter and stay updated on the latest news
-                    </h2>
-                </div>
-                <div className="col-lg-5 col-md-6 col-sm-12 ps-lg-5 ps-md-5 ">
-                    <SimpleNewsLetterForm />
-                </div>
-            </div>
-
-        </Template>
-    }
-    else
         return (
         <Template currentPageData={currentPageData} >
             <section>
