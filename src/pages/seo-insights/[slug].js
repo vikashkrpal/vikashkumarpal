@@ -9,7 +9,11 @@ import BrandSliderWithSideContent from "../../components/organisms/brandSliderWi
 import SimpleNewsLetterForm from "../../components/molecules/simpleNewsLetterForm";
 import {getPageQuery} from "../../services/queryLibrary";
 import {registeredPages} from "../../utils/constants";
-import {loadHomePageData} from "../../services/siteServies";
+import {
+  getLikeCountsUsingPostIdFromServer,
+  loadHomePageData,
+  saveLikeCountByPostSlug
+} from "../../services/siteServies";
 import {
   calculateReadTime,
   checkNotUndefined,
@@ -32,9 +36,14 @@ export async function getServerSideProps(context) {
 }
 const BlogOne = ({ currentPageData }) => {
   const [postLiked, setPostLiked] = React.useState(false);
-  const [postCount, setPostCount] = React.useState(35);
+  const [postCount, setPostCount] = React.useState(0);
   const pageVars = currentPageData[registeredPages.SINGLE_BLOG]
 
+  React.useEffect(()=>{
+    getLikeCountsUsingPostIdFromServer(pageVars.slug).then(likeCountResponse => {
+      setPostCount(likeCountResponse)
+    })
+  },[])
 
   if (!isNotNull(pageVars))
     return <h1>No Data Found</h1>
@@ -103,6 +112,7 @@ const BlogOne = ({ currentPageData }) => {
                       style={{ fontSize: 26, cursor: "pointer" }}
                       onClick={() => {
                         setPostLiked(!postLiked);
+                        saveLikeCountByPostSlug(pageVars.slug, postCount + 1)
                         setPostCount(postCount + 1);
                       }}
                     />
