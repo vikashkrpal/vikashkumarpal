@@ -53,3 +53,50 @@ export const saveFormData = async (formDataObject) => {
     });
 };
 
+export const getLikeCountsUsingPostIdFromServer = postSlug => {
+    return new Promise(resolve => {
+        const requestOptions = {
+            method: "GET",
+            redirect: "follow"
+        };
+
+        fetch(`https://admin.vikashkumarpal.com/wp-json/custom/v1/like/${postSlug}`, requestOptions)
+            .then((response) => response.json())
+            .then((result) =>{
+                if (result.code === 'success')
+                    resolve(parseFloat(result.data.likes));
+                else
+                    resolve(0);
+            })
+            .catch((error) => {
+                console.error(error)
+                resolve(0);
+            });
+    });
+
+
+}
+
+export const saveLikeCountByPostSlug = (postSlug, newLikeCount) => {
+    const formdata = new FormData();
+    formdata.append("likes", newLikeCount);
+
+    const requestOptions = {
+        method: "POST",
+        body: formdata,
+        redirect: "follow"
+    };
+
+    fetch(`https://admin.vikashkumarpal.com/wp-json/custom/v1/like/${postSlug}`, requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+            console.log(result)
+            if (result.code !== 'success')
+                alert('like count not updated!! try again later...')
+        })
+        .catch((error) => {
+            alert('like count not updated!! try again later...')
+            console.error(error)
+        });
+}
+
