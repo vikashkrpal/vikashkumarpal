@@ -22,7 +22,7 @@ import FeaturesSection from "../../components/organisms/featuresSection";
 export async function getServerSideProps(context) {
     const { slug } = context.params;
     const pageQuery = getPageQuery(registeredPages.DETAILED_SERVICES, slug);
-    console.log("reyas", pageQuery)
+    // console.log("reyas", pageQuery)
     const currentPageData = await loadHomePageData(pageQuery);
     return {
         props: {
@@ -158,6 +158,7 @@ const SeoService = ({ currentPageData }) => {
                     pageVars.seoServicesCardComp.map((card,i) => <div className="col-lg-4 col-md-6 col-sm-12 col-12" key={i}>
                         <IconCardContainer
                             icon={loadImageFromData(card.seoServicesCardIcon)}
+                            altText={card.seoServicesCardIcon.altText}
                             heading={card.seoServicesCardName}
                             desc={card.seoServicesCardDescription}
                             listData={card.seoServicesCardPoints.map((c,i) => {return {servicePointName: c.seoServicesCardBulletPoints}})}

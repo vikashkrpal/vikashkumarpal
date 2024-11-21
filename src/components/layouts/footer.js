@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import {FaFacebook, FaInstagram, FaLinkedin} from "react-icons/fa";
 import '../../utils/styles/footer.css';
-import FooterNewsLetterForm from '@/components/organisms/footerNewsLetterForm';
+import FooterNewsLetterForm from '../../components/organisms/footerNewsLetterForm';
 import {BsTwitterX} from "react-icons/bs";
 import Config from "../../config";
 

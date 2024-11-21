@@ -173,6 +173,7 @@ const SeoIndustry = ({ currentPageData }) => {
                         pageVars.industryServicesCardComp.map((card,i) => <div className="col-lg-4 col-md-6 col-sm-12 col-12" key={i}>
                             <IconCardContainer
                                 icon={loadImageFromData(card.industryServicesCardIcon)}
+                                altText={card.industryServicesCardIcon.altText}
                                 heading={card.industryServicesCardName}
                                 desc={card.industryServicesCardDescription}
                                 listData={card.industryServicesCardPoints.map((c,i) => {return {servicePointName: c.industryServicesCardBulletPoints}})}

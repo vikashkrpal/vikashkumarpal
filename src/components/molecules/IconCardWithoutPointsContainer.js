@@ -2,11 +2,11 @@ import React from 'react';
 import Image from "next/image";
 import Link from "next/link";
 
-const IconCardWithoutPointsContainer = ({ icon, heading, desc}) => {
+const IconCardWithoutPointsContainer = ({ icon, heading, desc, altText = 'alt text image'}) => {
     return<div className="card check-card p-3 brands-experiences-card mt-4">
         <div className="row ">
             <div className="col-lg-auto col-md-12 col-sm-12 ">
-                <Image src={icon} alt="..." width="70" height="70" className="" />
+                <Image src={icon} alt={altText} width="70" height="70" className="" />
             </div>
             <div className="col-lg col-md-12 col-sm-12 service-card-body mt-3 mt-lg-0">
                 <span className="card-title mx-auto ">

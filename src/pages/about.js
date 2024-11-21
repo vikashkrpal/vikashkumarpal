@@ -61,6 +61,7 @@ const About = ({ currentPageData }) => {
                     pageVars.abtBenefitsCard.map((card,index) => <div key={index} className="col-lg-4 col-md-6 col-sm-12 col-12">
                         <IconCardContainer
                             icon={loadImageFromData(card.abtBenefitsIcon)}
+                            altText={card.abtBenefitsIcon.altText}
                             heading={card.abtBenefitsHeading}
                             desc={card.abtBenefitsParagraph  }
                             listData={card.abtBenefitPoints.map((point,i) => {return  {servicePointName: point.abtBenefitPointsName} })}

@@ -131,6 +131,7 @@ const BlogOne = ({ currentPageData }) => {
               height={550}
               className="img-fluid mx-auto"
               style={{ borderRadius:20 }}
+              alt={pageVars.featuredImage.node.altText}
             />
           </div>
           <div className="blog-post-content" dangerouslySetInnerHTML={{ __html:pageVars.content }} />

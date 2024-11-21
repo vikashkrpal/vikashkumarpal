@@ -1,5 +1,5 @@
-import ThemeButton from '@/components/atom/themeButton';
-import { isNotNull } from '@/utils/globalFunctions';
+import ThemeButton from '../../components/atom/themeButton';
+import { isNotNull } from '../../utils/globalFunctions';
 import Image from 'next/image';
 
 

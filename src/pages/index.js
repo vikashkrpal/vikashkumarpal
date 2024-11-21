@@ -68,6 +68,7 @@ const HomePageContent = ({ currentPageData }) => {
                             heading={serviceCard.serviceName}
                             desc={serviceCard.serviceDescription}
                             listData={serviceCard.servicePoints}
+                            altText={serviceCard.serviceIcon.altText}
                         />
                     </div>
                 ))}

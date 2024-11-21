@@ -33,6 +33,9 @@ export const getPageQuery = (pageName, slug) => {
         case registeredPages.CONTACT:
             finalQuery = contactPageQuery;
             break;
+        case registeredPages.BOOK_A_STRATEGY_CALL:
+            finalQuery = bookAStrategyCallPageQuery;
+            break;
         case registeredPages.CASE_STUDY:
             finalQuery = caseStudyPageQuery;
             break;
@@ -965,6 +968,16 @@ const contactPageQuery = getQueryWithSeoFields(
     
   }`
 )
+const bookAStrategyCallPageQuery = getQueryWithSeoFields(
+    ` page(id: "cG9zdDozMzY1", idType: ID) { `,
+    ` bookAstrategyCall{
+      bascHeading
+      bascPc
+    }
+    
+  } 
+  `
+)
 const privacyPolicyPageQuery = getQueryWithSeoFields(
     ` page(id:"cG9zdDozMzI=", idType:ID){ `,
     `  privacyPolicy{
@@ -1550,6 +1563,20 @@ const detailedIndustryServicesPageQuery = (slug) => `${getQueryWithSeoFields(
                      `
 )}`
 
+
+/*
+* Check Whole Pages fetching from server
+* */
+const wholePagesDataQuery = `
+  pages{
+     edges{
+                              node{
+                                title
+                                slug
+                                id
+                                }
+                                }
+  }`
 
 
 

@@ -1,4 +1,4 @@
-import ThemeButton from "@/components/atom/themeButton";
+import ThemeButton from "../../components/atom/themeButton";
 import Image from "next/image";
 import SimpleNewsLetterForm from "../molecules/simpleNewsLetterForm";
 
@@ -18,7 +18,7 @@ const NewLetterComponent = ({ heading, desc, imageUrl }) => {
                         </div>
                         <div className="col-md-6 px-lg-0 hide-on-mobile overflow-hidden">
                             <div style={{ position: "relative", width: "100%", height: "100%",  }}>
-                                <Image src={imageUrl} style={{ borderRadius:20 }} alt="Feature Image" layout="fill" objectFit="cover" />
+                                <Image src={imageUrl} style={{ borderRadius:20 }} alt="news letter feature Image" layout="fill" objectFit="cover" />
                             </div>
                         </div>
                     </div>

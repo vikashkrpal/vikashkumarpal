@@ -2,12 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import {containsHTML} from "../../utils/globalFunctions";
 
-const CaseStudyCardContainer = ({image,category,header,desc,caseStudyHighlightResults, column=true, categorySlug = "#"}) => {
+const CaseStudyCardContainer = ({image,category,header,desc,caseStudyHighlightResults, column=true, categorySlug = "#", altText='alt text image'}) => {
     return <div className={column && "col-lg-4"}>
     <div className="card rounded-4 overflow-hidden  brands-experiences-card mt-4" >
                 <div className="blog-card-content">
                     <Link href={"/case-study/"+categorySlug}>
-                        <Image width="560" height="350"  alt=" alt image" className={"img-fluid"} src={image} />
+                        <Image width="560" height="350"  alt={altText} className={"img-fluid"} src={image} />
                     </Link>
                 </div>
 

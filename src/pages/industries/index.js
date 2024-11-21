@@ -83,6 +83,7 @@ const Index = ({ currentPageData }) => {
                     pageVars.industriesCardsComp.map((card,i) => <div className="col-lg-4 col-md-6 col-sm-12 col-12" key={i}>
                         <IconCardContainer
                             icon={loadImageFromData(card.industriesCardCompIcon)}
+                            altText={card.industriesCardCompIcon.altText}
                             heading={card.industriesCardCompServiceName}
                             desc={card.industriesCardCompServiceDescription}
                             listData={card.industriesCardCompHighlightPoints.map((c,i) => {return {servicePointName: c.industriesCardCompHighlight}})}

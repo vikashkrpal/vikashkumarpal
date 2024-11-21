@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import Image from "next/image";
-const BlogCardContainer =  ({image,category,avtar,header,desc,time, column=true,slug,authorSlug, postSlug, index}) => {
+const BlogCardContainer =  ({image,category,avtar,header,desc,time, column=true,slug,authorSlug, postSlug, index, altText = 'image alt'}) => {
     return <div className={column && "col-lg-4 col-md-6 col-sm-12"} key={index}>
     <div className="card rounded-4 overflow-hidden  brands-experiences-card mt-4" >
                 <div className="blog-card-content">
                     <Link href={"/seo-insights/"+postSlug}>
-                        <Image width="450" height="250"  alt=" alt image" src={image} />
+                        <Image width="450" height="250"  alt={altText} src={image}  />
                     </Link>
                 </div>
 

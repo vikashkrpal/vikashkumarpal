@@ -1,8 +1,8 @@
-import Template from "@/components/atom/template";
-import BlogCardContainer from "@/components/molecules/blogCardContainer";
-import HeaderDescContainer from "@/components/molecules/headerDescContainer";
-import SimpleNewsLetterForm from "@/components/molecules/simpleNewsLetterForm";
-import BrandSliderWithSideContent from "@/components/organisms/brandSliderWithSideContent";
+import Template from "../../components/atom/template";
+import BlogCardContainer from "../../components/molecules/blogCardContainer";
+import HeaderDescContainer from "../../components/molecules/headerDescContainer";
+import SimpleNewsLetterForm from "../../components/molecules/simpleNewsLetterForm";
+import BrandSliderWithSideContent from "../../components/organisms/brandSliderWithSideContent";
 import Image from "next/image";
 import React from "react";
 import ThemeButton from "../../components/atom/themeButton";
@@ -36,7 +36,7 @@ const Index = ({ currentPageData }) => {
             <div style={{ position: "relative", width: "100%", height: "100%",  }}>
                 <Image
                     src={loadImageFromData(authorPageVars.apBg.mediaItemUrl)}
-                    layout="fill" objectFit="cover"
+                    layout="fill" objectFit="cover" alt={authorPageVars.apBg.altText}
                 />
             </div>
         </div>
@@ -48,7 +48,7 @@ const Index = ({ currentPageData }) => {
                         width={110}
                         height={110}
                         className="img-fluid rounded-circle"
-                        alt="Client Avatar Icon"
+                        alt={authorPageVars.apImage.altText}
                     />{" "}
                 </div>
                 <div className="col-lg-8 col-md-12 mt-3">
@@ -96,6 +96,7 @@ const Index = ({ currentPageData }) => {
             {
                 checkNotUndefined(pageVars.posts) && (pageVars.posts.edges).map((post,index) => <BlogCardContainer
                     image={post.node.featuredImage.node.mediaItemUrl}
+                    altText={post.node.featuredImage.node.altText}
                     category={post.node.categories.nodes[0].name}
                     avtar={post.node.author.node.avatar.url}
                     header={post.node.title}

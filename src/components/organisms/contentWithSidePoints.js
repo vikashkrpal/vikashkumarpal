@@ -29,7 +29,7 @@ const ContentWithSidePoint = ({
                                     <div className="ib-icon-wrapper d-lg-flex justify-content-center align-items-center">
                                         <Image
                                             src={loadImageFromData(d.hpPointIcon)}
-                                            alt="Proven Track Record"
+                                            alt={d.hpPointIcon.altText}
                                             width={100}
                                             height={100}
                                             className="effective-solution-icon mt-4 image-fluid"

@@ -1,4 +1,4 @@
-import { isNotNull } from "@/utils/globalFunctions";
+import { isNotNull } from "../../utils/globalFunctions";
 import ThemeButton from "../atom/themeButton";
 import React from "react";
 

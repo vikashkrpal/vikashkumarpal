@@ -90,7 +90,7 @@ export const saveLikeCountByPostSlug = (postSlug, newLikeCount) => {
     fetch(`https://admin.vikashkumarpal.com/wp-json/custom/v1/like/${postSlug}`, requestOptions)
         .then((response) => response.json())
         .then((result) => {
-            console.log(result)
+            // console.log(result)
             if (result.code !== 'success')
                 alert('like count not updated!! try again later...')
         })

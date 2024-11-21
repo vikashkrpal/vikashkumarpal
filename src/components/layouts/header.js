@@ -3,9 +3,9 @@ import ThemeButton from '../atom/themeButton';
 import Image from 'next/image';
 import React from 'react';
 import MobileMenu from '../organisms/mobileMenu';
-import { bindState } from '@/utils/globalFunctions';
+import { bindState } from '../../utils/globalFunctions';
 import CustomDropdown from "../molecules/CustomDropdown";
-import navBarMenus from "@/utils/menuLibrary";
+import navBarMenus from "../../utils/menuLibrary";
 
 const Header = ({ currentPageData }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
@@ -42,7 +42,7 @@ const Header = ({ currentPageData }) => {
       <Navbar.Brand href="/" className='ms-3' >
         <Image
           src={(currentPageData !== undefined ? currentPageData.siteOption.siteOptions.logo.mediaItemUrl : require('../../asserts/logos/Vikash-Logo-Black-BG.png'))}
-          alt='logo image'
+          alt={(currentPageData !== undefined ? currentPageData.siteOption.siteOptions.logo.altText : 'logo image')}
           height={30}
       width={"110"}
         />
@@ -66,16 +66,16 @@ const Header = ({ currentPageData }) => {
       </Navbar.Collapse>
       <Navbar.Collapse className="justify-content-end">
         <Navbar.Text className=" text-center pe-lg-4">
-          <ThemeButton text={"Book a Strategy Call"} />
+          {/*<ThemeButton text={"Book a Strategy Call"} href={'/book-a-strategy-call'} />*/}
         </Navbar.Text>
       </Navbar.Collapse>
       <div style={{ width:'53%' }} className='show_on_pro' />
       <div className="d-flex align-items-center me-sm-0 me-md-3 me-lg-0">
-        <ThemeButton text={"Book a Strategy Call"} addClass='hide-on-mini show_mobile_screen'/>
+        <ThemeButton text={"Book a Strategy Call"} href={'/book-a-strategy-call'} addClass='hide-on-mini show_mobile_screen' />
         <button onClick={()=>setIsMobileMenuOpen(!isMobileMenuOpen)} className='btn bg-black p-1 show_mobile_screen mx-2 mx-md-3' style={{ borderRadius:10 }}>
           <Image
               src={require('../../asserts/logos/menu-icon.png')}
-              alt='logo image'
+              alt='menu icon'
               height={33}
               width={33}
             />

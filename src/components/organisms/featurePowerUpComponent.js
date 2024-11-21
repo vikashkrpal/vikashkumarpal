@@ -30,6 +30,7 @@ const FeaturePowerUpComponent = ({
                             icon={loadImageFromData(card.icon)}
                             heading={card.name}
                             desc={card.desc}
+                            altText={card.icon.altText}
                         />
                     </div>
                 )

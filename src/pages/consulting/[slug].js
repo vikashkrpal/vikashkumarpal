@@ -168,6 +168,7 @@ const SeoConsultant = ({ currentPageData }) => {
                         pageVars.consultingServicesCardComp.map((card,i) => <div className="col-lg-4 col-md-6 col-sm-12 col-12" key={i}>
                             <IconCardContainer
                                 icon={loadImageFromData(card.consultingServicesCardIcon)}
+                                altText={card.consultingServicesCardIcon.altText}
                                 heading={card.consultingServicesCardName}
                                 desc={card.consultingServicesCardDescription}
                                 listData={card.consultingServicesCardPoints.map((c,i) => {return {servicePointName: c.consultingServicesCardBulletPoints}})}

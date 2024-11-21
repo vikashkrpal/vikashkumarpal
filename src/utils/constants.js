@@ -25,5 +25,6 @@ export const registeredPages = {
     TERMS_OF_SERVICE: 'termsOfService',
     NOT_FOUND_PAGE: 'notFound',
     THANK_YOU: 'thankYou',
+    BOOK_A_STRATEGY_CALL: 'bookAstrategyCall',
 
 }

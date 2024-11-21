@@ -79,6 +79,7 @@ const WorkWithMe = ({ currentPageData }) => {
                     pageVars.wwmCards.map((card,i) => <div className="col-lg-4 col-md-6 col-sm-12 col-12" key={i}>
                         <IconCardContainer
                             icon={loadImageFromData(card.wwmCardIcon)}
+                            altText={card.wwmCardIcon.altText}
                             heading={card.wwmCardHeading}
                             desc={card.wwmCardDescription}
                             listData={card.wwmCardPoints.map((c,i) => {return {servicePointName: c.wwmCardPointName}})}

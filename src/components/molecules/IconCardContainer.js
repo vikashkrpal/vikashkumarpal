@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const IconCardContainer = ({ icon, heading, desc, listData}) => {
+const IconCardContainer = ({ icon, heading, desc, listData, altText = 'alt text image'}) => {
     return <div className="card check-card p-3 brands-experiences-card mt-4">
     <div className="row">
         <div className="col-md-4 ms-3">
 
-            <Image src={icon} alt="..." width="100" height="100" className="" />
+            <Image src={icon} alt={altText} width="100" height="100" className="" />
 
         </div>
     </div>
@@ -17,7 +17,7 @@ const IconCardContainer = ({ icon, heading, desc, listData}) => {
 
         <ul className="list-unstyled pt-2 mb-2  ">
             {
-                listData.map((liData, index)=> <li key={index}> <Image src={require('../../asserts/checkmark-icon.png')} alt="..." width="20" height="20" className="mb-1" />  {liData.servicePointName}</li>)
+                listData.map((liData, index)=> <li key={index}> <Image src={require('../../asserts/checkmark-icon.png')} alt="check mark icon" width="20" height="20" className="mb-1" />  {liData.servicePointName}</li>)
             }
                                   </ul>
     </div>

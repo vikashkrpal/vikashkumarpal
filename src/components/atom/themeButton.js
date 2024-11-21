@@ -1,4 +1,4 @@
-import { isNotNull } from "@/utils/globalFunctions";
+import { isNotNull } from "../../utils/globalFunctions";
 import Link from "next/link";
 
 const ThemeButton =  ({text, buttonType="button" ,buttonAction = ()=>console.log("Button Clicked"), addClass = " ", addStyle = {}, href=null}) => {

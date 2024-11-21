@@ -5,7 +5,7 @@ import TestimonialCardContainer from "../components/molecules/testimonialCardCon
 import BrandSliderWithSideContent from "../components/organisms/brandSliderWithSideContent";
 import SimpleNewsLetterForm from "../components/molecules/simpleNewsLetterForm";
 import HeaderWithSideButton from "../components/molecules/headerWithSideButton";
-import ContentWithSideRowCounts from '@/components/organisms/ContentWithSideRowCounts';
+import ContentWithSideRowCounts from '../components/organisms/ContentWithSideRowCounts';
 import {getPageQuery} from "../services/queryLibrary";
 import {registeredPages} from "../utils/constants";
 import {loadHomePageData} from "../services/siteServies";
