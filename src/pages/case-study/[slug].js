@@ -75,7 +75,7 @@ const SingleCaseStudy = ({ currentPageData }) => {
                     content={card.dcsPc3}
                     ImageData={{
                         url: loadImageFromData(card.dcsImage),
-                        alert: card.dcsImage.altText,
+                        altText: card.dcsImage.altText,
                     }}
                     contentListing={index%2}
                     buttonData={{

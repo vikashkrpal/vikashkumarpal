@@ -47,6 +47,9 @@ const nextConfig = {
             },{
                 source: '/robots.txt',
                 destination: '/api/robot',
+            },{
+                source: '/92100fcec32a4d4c92b1b0a44da8b492.txt',
+                destination: '/api/bingsearchcode',
             },
         ];
     },

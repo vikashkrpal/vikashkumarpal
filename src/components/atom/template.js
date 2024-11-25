@@ -146,53 +146,59 @@ const Template = ({
                                 dangerouslySetInnerHTML={{
                                     __html:`
                         {
-                                "@context": "https://schema.org/",
-                                "@type": "Person",
-                                "name": "Vikash Kumar Pal",
-                                "gender":"Male",
-                                "nationality":"Indian",
-                                "url": "https://vikashkumarpal.com/",
-                                "birthDate": "1999-07-25",
-                                "image": "https://admin.vikashkumarpal.com/wp-content/uploads/2024/10/vikash-kumar-pal.webp",
-                                "sameAs": [
-                                "https://www.crunchbase.com/person/vikash-kumar-pal",
-                                "https://www.facebook.com/imvikashkrpal/",
-                                "https://www.instagram.com/vikashkrpal/",
-                                "https://x.com/vikashkrpal",
-                                "https://www.linkedin.com/in/vikashkrpal",
-                                "https://www.pinterest.com/imvikashkrpal/"
-                                ],
-                                "alumniOf": [
-                            {
-                                "@type": "CollegeOrUniversity",
-                                "name": "Guru Gobind Singh Indraprastha University",
-                                "sameAs": "https://en.wikipedia.org/wiki/Guru_Gobind_Singh_Indraprastha_University"
-                            },
-                            {
-                                "@type": "CollegeOrUniversity",
-                                "name": "Delhi School of Professional Studies and Research",
-                                "sameAs": "https://en.wikipedia.org/wiki/Delhi_School_of_Professional_Studies_and_Research"
-                            }
-                                ],
-                                "jobTitle": "Co-founder and CEO",
-                                "worksFor": {
-                                "@type": "Organization",
-                                "name": "improveFX",
-                                "url":"https://improvefx.com/",
-                                "sameAs": [
-                                "https://www.crunchbase.com/organization/improvefx",
-                                "https://www.linkedin.com/company/improvefx/"
-                                ]
-                            }
-                            }
-                        `
+                          "@context": "https://schema.org/",
+                          "@type": "Person",
+                          "name": "Vikash Kumar Pal",
+                          "birthDate": "1999-07-25",
+                          "gender":"Male",
+                          "email": "mailto:hello@vikashkumarpal.com",
+                          "nationality": {
+                            "@type": "Country",
+                            "name": "India"
+                          },
+                          "url": "https://vikashkumarpal.com/",
+                          "image": "https://admin.vikashkumarpal.com/wp-content/uploads/2024/10/vikash-kumar-pal.webp",
+                          "sameAs": [
+                            "https://www.crunchbase.com/person/vikash-kumar-pal",
+                            "https://www.facebook.com/imvikashkrpal/",
+                            "https://www.instagram.com/vikashkrpal/",
+                            "https://x.com/vikashkrpal",
+                            "https://www.linkedin.com/in/vikashkrpal",
+                            "https://www.pinterest.com/imvikashkrpal/"
+                          ],
+                        "alumniOf": [
+                        {
+                                 "@type": "CollegeOrUniversity",
+                                 "name": "Guru Gobind Singh Indraprastha University",
+                           "url":"http://www.ipu.ac.in/",
+                                 "sameAs": "https://en.wikipedia.org/wiki/Guru_Gobind_Singh_Indraprastha_University"
+                                },
+                                {
+                                 "@type": "CollegeOrUniversity",
+                                 "name": "Delhi School of Professional Studies and Research",
+                           "url":"https://dspsr.in/",
+                                 "sameAs": "https://en.wikipedia.org/wiki/Delhi_School_of_Professional_Studies_and_Research"
+                                }
+                        ],
+                          "jobTitle": "Co-founder and CEO",
+                          "worksFor": {
+                            "@type": "Organization",
+                            "name": "improveFX",
+                            "url":"https://improvefx.com/",
+                             "sameAs": [
+                            "https://www.crunchbase.com/organization/improvefx",
+                            "https://www.linkedin.com/company/improvefx/"
+                          ]
+                          }  
+                        }
+                                                `
                                 }}
 
                         />
 
                     </>}
-                    <link rel="icon" href="https://admin.vikashkumarpal.com/wp-content/uploads/2024/10/favicon.ico" type="image/x-icon"/>
-                    <link rel="icon" href="https://admin.vikashkumarpal.com/wp-content/uploads/2023/10/favicon32x32.png" type="image/png" sizes="32x32"/>
+                    <link rel="icon" href="https://admin.vikashkumarpal.com/wp-content/uploads/2024/10/favicon.ico" type="image/x-icon" />
+                    <link rel="icon" href="https://admin.vikashkumarpal.com/wp-content/uploads/2023/10/favicon32x32.png" type="image/png" sizes="32x32" />
                     <link rel="icon" href="https://admin.vikashkumarpal.com/wp-content/uploads/2024/10/favicon16x16.png" type="image/png" sizes="16x16"/>
                     <link rel="apple-touch-icon" href="https://admin.vikashkumarpal.com/wp-content/uploads/2024/10/favicon180x180.png" sizes="180x180"/>
                     <link rel="icon" href="https://admin.vikashkumarpal.com/wp-content/uploads/2024/10/favicon192x192.png" type="image/png" sizes="192x192"/>

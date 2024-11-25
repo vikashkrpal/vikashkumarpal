@@ -73,7 +73,7 @@ const SeoIndustry = ({ currentPageData }) => {
                 content={pageVars.industryServicesPc1}
                 ImageData={{
                     url: loadImageFromData(pageVars.industryServicesImage1),
-                    alert: pageVars.industryServicesImage1.altText,
+                    altText : pageVars.industryServicesImage1.altText,
                 }}
                 addClass="mt-2"
                 buttonData={{

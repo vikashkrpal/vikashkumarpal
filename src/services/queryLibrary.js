@@ -248,6 +248,7 @@ const globalComponents = `siteOption(id: "global-components", idType: SLUG) {
                                   seenOnDescription
                                   seenOnImages{
                                     mediaItemUrl
+                                    altText
                                   }
                                   
                                   #news letter
@@ -495,9 +496,11 @@ const authorPageQuery = (slug) => `${getQueryWithSeoFields(
                         authorPage{
                           apBg{
                             mediaItemUrl
+                            altText
                           }
                           apImage{
                             mediaItemUrl
+                            altText
                           }
                           apAbout
                           apCtaButton {
@@ -560,6 +563,7 @@ const singlePageQuery = (slug) => `${getQueryWithSeoFields(
                          }
                         featuredImage{
                           node{
+                           altText
                             mediaItemUrl
                           }
                         }

@@ -50,7 +50,7 @@ const BrandSliderWithSideContent = ({addClass="my-5", currentPageData}) => {
                 <OwlCarousel className="owl-theme" {...options}>
                     {(currentPageData.siteOption.siteOptions.seenOnImages).map((image, index) => (
                         <div key={index} className="item">
-                            <Image src={image.mediaItemUrl} alt={`Image ${index + 1}`} width={100} height={100} className={"img-fluid"} />
+                            <Image src={image.mediaItemUrl} alt={image.altText} width={100} height={100} className={"img-fluid"} />
                         </div>
                     ))}
                 </OwlCarousel>

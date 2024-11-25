@@ -65,7 +65,7 @@ const SeoService = ({ currentPageData }) => {
                 content={pageVars.seoServicesPc1}
                 ImageData={{
                     url: loadImageFromData(pageVars.seoServicesImage1),
-                    alert: pageVars.seoServicesImage1.altText,
+                    altText: pageVars.seoServicesImage1.altText,
                 }}
                 addClass="mt-2"
                 buttonData={{
