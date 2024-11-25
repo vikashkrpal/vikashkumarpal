@@ -171,6 +171,7 @@ const globalComponents = `siteOption(id: "global-components", idType: SLUG) {
                                 serviceCards{
                                   serviceIcon{
                                     mediaItemUrl
+                                    altText
                                   }
                                   serviceName
                                   serviceDescription

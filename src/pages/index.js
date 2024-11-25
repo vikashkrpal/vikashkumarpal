@@ -65,10 +65,10 @@ const HomePageContent = ({ currentPageData }) => {
                     <div key={index} className="col-lg-4 col-md-6 col-sm-12 col-12">
                         <IconCardContainer
                             icon={serviceCard.serviceIcon.mediaItemUrl}
+                            altText={serviceCard.serviceIcon.altText}
                             heading={serviceCard.serviceName}
                             desc={serviceCard.serviceDescription}
                             listData={serviceCard.servicePoints}
-                            altText={serviceCard.serviceIcon.altText}
                         />
                     </div>
                 ))}
