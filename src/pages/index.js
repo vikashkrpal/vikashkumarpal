@@ -135,6 +135,7 @@ const HomePageContent = ({ currentPageData }) => {
                 {
                     checkNotUndefined(currentPageData.posts) && (currentPageData.posts.edges).map((post,index) => <BlogCardContainer
                         image={post.node.featuredImage.node.mediaItemUrl}
+                        altText={post.node.featuredImage.node.altText}
                         category={post.node.categories.nodes[0].name}
                         avtar={post.node.author.node.avatar.url}
                         header={post.node.title}

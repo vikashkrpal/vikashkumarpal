@@ -57,6 +57,7 @@ const BlogCategory = ({ currentPageData }) => {
                 {
                     checkNotUndefined(pageVars.posts) && (pageVars.posts.edges).map((post,index) => <BlogCardContainer
                         image={post.node.featuredImage.node.mediaItemUrl}
+                        altText={post.node.featuredImage.node.altText}
                         category={post.node.categories.nodes[0].name}
                         avtar={post.node.author.node.avatar.url}
                         header={post.node.title}

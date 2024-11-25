@@ -192,7 +192,7 @@ const SeoIndustry = ({ currentPageData }) => {
                     content={card.industryServicesPc7}
                     ImageData={{
                         url: loadImageFromData(card.industryServicesImage3),
-                        alert: card.industryServicesImage3.altText,
+                        altText: card.industryServicesImage3.altText,
                     }}
                     contentListing={index%2}
                     buttonData={{

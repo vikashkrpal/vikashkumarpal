@@ -132,7 +132,7 @@ const SeoService = ({ currentPageData }) => {
                     content={card.seoServicesPc5}
                     ImageData={{
                         url: loadImageFromData(card.seoServicesImage3),
-                        alert: card.seoServicesImage3.altText,
+                        altText: card.seoServicesImage3.altText,
                     }}
                     contentListing={!index%2}
                     buttonData={{

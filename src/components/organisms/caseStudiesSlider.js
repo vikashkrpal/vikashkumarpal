@@ -21,6 +21,7 @@ const CaseStudiesSlider = ({ currentPageData, headingShow = true }) => {
     const items = currentPageData.siteOption.siteOptions.caseStudyCards.map((caseStudy, index) => <div key={index} className='my-5 mx-2'>
         <CaseStudyCardContainer
             image={caseStudy.caseStudyCardImage.mediaItemUrl}
+            altText={caseStudy.caseStudyCardImage.altText}
             category={caseStudy.caseStudyCardCompanyName}
             header={caseStudy.caseStudyCardHeading}
             desc={caseStudy.caseStudyCardDescription}

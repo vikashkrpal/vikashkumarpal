@@ -105,6 +105,7 @@ const blogListQuery = (size) =>  `
             featuredImage {
               node {
                 mediaItemUrl
+                altText
               }
             }
             categories {
@@ -222,6 +223,7 @@ const globalComponents = `siteOption(id: "global-components", idType: SLUG) {
                                 caseStudyCards{
                                   caseStudyCardImage{
                                     mediaItemUrl
+                                    altText
                                   }
                                   caseStudyCardCompanyName
                                   caseStudyCardHeading
@@ -397,6 +399,7 @@ ${getQueryWithSeoFields(
                                 slug
                                  featuredImage{
                                   node{
+                                  altText
                                     mediaItemUrl
                                   }
                                 }
@@ -720,6 +723,7 @@ const portfolioPageQuery = getQueryWithSeoFields(
                                 slug
                                  featuredImage{
                                   node{
+                                  altText
                                     mediaItemUrl
                                   }
                                 }
