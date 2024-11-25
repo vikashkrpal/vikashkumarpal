@@ -49,7 +49,21 @@ const About = ({ currentPageData }) => {
 
             </div>
             <BrandSlider currentPageData={currentPageData} />
-            <TestimonialsSlider currentPageData={currentPageData} />
+            <ImageWithSideIconContents
+                heading={pageVars.abtHeading2}
+                content={pageVars.abtPc2}
+                ImageData={{
+                    url: loadImageFromData(pageVars.abtImage1),
+                    altText: pageVars.abtImage1.altText,
+                }}
+                addClass="mt-2"
+                buttonData={{
+                    buttonText:pageVars.abtButton2.abtButtonLabel2,
+                    action:pageVars.abtButton2.abtButtonLink2
+                }}
+                pointsArray={pageVars.abtPointsSection.map((p,i) => {return {header:p.abtPointName, desc:p.abtPointDescription }})}
+            />
+
 
             <HeaderWithSideButton
                 header={pageVars.abtHeading1}
@@ -71,22 +85,11 @@ const About = ({ currentPageData }) => {
 
 
             </div>
-                <ImageWithSideIconContents
-                    heading={pageVars.abtHeading2}
-                    content={pageVars.abtPc2}
-                    ImageData={{
-                        url: loadImageFromData(pageVars.abtImage1),
-                        altText: pageVars.abtImage1.altText,
-                    }}
-                    addClass="mt-2"
-                    buttonData={{
-                        buttonText:pageVars.abtButton2.abtButtonLabel2,
-                        action:pageVars.abtButton2.abtButtonLink2
-                    }}
-                    pointsArray={pageVars.abtPointsSection.map((p,i) => {return {header:p.abtPointName, desc:p.abtPointDescription }})}
-                />
+
 
                 <DarkContentWithSideImage currentPageData={currentPageData} />
+
+            <TestimonialsSlider currentPageData={currentPageData} />
 
             <BrandSliderWithSideContent currentPageData={currentPageData} />
 
