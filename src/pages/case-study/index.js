@@ -71,7 +71,7 @@ const CaseStudy = ({currentPageData}) => {
                     currentPageData.caseStudies.edges.map((caseStudy, index) =>  <div className={"col-lg-6 col-md-12 col-12"}  key={index} ><CaseStudyCardContainer
 
                         image={caseStudy.node.featuredImage.node.mediaItemUrl}
-                        altText={caseStudy.featuredImage.node.altText}
+                        altText={caseStudy.featuredImage?.node?.altText || 'feature image'}
                         category={caseStudy.node.detailedCaseStudy.dcsCompanyName}
                         header={caseStudy.node.title}
                         desc={caseStudy.node.detailedCaseStudy.dcsBannerPc}

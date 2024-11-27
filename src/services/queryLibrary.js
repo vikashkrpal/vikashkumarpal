@@ -400,8 +400,8 @@ ${getQueryWithSeoFields(
                                 slug
                                  featuredImage{
                                   node{
-                                  altText
                                     mediaItemUrl
+                                      altText
                                   }
                                 }
                                 detailedCaseStudy{
