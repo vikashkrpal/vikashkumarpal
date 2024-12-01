@@ -1,23 +1,42 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ThemeButton from "../atom/themeButton";
+import {checkNullOrUndefined, checkValidEmail} from "../../utils/globalFunctions";
+import { saveNewsLetterFormData} from "../../services/siteServies";
 
 const SimpleNewsLetterForm = () => {
-    return <form className="form-inline justify-content-center">
+    const [email, setEmail] = useState("");
+
+    const submitFormHandler = (e) => {
+        if (checkNullOrUndefined(email)){
+            alert("Email is required!");
+            return false;
+        }else if(!checkValidEmail(email)) {
+            alert("Valid Email is required!");
+            return false;
+        }else {
+            saveNewsLetterFormData(email).then(response=>{
+                if (response.success){
+                    alert('Thank You for Subscribing!\n' +
+                        'You\'re now part of our community! Keep an eye on your inbox for the latest updates, exclusive tips, and special offers.')
+                    setEmail('')
+                }else{
+                    alert(response.error)
+                }
+            })
+        }
+    }
+    return <div className="form-inline justify-content-center">
         <div className="row my-auto d-flex align-items-end">
             <div className="col-12 col-lg-8 ">
-                <input type="email" className="form-control" id="email" placeholder="Enter your email" />
+                <input type="email" className="form-control" id="email" placeholder="Enter your email" value={email}  onChange={e => setEmail(e.target.value)} />
             </div>
             <div className="col-12 mt-3 mt-md-2 mt-lg-0 col-lg-4 ">
-                <ThemeButton text={"Subscribe >"} />
-            </div>
-            <div className="col-12  mx-3 form-check mt-3 ">
-                    <input type="checkbox" className="form-check-input" id="agree" />
-                    <label className="form-check-label" style={{ fontFamily:'Gt walsheim simple' }}
-                     htmlFor="agree">I agree to my email being stored and used to receive the newsletter.</label>
+                <ThemeButton text={"Subscribe >"}
+                             buttonAction={()=>submitFormHandler()}  />
             </div>
         </div>
 
-    </form>
+    </div>
 };
 
 export default SimpleNewsLetterForm;

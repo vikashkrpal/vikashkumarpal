@@ -23,6 +23,12 @@ export default async function handler(req, res) {
             loc.textContent = originalUrl.replace('https://admin.', 'https://');
         });
 
+        // Remove all <lastmod> elements
+        const lastmodElements = xmlDoc.getElementsByTagName('lastmod');
+        Array.from(lastmodElements).forEach((lastmod) => {
+            lastmod.parentNode.removeChild(lastmod);
+        });
+
         // Serialize XML back to string
         const serializer = new XMLSerializer();
         const modifiedXml = serializer.serializeToString(xmlDoc);

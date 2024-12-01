@@ -6,6 +6,14 @@ export const camelToFormat = (str) => {
     return str.replace(/[A-Z]/g, match => `_${match}`).toUpperCase();
 }
 export const checkNotUndefined = (value) => value !== undefined;
+
+export const checkNullOrUndefined = variable => (variable === "" || variable === undefined);
+
+export  const checkValidEmail = email => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
 export const imageSpace = require('../asserts/woocommerce-placeholder-600x600.png');
 export const loadImageFromData = (data) => (checkNotUndefined(data) && isNotNull(data)) ? (data?.mediaItemUrl || data): imageSpace;
 export function replaceAdminUrl(schemaJson) {

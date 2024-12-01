@@ -11,6 +11,7 @@ import {getPageQuery} from "../services/queryLibrary";
 import {registeredPages} from "../utils/constants";
 import {loadHomePageData, saveFormData} from "../services/siteServies";
 import {BsTwitterX} from "react-icons/bs";
+import {checkNullOrUndefined, checkValidEmail} from "../utils/globalFunctions";
 
 export async function getServerSideProps() {
     const currentPageData = await loadHomePageData(getPageQuery(registeredPages.CONTACT));
@@ -29,12 +30,9 @@ const Contact = ({ currentPageData }) => {
     const [website, setWebsite] = useState("");
     const [message, setMessage] = useState("");
 
-    const checkNullOrUndefined = variable => (variable === "" || variable === undefined);
+
     const submitFormHandler = () => {
-        const checkValidEmail = email => {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
+
         if (checkNullOrUndefined(name)){
             alert("Name is required!");
             return false;
@@ -84,7 +82,7 @@ const Contact = ({ currentPageData }) => {
                 />
 
                 <div className="card col-lg-6 col-md-8 col-sm-10 mx-auto" style={{ padding:"2%",paddingTop:'5%', paddingBottom:'5%', borderRadius:20 }}>
-                    <form className="form-inline justify-content-center">
+                    <div className="form-inline justify-content-center">
                         <div className="row my-auto d-flex align-items-end">
                             <div className="col-6 col-lg-6 ">
                                <span className={"font-b"}> Your Name*</span>
@@ -146,7 +144,7 @@ const Contact = ({ currentPageData }) => {
                             </div>
                         </div>
 
-                    </form>
+                    </div>
                 </div>
             </section>
 
