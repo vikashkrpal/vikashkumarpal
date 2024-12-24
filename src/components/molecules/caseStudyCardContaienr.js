@@ -3,10 +3,11 @@ import Link from "next/link";
 import {containsHTML} from "../../utils/globalFunctions";
 
 const CaseStudyCardContainer = ({image,category,header,desc,caseStudyHighlightResults, column=true, categorySlug = "#", altText='alt text image'}) => {
+    containsHTML(header) && (categorySlug = header.match(/href="([^"]*)"/)[1])
     return <div className={column && "col-lg-4"}>
     <div className="card rounded-4 overflow-hidden  brands-experiences-card mt-4" >
                 <div className="blog-card-content">
-                    <Link href={"/case-study/"+categorySlug}>
+                    <Link href={containsHTML(header) ? categorySlug : "/case-study/"+categorySlug}>
                         <Image width="560" height="350"  alt={altText} className={"img-fluid"} src={image} />
                     </Link>
                 </div>
@@ -15,7 +16,7 @@ const CaseStudyCardContainer = ({image,category,header,desc,caseStudyHighlightRe
 
                     <div className={"m-3"}>
                         <div className=" mt-3">
-                            <Link href={"/case-study/"+categorySlug}>
+                            <Link href={containsHTML(header) ? categorySlug :"/case-study/"+categorySlug}>
                                     <span className="text-primary font-b" style={{ fontSize:18 }}>
                                         {category}
                                     </span>
@@ -26,10 +27,10 @@ const CaseStudyCardContainer = ({image,category,header,desc,caseStudyHighlightRe
 
                             {
                                 containsHTML(header) ?
-                                    <div className={" case-study-card "} dangerouslySetInnerHTML={{ __html: header }} />
+                                    <div className={" case-study-card text-primary"} dangerouslySetInnerHTML={{ __html: header }} />
 :
                                     <h3 >
-                                        <Link href={"/case-study/"+categorySlug} className={"text-white"}>
+                                        <Link href={"/case-study/"+categorySlug} className={"text-primary"}>
                                             {header}
                                         </Link>
                                     </h3>

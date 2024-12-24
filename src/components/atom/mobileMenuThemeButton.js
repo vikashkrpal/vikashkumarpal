@@ -41,7 +41,8 @@ const MobileMenuThemeButton = ({ link, subMenuState={} }) => {
               > {link.name}</span>
               {
                 (link.sublinks).map((sublink,i) => {
-                    return <div className=" p-1 px-2 my-1 my-md-2 hover-dark my-lg-3" style={{ borderRadius:10 }} key={i}>
+                    return   <Link  href={sublink.link} className="text-light  " > <div className=" p-1 px-2 my-1 my-md-2 hover-dark my-lg-3" style={{ borderRadius:10 }} key={i}>
+
 
                         <div className="row align-items-center">
                             <div className="col-1">
@@ -52,10 +53,10 @@ const MobileMenuThemeButton = ({ link, subMenuState={} }) => {
                             </div>
                         </div>
 
-                        <Link  href={sublink.link} className="text-light  " >
 
-                        </Link>
                         </div>
+                    </Link>
+
                 })
               }
             </>

@@ -114,33 +114,36 @@ const Contact = ({ currentPageData }) => {
                                 </textarea>
                             </div>
                             <div className="col-12 mt-4 mt-md-2 mt-lg-4 ">
-                                <div className="row align-items-center d-flex justify-content-center mt-3">
-                                    <div className="col-lg-6 col-md-6 col-sm-12">
-                                        <ThemeButton text={"Send Message >"} addStyle={{  minWidth:'20%', fontSize:15 }} buttonAction={()=>submitFormHandler()} />
+                                <div className="row align-items-center mt-3">
+                                    <div className="col-lg-6 col-6 pe-0">
+                                        <ThemeButton text={"Send Message >"}
+                                                     buttonAction={() => submitFormHandler()}/>
                                     </div>
-                                    <div className="col-lg-auto col-md-6 col-sm-12 mt-3 mt-lg-0 mt-md-0">
+                                    <div className="col-lg-auto ms-auto col-6 ps-0">
                                         {
                                             [
                                                 {
-                                                    title:<FaInstagram size={20} />,
-                                                    link:currentPageData.siteOption.siteOptions.instagram
+                                                    title: <FaInstagram size={20}/>,
+                                                    link: currentPageData.siteOption.siteOptions.instagram
                                                 },
                                                 {
-                                                    title:<BsTwitterX size={15} />,
-                                                    link:currentPageData.siteOption.siteOptions.twitter
+                                                    title: <BsTwitterX size={15}/>,
+                                                    link: currentPageData.siteOption.siteOptions.twitter
                                                 },
                                                 {
-                                                    title:<FaFacebook />,
-                                                    link:currentPageData.siteOption.siteOptions.facebook
+                                                    title: <FaFacebook/>,
+                                                    link: currentPageData.siteOption.siteOptions.facebook
                                                 },
                                                 {
                                                     title: <FaLinkedin/>,
                                                     link: currentPageData.siteOption.siteOptions.linkedin
                                                 }
-                                            ].map((iconDetails, index) => <Link key={index} href={iconDetails.link} className="elementor-icon hover-dark me-4" >{iconDetails.title}</Link>)
+                                            ].map((iconDetails, index) => <Link key={index} href={iconDetails.link}
+                                                                                className="elementor-icon hover-dark me-4">{iconDetails.title}</Link>)
                                         }
                                     </div>
                                 </div>
+
                             </div>
                         </div>
 
@@ -161,12 +164,12 @@ const Contact = ({ currentPageData }) => {
 
             </div>
 
-            <TestimonialsSlider currentPageData={currentPageData} />
+            <TestimonialsSlider currentPageData={currentPageData}/>
 
-            <BrandSliderWithSideContent currentPageData={currentPageData} />
+            <BrandSliderWithSideContent currentPageData={currentPageData}/>
 
         </Template>
-    );
+        );
 };
 
 export default Contact;

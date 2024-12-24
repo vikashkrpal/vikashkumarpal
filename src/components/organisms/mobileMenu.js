@@ -60,7 +60,7 @@ const MobileMenu = ({ menuState }) => {
 
             </div>
             <div style={{ position: 'absolute', bottom: '5%', left: '60%', transform: 'translateX(-50%)', width: '100%' }}>
-                <ThemeButton text={"Book a Strategy Call"} addStyle={{ width: '80%' }} />
+                <ThemeButton text={"Book a Strategy Call"} href={'/book-a-strategy-call'} addStyle={{ width: '80%' }}  />
               </div>
 
           </div>
