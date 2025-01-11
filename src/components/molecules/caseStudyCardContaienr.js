@@ -27,10 +27,10 @@ const CaseStudyCardContainer = ({image,category,header,desc,caseStudyHighlightRe
 
                             {
                                 containsHTML(header) ?
-                                    <div className={" case-study-card text-primary"} dangerouslySetInnerHTML={{ __html: header }} />
+                                    <div className={" case-study-card "} dangerouslySetInnerHTML={{ __html: header }} />
 :
                                     <h3 >
-                                        <Link href={"/case-study/"+categorySlug} className={"text-primary"}>
+                                        <Link href={"/case-study/"+categorySlug} className={"text-white"}>
                                             {header}
                                         </Link>
                                     </h3>
