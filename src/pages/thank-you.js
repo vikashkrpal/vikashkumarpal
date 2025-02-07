@@ -1,13 +1,17 @@
-import React, {useState} from 'react';
-import Template from "../components/atom/template";
-import {registeredPages} from "../utils/constants";
-import ImageWithSideContent from "../components/organisms/imageWithSideContent";
-import TestimonialsSlider from "../components/organisms/testimonialsSlider";
-import CaseStudiesSlider from "../components/organisms/caseStudiesSlider";
-import BrandSliderWithSideContent from "../components/organisms/brandSliderWithSideContent";
-import SimpleNewsLetterForm from "../components/molecules/simpleNewsLetterForm";
-import {loadHomePageData} from "../services/siteServies";
-import {getPageQuery} from "../services/queryLibrary";
+import React, { useState } from "react";
+import dynamic from "next/dynamic";
+import { registeredPages } from "../utils/constants";
+import { loadHomePageData } from "../services/siteServies";
+import { getPageQuery } from "../services/queryLibrary";
+
+// Dynamically imported components
+const Template = dynamic(() => import("../components/atom/template"));
+const ImageWithSideContent = dynamic(() => import("../components/organisms/imageWithSideContent"));
+const TestimonialsSlider = dynamic(() => import("../components/organisms/testimonialsSlider"));
+const CaseStudiesSlider = dynamic(() => import("../components/organisms/caseStudiesSlider"));
+const BrandSliderWithSideContent = dynamic(() => import("../components/organisms/brandSliderWithSideContent"));
+const SimpleNewsLetterForm = dynamic(() => import("../components/molecules/simpleNewsLetterForm"));
+
 
 
 export async function getServerSideProps() {

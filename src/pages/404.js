@@ -1,10 +1,10 @@
 import React from 'react';
-import Template from "../components/atom/template";
+// import Template from "../components/atom/template";
 import Image from "next/image";
 import ThemeButton from "../components/atom/themeButton";
-import {loadHomePageData} from "../services/siteServies";
-import {getPageQuery} from "../services/queryLibrary";
-import {registeredPages} from "../utils/constants";
+// import {loadHomePageData} from "../services/siteServies";
+// import {getPageQuery} from "../services/queryLibrary";
+// import {registeredPages} from "../utils/constants";
 
 
 

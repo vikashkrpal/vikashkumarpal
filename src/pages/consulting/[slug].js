@@ -1,25 +1,29 @@
 import React from 'react';
-import Template from "../../components/atom/template";
-import ContentWithSideRowCounts from "../../components/organisms/ContentWithSideRowCounts";
-import ImageWithSideIconContents from "../../components/molecules/imageWithSideIconContents";
-import BrandSlider from "../../components/organisms/brandSlider";
-import ImageWithSideContent from "../../components/organisms/imageWithSideContent";
-import ThemeButton from "../../components/atom/themeButton";
-import FeaturePowerUpComponent from "../../components/organisms/featurePowerUpComponent";
-import HeaderDescContainer from "../../components/molecules/headerDescContainer";
-import IconCardContainer from "../../components/molecules/IconCardContainer";
-import TestimonialsSlider from "../../components/organisms/testimonialsSlider";
-import FaqQuestions from "../../components/organisms/faqQuestions";
-import BrandSliderWithSideContent from "../../components/organisms/brandSliderWithSideContent";
-import SimpleNewsLetterForm from "../../components/molecules/simpleNewsLetterForm";
-import VerticalSwiper from "../../components/organisms/verticalSwiper";
-import {loadHomePageData} from "../../services/siteServies";
-import {getPageQuery} from "../../services/queryLibrary";
-import {registeredPages} from "../../utils/constants";
-import {isNotNull, loadImageFromData} from "../../utils/globalFunctions";
-import CaseStudiesSlider from "../../components/organisms/caseStudiesSlider";
-import FeaturesSection from "../../components/organisms/featuresSection";
-import DarkContentWithSideImage from "../../components/organisms/darkContentWithSideImage";
+import dynamic from 'next/dynamic';
+
+// Dynamically imported components
+const Template = dynamic(() => import("../../components/atom/template"));
+const ContentWithSideRowCounts = dynamic(() => import("../../components/organisms/ContentWithSideRowCounts"));
+const ImageWithSideIconContents = dynamic(() => import("../../components/molecules/imageWithSideIconContents"));
+const BrandSlider = dynamic(() => import("../../components/organisms/brandSlider"));
+const ImageWithSideContent = dynamic(() => import("../../components/organisms/imageWithSideContent"));
+const ThemeButton = dynamic(() => import("../../components/atom/themeButton"));
+const FeaturePowerUpComponent = dynamic(() => import("../../components/organisms/featurePowerUpComponent"));
+const HeaderDescContainer = dynamic(() => import("../../components/molecules/headerDescContainer"));
+const IconCardContainer = dynamic(() => import("../../components/molecules/IconCardContainer"));
+const TestimonialsSlider = dynamic(() => import("../../components/organisms/testimonialsSlider"));
+const FaqQuestions = dynamic(() => import("../../components/organisms/faqQuestions"));
+const BrandSliderWithSideContent = dynamic(() => import("../../components/organisms/brandSliderWithSideContent"));
+const SimpleNewsLetterForm = dynamic(() => import("../../components/molecules/simpleNewsLetterForm"));
+const VerticalSwiper = dynamic(() => import("../../components/organisms/verticalSwiper"));
+const loadHomePageData = dynamic(() => import("../../services/siteServies").then(mod => mod.loadHomePageData));
+const getPageQuery = dynamic(() => import("../../services/queryLibrary").then(mod => mod.getPageQuery));
+const registeredPages = dynamic(() => import("../../utils/constants").then(mod => mod.registeredPages));
+const { isNotNull, loadImageFromData } = dynamic(() => import("../../utils/globalFunctions"));
+const CaseStudiesSlider = dynamic(() => import("../../components/organisms/caseStudiesSlider"));
+const FeaturesSection = dynamic(() => import("../../components/organisms/featuresSection"));
+const DarkContentWithSideImage = dynamic(() => import("../../components/organisms/darkContentWithSideImage"));
+
 
 export async function getServerSideProps(context) {
     const { slug } = context.params;
@@ -44,12 +48,12 @@ const SeoConsultant = ({ currentPageData }) => {
             currentPageData={currentPageData}
             slug={registeredPages.CONSULTING_SERVICES}
             urlStrings={[
-                {"Consulting":'/consulting'},
-                {[currentPageData[registeredPages.CONSULTING_SERVICES].title]:'null'}
+                { "Consulting": '/consulting' },
+                { [currentPageData[registeredPages.CONSULTING_SERVICES].title]: 'null' }
             ]} urlBar={true} urlDetails={{
-            title:[currentPageData[registeredPages.CONSULTING_SERVICES].title],
-            desc:pageVars.consultingServicesBannerPc
-        }}
+                title: [currentPageData[registeredPages.CONSULTING_SERVICES].title],
+                desc: pageVars.consultingServicesBannerPc
+            }}
         >
             <div className="pt-5">
                 <ContentWithSideRowCounts
@@ -73,10 +77,10 @@ const SeoConsultant = ({ currentPageData }) => {
                 }}
                 addClass="mt-2"
                 buttonData={{
-                    buttonText:pageVars.consultingServicesCtaButton1.consultingServicesButtonLabel1,
-                    action:pageVars.consultingServicesCtaButton1.consultingServicesButtonLink1
+                    buttonText: pageVars.consultingServicesCtaButton1.consultingServicesButtonLabel1,
+                    action: pageVars.consultingServicesCtaButton1.consultingServicesButtonLink1
                 }}
-                pointsArray={pageVars.consultingServicesPc1Points.map((p,i) => {return {header:p.consultingServicesPc1PointsName, desc:p.consultingServicesPc1PointsDescription }})}
+                pointsArray={pageVars.consultingServicesPc1Points.map((p, i) => { return { header: p.consultingServicesPc1PointsName, desc: p.consultingServicesPc1PointsDescription } })}
             />
             <BrandSlider currentPageData={currentPageData} />
 
@@ -99,35 +103,35 @@ const SeoConsultant = ({ currentPageData }) => {
             <FeaturesSection
                 header={pageVars.consultingServicesHeading3}
                 desc={pageVars.consultingServicesPc3}
-                button={{ buttonText:pageVars.consultingServicesCtaButton3.consultingServicesButtonLabel3, action: pageVars.consultingServicesCtaButton3.consultingServicesButtonLink3}}
+                button={{ buttonText: pageVars.consultingServicesCtaButton3.consultingServicesButtonLabel3, action: pageVars.consultingServicesCtaButton3.consultingServicesButtonLink3 }}
                 pointArray={pageVars.consultingServicesFeaturesComp.map(p => {
-                    return{
-                        header:p.consultingServicesFeatureName,
-                        desc:p.consultingServicesFeatureDescription
+                    return {
+                        header: p.consultingServicesFeatureName,
+                        desc: p.consultingServicesFeatureDescription
                     }
                 })}
-                />
+            />
 
             <div >
                 <div className="row align-items-center pt-5">
-                <div className="col-lg-9 col-md-8">
-                    <div dangerouslySetInnerHTML={{ __html:pageVars. consultingServicesHeading4}} />
-                    <div dangerouslySetInnerHTML={{ __html:pageVars.consultingServicesPc4 }} />
-                </div>
+                    <div className="col-lg-9 col-md-8">
+                        <div dangerouslySetInnerHTML={{ __html: pageVars.consultingServicesHeading4 }} />
+                        <div dangerouslySetInnerHTML={{ __html: pageVars.consultingServicesPc4 }} />
+                    </div>
 
-                <div className="col-lg-3 col-md-4 text-lg-center my-auto d-flex justify-content-end">
-                    <ThemeButton text={pageVars.consultingServicesCtaButton4.consultingServicesButtonLabel4} addStyle={{  minWidth:'30%', fontSize:18 }} href={pageVars.consultingServicesCtaButton4.consultingServicesButtonLink4} />
+                    <div className="col-lg-3 col-md-4 text-lg-center my-auto d-flex justify-content-end">
+                        <ThemeButton text={pageVars.consultingServicesCtaButton4.consultingServicesButtonLabel4} addStyle={{ minWidth: '30%', fontSize: 18 }} href={pageVars.consultingServicesCtaButton4.consultingServicesButtonLink4} />
+                    </div>
                 </div>
-            </div>
             </div>
             <VerticalSwiper sliderData={pageVars.consultingServicesVerticalSlider.map(c => {
                 return {
-                    header:c.consultingServicesVerticalSliderHeading,
-                    desc:c.consultingServicesVerticalSliderPc,
-                    image:c.consultingServicesVerticalSliderImage,
-                    button:{
-                        buttonText:c.consultingServicesVerticalSliderCtaButton.consultingServicesVerticalSliderButtonLabel,
-                        action:c.consultingServicesVerticalSliderCtaButton.consultingServicesVerticalSliderButtonLink
+                    header: c.consultingServicesVerticalSliderHeading,
+                    desc: c.consultingServicesVerticalSliderPc,
+                    image: c.consultingServicesVerticalSliderImage,
+                    button: {
+                        buttonText: c.consultingServicesVerticalSliderCtaButton.consultingServicesVerticalSliderButtonLabel,
+                        action: c.consultingServicesVerticalSliderCtaButton.consultingServicesVerticalSliderButtonLink
                     }
                 }
             })} />
@@ -142,14 +146,16 @@ const SeoConsultant = ({ currentPageData }) => {
                 header={pageVars.consultingServicesHeading5}
                 desc={pageVars.consultingServicesPc5}
                 button={{
-                    buttonText : pageVars.consultingServicesCtaButton5.consultingServicesButtonLabel5,
-                    action : pageVars.consultingServicesCtaButton5.consultingServicesButtonLink5
+                    buttonText: pageVars.consultingServicesCtaButton5.consultingServicesButtonLabel5,
+                    action: pageVars.consultingServicesCtaButton5.consultingServicesButtonLink5
                 }}
-                pointsArray={pageVars.consultingServicesOfferings.map(p => {return {
-                    icon:p.consultingServicesOfferingIcon,
-                    name:p.consultingServicesOfferingPointName,
-                    desc:p.consultingServicesOfferingPointDescription
-                }})}
+                pointsArray={pageVars.consultingServicesOfferings.map(p => {
+                    return {
+                        icon: p.consultingServicesOfferingIcon,
+                        name: p.consultingServicesOfferingPointName,
+                        desc: p.consultingServicesOfferingPointDescription
+                    }
+                })}
             />
 
             <section className={"pt-5"}>
@@ -165,13 +171,13 @@ const SeoConsultant = ({ currentPageData }) => {
 
                 <div className="row">
                     {
-                        pageVars.consultingServicesCardComp.map((card,i) => <div className="col-lg-4 col-md-6 col-sm-12 col-12" key={i}>
+                        pageVars.consultingServicesCardComp.map((card, i) => <div className="col-lg-4 col-md-6 col-sm-12 col-12" key={i}>
                             <IconCardContainer
                                 icon={loadImageFromData(card.consultingServicesCardIcon)}
                                 altText={card.consultingServicesCardIcon.altText}
                                 heading={card.consultingServicesCardName}
                                 desc={card.consultingServicesCardDescription}
-                                listData={card.consultingServicesCardPoints.map((c,i) => {return {servicePointName: c.consultingServicesCardBulletPoints}})}
+                                listData={card.consultingServicesCardPoints.map((c, i) => { return { servicePointName: c.consultingServicesCardBulletPoints } })}
                             />
                         </div>)
                     }
@@ -185,17 +191,19 @@ const SeoConsultant = ({ currentPageData }) => {
 
             <TestimonialsSlider currentPageData={currentPageData} />
 
-            <div style={{ marginTop:"-5%" }}>
+            <div style={{ marginTop: "-5%" }}>
                 <FaqQuestions
                     header={pageVars.consultingServicesHeading7}
                     desc={pageVars.consultingServicesPc7}
-                    faqArray={pageVars.consultingServicesFaqQuestionAnswer.map(f => {return {
-                        question:f.consultingServicesFaqQuestion,
-                        answer:f.consultingServicesFaqAnswer
-                    }})}
+                    faqArray={pageVars.consultingServicesFaqQuestionAnswer.map(f => {
+                        return {
+                            question: f.consultingServicesFaqQuestion,
+                            answer: f.consultingServicesFaqAnswer
+                        }
+                    })}
                     buttonData={{
-                        buttonText:pageVars.consultingServicesFaqCtaButton.consultingServicesFaqCtaButtonLabel,
-                        action:pageVars.consultingServicesFaqCtaButton.consultingServicesFaqCtaButtonLink
+                        buttonText: pageVars.consultingServicesFaqCtaButton.consultingServicesFaqCtaButtonLabel,
+                        action: pageVars.consultingServicesFaqCtaButton.consultingServicesFaqCtaButtonLink
                     }}
 
                 />

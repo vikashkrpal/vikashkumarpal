@@ -1,19 +1,23 @@
-import Template from "../components/atom/template";
+import dynamic from "next/dynamic";
 import React from "react";
-import ContentWithSideRowCounts from "../components/organisms/ContentWithSideRowCounts";
-import HeaderWithSideButton from "../components/molecules/headerWithSideButton";
-import IconCardContainer from "../components/molecules/IconCardContainer";
-import BrandSlider from "../components/organisms/brandSlider";
-import ImageWithSideSortContent from "../components/organisms/imageWithSideSortContent";
-import BrandSliderWithSideContent from "../components/organisms/brandSliderWithSideContent";
-import SimpleNewsLetterForm from "../components/molecules/simpleNewsLetterForm";
-import ImageWithSideIconContents from "../components/molecules/imageWithSideIconContents";
-import {getPageQuery} from "../services/queryLibrary";
-import {registeredPages} from "../utils/constants";
-import {loadHomePageData} from "../services/siteServies";
-import {loadImageFromData} from "../utils/globalFunctions";
-import DarkContentWithSideImage from "../components/organisms/darkContentWithSideImage";
-import TestimonialsSlider from "../components/organisms/testimonialsSlider";
+import { getPageQuery } from "../services/queryLibrary";
+import { registeredPages } from "../utils/constants";
+import { loadHomePageData } from "../services/siteServies";
+import { loadImageFromData } from "../utils/globalFunctions";
+
+// Dynamically imported components
+const Template = dynamic(() => import("../components/atom/template"));
+const ContentWithSideRowCounts = dynamic(() => import("../components/organisms/ContentWithSideRowCounts"));
+const HeaderWithSideButton = dynamic(() => import("../components/molecules/headerWithSideButton"));
+const IconCardContainer = dynamic(() => import("../components/molecules/IconCardContainer"));
+const BrandSlider = dynamic(() => import("../components/organisms/brandSlider"));
+const ImageWithSideSortContent = dynamic(() => import("../components/organisms/imageWithSideSortContent"));
+const BrandSliderWithSideContent = dynamic(() => import("../components/organisms/brandSliderWithSideContent"));
+const SimpleNewsLetterForm = dynamic(() => import("../components/molecules/simpleNewsLetterForm"));
+const ImageWithSideIconContents = dynamic(() => import("../components/molecules/imageWithSideIconContents"));
+const DarkContentWithSideImage = dynamic(() => import("../components/organisms/darkContentWithSideImage"));
+const TestimonialsSlider = dynamic(() => import("../components/organisms/testimonialsSlider"));
+
 
 
 export async function getServerSideProps() {

@@ -1,8 +1,13 @@
-import React from 'react';
-import {loadHomePageData} from "../../services/siteServies";
-import {getPageQuery} from "../../services/queryLibrary";
-import {registeredPages} from "../../utils/constants";
-import Template from "../../components/atom/template";
+import dynamic from 'next/dynamic';
+
+// Dynamically import Template component
+const Template = dynamic(() => import("../../components/atom/template"));
+
+// Regular imports for utility and data-fetching functions
+import { loadHomePageData } from "../../services/siteServies";
+import { getPageQuery } from "../../services/queryLibrary";
+import { registeredPages } from "../../utils/constants";
+
 
 export async function getServerSideProps() {
     const currentPageData = await loadHomePageData(getPageQuery(registeredPages.TERMS_OF_SERVICE));

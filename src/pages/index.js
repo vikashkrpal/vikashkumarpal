@@ -1,22 +1,25 @@
-import React from 'react';
-import { loadHomePageData } from '../services/siteServies';
-import { getPageQuery } from '../services/queryLibrary';
-import {checkNotUndefined, formatDate, loadImageFromData} from '../utils/globalFunctions';
-import { registeredPages } from '../utils/constants';
-import Template from '../components/atom/template';
-import ContentWithSideRowCounts from "../components/organisms/ContentWithSideRowCounts";
-import BlogCardContainer from "../components/molecules/blogCardContainer";
-import BrandSliderWithSideContent from "../components/organisms/brandSliderWithSideContent";
-import SimpleNewsLetterForm from "../components/molecules/simpleNewsLetterForm";
+import React from "react";
+import dynamic from "next/dynamic";
+import { loadHomePageData } from "../services/siteServies";
+import { getPageQuery } from "../services/queryLibrary";
+import { checkNotUndefined, formatDate, loadImageFromData } from "../utils/globalFunctions";
+import { registeredPages } from "../utils/constants";
 import ImageWithSideContent from "../components/organisms/imageWithSideContent";
-import BrandSlider from "../components/organisms/brandSlider";
-import HeaderDescContainer from "../components/molecules/headerDescContainer";
-import IconCardContainer from "../components/molecules/IconCardContainer";
-import CaseStudiesSlider from "../components/organisms/caseStudiesSlider";
-import ContentWithSidePoint from "../components/organisms/contentWithSidePoints";
-import TestimonialsSlider from "../components/organisms/testimonialsSlider";
-import ThemeButton from "../components/atom/themeButton";
-import DarkContentWithSideImage from "../components/organisms/darkContentWithSideImage";
+
+// Dynamically imported components
+const Template = dynamic(() => import("../components/atom/template"));
+const ContentWithSideRowCounts = dynamic(() => import("../components/organisms/ContentWithSideRowCounts"));
+const BlogCardContainer = dynamic(() => import("../components/molecules/blogCardContainer"));
+const BrandSliderWithSideContent = dynamic(() => import("../components/organisms/brandSliderWithSideContent"));
+const SimpleNewsLetterForm = dynamic(() => import("../components/molecules/simpleNewsLetterForm"));
+const BrandSlider = dynamic(() => import("../components/organisms/brandSlider"));
+const HeaderDescContainer = dynamic(() => import("../components/molecules/headerDescContainer"));
+const IconCardContainer = dynamic(() => import("../components/molecules/IconCardContainer"));
+const CaseStudiesSlider = dynamic(() => import("../components/organisms/caseStudiesSlider"));
+const ContentWithSidePoint = dynamic(() => import("../components/organisms/contentWithSidePoints"));
+const TestimonialsSlider = dynamic(() => import("../components/organisms/testimonialsSlider"));
+const ThemeButton = dynamic(() => import("../components/atom/themeButton"));
+const DarkContentWithSideImage = dynamic(() => import("../components/organisms/darkContentWithSideImage"));
 
 export async function getServerSideProps() {
     const currentPageData = await loadHomePageData(getPageQuery(registeredPages.HOMEPAGE));
@@ -55,8 +58,8 @@ const HomePageContent = ({ currentPageData }) => {
                 desc={pageData.hpPc2}
                 showButton={true}
                 buttonData={{
-                    buttonText:pageData.hpCtaButton1.hpCtaButtonLabel1,
-                    action:pageData.hpCtaButton1.hpCtaButtonLink1
+                    buttonText: pageData.hpCtaButton1.hpCtaButtonLabel1,
+                    action: pageData.hpCtaButton1.hpCtaButtonLink1
                 }}
             />
 
@@ -133,7 +136,7 @@ const HomePageContent = ({ currentPageData }) => {
 
             <div className="row">
                 {
-                    checkNotUndefined(currentPageData.posts) && (currentPageData.posts.edges).map((post,index) => <BlogCardContainer
+                    checkNotUndefined(currentPageData.posts) && (currentPageData.posts.edges).map((post, index) => <BlogCardContainer
                         image={post.node.featuredImage.node.mediaItemUrl}
                         altText={post.node.featuredImage.node.altText}
                         category={post.node.categories.nodes[0].name}

@@ -1,12 +1,16 @@
-import BlogCardContainer from "../../components/molecules/blogCardContainer";
-import HeaderDescContainer from "../../components/molecules/headerDescContainer";
-import NewLetterComponent from "../../components/organisms/newLetterComponent";
-import Template from "../../components/atom/template";
+import dynamic from "next/dynamic";
 import React from "react";
-import {getPageQuery} from "../../services/queryLibrary";
-import {registeredPages} from "../../utils/constants";
-import {loadHomePageData} from "../../services/siteServies";
-import {checkNotUndefined, formatDate, loadImageFromData} from "../../utils/globalFunctions";
+import { getPageQuery } from "../../services/queryLibrary";
+import { registeredPages } from "../../utils/constants";
+
+// Dynamically imported components
+const BlogCardContainer = dynamic(() => import("../../components/molecules/blogCardContainer"));
+const HeaderDescContainer = dynamic(() => import("../../components/molecules/headerDescContainer"));
+const NewLetterComponent = dynamic(() => import("../../components/organisms/newLetterComponent"));
+const Template = dynamic(() => import("../../components/atom/template"));
+const { loadHomePageData } = dynamic(() => import("../../services/siteServies"));
+const { checkNotUndefined, formatDate, loadImageFromData } = dynamic(() => import("../../utils/globalFunctions"));
+
 
 export async function getServerSideProps() {
     const currentPageData = await loadHomePageData(getPageQuery(registeredPages.BLOG));

@@ -1,17 +1,28 @@
-import React, {useState} from 'react';
-import Template from "../components/atom/template";
-import ContentWithSideRowCounts from "../components/organisms/ContentWithSideRowCounts";
-import TestimonialsSlider from "../components/organisms/testimonialsSlider";
-import BrandSliderWithSideContent from "../components/organisms/brandSliderWithSideContent";
-import HeaderDescContainer from "../components/molecules/headerDescContainer";
-import ThemeButton from "../components/atom/themeButton";
-import {FaFacebook, FaInstagram, FaLinkedin} from "react-icons/fa";
-import Link from "next/link";
-import {getPageQuery} from "../services/queryLibrary";
-import {registeredPages} from "../utils/constants";
-import {loadHomePageData, saveFormData} from "../services/siteServies";
-import {BsTwitterX} from "react-icons/bs";
-import {checkNullOrUndefined, checkValidEmail} from "../utils/globalFunctions";
+import React, { useState } from "react";
+import dynamic from "next/dynamic";
+
+// Dynamically imported components
+const FaFacebook = dynamic(() => import("react-icons/fa").then(mod => mod.FaFacebook));
+const FaInstagram = dynamic(() => import("react-icons/fa").then(mod => mod.FaInstagram));
+const FaLinkedin = dynamic(() => import("react-icons/fa").then(mod => mod.FaLinkedin));
+const BsTwitterX = dynamic(() => import("react-icons/bs").then(mod => mod.BsTwitterX));
+const Link = dynamic(() => import("next/link"));
+
+// Regular imports for utility and data-fetching functions
+import { getPageQuery } from "../services/queryLibrary";
+import { registeredPages } from "../utils/constants";
+import { loadHomePageData, saveFormData } from "../services/siteServies";
+import { checkNullOrUndefined, checkValidEmail } from "../utils/globalFunctions";
+
+
+// Dynamically imported components
+const Template = dynamic(() => import("../components/atom/template"));
+const ContentWithSideRowCounts = dynamic(() => import("../components/organisms/ContentWithSideRowCounts"));
+const TestimonialsSlider = dynamic(() => import("../components/organisms/testimonialsSlider"));
+const BrandSliderWithSideContent = dynamic(() => import("../components/organisms/brandSliderWithSideContent"));
+const HeaderDescContainer = dynamic(() => import("../components/molecules/headerDescContainer"));
+const ThemeButton = dynamic(() => import("../components/atom/themeButton"));
+
 
 export async function getServerSideProps() {
     const currentPageData = await loadHomePageData(getPageQuery(registeredPages.CONTACT));
