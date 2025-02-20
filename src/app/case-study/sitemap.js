@@ -29,7 +29,7 @@ export default async function Sitemap() {
       url: `https://vikashkumarpal.com${node.uri}`,
       lastModified: timestamps[index],
       changeFrequency: "daily",
-      priority: 0.9,
+      priority: 0.6,
     }));
 
     return sitemap;

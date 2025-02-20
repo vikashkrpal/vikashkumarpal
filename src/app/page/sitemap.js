@@ -22,7 +22,7 @@ export default async function sitemap() {
       url: `https://vikashkumarpal.com${url}`,
       lastModified: timestamps[index],
       changeFrequency: "daily",
-      priority: 0.9,
+      priority: 0.7,
     })),
   ];
 }
