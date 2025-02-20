@@ -19,9 +19,13 @@ h1, h2, h3, h4, h5{
     font-family: 'Gt walsheim bold';
     font-weight: 400;
     color: #fff;
-    margin-top: 1.8rem;
+    margin-top: 2rem;
     margin-bottom: 1rem;
 }
+
+.blog-post-content ul li {
+    font-size: 18.4px;
+  }
 
 .h-margin-0 h2, h3, h4, h5{
     margin-top: 0;

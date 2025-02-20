@@ -1,11 +1,10 @@
 import { DOMParser, XMLSerializer } from 'xmldom'; // Import xmldom
 
 export default async function handler(req, res) {
-    const { slug } = req.query; // Capture the slug from the request URL
-    console.log(`Received request for slug: ${slug}`); // Log slug value
-
+    const { slug } = req.query; 
+    console.log(`Received request for slug: ${slug}`);
     try {
-        const response = await fetch(`https://admin.vikashkumarpal.com/${slug}.xml`); // Fetch with slug
+        const response = await fetch(`https://admin.vikashkumarpal.com/${slug}.xml`); 
         if (!response.ok) {
             console.error('Failed to fetch the sitemap:', response.statusText);
             return res.status(404).send('Sitemap not found');
@@ -41,3 +40,4 @@ export default async function handler(req, res) {
         res.status(500).send('Internal Server Error');
     }
 }
+
