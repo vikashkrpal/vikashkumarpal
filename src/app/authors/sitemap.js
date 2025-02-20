@@ -18,7 +18,7 @@ export default async function sitemap() {
   return res.users.edges.map(({ node }, index) => ({
     url: `https://vikashkumarpal.com/author/${node.slug}/`,
     lastModified: timestamps[index],
-    changeFrequency: "daily",
+    changeFrequency: "monthly",
     priority: 0.4,
   }));
 }

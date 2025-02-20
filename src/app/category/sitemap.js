@@ -19,7 +19,7 @@ export default async function sitemap() {
   return res.categories.edges.map(({ node }, index) => ({
     url: `https://vikashkumarpal.com${node.uri}`,
     lastModified: timestamps[index],
-    changeFrequency: "daily",
+    changeFrequency: "monthly",
     priority: 0.5,
   }));
 }

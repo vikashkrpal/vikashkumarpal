@@ -21,7 +21,7 @@ export default async function sitemap() {
     ...staticUrls.map((url, index) => ({
       url: `https://vikashkumarpal.com${url}`,
       lastModified: timestamps[index],
-      changeFrequency: "daily",
+      changeFrequency: "weekly",
       priority: 0.7,
     })),
   ];

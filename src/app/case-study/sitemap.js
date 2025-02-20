@@ -28,7 +28,7 @@ export default async function Sitemap() {
     const sitemap = res.caseStudies.edges.map(({ node }, index) => ({
       url: `https://vikashkumarpal.com${node.uri}`,
       lastModified: timestamps[index],
-      changeFrequency: "daily",
+      changeFrequency: "weekly",
       priority: 0.6,
     }));
 

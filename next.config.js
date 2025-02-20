@@ -3,6 +3,7 @@ const webpack = require("webpack");
 
 const nextConfig = {
   reactStrictMode: false,
+  swcMinify: true,
   trailingSlash: true,
   i18n: {
     locales: ["en"],
