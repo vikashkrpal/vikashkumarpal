@@ -1,55 +1,328 @@
-
-
-.staff-card{
-    background-color: #000;
+.staff-card {
+  background-color: #000;
 }
 .card {
-    background-color: #212529;
-    color: #fff;
+  background-color: #212529;
+  color: #fff;
 }
-h1, h2, h3, h4, h5{
-    font-family: 'Gt walsheim bold';
-    font-weight: 400;
-    color: #fff;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Gt walsheim bold";
+  font-weight: 400;
+  color: #fff;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.blog-post-content  h2, h3, h4, h5{
-    font-family: 'Gt walsheim bold';
-    font-weight: 400;
-    color: #fff;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+.blog-post-content h2,
+h3,
+h4,
+h5 {
+  font-family: "Gt walsheim bold";
+  font-weight: 400;
+  color: #fff;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .blog-post-content ul li {
-    font-size: 18.4px;
-  }
-
-.h-margin-0 h2, h3, h4, h5{
-    margin-top: 0;
-    margin-bottom: 0;
+  font-size: 18.4px;
 }
-.case-study-card a{
-   color: #f0f0f0;
-    font-family: "Gt walsheim bold";
-    font-size: 25px;
+.blog-post-content img {
+  max-width: 820px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+.h-margin-0 h2,
+h3,
+h4,
+h5 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.case-study-card a {
+  color: #f0f0f0;
+  font-family: "Gt walsheim bold";
+  font-size: 25px;
 }
 .form-control {
-    background-color: black;
-    color: white;
-    border-radius: 30px;
+  background-color: black;
+  color: white;
+  border-radius: 30px;
+}
+
+.form-control::placeholder {
+  color: white;
+}
+
+.theme-button {
+  font-size: 13px;
+  padding: 7.5px 25px;
+  background: linear-gradient(90deg, #fff 50%, #21252900 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  border: 2px solid #eee;
+  display: block;
+  font-family: "Gt walsheim bold";
+}
+
+.theme-button:hover {
+  background-position: left bottom;
+  color: black;
+}
+
+.theme-button-v1 {
+  font-size: 15px;
+  padding: 11px 15px;
+  text-decoration: none;
+  color: #fff;
+  background-color: transparent;
+  border: 0px;
+  font-family: "Gt walsheim bold";
+}
+.theme-button-v1:hover {
+  background-color: #212529;
+  border: 1px solid #eee;
+  border-radius: 50px;
+}
+
+.blog-card-content {
+  background-color: #f0f0f0;
+}
+
+.brands-experiences-card:hover {
+  box-shadow: 0 4px 10px rgba(253, 253, 253, 0.976);
+  transform: scale(1.02);
+}
+
+::placeholder {
+  font-size: 16px;
+}
+.form-check label {
+  font-size: 15px;
+}
+.responsive-logo {
+  width: 800px;
+}
+
+.w-res-50 {
+  width: 50%;
+}
+
+.w-res-75 {
+  width: 75%;
+}
+
+.w-res-80 {
+  width: 80%;
+}
+
+.w-res-85 {
+  width: 820px;
+}
+
+.responsive-blog-hero {
+  margin-top: -8%;
+}
+
+.accordion-button {
+  font-size: 1rem;
+}
+.accordion-body strong {
+  font-size: 0.9rem;
+}
+
+.show_mobile_screen {
+  display: none;
+}
+
+.show_on_pro {
+  display: none;
+}
+
+/*
+Vertical Slider
+*/
+/* CardComponent.css */
+
+@media (max-width: 600px) {
+  .mobile-overflow-hidden {
+    overflow-x: hidden;
+  }
+  .blog-post-content img {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+.section-slider {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  height: 95vh;
+  padding: 1rem;
+  position: sticky;
+  width: 100%;
+}
+.slider-container {
+  margin-top: -80px;
+  margin-bottom: -100px;
+}
+
+.title-slider {
+  color: #fff;
+  font-size: 5rem;
+  -webkit-text-stroke: 1px #000;
+  text-stroke: 0.1px #000;
+}
+
+@supports not (-webkit-text-stroke: 1px #000) {
+  .title-slider {
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+      -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+}
+/*
+END vertical Slider
+*/
+
+@media (max-width: 1024px) and (max-height: 1366px) {
+  .navbar-expand-lg .navbar-collapse {
+    display: none !important;
+  }
+  .show_mobile_screen {
+    display: inline;
+  }
+  .show_on_pro {
+    display: inline;
+  }
+}
+
+@media (max-width: 1200px) {
+  /* body {
+      padding-top: 5rem;
+    } */
+  .responsive-logo {
+    width: 250px;
+  }
+  .bg-mob-white {
+    background: white !important;
+  }
+  .dropdown-menu.scrollable {
+    height: 23rem;
+    overflow-y: auto;
+  }
+  .w-res-50 {
+    width: 60%;
+  }
+  .w-res-75 {
+    width: 100%;
+  }
+  .w-res-80 {
+    width: 100%;
   }
 
-  .form-control::placeholder {
-    color: white;
+  .w-res-85 {
+    width: 100%;
   }
 
+  .responsive-blog-hero {
+    margin-top: -20%;
+  }
+  .section-slider {
+    align-items: center;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    height: 40vh;
+    padding: 1rem;
+    position: sticky;
+    width: 100%;
+  }
+  .slider-container {
+    margin-top: -80px;
+    margin-bottom: -80px;
+  }
+}
 
-.theme-button{
+@media (max-width: 990px) {
+  .show_mobile_screen {
+    display: inline;
+  }
+  .show_on_pro {
+    display: none;
+  }
+  .section-slider {
+    align-items: center;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    padding: 1rem;
+    position: sticky;
+    width: 100%;
+  }
+  .slider-container {
+    margin-top: -50px;
+    margin-bottom: -100px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* body {
+      padding-top: 5rem;
+    } */
+  .responsive-logo {
+    width: 200px;
+  }
+
+  .bg-mob-white {
+    background: white !important;
+  }
+
+  .dropdown-menu.scrollable {
+    height: 23rem;
+    overflow-y: auto;
+  }
+
+  ::placeholder {
+    font-size: 14px;
+  }
+  .w-res-50 {
+    width: 100%;
+  }
+  .w-res-75 {
+    width: 100%;
+  }
+  .w-res-80 {
+    width: 100%;
+  }
+  .w-res-85 {
+    width: 100%;
+  }
+  .hide-on-mobile {
+    display: none;
+  }
+
+  .responsive-blog-hero {
+    margin-top: -40%;
+  }
+
+  /* New STYLES for mobile */
+  .theme-button {
     font-size: 13px;
-    padding: 7.5px 25px;
+    padding: 5px 20px;
     background: linear-gradient(90deg, #fff 50%, #21252900 50%);
     background-size: 200% 100%;
     background-position: right bottom;
@@ -60,347 +333,84 @@ h1, h2, h3, h4, h5{
     transition: background 0.2s ease;
     border: 2px solid #eee;
     display: block;
-    font-family: 'Gt walsheim bold';
-}
-
-
-.theme-button:hover{
-    background-position: left bottom;
-    color: black;
-}
-
-.theme-button-v1{
-    font-size: 15px;
-    padding: 11px 15px;
-    text-decoration: none;
-    color: #fff;
-    background-color: transparent;
-    border: 0px;
-    font-family: 'Gt walsheim bold';
-}
-.theme-button-v1:hover{
-    background-color: #212529;
-    border: 1px solid #eee;
-    border-radius:50px;
-}
-
-
-.blog-card-content {
-    background-color: #f0f0f0;
+    font-family: "Gt walsheim bold";
+  }
+  .show_mobile_screen {
+    display: inline;
+  }
+  .show_on_pro {
+    display: none;
   }
 
-  .brands-experiences-card:hover {
-    box-shadow: 0 4px 10px rgba(253, 253, 253, 0.976);
-    transform: scale(1.02);
-}
-
-::placeholder {
-    font-size: 16px;
-}
-.form-check label{
-    font-size: 15px;
-}
-.responsive-logo{
-    width: 800px;
-}
-
-.w-res-50{
-    width: 50%;
-}
-
-.w-res-75{
-    width: 75%;
-}
-
-.w-res-80{
-    width: 80%;
-}
-
-.w-res-85{
-    width: 820px;
-}
-
-.responsive-blog-hero{
-    margin-top:-8%
-}
-
-
-.accordion-button{
-    font-size: 1rem;
-}
-.accordion-body strong{
-    font-size: .9rem;
-}
-
-.show_mobile_screen {
-    display: none;
-}
-
-.show_on_pro {
-    display: none;
-}
-
-/*
-Vertical Slider
-*/
-/* CardComponent.css */
-
-@media (max-width: 600px) {
-    .mobile-overflow-hidden {
-        overflow-x: hidden;
-    }
-}
-
-.section-slider {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Gt walsheim bold";
+    font-weight: 400;
+    color: #fff;
+    margin-top: 0.6rem;
+    margin-bottom: 0.4rem;
+  }
+  .section-slider {
     align-items: center;
     bottom: 0;
     display: flex;
     justify-content: center;
-    height: 95vh;
-    padding: 1rem;
+    height: 90%;
+    padding: 0rem;
     position: sticky;
     width: 100%;
-}
-.slider-container{
-    margin-top: -80px;
-    margin-bottom: -100px;
-}
+    margin-top: 20%;
+  }
 
-.title-slider {
-    color: #FFF;
-    font-size: 5rem;
-    -webkit-text-stroke: 1px #000;
-    text-stroke: 0.1px #000;
-}
-
-@supports not (-webkit-text-stroke: 1px #000) {
-    .title-slider {
-        text-shadow:
-                3px  3px 0 #000,
-                -1px -1px 0 #000,
-                1px -1px 0 #000,
-                -1px  1px 0 #000,
-                1px  1px 0 #000;
-    }
-}
-/*
-END vertical Slider
-*/
-
-@media (max-width: 1024px) and (max-height: 1366px) {
-    .navbar-expand-lg .navbar-collapse {
-        display: none !important;
-    }
-    .show_mobile_screen {
-        display: inline;
-    }
-    .show_on_pro {
-        display: inline;
-    }
-}
-
-@media (max-width: 1200px) {
-    /* body {
-      padding-top: 5rem;
-    } */
-    .responsive-logo{
-        width: 250px;
-    }
-    .bg-mob-white{
-        background: white !important;
-    }
-    .dropdown-menu.scrollable {
-        height: 23rem;
-        overflow-y: auto;
-    }
-    .w-res-50{
-        width: 60%;
-    }
-    .w-res-75{
-        width: 100%;
-    }
-    .w-res-80{
-        width: 100%;
-    }
-
-    .w-res-85{
-        width: 100%;
-    }
-
-    .responsive-blog-hero{
-        margin-top:-20%
-    }
-    .section-slider {
-        align-items: center;
-        bottom: 0;
-        display: flex;
-        justify-content: center;
-        height: 40vh;
-        padding: 1rem;
-        position: sticky;
-        width: 100%;
-    }
-    .slider-container{
-        margin-top: -80px;
-        margin-bottom: -80px;
-    }
-
-}
-
-@media (max-width: 990px) {
-
-    .show_mobile_screen {
-        display: inline;
-    }
-    .show_on_pro {
-        display: none;
-    }
-    .section-slider {
-        align-items: center;
-        bottom: 0;
-        display: flex;
-        justify-content: center;
-        height: 80vh;
-        padding: 1rem;
-        position: sticky;
-        width: 100%;
-    }
-    .slider-container{
-        margin-top: -50px;
-        margin-bottom: -100px;
-    }
-}
-
-@media (max-width: 480px) {
-    /* body {
-      padding-top: 5rem;
-    } */
-    .responsive-logo{
-        width: 200px;
-    }
-
-    .bg-mob-white{
-        background: white !important;
-    }
-
-    .dropdown-menu.scrollable {
-        height: 23rem;
-        overflow-y: auto;
-      }
-
-      ::placeholder {
-        font-size: 14px;
-      }
-    .w-res-50{
-        width: 100%;
-    }
-    .w-res-75{
-        width: 100%;
-    }
-    .w-res-80{
-        width: 100%;
-    }
-    .w-res-85{
-        width: 100%;
-    }
-    .hide-on-mobile {
-        display: none;
-    }
-
-    .responsive-blog-hero{
-        margin-top:-40%
-    }
-
-    /* New STYLES for mobile */
-    .theme-button{
-        font-size: 13px;
-        padding: 5px 20px;
-        background: linear-gradient(90deg, #fff 50%, #21252900 50%);
-        background-size: 200% 100%;
-        background-position: right bottom;
-        text-decoration: none;
-        color: #fff;
-        border-radius: 30px;
-        cursor: pointer;
-        transition: background 0.2s ease;
-        border: 2px solid #eee;
-        display: block;
-        font-family: 'Gt walsheim bold';
-
-    }
-    .show_mobile_screen {
-        display: inline;
-    }
-    .show_on_pro {
-        display: none;
-    }
-
-    h1, h2, h3, h4, h5{
-        font-family: 'Gt walsheim bold';
-        font-weight: 400;
-        color: #fff;
-        margin-top: .6rem;
-        margin-bottom: .4rem;
-    }
-    .section-slider {
-        align-items: center;
-        bottom: 0;
-        display: flex;
-        justify-content: center;
-        height: 90%;
-        padding: 0rem;
-        position: sticky;
-        width: 100%;
-        margin-top: 20%;
-    }
-
-    .slider-container{
-        margin-top: -60px;
-        margin-bottom: 3rem;
-    }
-
+  .slider-container {
+    margin-top: -60px;
+    margin-bottom: 3rem;
+  }
 }
 
 @media (max-width: 375px) {
-    .hide-on-mini {
-        display: none;
-    }
-    .show_on_pro {
-        display: none;
-    }
+  .hide-on-mini {
+    display: none;
+  }
+  .show_on_pro {
+    display: none;
+  }
 }
 
 .dropdown-menu {
-    font-size: 1.05rem;
+  font-size: 1.05rem;
 }
 .dropdown-item:hover {
-    text-decoration: none;
-    background-color: #000000;
-    border-radius: 10px;
+  text-decoration: none;
+  background-color: #000000;
+  border-radius: 10px;
 }
 
-.ancor-hover{
-    text-decoration: none;
-    padding:10px;
-    color: #fff;
+.ancor-hover {
+  text-decoration: none;
+  padding: 10px;
+  color: #fff;
 }
-.ancor-hover:hover{
-    padding:5px;
-    margin:5px;
-    background-color: #000000;
-    border-radius: 10px;
+.ancor-hover:hover {
+  padding: 5px;
+  margin: 5px;
+  background-color: #000000;
+  border-radius: 10px;
 }
 
 p {
-    font-size: 1.15rem;
+  font-size: 1.15rem;
 }
 
-.font-b{
-    font-family: "Gt walsheim bold";
+.font-b {
+  font-family: "Gt walsheim bold";
 }
 
-.theme-color{
-    color: cornflowerblue;
+.theme-color {
+  color: cornflowerblue;
 }
 
 .text-sub-primary h1,
@@ -409,47 +419,45 @@ p {
 .text-sub-primary h4,
 .text-sub-primary h5,
 .text-sub-primary h6 {
-    color: cornflowerblue;
+  color: cornflowerblue;
 }
-
 
 .check-card {
-    border-radius: 20px;
-    transition: border-color 0.3s ease-in-out;
+  border-radius: 20px;
+  transition: border-color 0.3s ease-in-out;
 }
-.p-bottom-0 p{
-    margin-bottom: 0px;
+.p-bottom-0 p {
+  margin-bottom: 0px;
 }
-.hover-dark{
-    cursor: pointer;
+.hover-dark {
+  cursor: pointer;
 }
-.hover-dark:hover{
-    background-color: #212529 !important;
+.hover-dark:hover {
+  background-color: #212529 !important;
 }
-
 
 /*
 Header CSS START
 ////////////////////////////
 */
 .nav-link {
-    font-family: 'Gt walsheim bold';
-    color: white;
+  font-family: "Gt walsheim bold";
+  color: white;
 }
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
 .element-with-filter {
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .sticky-div {
-    background-color: #f9f9f9;
-    padding: 20px;
-    height: 100%;
+  background-color: #f9f9f9;
+  padding: 20px;
+  height: 100%;
 }
 
 /*
@@ -458,11 +466,11 @@ Header CSS END
 */
 
 .sticky-sidebar {
-    position: relative;
+  position: relative;
 }
 
 .sticky-content {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 10%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10%;
 }

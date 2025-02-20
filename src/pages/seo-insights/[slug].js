@@ -39,7 +39,7 @@ import {
 import DarkContentWithSideImage from "../../components/organisms/darkContentWithSideImage";
 import Link from "next/link";
 import ScrollModal from "../../components/molecules/popupModal";
-import PopupModalSmall from "../..//components/molecules/PopupModalSmall";
+// import PopupModalSmall from "../..//components/molecules/PopupModalSmall";
 
 export async function getServerSideProps(context) {
   const { slug } = context.params;
@@ -75,7 +75,7 @@ const BlogOne = ({ currentPageData }) => {
       <div className="w-res-85 mx-auto">
         {/* Modal Component */}
         {/* <ScrollModal /> */}
-        <PopupModalSmall />
+        {/* <PopupModalSmall /> */}
         <section className=" mt-5 mx-auto">
           <Link
             className="badge bg-primary p-2 "
@@ -153,11 +153,12 @@ const BlogOne = ({ currentPageData }) => {
           </div>
         </section>
         <div className="mt-4 pb-2  mx-auto">
-          <div className="text-lg-center pt-4 pb-5">
+          <div className="text-lg-center pt-4 pb-5 ">
             <Image
               src={loadImageFromData(pageVars.featuredImage.node.mediaItemUrl)}
               width={1000}
               height={550}
+              priority={true}
               className="img-fluid mx-auto"
               style={{ borderRadius: 20 }}
               alt={pageVars.featuredImage.node.altText}
