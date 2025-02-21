@@ -6,84 +6,111 @@ import { loadHomePageData } from "../services/siteServies";
 
 // Dynamically imported components
 const Template = dynamic(() => import("../components/atom/template"));
-const BrandSlider = dynamic(() => import("../components/organisms/brandSlider"));
-const TestimonialCardContainer = dynamic(() => import("../components/molecules/testimonialCardContainer"));
-const BrandSliderWithSideContent = dynamic(() => import("../components/organisms/brandSliderWithSideContent"));
-const SimpleNewsLetterForm = dynamic(() => import("../components/molecules/simpleNewsLetterForm"));
-const HeaderWithSideButton = dynamic(() => import("../components/molecules/headerWithSideButton"));
-const ContentWithSideRowCounts = dynamic(() => import("../components/organisms/ContentWithSideRowCounts"));
-const DarkContentWithSideImage = dynamic(() => import("../components/organisms/darkContentWithSideImage"));
-
+const BrandSlider = dynamic(() =>
+  import("../components/organisms/brandSlider")
+);
+const TestimonialCardContainer = dynamic(() =>
+  import("../components/molecules/testimonialCardContainer")
+);
+const BrandSliderWithSideContent = dynamic(() =>
+  import("../components/organisms/brandSliderWithSideContent")
+);
+const SimpleNewsLetterForm = dynamic(() =>
+  import("../components/molecules/simpleNewsLetterForm")
+);
+const HeaderWithSideButton = dynamic(() =>
+  import("../components/molecules/headerWithSideButton")
+);
+const ContentWithSideRowCounts = dynamic(() =>
+  import("../components/organisms/ContentWithSideRowCounts")
+);
+const DarkContentWithSideImage = dynamic(() =>
+  import("../components/organisms/darkContentWithSideImage")
+);
 
 export async function getServerSideProps() {
-    const currentPageData = await loadHomePageData(getPageQuery(registeredPages.TESTIMONIALS));
-    return {
-        props: {
-            currentPageData,
-        },
-    };
+  const currentPageData = await loadHomePageData(
+    getPageQuery(registeredPages.TESTIMONIALS)
+  );
+  return {
+    props: {
+      currentPageData,
+    },
+  };
 }
 
 const Testimonials = ({ currentPageData }) => {
-    const pageVars = currentPageData.page[registeredPages.TESTIMONIALS]
-    return (
-        <Template urlBar={true} urlStrings={[
-            { Testimonials: "null" }
-        ]}
-            urlDetails={{
-                title: [currentPageData.page.title],
-                desc: pageVars.tpBannerPc
+  const pageVars = currentPageData.page[registeredPages.TESTIMONIALS];
+  return (
+    <Template
+      urlBar={true}
+      urlStrings={[{ Testimonials: "null" }]}
+      urlDetails={{
+        title: [currentPageData.page.title],
+        desc: pageVars.tpBannerPc,
+      }}
+      currentPageData={currentPageData}
+    >
+      <div className="pt-5">
+        <ContentWithSideRowCounts
+          heading={
+            currentPageData.siteOption.siteOptions.resultsHighlightHeading
+          }
+          desc={currentPageData.siteOption.siteOptions.resultsHighlightPara}
+          points={currentPageData.siteOption.siteOptions.deliveredNumbers.map(
+            (item, index) => ({
+              count: item.highlightNumbers,
+              desc: item.highlightTxt,
+              key: index,
+            })
+          )}
+        />
+      </div>
+
+      <BrandSlider currentPageData={currentPageData} />
+
+      <HeaderWithSideButton
+        header={pageVars.tpHeading1}
+        buttonDetails={{
+          buttonText: pageVars.tpButton.tpButtonLabel,
+          action: pageVars.tpButton.tpButtonLink,
+        }}
+        desc={pageVars.tpPc1}
+      />
+      <div className="row">
+        {pageVars.tpTestimonialCard.map((card, index) => (
+          <TestimonialCardContainer
+            testimonialsDetails={{
+              comment: card.tpReviewContent,
+              image: card.tpClientImage.mediaItemUrl,
+              name: card.tpClientName,
+              position: card.tpDesigCoName,
             }}
-            currentPageData={currentPageData}
-        >
-            <div className="pt-5">
-                <ContentWithSideRowCounts
-                    heading={currentPageData.siteOption.siteOptions.resultsHighlightHeading}
-                    desc={currentPageData.siteOption.siteOptions.resultsHighlightPara}
-                    points={currentPageData.siteOption.siteOptions.deliveredNumbers.map((item, index) => ({
-                        count: item.highlightNumbers,
-                        desc: item.highlightTxt,
-                        key: index,
-                    }))}
-                />
+            key={index}
+            col={" col-lg-6 col-md-6 col-sm-8 "}
+          />
+        ))}
+      </div>
 
-            </div>
+      <DarkContentWithSideImage currentPageData={currentPageData} />
 
-            <BrandSlider currentPageData={currentPageData} />
+      <BrandSliderWithSideContent
+        addClass="mt-5 mb-3"
+        currentPageData={currentPageData}
+      />
 
-            <HeaderWithSideButton
-                header={pageVars.tpHeading1}
-                buttonDetails={{ buttonText: pageVars.tpButton.tpButtonLabel, action: pageVars.tpButton.tpButtonLink }}
-                desc={pageVars.tpPc1}
-            />
-            <div className="row">
-                {
-                    pageVars.tpTestimonialCard.map((card, index) => <TestimonialCardContainer testimonialsDetails={{
-                        comment: card.tpReviewContent,
-                        image: card.tpClientImage.mediaItemUrl,
-                        name: card.tpClientName,
-                        position: card.tpDesigCoName
-                    }} key={index} col={" col-lg-6 col-md-6 col-sm-8 "} />)
-                }
-
-            </div>
-
-            <DarkContentWithSideImage currentPageData={currentPageData} />
-
-            <BrandSliderWithSideContent addClass='mt-5 mb-3' currentPageData={currentPageData} />
-
-            <div className="row align-items-center">
-                <div className="col-lg-7 col-md-6 col-sm-12">
-                    <h2>
-                        Subscribe to our newsletter and stay updated on the latest news
-                    </h2>
-                </div>
-                <div className="col-lg-5 col-md-6 col-sm-12 ps-lg-5 ps-md-5 ">
-                    <SimpleNewsLetterForm />
-                </div>
-            </div>
-        </Template>
-    )
+      <div className="row align-items-center">
+        <div className="col-lg-7 col-md-6 col-sm-12">
+          <h2>
+            Subscribe to our newsletter and stay updated on the latest news
+          </h2>
+        </div>
+        <div className="col-lg-5 col-md-6 col-sm-12 ps-lg-5 ps-md-5 ">
+          <SimpleNewsLetterForm />
+        </div>
+      </div>
+    </Template>
+  );
 };
 
 export default Testimonials;

@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import React from "react";
+import { useEffect, useState } from "react";
 import { getPageQuery } from "../../services/queryLibrary";
 import { registeredPages } from "../../utils/constants";
 
@@ -7,31 +7,45 @@ import { registeredPages } from "../../utils/constants";
 const Template = dynamic(() => import("../../components/atom/template"));
 const Image = dynamic(() => import("next/image"));
 const ThemeButton = dynamic(() => import("../../components/atom/themeButton"));
-const FaHeart = dynamic(() => import("react-icons/fa").then(module => module.FaHeart));
-const BiHeart = dynamic(() => import("react-icons/bi").then(module => module.BiHeart));
+const FaHeart = dynamic(() =>
+  import("react-icons/fa").then((module) => module.FaHeart)
+);
+const BiHeart = dynamic(() =>
+  import("react-icons/bi").then((module) => module.BiHeart)
+);
 // const BiSolidHeartCircle = dynamic(() => import("react-icons/bi").then(module => module.BiSolidHeartCircle));
-const BlogCardContainer = dynamic(() => import("../../components/molecules/blogCardContainer"));
-const BrandSliderWithSideContent = dynamic(() => import("../../components/organisms/brandSliderWithSideContent"));
-const SimpleNewsLetterForm = dynamic(() => import("../../components/molecules/simpleNewsLetterForm"));
+const BlogCardContainer = dynamic(() =>
+  import("../../components/molecules/blogCardContainer")
+);
+const BrandSliderWithSideContent = dynamic(() =>
+  import("../../components/organisms/brandSliderWithSideContent")
+);
+const SimpleNewsLetterForm = dynamic(() =>
+  import("../../components/molecules/simpleNewsLetterForm")
+);
 
 import {
   getLikeCountsUsingPostIdFromServer,
   loadHomePageData,
-  saveLikeCountByPostSlug
+  saveLikeCountByPostSlug,
 } from "../../services/siteServies";
 import {
   calculateReadTime,
   checkNotUndefined,
   formatDate,
   isNotNull,
-  loadImageFromData
+  loadImageFromData,
 } from "../../utils/globalFunctions";
 import DarkContentWithSideImage from "../../components/organisms/darkContentWithSideImage";
 import Link from "next/link";
+import ScrollModal from "../../components/molecules/popupModal";
+// import PopupModalSmall from "../..//components/molecules/PopupModalSmall";
 
 export async function getServerSideProps(context) {
   const { slug } = context.params;
-  const currentPageData = await loadHomePageData(getPageQuery(registeredPages.SINGLE_BLOG, slug));
+  const currentPageData = await loadHomePageData(
+    getPageQuery(registeredPages.SINGLE_BLOG, slug)
+  );
   // console.log("reyurn =", currentPageData)
   return {
     props: {
@@ -40,31 +54,38 @@ export async function getServerSideProps(context) {
   };
 }
 const BlogOne = ({ currentPageData }) => {
-  const [postLiked, setPostLiked] = React.useState(false);
-  const [postCount, setPostCount] = React.useState(0);
-  const pageVars = currentPageData[registeredPages.SINGLE_BLOG]
+  const [postLiked, setPostLiked] = useState(false);
+  const [postCount, setPostCount] = useState(0);
+  const pageVars = currentPageData[registeredPages.SINGLE_BLOG];
 
-  React.useEffect(()=>{
-    getLikeCountsUsingPostIdFromServer(pageVars.slug).then(likeCountResponse => {
-      setPostCount(likeCountResponse)
-    })
-  },[])
+  useEffect(() => {
+    getLikeCountsUsingPostIdFromServer(pageVars.slug).then(
+      (likeCountResponse) => {
+        setPostCount(likeCountResponse);
+      }
+    );
+  }, []);
 
-  if (!isNotNull(pageVars))
-    return <h1>No Data Found</h1>
+  if (!isNotNull(pageVars)) return <h1>No Data Found</h1>;
   return (
-    <Template currentPageData={currentPageData}  slug={registeredPages.SINGLE_BLOG}>
+    <Template
+      currentPageData={currentPageData}
+      slug={registeredPages.SINGLE_BLOG}
+    >
       <div className="w-res-85 mx-auto">
+        {/* Modal Component */}
+        {/* <ScrollModal /> */}
+        {/* <PopupModalSmall /> */}
         <section className=" mt-5 mx-auto">
           <Link
             className="badge bg-primary p-2 "
             style={{ borderRadius: 30, fontSize: 15 }}
-            href={"/seo-insights/category/"+pageVars.categories.nodes[0].slug}
+            href={"/seo-insights/category/" + pageVars.categories.nodes[0].slug}
           >
             {pageVars.categories.nodes[0].name}
           </Link>
           <h1>{pageVars.title}</h1>
-          <div dangerouslySetInnerHTML={{ __html:pageVars.excerpt }} />
+          <div dangerouslySetInnerHTML={{ __html: pageVars.excerpt }} />
 
           <hr />
           <div className="row align-items-center">
@@ -80,24 +101,27 @@ const BlogOne = ({ currentPageData }) => {
                   />{" "}
                 </div>
                 <div className="card-title col my-auto">
-                  <Link href={"/author/"+pageVars.author.node.slug}>
-                  <p className="theme-color my-0 py-0 font-b">
-                    {pageVars.author.node.name}
-                  </p>
+                  <Link href={"/author/" + pageVars.author.node.slug}>
+                    <p className="theme-color my-0 py-0 font-b">
+                      {pageVars.author.node.name}
+                    </p>
                   </Link>
                   <p
                     className="theme-color2 my-0 py-0"
                     style={{ fontSize: 13 }}
                   >
-                    {formatDate(pageVars.date)} | {calculateReadTime(pageVars.content)} min read
-
+                    {formatDate(pageVars.date)} |{" "}
+                    {calculateReadTime(pageVars.content)} min read
                   </p>
                 </div>
               </div>
             </div>
             <div className="col-lg-6 col-md-6  row d-lg-flex justify-content-lg-end justify-content-md-end mt-lg-0 mt-md-0 mt-4">
               <div className="col-auto d-lg-flex justify-content-end">
-                <ThemeButton href={pageVars.blogPost.blogPostCtaButton.blogPostButtonLink} text={pageVars.blogPost.blogPostCtaButton.blogPostButtonLabel} />
+                <ThemeButton
+                  href={pageVars.blogPost.blogPostCtaButton.blogPostButtonLink}
+                  text={pageVars.blogPost.blogPostCtaButton.blogPostButtonLabel}
+                />
               </div>
               <div
                 className="col-auto d-lg-flex justify-lg-content-end align-items-center"
@@ -117,7 +141,7 @@ const BlogOne = ({ currentPageData }) => {
                       style={{ fontSize: 26, cursor: "pointer" }}
                       onClick={() => {
                         setPostLiked(!postLiked);
-                        saveLikeCountByPostSlug(pageVars.slug, postCount + 1)
+                        saveLikeCountByPostSlug(pageVars.slug, postCount + 1);
                         setPostCount(postCount + 1);
                       }}
                     />
@@ -129,27 +153,28 @@ const BlogOne = ({ currentPageData }) => {
           </div>
         </section>
         <div className="mt-4 pb-2  mx-auto">
-          <div className="text-lg-center pt-4 pb-5">
+          <div className="text-lg-center pt-4 pb-5 ">
             <Image
               src={loadImageFromData(pageVars.featuredImage.node.mediaItemUrl)}
               width={1000}
               height={550}
+              priority={true}
               className="img-fluid mx-auto"
-              style={{ borderRadius:20 }}
+              style={{ borderRadius: 20 }}
               alt={pageVars.featuredImage.node.altText}
             />
           </div>
-          <div className="blog-post-content" dangerouslySetInnerHTML={{ __html:pageVars.content }} />
-
-
+          <div
+            className="blog-post-content"
+            dangerouslySetInnerHTML={{ __html: pageVars.content }}
+          />
         </div>
-
       </div>
 
       <section>
-      <hr />
+        <hr />
 
-      <div className=" mx-auto mt-5 " style={{ borderRadius: 20 }}>
+        <div className=" mx-auto mt-5 " style={{ borderRadius: 20 }}>
           <div className="row align-items-center">
             <div className="col-lg-auto col-md-auto ">
               <Image
@@ -166,9 +191,7 @@ const BlogOne = ({ currentPageData }) => {
                   Written by
                 </p>
                 <p className="mt-0 mb-2 font-b">{pageVars.author.node.name}</p>
-                <p>
-                  {pageVars.author.node.description}
-                </p>
+                <p>{pageVars.author.node.description}</p>
               </div>
             </div>
           </div>
@@ -186,8 +209,9 @@ const BlogOne = ({ currentPageData }) => {
           </div>
         </div>
         <div className="row">
-          {
-            checkNotUndefined(currentPageData.posts) && (currentPageData.posts.edges).map((post,index) => <BlogCardContainer
+          {checkNotUndefined(currentPageData.posts) &&
+            currentPageData.posts.edges.map((post, index) => (
+              <BlogCardContainer
                 image={post.node.featuredImage.node.mediaItemUrl}
                 altText={post.node.featuredImage.node.altText}
                 category={post.node.categories.nodes[0].name}
@@ -199,9 +223,8 @@ const BlogOne = ({ currentPageData }) => {
                 slug={post.node.categories.nodes[0].slug}
                 authorSlug={post.node.author.node.slug}
                 postSlug={post.node.slug}
-
-            />)
-          }
+              />
+            ))}
         </div>
 
         <BrandSliderWithSideContent currentPageData={currentPageData} />
