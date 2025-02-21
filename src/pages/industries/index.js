@@ -1,45 +1,20 @@
-import dynamic from "next/dynamic";
-import React from "react";
-import { getPageQuery } from "../../services/queryLibrary";
-import { registeredPages } from "../../utils/constants";
-import { loadHomePageData } from "../../services/siteServies";
-import { loadImageFromData } from "../../utils/globalFunctions";
-
-// Dynamically imported components
-const Template = dynamic(() => import("../../components/atom/template"));
-const ContentWithSideRowCounts = dynamic(() =>
-  import("../../components/organisms/ContentWithSideRowCounts")
-);
-const ImageWithSideIconContents = dynamic(() =>
-  import("../../components/molecules/imageWithSideIconContents")
-);
-const BrandSlider = dynamic(() =>
-  import("../../components/organisms/brandSlider")
-);
-const HeaderDescContainer = dynamic(() =>
-  import("../../components/molecules/headerDescContainer")
-);
-const IconCardContainer = dynamic(() =>
-  import("../../components/molecules/IconCardContainer")
-);
-const CaseStudiesSlider = dynamic(() =>
-  import("../../components/organisms/caseStudiesSlider")
-);
-const TestimonialsSlider = dynamic(() =>
-  import("../../components/organisms/testimonialsSlider")
-);
-const BrandSliderWithSideContent = dynamic(() =>
-  import("../../components/organisms/brandSliderWithSideContent")
-);
-const SimpleNewsLetterForm = dynamic(() =>
-  import("../../components/molecules/simpleNewsLetterForm")
-);
-const FaqQuestions = dynamic(() =>
-  import("../../components/organisms/faqQuestions")
-);
-const DarkContentWithSideImage = dynamic(() =>
-  import("../../components/organisms/darkContentWithSideImage")
-);
+import React from 'react';
+import Template from "../../components/atom/template";
+import ContentWithSideRowCounts from "../../components/organisms/ContentWithSideRowCounts";
+import ImageWithSideIconContents from "../../components/molecules/imageWithSideIconContents";
+import BrandSlider from "../../components/organisms/brandSlider";
+import HeaderDescContainer from "../../components/molecules/headerDescContainer";
+import IconCardContainer from "../../components/molecules/IconCardContainer";
+import CaseStudiesSlider from "../../components/organisms/caseStudiesSlider";
+import TestimonialsSlider from "../../components/organisms/testimonialsSlider";
+import BrandSliderWithSideContent from "../../components/organisms/brandSliderWithSideContent";
+import SimpleNewsLetterForm from "../../components/molecules/simpleNewsLetterForm";
+import FaqQuestions from "../../components/organisms/faqQuestions";
+import {getPageQuery} from "../../services/queryLibrary";
+import {registeredPages} from "../../utils/constants";
+import {loadHomePageData} from "../../services/siteServies";
+import {loadImageFromData} from "../../utils/globalFunctions";
+import DarkContentWithSideImage from "../../components/organisms/darkContentWithSideImage";
 
 export async function getServerSideProps() {
   const currentPageData = await loadHomePageData(

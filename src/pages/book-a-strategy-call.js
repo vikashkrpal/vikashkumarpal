@@ -1,17 +1,13 @@
-import React from "react";
-import dynamic from "next/dynamic";
-import { InlineWidget } from "react-calendly";
-import { getPageQuery } from "../services/queryLibrary";
-import { registeredPages } from "../utils/constants";
-import { loadHomePageData } from "../services/siteServies";
-
-// Dynamically imported components
-const Template = dynamic(() => import("../components/atom/template"));
-const HeaderDescContainer = dynamic(() => import("../components/molecules/headerDescContainer"));
-const ContentWithSideRowCounts = dynamic(() => import("../components/organisms/ContentWithSideRowCounts"));
-const TestimonialsSlider = dynamic(() => import("../components/organisms/testimonialsSlider"));
-const BrandSliderWithSideContent = dynamic(() => import("../components/organisms/brandSliderWithSideContent"));
-
+import React from 'react';
+import {InlineWidget} from "react-calendly";
+import Template from "../components/atom/template";
+import HeaderDescContainer from "../components/molecules/headerDescContainer";
+import ContentWithSideRowCounts from "../components/organisms/ContentWithSideRowCounts";
+import TestimonialsSlider from "../components/organisms/testimonialsSlider";
+import BrandSliderWithSideContent from "../components/organisms/brandSliderWithSideContent";
+import {loadHomePageData} from "../services/siteServies";
+import {getPageQuery} from "../services/queryLibrary";
+import {registeredPages} from "../utils/constants";
 
 export async function getServerSideProps() {
     const currentPageData = await loadHomePageData(getPageQuery(registeredPages.BOOK_A_STRATEGY_CALL));

@@ -1,29 +1,14 @@
-import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
-import { getPageQuery } from "../../services/queryLibrary";
-import { registeredPages } from "../../utils/constants";
-
-// Dynamically imported components
-const Template = dynamic(() => import("../../components/atom/template"));
-const Image = dynamic(() => import("next/image"));
-const ThemeButton = dynamic(() => import("../../components/atom/themeButton"));
-const FaHeart = dynamic(() =>
-  import("react-icons/fa").then((module) => module.FaHeart)
-);
-const BiHeart = dynamic(() =>
-  import("react-icons/bi").then((module) => module.BiHeart)
-);
-// const BiSolidHeartCircle = dynamic(() => import("react-icons/bi").then(module => module.BiSolidHeartCircle));
-const BlogCardContainer = dynamic(() =>
-  import("../../components/molecules/blogCardContainer")
-);
-const BrandSliderWithSideContent = dynamic(() =>
-  import("../../components/organisms/brandSliderWithSideContent")
-);
-const SimpleNewsLetterForm = dynamic(() =>
-  import("../../components/molecules/simpleNewsLetterForm")
-);
-
+import React from "react";
+import Template from "../../components/atom/template";
+import Image from "next/image";
+import ThemeButton from "../../components/atom/themeButton";
+import { FaHeart } from "react-icons/fa";
+import { BiHeart, BiSolidHeartCircle } from "react-icons/bi";
+import BlogCardContainer from "../../components/molecules/blogCardContainer";
+import BrandSliderWithSideContent from "../../components/organisms/brandSliderWithSideContent";
+import SimpleNewsLetterForm from "../../components/molecules/simpleNewsLetterForm";
+import {getPageQuery} from "../../services/queryLibrary";
+import {registeredPages} from "../../utils/constants";
 import {
   getLikeCountsUsingPostIdFromServer,
   loadHomePageData,

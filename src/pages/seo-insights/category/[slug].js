@@ -1,18 +1,14 @@
-import dynamic from "next/dynamic";
+import BlogCardContainer from "../../..//components/molecules/blogCardContainer";
+import HeaderDescContainer from "../../..//components/molecules/headerDescContainer";
+import NewLetterComponent from "../../..//components/organisms/newLetterComponent";
+import Template from "../../../components/atom/template";
 import React from "react";
-import { getPageQuery } from "../../../services/queryLibrary";
-import { registeredPages } from "../../../utils/constants";
-import { loadHomePageData } from "../../../services/siteServies";
-import { checkNotUndefined, formatDate, isNotNull, loadImageFromData } from "../../../utils/globalFunctions";
-
-// Dynamically imported components
-const BlogCardContainer = dynamic(() => import("../../../components/molecules/blogCardContainer"));
-const HeaderDescContainer = dynamic(() => import("../../../components/molecules/headerDescContainer"));
-const NewLetterComponent = dynamic(() => import("../../../components/organisms/newLetterComponent"));
-const Template = dynamic(() => import("../../../components/atom/template"));
-const BrandSliderWithSideContent = dynamic(() => import("../../../components/organisms/brandSliderWithSideContent"));
-const SimpleNewsLetterForm = dynamic(() => import("../../../components/molecules/simpleNewsLetterForm"));
-
+import BrandSliderWithSideContent from "../../../components/organisms/brandSliderWithSideContent";
+import SimpleNewsLetterForm from "../../../components/molecules/simpleNewsLetterForm";
+import {getPageQuery} from "../../../services/queryLibrary";
+import {registeredPages} from "../../../utils/constants";
+import {loadHomePageData} from "../../../services/siteServies";
+import {checkNotUndefined, formatDate, isNotNull, loadImageFromData} from "../../../utils/globalFunctions";
 
 
 export async function getServerSideProps(context) {

@@ -1,24 +1,20 @@
-import React from "react";
-import dynamic from "next/dynamic";
-import { getPageQuery } from "../services/queryLibrary";
-import { registeredPages } from "../utils/constants";
-import { loadHomePageData } from "../services/siteServies";
-import { loadImageFromData } from "../utils/globalFunctions";
-
-// Dynamically imported components
-const Template = dynamic(() => import("../components/atom/template"));
-const ContentWithSideRowCounts = dynamic(() => import("../components/organisms/ContentWithSideRowCounts"));
-const ImageWithSideIconContents = dynamic(() => import("../components/molecules/imageWithSideIconContents"));
-const BrandSlider = dynamic(() => import("../components/organisms/brandSlider"));
-const ImageWithSideContent = dynamic(() => import("../components/organisms/imageWithSideContent"));
-const ThemeButton = dynamic(() => import("../components/atom/themeButton"));
-const FeaturePowerUpComponent = dynamic(() => import("../components/organisms/featurePowerUpComponent"));
-const TestimonialsSlider = dynamic(() => import("../components/organisms/testimonialsSlider"));
-const BrandSliderWithSideContent = dynamic(() => import("../components/organisms/brandSliderWithSideContent"));
-const SimpleNewsLetterForm = dynamic(() => import("../components/molecules/simpleNewsLetterForm"));
-const DarkContentWithSideImage = dynamic(() => import("../components/organisms/darkContentWithSideImage"));
-const CaseStudiesSlider = dynamic(() => import("../components/organisms/caseStudiesSlider"));
-
+import React from 'react';
+import Template from "../components/atom/template";
+import ContentWithSideRowCounts from "../components/organisms/ContentWithSideRowCounts";
+import ImageWithSideIconContents from "../components/molecules/imageWithSideIconContents";
+import BrandSlider from "../components/organisms/brandSlider";
+import ImageWithSideContent from "../components/organisms/imageWithSideContent";
+import ThemeButton from "../components/atom/themeButton";
+import FeaturePowerUpComponent from "../components/organisms/featurePowerUpComponent";
+import TestimonialsSlider from "../components/organisms/testimonialsSlider";
+import BrandSliderWithSideContent from "../components/organisms/brandSliderWithSideContent";
+import SimpleNewsLetterForm from "../components/molecules/simpleNewsLetterForm";
+import {getPageQuery} from "../services/queryLibrary";
+import {registeredPages} from "../utils/constants";
+import {loadHomePageData} from "../services/siteServies";
+import DarkContentWithSideImage from "../components/organisms/darkContentWithSideImage";
+import {loadImageFromData} from "../utils/globalFunctions";
+import CaseStudiesSlider from "../components/organisms/caseStudiesSlider";
 
 
 export async function getServerSideProps() {

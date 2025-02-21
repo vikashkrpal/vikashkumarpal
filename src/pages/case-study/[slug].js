@@ -1,22 +1,16 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
-
-// Dynamically imported components
-const Template = dynamic(() => import("../../components/atom/template"));
-const ContentWithSideRowCounts = dynamic(() => import("../../components/organisms/ContentWithSideRowCounts"));
-const HeaderDescContainer = dynamic(() => import("../../components/molecules/headerDescContainer"));
-const ImageWithSideContent = dynamic(() => import("../../components/organisms/imageWithSideContent"));
-const BrandSliderWithSideContent = dynamic(() => import("../../components/organisms/brandSliderWithSideContent"));
-const SimpleNewsLetterForm = dynamic(() => import("../../components/molecules/simpleNewsLetterForm"));
-const TestimonialReviewContainer = dynamic(() => import("../../components/organisms/testimonialReviewContainer"));
-const DarkContentWithSideImage = dynamic(() => import("../../components/organisms/darkContentWithSideImage"));
-
-// Regular imports for utility and data fetching functions
-import { loadHomePageData } from "../../services/siteServies";
-import { getPageQuery } from "../../services/queryLibrary";
-import { registeredPages } from "../../utils/constants";
-import { isNotNull, loadImageFromData } from "../../utils/globalFunctions";
-
+import Template from "../../components/atom/template";
+import ContentWithSideRowCounts from "../../components/organisms/ContentWithSideRowCounts";
+import HeaderDescContainer from "../../components/molecules/headerDescContainer";
+import ImageWithSideContent from "../../components/organisms/imageWithSideContent";
+import BrandSliderWithSideContent from "../../components/organisms/brandSliderWithSideContent";
+import SimpleNewsLetterForm from "../../components/molecules/simpleNewsLetterForm";
+import TestimonialReviewContainer from "../../components/organisms/testimonialReviewContainer";
+import {loadHomePageData} from "../../services/siteServies";
+import {getPageQuery} from "../../services/queryLibrary";
+import {registeredPages} from "../../utils/constants";
+import {isNotNull, loadImageFromData} from "../../utils/globalFunctions";
+import DarkContentWithSideImage from "../../components/organisms/darkContentWithSideImage";
 
 export async function getServerSideProps(context) {
     const { slug } = context.params;
