@@ -9,6 +9,7 @@ import BrandSliderWithSideContent from "../../components/organisms/brandSliderWi
 import SimpleNewsLetterForm from "../../components/molecules/simpleNewsLetterForm";
 import {getPageQuery} from "../../services/queryLibrary";
 import {registeredPages} from "../../utils/constants";
+import { useState,useEffect } from "react";
 import {
   getLikeCountsUsingPostIdFromServer,
   loadHomePageData,
